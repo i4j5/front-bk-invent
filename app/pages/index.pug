@@ -1,5 +1,26 @@
 extends ../blocks/layout-default/layout-default
 prepend head
-	title HI
+    title HI
 block content
-	+scripts(['common.js', 'app.js'])
+    .header
+        .container
+            +b.hamburger
+                +e.plank
+                +e.plank
+                +e.plank
+            .logo
+            +b.phone
+                +e.icon 
+                +e.text 8 (863) 303-38-33
+    +b.offer
+        +e.wrapper.container
+            +e.title Проектно-строительная компания
+            +e.description Работаем в Ростов-на-дону и Ростовской области
+            +b.btn.btn_view_light.offer__btn
+                +e.text Записаться на консультацию
+    //- +b.btn.btn_view_action
+    //-     +e.text Записаться на консультацию
+    //- +b.btn.btn_view_pseudo
+    //-     +e.text Записаться на консультацию
+    +scripts(['common.js', 'app.js'])
+
