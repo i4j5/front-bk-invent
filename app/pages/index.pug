@@ -9,9 +9,14 @@ block content
                 +e.plank
                 +e.plank
             .logo
-            +b.phone
-                +e.icon 
-                +e.text 8 (863) 303-38-33
+            .header__right
+                .header__description Консультация по телефону
+                +b.phone
+                    +e.icon 
+                    +e.text 8 (863) 303-38-33
+                +b.maps
+                    +e.icon 
+                    +e.text Ростов-на-дону <br>ул.Текучева, 23, эт. 3
     +b.offer
         +e.wrapper.container
             +e.title Проектно-строительная компания
@@ -28,7 +33,7 @@ block content
                 +e.home
                 +e.separator
                 +e({tag:'a'}).item О нас
-                +e.separator
+                +e.separator 
                 +e({tag:'a'}).item О нас
     +scripts(['common.js', 'app.js'])
 
