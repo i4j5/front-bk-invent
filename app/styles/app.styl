@@ -100,10 +100,10 @@
         margin-bottom 40px
         text-shadow 0px 0px 10px rgba(60, 60, 60, 0.3)
     &__btn
-        width 100%
+        //width 100%
 
 .btn
-    padding 1em 2em
+    padding 1em 1.2em
     border-radius 4px
     position relative
     user-select none
@@ -111,7 +111,7 @@
     cursor pointer
     display inline-block
     &__text
-        font-size 15px
+        font-size 16px
         line-height 1.2em
         position relative
         z-index 10
@@ -166,3 +166,43 @@
             &:hover
                 .btn__text
                     color #000
+.content
+    padding 20px 0 
+.breadcrumbs
+    width 100%
+    display flex
+    flex-direction row
+    align-items center
+    &__item
+        font-size 14px
+        line-height 1.2em
+        display inline-block
+        cursor pointer
+        margin 0 8px
+    &__home
+        width 15px
+        height 13px
+        background-image url(../images/breadcrumbs__home.png)
+        background-size contain
+        background-repeat no-repeat
+        display inline-block
+        margin -1px 10px 0 0
+    &__separator
+        position relative
+        width 6px
+        height 5px
+        display inline-block
+        &:after
+        &:before
+            content ""
+            position absolute
+            width 7px
+            height 1px
+            background #68686a
+        &:after
+            transform rotate(38deg)
+            top 0
+        &:before
+            transform rotate(-38deg)
+            bottom 0
+

@@ -22,5 +22,13 @@ block content
     //-     +e.text Записаться на консультацию
     //- +b.btn.btn_view_pseudo
     //-     +e.text Записаться на консультацию
+    .content
+        .container
+            +b.breadcrumbs
+                +e.home
+                +e.separator
+                +e({tag:'a'}).item О нас
+                +e.separator
+                +e({tag:'a'}).item О нас
     +scripts(['common.js', 'app.js'])
 
