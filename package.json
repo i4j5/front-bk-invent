@@ -60,6 +60,7 @@
     "node-notifier": "^5.1.2",
     "rupture": "^0.6.2",
     "script-loader": "^0.7.0",
+    "smart-grid": "^2.1.2",
     "stream-combiner2": "^1.1.1",
     "vinyl-named": "^1.1.0",
     "webpack": "^2.4.1",
