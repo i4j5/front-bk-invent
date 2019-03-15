@@ -6,6 +6,12 @@
 
 @import '../blocks/**/*'
 
+.page
+    min-height 20000000px
+
+.modal-open 
+    overflow hidden
+
 .container
     padding 0 20px
     @media (min-width 1160px)
@@ -16,10 +22,13 @@
 
 
 .header
+    position fixed
+    top 0px
     width 100%
     background #fff
     box-shadow:0px 2px 6.96px 1.04px rgba(18, 16, 11, 0.08)
     height auto
+    z-index 100
     .container
         min-height 59px
         height auto
@@ -38,6 +47,7 @@
         margin-bottom 6px
         text-align right
         display none
+  
 .hamburger
     width 24px
     height 16px
@@ -47,9 +57,12 @@
         width 100%
         height 2px
         background #2b519e
+        transition all 0.3s cubic-bezier(0.4, 0, 1, 1) 0s
+        opacity 1
         &:nth-child(1)
             top 0px
         &:nth-child(2)
+            transition all .2s ease 0s
             top 7px
         &:nth-child(3)
             top 14px
@@ -59,7 +72,7 @@
                 top 7px
                 transform rotate(-45deg)
             &:nth-child(2)
-                display none
+                opacity 0
             &:nth-child(3)
                 top 7px
                 transform rotate(45deg)
@@ -249,3 +262,134 @@
     font-size 13px
     line-height 1.3em
     padding 15px 0
+
+.nav
+    transition all .8s ease 0s
+    background #f7f7f7
+    position fixed
+    top 0
+    left -100%
+    height 100%
+    overflow-y scroll
+    width 100%
+    z-index 50
+    padding 100px 0
+    &_active
+        left 0px
+    &__header
+        padding 10px 20px
+        width 100%
+        display flex
+        align-items center
+        justify-content space-between
+    &__back
+        flex-grow 1
+
+    &__title
+        font-size 20px
+        line-height 1.5em
+
+.menu
+    //padding 20px 0
+    &__item
+        border-top 1px solid #d5d5d5
+        padding 10px 0
+        transition all .6s ease 0s
+        background #f7f7f7
+        &_active
+            background #fff
+            .menu__submenu
+                display block
+                opacity 1
+            .menu__link
+                color #000
+                &:after
+                    transform rotate(180deg)!important
+        &:last-child
+            border-bottom 1px solid #d5d5d5
+    &__submenu
+        display none
+        opacity 0
+        transition opacity .54s ease 0s
+    &__link
+        font-size 16px
+        line-height 1.4em
+        padding 0 20px
+        color #171717
+        &_arrow
+            display flex
+            position relative
+            &:after
+                transition all .5s ease 0s
+                content ""
+                position absolute
+                width 11px
+                height 7px
+                background url(../images/link-arrow.svg)
+                background-size contain
+                background-repeat no-repeat
+                right 20px
+                top calc(50% - 3px)
+    
+.submenu
+    & &
+        margin-bottom -10px
+        .submenu__item
+            padding 5px 0
+            border-left 2px solid #2e64d0
+            //border-bottom 1px dashed #efeaea
+            border-top none
+            background #f0f0f0
+            margin 0 0 0 20px
+            &:first-child
+                padding-top 8px
+            &:last-child
+                border-bottom none
+                padding-bottom 8px
+        .submenu__link
+            padding 0 10px
+    padding 10px 0 0 0 
+    &__item
+        border-top 1px dashed #d5d5d5
+        padding 10px 0
+        transition all .6s ease 0s
+        //background #f0f0f0
+        &_active
+            //background #fff
+            .submenu__submenu
+                display block
+                opacity 1
+            .submenu__link
+                &:after
+                    transform rotate(180deg)!important
+        &:last-child
+            padding-bottom 0
+    &__submenu
+        display none
+        opacity 0
+        transition opacity .54s ease 0s
+    &__link
+        font-size 14px
+        color #171717
+        padding 0 20px
+        &_arrow
+            display flex
+            position relative
+            &:after
+                transition all .5s ease 0s
+                content ""
+                position absolute
+                width 11px
+                height 7px
+                background url(../images/link-arrow.svg)
+                background-size contain
+                background-repeat no-repeat
+                right 20px
+                top calc(50% - 3px)
+
+.icon-close
+    width 20px
+    height 20px
+    background url(../images/icon-close.svg)
+    background-size contain
+    background-repeat no-repeat
