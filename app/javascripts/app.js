@@ -1,4 +1,54 @@
 $ = require('jquery')
+require('jquery-validation')
+
+$('.ajax').each(function() {
+    $(this).validate({
+        unhighlight: function (element, errorClass) {
+            let $control = $(element)
+            let $box = $control.parent().addClass('input__box_ok').removeClass('input__box_error')
+        },
+
+        submitHandler: function(form, e) {
+            e.preventDefault()
+
+            //$('.loader_submit').addClass('loader_active')
+
+            let $form = $(form)
+            let str = $form.serialize()
+            let btn = $form.children("[type='submit']")
+            btn.prop('disabled', true)
+
+            $.ajax({
+                url: '/',
+                type: 'get',
+                data: str
+            })
+            .done(function() {
+                //$('.modal').closeModal()
+                //$('#modal__ok').openModal()
+            })
+            .always(function() {
+                //$('.loader_submit').removeClass('loader_active')
+                btn.prop('disabled', false)
+            })
+        },
+
+        rules: {
+            'phone': {
+                required: true,
+            },
+            'name': {
+                required: true
+            }
+        },
+        errorPlacement: function(error, element){
+            let $control = $(element)
+            let $box = $control.parent().addClass('input__box_error').removeClass('input__box_ok')
+        }
+    })
+})
+
+
 
 
 
@@ -68,11 +118,6 @@ $(window).scroll(function() {
 })			
 
 
-
-
-
-
-
 $('.hamburger').click(function() {
 
     let $this = $(this)
@@ -118,38 +163,42 @@ $('.submenu__link_arrow').click(function() {
     $menu.toggleClass('submenu__item_active')
 })
 
-// $items.each((index, el) => {
-//     let $el = $(el)
 
-//     $el.children('.tabs__title').click(function(event) {
-//         $el.toggleClass('tabs__item_active')
+$('.input__control').each(function() {
 
-//         let $progressBar = $el.children('.tabs__text').children('.progress-bar')
-//         let interest = $progressBar.data('interest')
+    let $control = $(this)
+    let $box = $control.parent()
+    let $topBorder = $control.parent().children('.input__top-border')
+    let $title = $control.parent().children('.input__title')
 
-        
-//         if ( $el.hasClass('tabs__item_active') ) {
-//             $progressBar.children('.progress-bar__pace').children('.progress-bar__interest').text('')
-//             $progressBar.children('.progress-bar__pace').width('0%')
-//             $el.children('.tabs__text').slideDown(500)
-//             setTimeout(() => {
-//                 $progressBar.children('.progress-bar__pace').width(interest + '%')
-//                 let n = 0
-//                 let timerId = setInterval(() => {
-//                     ++n
-//                     $progressBar.children('.progress-bar__pace').children('.progress-bar__interest').text(n + '%')
-//                     // $progressBar.children('.progress-bar__pace').width(n + '%')
-//                 }, 1000 / interest)
+    if ($control.val()) {
+        $box.addClass('input__box_filled')
+        $topBorder.css('width', `calc(((100% - 20px) - ${$title.width()}px) - 5px)`)
+    }
 
-//                 setTimeout(() => {
-//                     clearInterval(timerId)
-//                 },1000)
-//             }, 500)
-//         } else {
-//             $el.children('.tabs__text').slideUp(500)
-//             setTimeout(() => {
-//                 $progressBar.children('.progress-bar__pace').width('0%')
-//             }, 500)
-//         }
-//     })	
-// })
+})
+
+$('.input__control').focus(function() {
+    let $control = $(this)
+    let $box = $control.parent()
+    let $topBorder = $control.parent().children('.input__top-border')
+    let $title = $control.parent().children('.input__title')
+
+    if (!$control.val()) {
+        $topBorder.css('width', `calc(((100% - 20px) - ${$title.width()}px) - 5px)`)
+    }
+    $box.addClass('input__box_focus')
+}).blur(function(){
+    let $control = $(this)
+    let $box = $control.parent()
+    let $topBorder = $control.parent().children('.input__top-border')
+
+    if ($control.val()) {
+        $box.addClass('input__box_filled')
+    } else {
+        $box.removeClass('input__box_filled')
+        $topBorder.css('width', '')
+    }
+    
+    $box.removeClass('input__box_focus')
+})

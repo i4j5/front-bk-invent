@@ -455,3 +455,99 @@ ul.list
     background url(../images/icon-close.svg)
     background-size contain
     background-repeat no-repeat
+
+.input
+    font-size 18px
+    padding-top 0.52em
+    margin-bottom 1em
+    &__top-border 
+        position absolute
+        right 10px
+        top -1px
+        border-top 1px solid
+        border-top-color #dce2fa
+        transition all .2s ease 0s //transition border-color .13s ease-in,width 0s .1s;
+        width calc(100% - 20px)
+    &__box
+        padding 0.556em 0.833em
+        border 1px solid #dce2fa
+        border-top 0
+        border-radius 4px
+        width 100%
+        position relative
+        transition all .2s ease 0s
+        &:before
+        &:after
+            transition all .2s ease 0s
+            content ''
+            display block
+            position absolute
+            box-sizing border-box
+            top -1px
+            width 11px
+            height 8px
+            border-top 1px solid
+            border-top-color #dce2fa
+        &:before
+            left -1px
+            border-top-left-radius 4px
+        &:after
+            right -1px
+            border-top-right-radius 4px
+        &_focus
+            .input__top-border
+            &:before
+            &:after
+                border-color #84aeff
+            border-color #84aeff
+        &_filled
+        &_focus
+            .input__title
+                top - 0.5em
+                left 15px
+                font-size 0.778em
+        &_error
+            .input__top-border
+            &:before
+            &:after
+                border-color #f95555
+            border-color #f95555
+            .input__control
+                background url(../images/input-error.svg) no-repeat center right
+                background-size 1em
+        &_ok
+            .input__control
+                background url(../images/input-ok.svg) no-repeat center right
+                background-size 1em
+
+
+    &__message
+        font-size 0.69em
+        color #696969
+        line-height 1em
+        margin-top 5px
+    &__control
+        width 100%
+        font-size 1em
+        line-height 1em
+        color #5a5a5a
+        outline none
+        // &:focus // Событие для JS
+        //     border 1px solid #84aeff
+    &__title
+        transition all .2s ease 0s
+        color #444
+        font-size 1em
+        line-height 1em
+        position absolute
+        top calc(50% - 0.5em)
+        left 0.833em
+    &__icon
+        &_type
+            &_name
+            &_email
+            &_phone
+                display inline
+        
+
+//width: calc(((100% - 20px) - 129.36px) - 9px); */

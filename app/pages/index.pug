@@ -88,7 +88,21 @@ block content
                 li Повседневная практика показывает, что сложившаяся структура организации требуют от нас анализа модели развития. Разнообразный и богатый опыт укрепление и развитие структуры способствует подготовки и реализации систем массового участия.
             img(src="http://farm8.static.flickr.com/7907/33535681578_4091be1523_b.jpg")
             blockquote По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповт оримый колорит советских времен.
-
+            form.form.ajax
+                .input
+                    .input__box
+                        .input__top-border
+                        .input__title Имя
+                        .input__icon
+                        input(name='name').input__control
+                    .input__message(for="name") Укажите точно как в паспорте
+                .input
+                    .input__box
+                        .input__top-border
+                        .input__title Имя
+                        .input__icon
+                        input(name='phone' value="123").input__control
+                        //- label(for="name") 123
     .footer
         .container 123
     .copyright
