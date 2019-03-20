@@ -13,19 +13,20 @@
     padding 0 20px
     @media (min-width 1160px)
         padding 0
-    max-width 1160px
+    max-width 1180px
     margin auto
     width 100%
 
 
 .header
-    position fixed
-    top 0px
+    // position fixed
+    // top 0px
     width 100%
     background #fff
     box-shadow:0px 2px 6.96px 1.04px rgba(18, 16, 11, 0.08)
     height auto
     z-index 100
+    padding 20px 0
     .container
         min-height 59px
         height auto
@@ -43,29 +44,51 @@
     &__center
         size(5)
     &__right
-        size(3)
+        size(2)
 
         // flex-grow 1
         // display flex
         // justify-content flex-end
         // flex-direction column
-    &__description
-        font-size 10px
-        color #272727
-        line-height 1.1em
-        margin-bottom 6px
-        text-align right
-        display none
-        @media (min-width 390px)
-            display block
+    //&__menu
 
-// @media (min-width 1160px)
+.top-menu
+    width 100%
+    display flex
+    &__item
+        display inline-block
+        margin 0 8px
+    &__link
+        font-size 14px
+        line-height 1.4em
+        // padding 0 20px
+        color #292929
+        font-weight 600
+        &_arrow
+            position relative
+            padding-right 15px
+            &:after
+                transition all .5s ease 0s
+                content ""
+                position absolute
+                width 11px
+                height 7px
+                background url(../images/link-arrow.svg)
+                background-size contain
+                background-repeat no-repeat
+                right 0
+                top calc(50% - 3px)
+    &__submenu
+        display none
+
 
 
   
 .hamburger
     @media (min-width 390px)
         display none
+        align-items center
+        justify-content space-between
     width 24px
     height 16px
     position relative
@@ -115,35 +138,53 @@
         padding-top 12px
 
 .phone
-    display flex
-    justify-content flex-end
+    display inline-block
+    &__wrap
+        display flex
+        align-items center
     //margin-bottom 10px
+    &__description
+        font-size 11px
+        color #272727
+        line-height 1.1em
+        margin-bottom 6px
+        text-align right
+        display none
+        width 100%
+        @media (min-width 390px)
+            display block
     &__icon
-        width 20px
-        height 19px
-        background-image url(../images/phone.png)
+        width 22px
+        height 22px
+        background-image url(../images/phone.svg)
         background-repeat no-repeat
         background-size contain
         margin -1px 10px 0 0
+        @media (min-width 390px)
+            margin 0 10px 0 0
     &__text
         display inline-block
         color #000
         font-size 16px
-        line-height 1em
+        line-height 1em 
         font-weight 700
+        @media (min-width 390px)
+            font-size 18px
 .maps
     display none
     margin-top 10px
     @media (min-width 390px)
         display flex
-        justify-content flex-end
+        //justify-content flex-end
+        //justify-content center
+        align-items center
     &__icon
-        width 20px
-        height 19px
-        background-image url(../images/maps.png)
+        width 23px
+        height 23px
+        background-image url(../images/maps.svg)
         background-repeat no-repeat
         background-size contain
-        margin 0 10px
+        margin 0px 10px 0 0
     &__text
         display inline-block
         color #000

@@ -11,17 +11,28 @@ block content
                     +e.plank
                 .logo
                     .logo__image
-                    .logo__description Проектно-строительная компания
-            .header__center 123
+                    .logo__description Проектно-строительная<br>компания
+            .header__center
+                +b.top-menu
+                    +e.item
+                        +e({tag: 'a'}).link.top-menu__link_arrow О нас
+                        +e.submenu
+                            +e.item
+                                +e({tag: 'a'}).link Акции
+                                +e({tag: 'a'}).link Акции
+                    +e.item
+                        +e({tag: 'a'}).link Контакты
             .header__right
-                .header__description Консультация по телефону
+                
                 +b.phone
-                    +e.icon 
-                    +e.text 8 (863) 303-38-33
+                    +e.description Консультация по телефону
+                    +e.wrap
+                        +e.icon 
+                        +e.text 8 (863) 303-38-33
                 +b.maps
                     +e.icon 
                     +e.text Ростов-на-дону <br>ул.Текучева, 23, эт. 3
-    .nav.nav
+    .nav
         //- .nav__header
         //-     .nav__back
         //-     .icon-close
