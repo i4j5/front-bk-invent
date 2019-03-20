@@ -29,14 +29,26 @@
     .container
         min-height 59px
         height auto
-        display flex
+        // display flex
         align-items center
         justify-content space-between
+        row-flex()
+        margin auto
+    &__left
+    &__center
     &__right
-        flex-grow 1
-        display flex
-        justify-content flex-end
-        flex-direction column
+        col()
+    &__left
+        size(4)
+    &__center
+        size(5)
+    &__right
+        size(3)
+
+        // flex-grow 1
+        // display flex
+        // justify-content flex-end
+        // flex-direction column
     &__description
         font-size 10px
         color #272727
@@ -44,8 +56,16 @@
         margin-bottom 6px
         text-align right
         display none
+        @media (min-width 390px)
+            display block
+
+// @media (min-width 1160px)
+
+
   
 .hamburger
+    @media (min-width 390px)
+        display none
     width 24px
     height 16px
     position relative
@@ -74,12 +94,25 @@
                 top 7px
                 transform rotate(45deg)
 .logo
-    width 50px
-    height 45px
-    background-image url(../images/logo-mobile.png)
-    background-repeat no-repeat
-    background-size contain
     margin 0 20px
+    &__image
+        width 50px
+        height 45px
+        background-image url(../images/logo-mobile.png)
+        @media (min-width 390px)
+            width 77px
+            height 70px
+            background-image url(../images/logo.png)
+        background-repeat no-repeat
+        background-size contain
+        margin-right 10px
+        float left
+    &__description
+        width 100%
+        font-size 16px
+        color #000
+        line-height 1.3em
+        padding-top 12px
 
 .phone
     display flex
@@ -100,16 +133,14 @@
         font-weight 700
 .maps
     display none
-    // display flex
-    // justify-content flex-end
-
-    // align-items center
-    //justify-content center
-    //flex-direction column
+    margin-top 10px
+    @media (min-width 390px)
+        display flex
+        justify-content flex-end
     &__icon
         width 20px
         height 19px
-        background-image url(../images/phone.png)
+        background-image url(../images/maps.png)
         background-repeat no-repeat
         background-size contain
         margin 0 10px
@@ -192,6 +223,7 @@
                     color #fff            
         &_pseudo
             border 2px solid #4273d6
+            background none
             .btn__text
                 color #4273d6
             &:after
@@ -548,6 +580,5 @@ ul.list
             &_email
             &_phone
                 display inline
-        
 
-//width: calc(((100% - 20px) - 129.36px) - 9px); */
+                

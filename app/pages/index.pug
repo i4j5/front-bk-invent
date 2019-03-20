@@ -4,11 +4,15 @@ prepend head
 block content
     .header
         .container
-            +b.hamburger
-                +e.plank
-                +e.plank
-                +e.plank
-            .logo
+            .header__left
+                +b.hamburger
+                    +e.plank
+                    +e.plank
+                    +e.plank
+                .logo
+                    .logo__image
+                    .logo__description Проектно-строительная компания
+            .header__center 123
             .header__right
                 .header__description Консультация по телефону
                 +b.phone
@@ -95,7 +99,7 @@ block content
                         .input__title Имя
                         .input__icon
                         input(name='name').input__control
-                    .input__message(for="name") Укажите точно как в паспорте
+                    .input__message Укажите точно как в паспорте
                 .input
                     .input__box
                         .input__top-border
@@ -103,6 +107,15 @@ block content
                         .input__icon
                         input(name='phone' value="123").input__control
                         //- label(for="name") 123
+                .input
+                    .input__box
+                        .input__top-border
+                        .input__title Email
+                        .input__icon
+                        input(name='email').input__control
+                    label(for="email")
+                button(type="submit").btn.btn_view_pseudo
+                    .btn__text Записаться на консультацию
     .footer
         .container 123
     .copyright

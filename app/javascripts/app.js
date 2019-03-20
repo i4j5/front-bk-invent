@@ -39,6 +39,16 @@ $('.ajax').each(function() {
             },
             'name': {
                 required: true
+            },
+            'email': {
+                email: true,
+                required: true
+            }
+        },
+        messages: {
+            email: {
+                email: "Please enter your email",
+                required: "*"
             }
         },
         errorPlacement: function(error, element){
