@@ -215,9 +215,13 @@ $('.ajax').each(function() {
         },
         messages: {
             email: {
-                email: "Please enter your email",
-                required: "*"
+                email: "Вы допустили ошибку. Это не похоже E-mail",
+                required: "Пожалуйста, введите Ваш адрес электронной почты"
+            },
+            name: {
+                required: "Напишите как к Вам обращаться"
             }
+
         },
         errorPlacement: function(error, element){
             let $control = $(element)
