@@ -4,45 +4,111 @@ prepend head
 block content
     .header
         .container
-            .header__left
-                +b.hamburger
-                    +e.plank
-                    +e.plank
-                    +e.plank
-                .logo
-                    .logo__image
-                    .logo__description Проектно-строительная<br>компания
-            .header__center
-                +b.top-menu
-                    +e.item
-                        +e({tag: 'a'}).link.top-menu__link_arrow О нас
-                        +e.submenu
-                            +e.item
-                                +e({tag: 'a'}).link Акции
-                                +e({tag: 'a'}).link Акции
-                    +e.item
-                        +e({tag: 'a'}).link Контакты
-            .header__right
-                
-                +b.phone
-                    +e.description Консультация по телефону
-                    +e.wrap
+            .header__wrapper
+                .header__left
+                    +b.hamburger
+                        +e.plank
+                        +e.plank
+                        +e.plank
+                    .logo
+                        .logo__image
+                        .logo__description Проектно-строительная<br>компания
+                .header__center
+                    +b.top-menu
+                        +e.item
+                            +e({tag: 'a'}).link О нас
+                            +e.submenu
+                                +e.item
+                                    +e({tag: 'a'}).link 100 слов о БК Инвент
+                                +e.item
+                                    +e({tag: 'a'}).link Наши лицензии
+                                +e.item
+                                    +e({tag: 'a'}).link Как мы работаем
+                                +e.item
+                                    +e({tag: 'a'}).link Наша дружная команда
+                                +e.item
+                                    +e({tag: 'a'}).link Мнение со стороны 
+                                +e.item
+                                    +e({tag: 'a'}).link Как попасть в команду
+                        +e.item
+                            +e({tag: 'a'}).link Акции
+                        +e.item
+                            +e({tag: 'a'}).link Полезные статьи
+                        +e.item
+                            +e({tag: 'a'}).link Партнерам
+                        +e.item
+                            +e({tag: 'a'}).link Контакты
+                        +e.item
+                            //+e({tag: 'a'}).link
+                            img(src="images/search.svg").top-menu__search
+                .header__right
+                    +b.phone
+                        +e.description Консультация по телефону
+                        +e.wrap
+                            +e.icon 
+                            +e.text 8 (863) 303-38-33
+                    +b.maps
                         +e.icon 
-                        +e.text 8 (863) 303-38-33
-                +b.maps
-                    +e.icon 
-                    +e.text Ростов-на-дону <br>ул.Текучева, 23, эт. 3
+                        +e.text Ростов-на-дону <br>ул.Текучева, 23, эт. 3
+    +b.menu
+        .container
+            +e.item
+                img(src="images/building.svg" height="25px")
+                +e({tag: 'a'}).link Проектирование<br>и строительство
+                +e.submenu
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Индивидуальное проектированиеь
+                        +e({tag: 'a'}).link Поиск земельного участка
+                        +e({tag: 'a'}).link Проект развития земельного участка
+                        +e({tag: 'a'}).link Эскизное проектирование
+                        +e({tag: 'a'}).link Инженерные изыскания
+                        +e({tag: 'a'}).link Генеральный план
+                        +e({tag: 'a'}).link Архитектурные решения
+                        +e({tag: 'a'}).link Технологические решения
+                        +e({tag: 'a'}).link Конструктивные решения
+                        +e({tag: 'a'}).link Инженерные системы
+                        +e({tag: 'a'}).link Пожарная безопасность
+                        +e({tag: 'a'}).link Охрана окружающей среды
+                        +e({tag: 'a'}).link Проект организации строительства
+                        +e({tag: 'a'}).link Проект реконструкции
+
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Готовые проекты
+                        +e({tag: 'a'}).link 1-этажные ИЖД
+                        +e({tag: 'a'}).link 2-этажные ИЖД
+                        +e({tag: 'a'}).link 3-этажные ИЖД
+                        +e({tag: 'a'}).link 1-этажные офисные здания
+                        +e({tag: 'a'}).link 2-этажные офисные здания
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Строительство
+                        +e({tag: 'a'}).link Строительство с “0” 
+                        +e({tag: 'a'}).link Реконструкция 
+                        +e({tag: 'a'}).link Рассчитать смету на основании проекта
+
+
+            +e.item
+                +e({tag: 'a'}).link Инженерные сети<br>“под ключ”
+            +e.item
+                img(src="images/geodesy.svg" height="30px")
+                +e({tag: 'a'}).link Геодезия,<br>кадастровые работы
+            +e.item
+                +e({tag: 'a'}).link Юридическое<br>сопровождение
+            +e.item
+                img(src="images/design.svg" height="23px")
+                +e({tag: 'a'}).link Дизайн<br>интерьера/экстерьера
+            +e.item
+                +e({tag: 'a'}).link Бестраншейные<br>технологии
     .nav
         //- .nav__header
         //-     .nav__back
         //-     .icon-close
-        +b.menu
+        +b.mobile-menu
             +e.item
-                +e({tag: 'a'}).link.menu__link_arrow О нас
-                +b.submenu.menu__submenu
+                +e({tag: 'a'}).link.mobile-menu__link_arrow О нас
+                +b.mobile-submenu.mobile-menu__submenu
                     +e.item
-                        +e({tag: 'a'}).link.submenu__link_arrow Акции
-                        +b.submenu.submenu__submenu
+                        +e({tag: 'a'}).link.mobile-submenu__link_arrow Акции
+                        +b.mobile-submenu.mobile-submenu__submenu
                             +e.item
                                 +e({tag: 'a'}).link Акции   
                             +e.item
@@ -52,22 +118,7 @@ block content
                     +e.item
                         +e({tag: 'a'}).link Акции
                     +e.item
-                        +e({tag: 'a'}).link Акции
-            +e.item
-                +e({tag: 'a'}).link Полезные статьи
-            +e.item
-                +e({tag: 'a'}).link.menu__link_arrow Акции
-                +b.submenu.menu__submenu
-                    +e.item
-                        +e({tag: 'a'}).link Акции   
-                    +e.item
-                        +e({tag: 'a'}).link Акции
-                    +e.item
-                        +e({tag: 'a'}).link Акции
-            +e.item
-                +e({tag: 'a'}).link Партнерам
-            +e.item
-                +e({tag: 'a'}).link Контакты                
+                        +e({tag: 'a'}).link Акции        
     +b.offer
         +e.wrapper.container
             +e.title Проектно-строительная компания
@@ -110,7 +161,7 @@ block content
                         .input__title Имя
                         .input__icon
                         input(name='name').input__control
-                    .input__message Укажите точно как в паспорте
+                    .input__message(data-default="Укажите точно как в паспорте")
                 .input
                     .input__box
                         .input__top-border
@@ -124,7 +175,7 @@ block content
                         .input__title Email
                         .input__icon
                         input(name='email').input__control
-                    label(for="email")
+                    .input__message
                 button(type="submit").btn.btn_view_pseudo
                     .btn__text Записаться на консультацию
     .footer

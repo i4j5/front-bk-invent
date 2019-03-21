@@ -1,64 +1,6 @@
 $ = require('jquery')
 require('jquery-validation')
 
-$('.ajax').each(function() {
-    $(this).validate({
-        unhighlight: function (element, errorClass) {
-            let $control = $(element)
-            let $box = $control.parent().addClass('input__box_ok').removeClass('input__box_error')
-        },
-
-        submitHandler: function(form, e) {
-            e.preventDefault()
-
-            //$('.loader_submit').addClass('loader_active')
-
-            let $form = $(form)
-            let str = $form.serialize()
-            let btn = $form.children("[type='submit']")
-            btn.prop('disabled', true)
-
-            $.ajax({
-                url: '/',
-                type: 'get',
-                data: str
-            })
-            .done(function() {
-                //$('.modal').closeModal()
-                //$('#modal__ok').openModal()
-            })
-            .always(function() {
-                //$('.loader_submit').removeClass('loader_active')
-                btn.prop('disabled', false)
-            })
-        },
-
-        rules: {
-            'phone': {
-                required: true,
-            },
-            'name': {
-                required: true
-            },
-            'email': {
-                email: true,
-                required: true
-            }
-        },
-        messages: {
-            email: {
-                email: "Please enter your email",
-                required: "*"
-            }
-        },
-        errorPlacement: function(error, element){
-            let $control = $(element)
-            let $box = $control.parent().addClass('input__box_error').removeClass('input__box_ok')
-        }
-    })
-})
-
-
 
 
 
@@ -148,42 +90,49 @@ $('.hamburger').click(function() {
 //     $('.nav').removeClass('nav_active')
 // })
 
-$('.menu__link_arrow').click(function() {
+$('.mobile-menu__link_arrow').click(function() {
     let $menu = $(this).parent()
-    let $submenu = $menu.children('.menu__submenu')
-    if ( $menu.hasClass('menu__item_active') ) {
+    let $submenu = $menu.children('.mobile-menu__submenu')
+    if ( $menu.hasClass('mobile-menu__item_active') ) {
         $submenu.slideUp(450)
     } else {
         $submenu.slideDown(450)        
     }
     
-    $menu.toggleClass('menu__item_active')
+    $menu.toggleClass('mobile-menu__item_active')
 })
 
 
-$('.submenu__link_arrow').click(function() {
+$('.mobile-submenu__link_arrow').click(function() {
     let $menu = $(this).parent()
-    let $submenu = $menu.children('.submenu__submenu')
-    if ( $menu.hasClass('submenu__item_active') ) {
+    let $submenu = $menu.children('.mobile-submenu__submenu')
+    if ( $menu.hasClass('mobile-submenu__item_active') ) {
         $submenu.slideUp(450)
     } else {
         $submenu.slideDown(450)        
     }
     
-    $menu.toggleClass('submenu__item_active')
+    $menu.toggleClass('mobile-submenu__item_active')
 })
 
 
-$('.input__control').each(function() {
+$('.input').each(function() {
 
-    let $control = $(this)
-    let $box = $control.parent()
-    let $topBorder = $control.parent().children('.input__top-border')
-    let $title = $control.parent().children('.input__title')
+    let $input = $(this)
+
+    let $box = $input.children('.input__box')
+    let $control = $box.children('.input__control')
+    let $topBorder = $box.children('.input__top-border')
+    let $title = $box.children('.input__title')
 
     if ($control.val()) {
         $box.addClass('input__box_filled')
         $topBorder.css('width', `calc(((100% - 20px) - ${$title.width()}px) - 5px)`)
+    }
+
+    let $message = $input.children('.input__message')
+    if ($message.data('default')) {
+        $message.text($message.data('default'))
     }
 
 })
@@ -211,4 +160,71 @@ $('.input__control').focus(function() {
     }
     
     $box.removeClass('input__box_focus')
+})
+
+$('.ajax').each(function() {
+    $(this).validate({
+        unhighlight: function (element, errorClass) {
+            let $control = $(element)
+            let $input = $control.parent().parent().addClass('input_ok').removeClass('input_error')
+            let $message = $input.children('.input__message')
+
+            if ($message.data('default')) {
+                $message.text($message.data('default'))
+            } else {
+                $message.text(' ')
+            }
+        },
+
+        submitHandler: function(form, e) {
+            e.preventDefault()
+
+            //$('.loader_submit').addClass('loader_active')
+
+            let $form = $(form)
+            let str = $form.serialize()
+            let btn = $form.children("[type='submit']")
+            btn.prop('disabled', true)
+
+            $.ajax({
+                url: '/',
+                type: 'get',
+                data: str
+            })
+            .done(function() {
+                //$('.modal').closeModal()
+                //$('#modal__ok').openModal()
+            })
+            .always(function() {
+                //$('.loader_submit').removeClass('loader_active')
+                btn.prop('disabled', false)
+            })
+        },
+
+        rules: {
+            'phone': {
+                required: true,
+            },
+            'name': {
+                required: true
+            },
+            'email': {
+                email: true,
+                required: true
+            }
+        },
+        messages: {
+            email: {
+                email: "Please enter your email",
+                required: "*"
+            }
+        },
+        errorPlacement: function(error, element){
+            let $control = $(element)
+            let $input = $control.parent().parent().addClass('input_error').removeClass('input_ok')
+
+            let $message = $input.children('.input__message')
+            $message.text(error.html())
+        }
+    })
 })

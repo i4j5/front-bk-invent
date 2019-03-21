@@ -13,7 +13,7 @@
     padding 0 20px
     @media (min-width 1160px)
         padding 0
-    max-width 1180px
+    max-width 1160px
     margin auto
     width 100%
 
@@ -27,14 +27,14 @@
     height auto
     z-index 100
     padding 20px 0
-    .container
+    &__wrapper
         min-height 59px
         height auto
         // display flex
         align-items center
         justify-content space-between
         row-flex()
-        margin auto
+        //margin auto
     &__left
     &__center
     &__right
@@ -42,7 +42,8 @@
     &__left
         size(4)
     &__center
-        size(5)
+        size(6)
+        
     &__right
         size(2)
 
@@ -52,15 +53,95 @@
         // flex-direction column
     //&__menu
 
-.top-menu
-    width 100%
-    display flex
+.menu
+    background #2b519e
     &__item
         display inline-block
-        margin 0 8px
+        // margin 0 10px
+        position relative
+        padding 8px 30px 8px 8px
+        background #2b519e
+        &:hover
+            background #364261
+            .menu__submenu
+                display flex
+        img
+            width auto
+            float left
+            margin 5px 10px 5px 5px 
     &__link
-        font-size 14px
+        cursor pointer
+        color #fff
+        font-size 15px
+        line-height 1.2em
+        font-weight 400
+        display inline-block
+        // &_arrow
+        //     position relative
+        //     padding-right 15px
+        //     &:after
+        //         transition all .5s ease 0s
+        //         content ""
+        //         position absolute
+        //         width 11px
+        //         height 7px
+        //         background url(../images/link-arrow.svg)
+        //         background-size contain
+        //         background-repeat no-repeat
+        //         right 0
+        //         top calc(50% - 3px)
+    &__submenu
+        z-index 100
+        display none
+        position absolute
+        //transform translateX(-50%)
+        // bottom 10px
+        width 1160px
+        left 0
+        top 100%
+        background #fff
+        border 1px solid  rgb(232, 232, 232)
+        box-shadow 0px 10px 15px 0px rgba(0, 0, 0, 0.14);
+        padding 10px 0 20px 0 
+        .menu__item
+            padding 0
+            margin 0
+            width 100%
+            background #fff
+            &:hover
+                background none
+        .menu__link
+            color #1f1f1f
+            font-size 14px
+            padding 8px 10px
+            display block
+            &:hover
+                background #cacaca
+            &_title
+                font-size 15px
+                font-weight 600
+                margin-bottom 10px
+            
+.top-menu
+    width 100%
+    height 100%
+    display none
+    //justify-content center
+    @media (min-width 1160px)
+        display flex
+        align-items center
+    &__item
+        display inline-block
+        margin 0 10px
+        position relative
+        padding 20px 0
+        &:hover
+            .top-menu__submenu
+                display block
+    &__link
+        font-size 15px
         line-height 1.4em
+        cursor pointer
         // padding 0 20px
         color #292929
         font-weight 600
@@ -78,14 +159,58 @@
                 background-repeat no-repeat
                 right 0
                 top calc(50% - 3px)
+    &__search
+        margin-top 6px
+        cursor pointer
     &__submenu
+        &:before
+            content ''
+            position fixed
+            height 0
+            width 0
+            border 6px solid transparent
+            left 50%
+            right auto
+            transform translateX(-50%)
+            border-bottom-color inherit
+            bottom calc(100% + 1px)
+        &:after
+            content ''
+            position absolute
+            height 0
+            width 0
+            border 6px solid transparent
+            left 50%
+            right auto
+            transform translateX(-50%)
+            border-bottom-color #fff
+            bottom 100%
+            z-index 10
+        z-index 100
         display none
-
-
+        position absolute
+        transform translateX(-50%)
+        // bottom 10px
+        left 50%
+        top calc(100% - 10px)
+        background #fff
+        border 1px solid  rgb(232, 232, 232)
+        box-shadow 0px 10px 15px 0px rgba(0, 0, 0, 0.14);
+        padding 10px 0 
+        .top-menu__item
+            padding 5px 10px
+            margin 0
+            width 100%
+            min-width 200px
+            display block
+            &:hover
+                background #cacaca
+        .top-menu__link
+            color #1f1f1f
 
   
 .hamburger
-    @media (min-width 390px)
+    @media (min-width 1160px)
         display none
         align-items center
         justify-content space-between
@@ -117,25 +242,27 @@
                 top 7px
                 transform rotate(45deg)
 .logo
-    margin 0 20px
     &__image
+        margin 0 20px
         width 50px
         height 45px
         background-image url(../images/logo-mobile.png)
         @media (min-width 390px)
             width 77px
             height 70px
+            margin 0 20px 0 0 
             background-image url(../images/logo.png)
         background-repeat no-repeat
         background-size contain
-        margin-right 10px
+        margin-right 15px
         float left
     &__description
         width 100%
         font-size 16px
         color #000
         line-height 1.3em
-        padding-top 12px
+        padding-top 14px
+        font-weight 500
 
 .phone
     display inline-block
@@ -151,6 +278,7 @@
         text-align right
         display none
         width 100%
+        font-weight 600
         @media (min-width 390px)
             display block
     &__icon
@@ -424,7 +552,7 @@ ul.list
         font-size 20px
         line-height 1.5em
 
-.menu
+.mobile-menu
     //padding 20px 0
     &__item
         border-top 1px solid #d5d5d5
@@ -433,10 +561,10 @@ ul.list
         background #f7f7f7
         &_active
             background #fff
-            .menu__submenu
+            .mobile-menu__submenu
                 display block
                 opacity 1
-            .menu__link
+            .mobile-menu__link
                 color #000
                 &:after
                     transform rotate(180deg)!important
@@ -466,10 +594,10 @@ ul.list
                 right 20px
                 top calc(50% - 3px)
     
-.submenu
+.mobile-submenu
     & &
         margin-bottom -10px
-        .submenu__item
+        .mobile-submenu__item
             padding 5px 0
             border-left 2px solid #2e64d0
             //border-bottom 1px dashed #efeaea
@@ -481,7 +609,7 @@ ul.list
             &:last-child
                 border-bottom none
                 padding-bottom 8px
-        .submenu__link
+        .mobile-submenu__link
             padding 0 10px
     padding 10px 0 0 0 
     &__item
@@ -491,10 +619,10 @@ ul.list
         //background #f0f0f0
         &_active
             //background #fff
-            .submenu__submenu
+            .mobile-submenu__submenu
                 display block
                 opacity 1
-            .submenu__link
+            .mobile-submenu__link
                 &:after
                     transform rotate(180deg)!important
         &:last-child
@@ -533,6 +661,22 @@ ul.list
     font-size 18px
     padding-top 0.52em
     margin-bottom 1em
+    &_error
+        .input__message
+            color #f95555 !important
+        .input__top-border
+        .input__box
+            &:before
+            &:after
+                border-color #f95555 !important
+            border-color #f95555 !important
+            .input__control
+                background url(../images/input-error.svg) no-repeat center right
+                background-size 1em
+    &_ok
+        .input__control
+            background url(../images/input-ok.svg) no-repeat center right
+            background-size 1em
     &__top-border 
         position absolute
         right 10px
@@ -579,25 +723,13 @@ ul.list
                 top - 0.5em
                 left 15px
                 font-size 0.778em
-        &_error
-            .input__top-border
-            &:before
-            &:after
-                border-color #f95555
-            border-color #f95555
-            .input__control
-                background url(../images/input-error.svg) no-repeat center right
-                background-size 1em
-        &_ok
-            .input__control
-                background url(../images/input-ok.svg) no-repeat center right
-                background-size 1em
 
 
     &__message
         font-size 0.69em
         color #696969
         line-height 1em
+        min-height 1em
         margin-top 5px
     &__control
         width 100%
