@@ -56,13 +56,18 @@
 .menu
     background #2b519e
     z-index 120
+    .container
+        display flex
     &__item
         display inline-block
         // margin 0 10px
         position relative
         // padding 8px 15px 8px 8px
-        padding 8px 15px
+        padding 8px 20px 8px 15px
         background #2b519e
+        border-left 1px solid rgba(255, 255, 255, .08)
+        &:last-child
+            border-right 1px solid rgba(255, 255, 255, .08)
         &:hover
             background #364261
             .menu__submenu
@@ -76,10 +81,11 @@
     &__link
         cursor pointer
         color #fff
-        font-size 15px
+        font-size 14px
         line-height 1.25em
-        font-weight 600
+        font-weight 400
         display inline-block
+        text-align center
         // &_arrow
         //     position relative
         //     padding-right 15px
@@ -122,10 +128,11 @@
             font-size 14px
             padding 8px 20px
             display block
+            text-align left
             &:hover
                 background #cacaca
             &_title
-                font-size 15px
+                font-size 16px
                 font-weight 600
                 margin-bottom 10px
             
