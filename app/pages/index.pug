@@ -53,7 +53,7 @@ block content
     +b.menu
         .container
             +e.item
-                img(src="images/building.svg" height="25px")
+                //img(src="images/building.svg" height="25px")
                 +e({tag: 'a'}).link Проектирование<br>и строительство
                 +e.submenu
                     +e.item
@@ -87,16 +87,53 @@ block content
 
 
             +e.item
+                //img(src="images/pipes.svg" height="25px")
                 +e({tag: 'a'}).link Инженерные сети<br>“под ключ”
+                +e.submenu
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Под ключ
+                        +e({tag: 'a'}).link Система водоснабжения
+                        +e({tag: 'a'}).link Система водоотведения
+                        +e({tag: 'a'}).link Система электроснабжения
+                        +e({tag: 'a'}).link Система газификации
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Изготовление расчетов
+                        +e({tag: 'a'}).link Баланс водопотребления и водоотведения
+                        +e({tag: 'a'}).link Одохозяйственный паспорт
+                        +e({tag: 'a'}).link Расчет МЧРГ для ИЖС
+                        +e({tag: 'a'}).link Расчет МЧРГ для коммерческих организаций
+                        +e({tag: 'a'}).link Расчет МЧРГ для муниципальных организаций
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Проектирование
+                        +e({tag: 'a'}).link Система электроснабжения
+                        +e({tag: 'a'}).link Система водоснабжения
+                        +e({tag: 'a'}).link Система водоотведения
+                        +e({tag: 'a'}).link Система теплоснабжения
+                        +e({tag: 'a'}).link Система  отопления
+                        +e({tag: 'a'}).link Система  вентиляции
+                        +e({tag: 'a'}).link Система  кондиционирования<br>и холодноснабжения
+                        +e({tag: 'a'}).link Сети связи
+                        +e({tag: 'a'}).link Система  безопасности
+                        +e({tag: 'a'}).link Система автоматизации и диспечерезации
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Строительно-монтажные работы
+                        +e({tag: 'a'}).link Система водоснабжения
+                        +e({tag: 'a'}).link Система водоотведения
+                        +e({tag: 'a'}).link Система электроснабжения
+                        +e({tag: 'a'}).link Система газификации
+
+
             +e.item
-                img(src="images/geodesy.svg" height="30px")
+                //img(src="images/geodesy.svg" height="28px")
                 +e({tag: 'a'}).link Геодезия,<br>кадастровые работы
             +e.item
+                //img(src="images/lawyer.svg" height="25px")
                 +e({tag: 'a'}).link Юридическое<br>сопровождение
             +e.item
-                img(src="images/design.svg" height="23px")
+                //img(src="images/design.svg" height="23px")
                 +e({tag: 'a'}).link Дизайн<br>интерьера/экстерьера
             +e.item
+                //img(src="images/gnb.svg" height="22px")
                 +e({tag: 'a'}).link Бестраншейные<br>технологии
     .nav
         //- .nav__header
@@ -133,10 +170,15 @@ block content
     .container
         +b.breadcrumbs
             +e.home
-            +e.separator
+            .arrow.arrow_right
             +e({tag:'a'}).item О нас
-            +e.separator 
+            .arrow.arrow_right
+            //+e.separator 
             +e({tag:'a'}).item О нас
+        .arrow.arrow_top
+        .arrow.arrow_right
+        .arrow.arrow_left
+        .arrow.arrow_bottom
     .content
         .container
             h1 Проектно-строительная компания

@@ -55,26 +55,30 @@
 
 .menu
     background #2b519e
+    z-index 120
     &__item
         display inline-block
         // margin 0 10px
         position relative
-        padding 8px 30px 8px 8px
+        // padding 8px 15px 8px 8px
+        padding 8px 15px
         background #2b519e
         &:hover
             background #364261
             .menu__submenu
-                display flex
+                visibility visible
+                opacity 1
+                //top 100%
         img
             width auto
             float left
-            margin 5px 10px 5px 5px 
+            margin 3px 10px 0 5px 
     &__link
         cursor pointer
         color #fff
         font-size 15px
-        line-height 1.2em
-        font-weight 400
+        line-height 1.25em
+        font-weight 600
         display inline-block
         // &_arrow
         //     position relative
@@ -92,28 +96,31 @@
         //         top calc(50% - 3px)
     &__submenu
         z-index 100
-        display none
+        // display none
+        display flex
         position absolute
-        //transform translateX(-50%)
-        // bottom 10px
-        width 1160px
+        visibility hidden
+        opacity 0
+        transition .2s ease-out
+        // width 1160px
         left 0
         top 100%
+        max-width 1160px
         background #fff
         border 1px solid  rgb(232, 232, 232)
         box-shadow 0px 10px 15px 0px rgba(0, 0, 0, 0.14);
-        padding 10px 0 20px 0 
+        padding 20px 0 20px 0 
         .menu__item
             padding 0
             margin 0
-            width 100%
+            width max-content
             background #fff
             &:hover
                 background none
         .menu__link
             color #1f1f1f
             font-size 14px
-            padding 8px 10px
+            padding 8px 20px
             display block
             &:hover
                 background #cacaca
@@ -137,7 +144,8 @@
         padding 20px 0
         &:hover
             .top-menu__submenu
-                display block
+                visibility visible
+                opacity 1
     &__link
         font-size 15px
         line-height 1.4em
@@ -187,7 +195,9 @@
             bottom 100%
             z-index 10
         z-index 100
-        display none
+        visibility hidden
+        opacity 0
+        transition .2s ease-out
         position absolute
         transform translateX(-50%)
         // bottom 10px
@@ -195,7 +205,7 @@
         top calc(100% - 10px)
         background #fff
         border 1px solid  rgb(232, 232, 232)
-        box-shadow 0px 10px 15px 0px rgba(0, 0, 0, 0.14);
+        box-shadow 0px 10px 15px 0px rgba(0, 0, 0, 0.14)
         padding 10px 0 
         .top-menu__item
             padding 5px 10px
@@ -723,8 +733,6 @@ ul.list
                 top - 0.5em
                 left 15px
                 font-size 0.778em
-
-
     &__message
         font-size 0.69em
         color #696969
@@ -737,6 +745,9 @@ ul.list
         line-height 1em
         color #5a5a5a
         outline none
+        position relative
+        z-index 100
+        background none
         // &:focus // Событие для JS
         //     border 1px solid #84aeff
     &__title
@@ -754,4 +765,51 @@ ul.list
             &_phone
                 display inline
 
-                
+.arrow
+    position relative
+    width 12px
+    height 12px
+    &:before
+    &:after
+        transition all .5s ease 0s
+        content ''
+        position absolute
+        width 8px
+        height 1px
+        background #2b519e
+    &_top
+        &:before
+            transform rotate(-45deg)
+            right 4px
+            top 6px
+        &:after
+            transform rotate(45deg)
+            left 5px
+            top 6px
+    &_right
+        &:before
+            transform rotate(45deg)
+            top 3px
+            left 2px
+        &:after
+            transform rotate(-45deg)
+            top 8px
+            left 2px
+    &_left
+        &:before
+            transform rotate(-45deg)
+            top 3px
+            left 2px
+        &:after
+            transform rotate(45deg)
+            top 8px
+            left 2px
+    &_bottom
+        &:before
+            transform rotate(45deg)
+            right 4px
+            top 6px
+        &:after
+            transform rotate(-45deg)
+            left 5px
+            top 6px
