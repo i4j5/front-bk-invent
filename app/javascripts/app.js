@@ -234,7 +234,7 @@ $(function(){
 
     // let baseLeftOffset =  Math.round( $('.menu>.container').offset().left )
     let offsetFirstItem = $('.menu__item:first-child').offset().left
-    let offsetLastItem = $('.menu__item:last-child').offset().left
+    //let offsetLastItem = $('.menu__item:last-child').offset().left
 
     $('.menu__submenu').each(function() {
         
@@ -247,7 +247,7 @@ $(function(){
             
             if($this.width() > 1100) { // (!) Изменить
                 $(this).css('left', `-${$this.offset().left - offsetFirstItem}px`)
-            } else if( 580 > (1160 - $this.offset().left - offsetFirstItem)  ) {
+            } else if( 580 > (1160 - ($this.offset().left - offsetFirstItem))  ) {
                 $(this).css('right', '0').css('left', 'auto')
             } else {
                 $(this).css('left', `-${idx - 1160}px`)
