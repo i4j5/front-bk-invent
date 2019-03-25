@@ -15,6 +15,7 @@ block content
                         .logo__description Проектно-строительная<br>компания
                 .header__center
                     +b.top-menu
+                        +e.wrapper
                         +e.item
                             +e({tag: 'a'}).link О нас
                             +e.submenu
@@ -48,8 +49,9 @@ block content
                             +e.icon 
                             +e.text 8 (863) 303-38-33
                     +b.maps
-                        +e.icon 
-                        +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
+                        +e.wrap
+                            +e.icon 
+                            +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
     +b.menu
         .container
             +e.item
@@ -126,15 +128,78 @@ block content
             +e.item
                 img(src="images/geodesy.svg" height="28px")
                 +e({tag: 'a'}).link Геодезия, геология,<br>кадастровые работы
+                +e.submenu
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Геодезия
+                        +e({tag: 'a'}).link Инженерно-геологические изыскания
+                        +e({tag: 'a'}).link Инженерно-геодезические изыскания
+                        +e({tag: 'a'}).link Сопровождение СМР
+                        +e({tag: 'a'}).link Фасадная съемка
+                        +e({tag: 'a'}).link Обмерные работы
+                        +e({tag: 'a'}).link Спутниковые (GPS) измерения 
+                        +e({tag: 'a'}).link Топографические съемки 1:500
+                        +e({tag: 'a'}).link Топографические съемки 1:2000
+                        +e({tag: 'a'}).link Геодезическая разбивка
+
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Межевание и Кадастр
+                        +e({tag: 'a'}).link Межевание земельных участков
+                        +e({tag: 'a'}).link Изготовление Межевого  плана
+                        +e({tag: 'a'}).link Установка и восстановление межевых знаков
+                        +e({tag: 'a'}).link Подготовка и предоставление предварительных<br>материалов геодезических работ
+                        +e({tag: 'a'}).link Получение кадастрового паспорта на земельный участок
+                        +e({tag: 'a'}).link Получение схемы расположения земельного участка
+                        +e({tag: 'a'}).link Постановка земельного участка на кадастровый учет
+                        +e({tag: 'a'}).link Снятие с кадастрового учета
+                        +e({tag: 'a'}).link Изготовление технического плана
+                        +e({tag: 'a'}).link Оформление земли в собственность
+                        +e({tag: 'a'}).link Оформление земли в аренду
+                        +e({tag: 'a'}).link Согласование перепланировок
+                        +e({tag: 'a'}).link Регистрация права собственности
+                        +e({tag: 'a'}).link Технический паспорт
+
             +e.item
                 img(src="images/lawyer.svg" height="25px")
                 +e({tag: 'a'}).link Юридическое<br>сопровождение
+                +e.submenu
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title По земельным участкам
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title По инженерным коммуникациям
+
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title По объектам недвижимости
             +e.item
                 img(src="images/design.svg" height="23px")
                 +e({tag: 'a'}).link Дизайн-проект<br>интерьера/экстерьера
+                +e.submenu
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Дизайн интерьера
+                        +e({tag: 'a'}).link 3d визуализация интерьера
+                        +e({tag: 'a'}).link 3d визуализация интерьера<br>с чертежами, размерами
+                        +e({tag: 'a'}).link 3d визуализация  интерьера<br>с подбором материалов (спецификация)
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title Дизайн экстерьера
+                        +e({tag: 'a'}).link 3d визуализация экстерьера (фасад)
+                        +e({tag: 'a'}).link 3d визуализация ландшафтного дизайна
+                        +e({tag: 'a'}).link 3d визуализация развития площадки
+
             +e.item
                 img(src="images/gnb.svg" height="22px")
                 +e({tag: 'a'}).link Бестраншейные<br>технологии
+                +e.submenu
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title ГНБ
+                        +e({tag: 'a'}).link  Название машины
+                        +e({tag: 'a'}).link Название машины
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title По инженерным коммуникациям
+                        +e({tag: 'a'}).link Из колодца 
+                        +e({tag: 'a'}).link Из приямка
+                    +e.item
+                        +e({tag: 'a'}).link.menu__link_title По объектам недвижимости
+                        +e({tag: 'a'}).link Реновация
+                        +e({tag: 'a'}).link Релайнинг
     .nav
         //- .nav__header
         //-     .nav__back
