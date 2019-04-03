@@ -22,6 +22,7 @@ $(function(){
     $('.reviews__items').bxSlider({
         // nextSelector: 'reviews__next',
         // prevSelector:'reviews__prev',
+        touchEnabled: false,
         nextText: '',
         prevText: '',
         pager: false,
@@ -208,6 +209,10 @@ $(function(){
     })
 
     $('.ajax').each(function() {
+
+
+        // .trim()
+
         $(this).validate({
             unhighlight: function (element, errorClass) {
                 let $control = $(element)
