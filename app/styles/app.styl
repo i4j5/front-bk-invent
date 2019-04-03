@@ -22,6 +22,9 @@
     top 0px
     width 100%
     background #fff
+    @media (min-width 1160px)
+        background #fff url(../images/header.jpg) center no-repeat
+    // background-size cover
     box-shadow 0px 2px 6.96px 1.04px rgba(18, 16, 11, 0.08)
     height auto
     z-index 100
@@ -55,7 +58,8 @@
             padding 20px 0
     &__center
         display none
-        background #f5f5f5 linear-gradient(to right, #eaeaea 0%,#f5f5f5 50%,#eaeaea 100%)
+        background linear-gradient(to right, rgba(234,234,234,.1) 0%, rgba(234,234,234,.3) 10%, rgba(245,245,245,.7) 50%,  rgba(234,234,234,.3) 90%, rgba(234,234,234,.1) 100%)
+        //#f5f5f5 linear-gradient(to right, #eaeaea 0%,#f5f5f5 50%,#eaeaea 100%)
         @media (min-width 1160px)
             size(7)
             display block
@@ -174,7 +178,7 @@
         &:after
             content ''
             position absolute
-            background #fff
+            //background #fff
             height 80px
             width 300px
             top 0
@@ -198,7 +202,7 @@
         line-height 1.4em
         cursor pointer
         // padding 0 20px
-        color #292929
+        color #1c1c1c
         font-weight 600
         &_arrow
             position relative
@@ -904,7 +908,7 @@ ul.list
         @media (min-width 700px)
             display flex
             align-items flex-start
-            padding-bottom 30px !important
+            padding-bottom 50px !important
     &__person
         @media (min-width 700px)
             //float left
@@ -963,7 +967,7 @@ ul.list
         top 110px
         @media (min-width 700px)
             top auto
-            bottom -25px
+            bottom -10px
         &:before
         &:after
             content ''
@@ -975,7 +979,7 @@ ul.list
         left -5px
         @media (min-width 700px)
             left auto 
-            right 40px
+            right 58px
         &:before
             transform rotate(-45deg)
             top 13px
@@ -986,6 +990,8 @@ ul.list
             left 10px
     .bx-next
         right -5px
+        @media (min-width 700px)
+            right 10px
         &:before
             transform rotate(45deg)
             top 13px
