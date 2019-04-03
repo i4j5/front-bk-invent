@@ -17,7 +17,6 @@
     margin auto
     width 100%
 
-
 .header
     position fixed
     top 0px
@@ -26,6 +25,9 @@
     box-shadow 0px 2px 6.96px 1.04px rgba(18, 16, 11, 0.08)
     height auto
     z-index 100
+    transition all .5s ease-in-out
+    &_hidden
+        transform translate(0, -100%)
     //padding 20px 0
     @media (min-width 1160px)
         position relative
@@ -867,3 +869,117 @@ ul.list
             transform rotate(-45deg)
             left 5px
             top 6px
+
+.reviews
+    border-radius 5px
+    background-image linear-gradient( 45deg, rgba(214,227,254,.4) 0%, rgba(201,199,199,.4) 78%, rgba(213,213,213,.4) 100%)
+    padding 20px 0
+    position relative
+    margin-bottom 30px
+    &__title
+        color #3d3d3d
+        font-weight 600
+        font-size 20px
+        line-height 1.3em
+        text-align center
+        padding 0 10px
+        margin-bottom 30px
+        @media (min-width 700px)
+            font-size 22px
+    &__items
+        position relative
+    &__item
+        text-align center
+        padding 0 20px
+        @media (min-width 1000px)
+            padding 0 40px
+        @media (min-width 700px)
+            display flex
+            align-items flex-start
+            padding-bottom 30px !important
+    &__person
+        @media (min-width 700px)
+            //float left
+            margin-right 40px
+    &__avatar
+        border-radius 100% !important
+        width 130px !important
+        height 130px !important
+        max-width 130px !important
+    &__name
+        color #52475b
+        line-height 1em
+        font-size 16px 
+        font-weight 600
+        margin-bottom 20px
+    &__text
+        font-size 14px
+        line-height 1.45em
+        color #363636
+        text-align left
+        position relative
+        @media (min-width 700px)
+            padding 20px 70px 
+            &:before
+            &:after
+                content ''
+                position absolute
+                width 51px 
+                height 41px
+                background-repeat no-repeat
+                background-size contain
+            &:before
+                background-image url(../images/quote-before.svg)
+                top 0
+                left 0
+            &:after
+                background-image url(../images/quote-after.svg)
+                right 0
+                bottom 0
+              
+
+    .bx-wrapper
+        position relative
+
+    .bx-prev
+    .bx-next
+        position absolute
+        border-radius 5px
+        background #fff
+        box-shadow 0px 1px 4px 0px rgba(151, 147, 147, 0.5)
+        width 40px 
+        height 40px
+        top 110px
+        @media (min-width 700px)
+            top auto
+            bottom -25px
+        &:before
+        &:after
+            content ''
+            position absolute
+            width 18px
+            height 2px
+            background #4274d6
+    .bx-prev
+        left -5px
+        @media (min-width 700px)
+            left auto 
+            right 40px
+        &:before
+            transform rotate(-45deg)
+            top 13px
+            left 10px
+        &:after
+            transform rotate(45deg)
+            top 25px
+            left 10px
+    .bx-next
+        right -5px
+        &:before
+            transform rotate(45deg)
+            top 13px
+            right 10px
+        &:after
+            transform rotate(-45deg)
+            top 25px
+            right 10px

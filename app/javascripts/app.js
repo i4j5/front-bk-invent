@@ -1,85 +1,118 @@
 $ = require('jquery')
 require('jquery-validation')
+require('../../node_modules/bxslider/dist/jquery.bxslider')
+
+
+const $page = $('.page')
+const $nav = $('.nav')
+const $header = $('.header') 
+const $offer = $('.offer') 
 
 
 $(function(){ 
-    const $page = $('.page')
-    const $nav = $('.nav')
-    const $header = $('.header') 
-
     if ( $(this).width() < 1160) {
-        $page.css({
+        $offer.css({
             "padding-top": $header.height() + "px"
         })
         $nav.css({
-            "padding-top": $header.height() -  + "px"
+            "padding-top": $header.height() + 10 + "px"
         })
     }
+
+    $('.reviews__items').bxSlider({
+        // nextSelector: 'reviews__next',
+        // prevSelector:'reviews__prev',
+        nextText: '',
+        prevText: '',
+        pager: false,
+    })
     
 
-    let scrollPrev = 0
-    $(window).scroll(function() {
-        if ( $(this).width() < 1160) {
-            let  scrolled = $(window).scrollTop() // Высота скролла в px
-            let firstScrollUp = false // Параметр начала сколла вверх
-            let  firstScrollDown = false // Параметр начала сколла вниз
+    // let scrollPrev = 0
+    // $(window).scroll(function() {
+    //     // if ( $(this).width() < 1160) {
+    //     //     let  scrolled = $(window).scrollTop() // Высота скролла в px
+    //     //     let firstScrollUp = false // Параметр начала сколла вверх
+    //     //     let  firstScrollDown = false // Параметр начала сколла вниз
             
-            // Если скроллим
-            if ( scrolled > 0 ) {
-                // Если текущее значение скролла > предыдущего, т.е. скроллим вниз
-                if ( scrolled > scrollPrev ) {
-                    firstScrollUp = false // Обнуляем параметр начала скролла вверх
-                    // Если меню видно
-                    if ( scrolled < $header.height() + $header.offset().top ) {
-                        // Если только начали скроллить вниз
-                        if ( firstScrollDown === false ) {
-                            let topPosition = $header.offset().top // Фиксируем текущую позицию меню
-                            $header.css({
-                                "top": topPosition + "px"
-                            })
+    //     //     // Если скроллим
+    //     //     if ( scrolled > 0 ) {
+    //     //         // Если текущее значение скролла > предыдущего, т.е. скроллим вниз
+    //     //         if ( scrolled > scrollPrev ) {
+    //     //             firstScrollUp = false // Обнуляем параметр начала скролла вверх
+    //     //             // Если меню видно
+    //     //             if ( scrolled < $header.height() + $header.offset().top ) {
+    //     //                 // Если только начали скроллить вниз
+    //     //                 if ( firstScrollDown === false ) {
+    //     //                     let topPosition = $header.offset().top // Фиксируем текущую позицию меню
+    //     //                     $header.css({
+    //     //                         "top": topPosition + "px"
+    //     //                     })
                             
-                            firstScrollDown = true
-                        }
-                        // Позиционируем меню абсолютно
-                        $header.css({
-                            "position": "absolute"
-                        })
-                    // Если меню НЕ видно
-                    } else {
-                        // Позиционируем меню фиксированно вне экрана
-                        $header.css({
-                            "position": "fixed",
-                            "top": "-" + $header.height() + "px"
-                        })
-                    }
+    //     //                     firstScrollDown = true
+    //     //                 }
+    //     //                 // Позиционируем меню абсолютно
+    //     //                 $header.css({
+    //     //                     "position": "absolute"
+    //     //                 })
+    //     //             // Если меню НЕ видно
+    //     //             } else {
+    //     //                 // Позиционируем меню фиксированно вне экрана
+    //     //                 $header.css({
+    //     //                     "position": "fixed",
+    //     //                     "top": "-" + $header.height() + "px"
+    //     //                 })
+    //     //             }
                     
-                // Если текущее значение скролла < предыдущего, т.е. скроллим вверх
-                } else {
-                    firstScrollDown = false // Обнуляем параметр начала скролла вниз
-                    // Если меню не видно
-                    if ( scrolled > $header.offset().top ) {
-                        // Если только начали скроллить вверх
-                        if ( firstScrollUp === false ) {
-                            let topPosition = $header.offset().top // Фиксируем текущую позицию меню
-                            $header.css({
-                                "top": topPosition + "px"
-                            })
-                            firstScrollUp = true
-                        }
-                        // Позиционируем меню абсолютно
-                        $header.css({
-                            "position": "absolute"
-                        })
-                    } else {
-                        // Убираем все стили
-                        $header.removeAttr("style")
-                    }
-                }
-                // Присваеваем текущее значение скролла предыдущему
-                scrollPrev = scrolled
+    //     //         // Если текущее значение скролла < предыдущего, т.е. скроллим вверх
+    //     //         } else {
+    //     //             firstScrollDown = false // Обнуляем параметр начала скролла вниз
+    //     //             // Если меню не видно
+    //     //             if ( scrolled > $header.offset().top ) {
+    //     //                 // Если только начали скроллить вверх
+    //     //                 if ( firstScrollUp === false ) {
+    //     //                     let topPosition = $header.offset().top // Фиксируем текущую позицию меню
+    //     //                     $header.css({
+    //     //                         "top": topPosition + "px"
+    //     //                     })
+    //     //                     firstScrollUp = true
+    //     //                 }
+    //     //                 // Позиционируем меню абсолютно
+    //     //                 $header.css({
+    //     //                     "position": "absolute"
+    //     //                 })
+    //     //             } else {
+    //     //                 // Убираем все стили
+    //     //                 $header.removeAttr("style")
+    //     //             }
+    //     //         }
+    //     //         // Присваеваем текущее значение скролла предыдущему
+    //     //         scrollPrev = scrolled
+    //     //     }
+    //     // }
+        
+
+
+    // })
+
+
+
+    let scrollPos = 0
+    $(window).scroll(function(){
+
+        let st = $(this).scrollTop()
+
+        if ( $(this).width() < 1160) {
+            if (st > scrollPos){
+                $header.addClass('header_hidden')
+            } else {
+                $header.removeClass('header_hidden')
             }
-        }	
-    })			
+        }
+
+        scrollPos = st
+
+    })
 
 
     $('.hamburger').click(function() {
@@ -275,9 +308,19 @@ $(function(){
 
 
 $(window).resize(function() {
-    let widthWindow = $(this).width()
-    if(widthWindow <= 1160) {
+    // let widthWindow = $(this).width()
+    // if(widthWindow <= 1160) {
 
+    // }
+
+
+    if ( $(this).width() < 1160) {
+        $offer.css({
+            "padding-top": $header.height() + "px"
+        })
+        $nav.css({
+            "padding-top": $header.height() + 10 + "px"
+        })
     }
 })
     
