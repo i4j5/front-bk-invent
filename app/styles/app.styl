@@ -1000,3 +1000,70 @@ ul.list
             transform rotate(-45deg)
             top 25px
             right 10px
+
+.stages
+    margin-bottom 50px
+    &__header
+        color #3d3d3d
+        font-size 20px
+        font-weight 600
+        margin-bottom 30px
+        text-align center
+    &__item
+        display grid
+        grid-template-areas 'image title' 'text text' 'line line'
+        //grid-template-rows
+        grid-template-columns 75px calc(100% - 75px)
+        &:last-child>.stages__line
+            display none
+
+        @media (min-width 700px)
+            &:last-child>.stages__line
+                display block
+            &:first-child>.stages__line
+                display none
+            &:nth-child(odd)
+                grid-template-areas 'image title line' 'image text line'
+                grid-template-columns 175px calc(50% - 175px) 50%
+                .stages__line
+                    background url(../images/stages__line.png) no-repeat right
+                    width 50%
+                    height 62px
+                    margin 25px 0 0 20px
+            &:nth-child(even)
+                grid-template-areas 'line image title' 'line image text'
+                grid-template-columns 50% 175px calc(50% - 175px)
+                .stages__line
+                    background url(../images/stages__line.png) no-repeat left
+                    width 50%
+                    height 62px
+                    margin 25px 0 0 calc(50% - 20px)
+
+    &__image
+        width 65px
+        height 65px
+        background #ddd
+        grid-area image
+        @media (min-width 700px)
+            width 160px
+            height 160px
+    &__title
+        font-size 17px
+        line-height 1.3em
+        color #335dae
+        font-weight 600
+        grid-area title
+        display flex
+        align-items center
+    &__text
+        font-size 13px
+        line-height 1.4em
+        color #262626
+        grid-area text
+        padding-top 10px
+    &__line
+        grid-area line
+        background url(../images/stages__line_m.png)
+        width 2px
+        height 45px
+        margin 10px 0 10px 30px
