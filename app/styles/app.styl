@@ -1009,19 +1009,28 @@ ul.list
         font-weight 600
         margin-bottom 30px
         text-align center
+        @media (min-width 600px)
+            font-size 24px
     &__item
         display grid
         grid-template-areas 'image title' 'text text' 'line line'
-        //grid-template-rows
         grid-template-columns 75px calc(100% - 75px)
+        @media (min-width 600px)
+            grid-template-areas 'image title' 'image text' 'line line'
+            grid-template-columns 175px calc(100% - 175px)
+            .stages__line
+                margin 10px 0 10px 79px
+
+
         &:last-child>.stages__line
             display none
 
-        @media (min-width 700px)
+        @media (min-width 900px)
             &:last-child>.stages__line
                 display block
             &:first-child>.stages__line
                 display none
+           
             &:nth-child(odd)
                 grid-template-areas 'image title line' 'image text line'
                 grid-template-columns 175px calc(50% - 175px) 50%
@@ -1031,20 +1040,22 @@ ul.list
                     height 62px
                     margin 25px 0 0 20px
             &:nth-child(even)
-                grid-template-areas 'line image title' 'line image text'
+                grid-template-areas 'line image title' 'line image text' 
                 grid-template-columns 50% 175px calc(50% - 175px)
                 .stages__line
                     background url(../images/stages__line.png) no-repeat left
                     width 50%
                     height 62px
                     margin 25px 0 0 calc(50% - 20px)
+        
 
     &__image
         width 65px
         height 65px
         background #ddd
         grid-area image
-        @media (min-width 700px)
+        border-radius 100%
+        @media (min-width 600px)
             width 160px
             height 160px
     &__title
@@ -1055,15 +1066,73 @@ ul.list
         grid-area title
         display flex
         align-items center
+        @media (min-width 600px)
+            font-size 20px
     &__text
         font-size 13px
         line-height 1.4em
         color #262626
         grid-area text
         padding-top 10px
+        @media (min-width 600px)
+            font-size 14px
+            padding-top 0
     &__line
         grid-area line
         background url(../images/stages__line_m.png)
         width 2px
         height 45px
         margin 10px 0 10px 30px
+
+
+.deadlines
+    position relative
+    display table
+    margin 20px auto
+    &__title
+        font-size 20px
+        text-align center
+        line-height 1.3em
+        margin-bottom 10px
+        margin-top 20px
+    &__text
+        font-size 14px
+        line-height 1.4em
+    &__body 
+        border-radius 4px 4px 0 0 
+        //background linear-gradient( 45deg, rgb(213,213,213) 0%, rgb(201,199,199) 22%, rgb(214,227,254) 100%)
+        background linear-gradient( 45deg, rgba(213,213,213,.4) 0%, rgba(201,199,199,.4) 78%, rgba(214,227,254,.4) 100%)
+    
+        max-width 420px
+        padding 20px
+    &__number
+        font-size 13px
+        line-height 1em
+        font-weight 600
+        text-align center
+        span
+            font-size 16px
+            display block
+        margin auto
+    &__stage
+        width 44px
+        height 44px
+        // 70
+        //border 3px solid #aabfe7
+        background #fff
+        //border 6px solid #fff
+        box-shadow 0 0 0px 3px #aabfe7, 0 0 0px 9px #fff
+        border-radius 50%
+        display flex
+        align-items center
+        top -25px
+        left calc(50% - 22px)
+        position absolute
+    &__time
+        font-size 16px
+        color #fff
+        padding 10px
+        border-radius 0 0 4px 4px 
+        background #3059ab
+        text-align center
+    
