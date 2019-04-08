@@ -1,7 +1,6 @@
-$ = require('jquery')
+const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
-
 
 const $page = $('.page')
 const $nav = $('.nav')
@@ -10,6 +9,7 @@ const $offer = $('.offer')
 
 
 $(function(){ 
+
     if ( $(this).width() < 1160) {
         $offer.css({
             "padding-top": $header.height() + "px"

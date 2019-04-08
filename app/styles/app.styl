@@ -22,13 +22,15 @@
     top 0px
     width 100%
     background #fff
-    @media (min-width 1160px)
-        background #fff url(../images/header.jpg) center no-repeat
-    // background-size cover
     box-shadow 0px 2px 6.96px 1.04px rgba(18, 16, 11, 0.08)
     height auto
     z-index 100
     transition all .5s ease-in-out
+    z-index 300
+    @media (min-width 1160px)
+        background #fff url(../images/header.jpg) center no-repeat
+    // background-size cover
+    
     &_hidden
         transform translate(0, -100%)
     //padding 20px 0
@@ -463,6 +465,7 @@
     &_view
         &_action
             border 2px solid #a61713
+            background none
             .btn__text
                 color #a61713
             &:after
@@ -739,6 +742,9 @@ ul.list
     font-size 18px
     padding-top 0.52em
     margin-bottom 1em
+    // max-width 400px
+    // min-width 300px
+    // width 100%
     &_error
         .input__message
             color #f95555 !important
@@ -950,9 +956,7 @@ ul.list
             &:after
                 background-image url(../images/quote-after.svg)
                 right 0
-                bottom 0
-              
-
+                bottom 0             
     .bx-wrapper
         position relative
 
@@ -1046,8 +1050,7 @@ ul.list
                     background url(../images/stages__line.png) no-repeat left
                     width 50%
                     height 62px
-                    margin 25px 0 0 calc(50% - 20px)
-        
+                    margin 25px 0 0 calc(50% - 20px) 
 
     &__image
         width 65px
@@ -1086,15 +1089,66 @@ ul.list
 
 
 .deadlines
-    position relative
-    display table
-    margin 20px auto
+    margin-bottom 50px
+    &__header
+        color #3d3d3d
+        font-size 20px
+        font-weight 600
+        margin-bottom 50px
+        text-align center
+        @media (min-width 600px)
+            font-size 24px
+        @media (min-width 900px) 
+            margin-bottom 30px
+    &__wrapper
+        position relative
+        display table
+        margin 0 auto
+        @media (min-width 900px)
+            // width 100%
+            &:after
+                content ''
+                position absolute
+                background #aabfe7
+                height 100%
+                width 4px
+                border-radius 2px
+                top 0
+                left calc(50% - 2px)
+    &__item
+        position relative
+        margin-bottom 50px
+        &:last-child
+            margin-bottom 0px
+        @media (min-width 900px)
+            display grid
+            grid-template-columns 420px 50px 420px
+            align-items center
+            .deadlines__time
+                height 50px
+                line-height 50px
+                position relative
+            &:nth-child(odd)
+                grid-template-areas 'body stage time'
+                .deadlines__time
+                    padding 0 20px 0 40px
+                    left -10px
+            &:nth-child(even)
+                grid-template-areas 'time stage body'
+                .deadlines__time
+                    padding 0 40px 0 20px
+                    right -10px
+                .deadlines__time-wrapper
+                    display flex
+                    flex-direction row-reverse    
     &__title
         font-size 20px
         text-align center
         line-height 1.3em
         margin-bottom 10px
         margin-top 20px
+        @media (min-width 900px)
+            margin-top 0
     &__text
         font-size 14px
         line-height 1.4em
@@ -1102,21 +1156,29 @@ ul.list
         border-radius 4px 4px 0 0 
         //background linear-gradient( 45deg, rgb(213,213,213) 0%, rgb(201,199,199) 22%, rgb(214,227,254) 100%)
         background linear-gradient( 45deg, rgba(213,213,213,.4) 0%, rgba(201,199,199,.4) 78%, rgba(214,227,254,.4) 100%)
-    
+        grid-area body
         max-width 420px
         padding 20px
+        @media (min-width 900px)
+            border-radius 4px
     &__number
         font-size 13px
         line-height 1em
         font-weight 600
         text-align center
+        @media (min-width 900px)
+                font-size 14px
+                line-height 1.2em
         span
             font-size 16px
             display block
+            @media (min-width 900px)
+                font-size 24px
         margin auto
     &__stage
         width 44px
         height 44px
+        grid-area stage
         // 70
         //border 3px solid #aabfe7
         background #fff
@@ -1128,11 +1190,125 @@ ul.list
         top -25px
         left calc(50% - 22px)
         position absolute
+        z-index 10
+        @media (min-width 900px)
+            box-shadow 0 0 0px 4px #aabfe7, 0 0 0px 10px #fff
+            position relative
+            top auto
+            left auto
+            width 50px
+            height 50px
     &__time
         font-size 16px
         color #fff
-        padding 10px
+        padding 10px 20px
         border-radius 0 0 4px 4px 
         background #3059ab
         text-align center
+        @media (min-width 900px)
+            border-radius 4px
+            width max-content
     
+    .time-wrapper
+        grid-area time
+
+
+.articles
+    row-flex()
+    margin-bottom 30px
+    &__item
+        margin-bottom 40px
+        col()
+        size(12)
+        @media (min-width 600px)
+            size(6)
+        @media (min-width 880px)
+            size(4)
+    &__box
+        position relative
+        width 100%
+        border solid 1px solid #f4f4f4;
+        border-radius 4px
+        background #fff
+        box-shadow 0px 5px 20px 0px rgba(92, 92, 92, 0.1)
+        //width: 336px
+        transition all .4s ease 0s
+        top 0
+        &:hover
+            box-shadow 0px 5px 20px 0px rgba(92, 92, 92, 0.3)
+            top -10px
+    &__content
+        padding 0 20px 20px 20px
+        line-height 1.4em
+        color #000
+    &__date
+        font-size 14px
+        color #656565
+        margin-bottom 20px
+    &__title
+        font-size 16px
+        margin-bottom 20px
+    &__description
+        font-size 15px
+        font-weight 300
+        margin-bottom 20px
+    &__more
+        display flex
+        flex-direction row-reverse
+    &__img
+        width 100%
+        max-width 100%
+        height auto
+        border-radius 4px 4px 0 0 !important 
+        margin-bottom 10px
+
+.more
+    display inline-block
+    color #656565
+    font-size 13px
+    display flex
+    align-items center
+    cursor pointer
+    transition all .5s ease 0s
+    &__arrow
+        width 20px
+        height 1px 
+        background #bebec0
+        position relative
+        margin-left 8px
+        transition all .4s ease 0s, background .1s ease 0s
+        right 0px
+        &:before
+        &:after
+            content ''
+            position absolute
+            width 6px
+            height 1px
+            background #bebec0
+            right 0px
+        &:before
+            transform rotate(-45deg)
+            bottom -2px
+        &:after
+            transform rotate(45deg)
+            top -2px
+    &:hover
+        color #5786e6
+        .more__arrow
+            width 25px
+            right -5px
+            margin-left 3px
+            &
+            &:before
+            &:after
+                background #5786e6
+
+.form-box
+    // padding 20px
+    //background #ddd
+    &__wrapper
+        //display table
+        margin auto
+        border 1px solid #ddd
+        padding 40px
+        width 400px 
