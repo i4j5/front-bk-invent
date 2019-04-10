@@ -7,8 +7,32 @@ const $nav = $('.nav')
 const $header = $('.header') 
 const $offer = $('.offer') 
 
+$.fn.extend({
+openModal: function() {
+    $(this).addClass('modal_visible')
+    $('body').addClass('modal-open')
+
+    $(this).on('click', function(event){
+    if( $(event.target).is('.modal__close') || $(event.target).is('.modal__wrapper') ) {
+        event.preventDefault()
+        $(this).closeModal()
+    }
+    })
+}
+})
+
+$.fn.extend({
+closeModal: function() {
+    $(this).removeClass('modal_visible')
+    $('body').removeClass('modal-open')
+}
+})
 
 $(function(){ 
+
+    $('.offer__btn').click(function() {
+        $('#modal__order').openModal()
+    })
 
     if ( $(this).width() < 1160) {
         $offer.css({
@@ -122,11 +146,11 @@ $(function(){
     
         if ( $this.hasClass('hamburger_open') ) {
             $nav.removeClass('nav_active')
-            $page.removeClass('modal-open')
+            $page.removeClass('menu-open')
             $this.removeClass('hamburger_open')
         } else {
             $nav.addClass('nav_active')
-            $page.addClass('modal-open')
+            $page.addClass('menu-open')
             $this.addClass('hamburger_open')     
         }
         
@@ -308,6 +332,31 @@ $(function(){
 
 
     })
+
+    let $main = $('.main')
+    $('.menu__item').hover(function() {
+        setTimeout(() => { 
+            if ($(this).is(':hover')){
+                $main.addClass('main_blur')
+            }
+            
+        }, 15)
+    }, function(e) {
+        let isHover = false
+
+        $('.menu__item').each(function() {
+
+            if ($(this).is(':hover')) {
+                isHover = true
+            }
+        })
+
+        if (!isHover) {
+            $main.removeClass('main_blur')
+        }
+    })
+
+    //filter blur(5px)
 
 })
 

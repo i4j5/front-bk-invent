@@ -6,6 +6,11 @@
 
 @import '../blocks/**/*'
 
+
+.page
+    &__main
+        transition all 200ms 0ms
+
 .modal-open 
     overflow hidden
 
@@ -80,6 +85,7 @@
     background #2b519e
     z-index 120
     display none
+    position relative
     @media (min-width 1160px)
         display block
     .container
@@ -91,6 +97,7 @@
         // padding 8px 15px 8px 8px
         padding 8px 15px 8px 10px
         background #2b519e
+        transition .2s ease-out
         border-left 1px solid rgba(255, 255, 255, .08)
         &:last-child
             border-right 1px solid rgba(255, 255, 255, .08)
@@ -1311,4 +1318,155 @@ ul.list
         margin auto
         border 1px solid #ddd
         padding 40px
-        width 400px 
+        max-width 400px 
+
+.modal
+    position fixed
+    left 0
+    top 0
+    height 100%
+    width 100%
+    // opacity 0
+    visibility hidden
+    z-index 9999
+    transition visibility 0ms 300ms
+    &__wrapper
+        display flex
+        overflow auto
+        //white-space nowrap
+        position absolute
+        left 0
+        top 0
+        height 100%
+        width 100%
+        z-index 1000
+        transition opacity 300ms 0ms, visibility 0ms 300ms
+        opacity 0
+        visibility hidden
+        background-color rgba(185, 185, 185, 0.56)
+        
+    &::after
+        display inline-block
+        vertical-align middle
+        width 0
+        height 100%
+        content ''
+
+    &_visible
+        // opacity 1
+        visibility visible
+
+    &__dialog
+        display inline-table
+        vertical-align middle
+        z-index 100
+        margin auto
+        transition transform 300ms 0ms
+        transform translateY(-10px)
+        width calc(100% - 30px)
+        max-width 400px
+        // min-width 300px
+        position relative
+        background #fff
+        border-radius 4px
+        padding 40px 30px
+        height auto
+        box-shadow 0px 4px 10px 0px rgba(73, 73, 73, 0.4)
+        &
+            img
+                max-width 100%
+            
+    &_type_zoom
+        .modal__dialog
+            background #fff
+            width auto
+            max-width 90%
+            min-width 300px
+            padding 40px 20px 20px 20px
+            line-height 0
+            margin 20px auto
+                        
+    &__title
+        font-size 18px
+        line-height 1.7em
+        text-align center
+        color #010101
+        margin-bottom 20px
+        margin-top 10px
+
+    &__close
+        cursor pointer
+        position absolute
+        right -10px
+        top -15px
+        display block
+        border-radius 50%
+        box-shadow 0px 4px 10px 0px rgba(73, 73, 73, 0.4)
+        width 30px
+        height 30px
+        background #4274d6
+        &:hover
+            &:before
+                transform rotate(135deg)
+            &:after
+                transform rotate(-135deg)
+        &:before
+        &:after
+            transition transform 600ms 0ms
+            content ''
+            position absolute
+            width 15px
+            height 2px
+            background #fff
+            left calc(50% - 7px) 
+            top calc(50% - 1px)
+        &:before
+            transform rotate(-45deg)
+            //bottom -2px
+        &:after
+            transform rotate(45deg)
+            //top -2px
+
+        
+    &.modal_visible
+        .modal__wrapper
+            transition opacity 300ms 0ms, visibility 0ms 0ms
+            opacity 1
+            visibility visible
+        .modal__dialog
+            transition transform 300ms 0ms
+            transform translateY(0)
+
+.menu-open
+    overflow hidden
+
+.modal-open
+    overflow hidden
+    .page__main
+        filter blur(3px)
+        
+.main
+    // transition filter 10ms
+    // transition-delay 10ms
+    position relative
+    filter none
+    &:before
+        overflow auto
+        position absolute
+        content ''
+        left 0
+        top 0
+        height 100%
+        width 100%
+        z-index 1000
+        // transition opacity 10ms 1ms, visibility 0ms 0ms
+        opacity 0
+        visibility hidden
+        background-color rgba(185,185,185,0.4)
+    &_blur
+        filter blur(20px) 
+        &:before
+            // transition opacity 10ms 1ms, visibility 0ms 0ms
+            opacity 1
+            visibility visible
+    
