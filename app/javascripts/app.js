@@ -316,7 +316,6 @@ $(function(){
         let $this= $(this)    
         let idx = Math.round( $this.width() + $this.offset().left - offsetFirstItem)
         
-        console.log(1160 - $this.offset().left - offsetFirstItem)
 
         if ( idx > 1160 ) {
             
