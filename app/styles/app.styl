@@ -435,7 +435,7 @@
     // &__btn
     //     //width 100%
 .btn
-    padding 1em 1.2em
+    padding 0.75em 1.2em
     border-radius 4px
     position relative
     user-select none
@@ -465,7 +465,7 @@
     &:hover
         &:after
             height 450%
-            width 110%
+            width 200%
             opacity 1    
         .btn__text
             color #fff
@@ -747,10 +747,10 @@ ul.list
 
 .input
     font-size 18px
-    padding-top 0.52em
+    // padding-top 0.52em
     margin-bottom 1em
     // max-width 400px
-    // min-width 300px
+    min-width 290px
     // width 100%
     &_error
         .input__message
@@ -1316,14 +1316,32 @@ ul.list
     margin 50px 0 
     &__wrapper
         //display table
-        margin auto
-        box-shadow 0px 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 2px rgba(195, 195, 195, 0.09)
-        background #fdfdfd
-        padding 40px
-        max-width 400px
+        // box-shadow 0px 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 2px rgba(195, 195, 195, 0.09)
+        // background #fdfdfd
+        // padding 40px
+        //max-width 400px
+        border 1px solid #959595
         border-radius 4px
-        .btn
-            width 100% 
+        padding 50px 0 20px 0
+        position relative
+    &__items
+        display flex
+        justify-content center
+        // margin -10px
+    &__item
+        margin 10px
+        width auto
+        max-width 1
+    &__title
+        position absolute
+        top -10px
+        font-size 20px
+        line-height 1em
+        padding 0 10px
+        background #fff
+        left 40px
+        font-weight 600
+
 
 .modal
     position fixed

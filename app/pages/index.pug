@@ -396,30 +396,36 @@ block content
                     
                     .form-box
                         .form-box__wrapper
+                            .form-box__title Проектно-строительная компания
                             form.form.ajax
-                                .input
-                                    .input__box
-                                        .input__top-border
-                                        .input__title Имя
-                                        .input__icon
-                                        input(name='name').input__control
-                                    .input__message(data-default="Укажите точно как в паспорте")
-                                .input
-                                    .input__box
-                                        .input__top-border
-                                        .input__title Имя
-                                        .input__icon
-                                        input(name='phone' value="123").input__control
-                                        //- label(for="name") 123
-                                .input
-                                    .input__box
-                                        .input__top-border
-                                        .input__title Email
-                                        .input__icon
-                                        input(name='email').input__control
-                                    .input__message
-                                button(type="submit").btn.btn_view_action
-                                    .btn__text Записаться на консультацию
+                                .form-box__items
+                                    .form-box__item
+                                        .input
+                                            .input__box
+                                                .input__top-border
+                                                .input__title Имя
+                                                .input__icon
+                                                input(name='name').input__control
+                                            .input__message(data-default="Укажите точно как в паспорте")
+                                    .form-box__item
+                                        .input
+                                            .input__box
+                                                .input__top-border
+                                                .input__title Имя
+                                                .input__icon
+                                                input(name='phone' value="123").input__control
+                                                //- label(for="name") 123
+                                    .form-box__item                                        
+                                        .input
+                                            .input__box
+                                                .input__top-border
+                                                .input__title Email
+                                                .input__icon
+                                                input(name='email').input__control
+                                            .input__message
+                                    .form-box__item                                   
+                                        button(type="submit").btn.btn_view_action
+                                            .btn__text Записаться
 
             
             .footer
