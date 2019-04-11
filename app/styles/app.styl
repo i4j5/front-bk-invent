@@ -90,12 +90,17 @@
         display block
     .container
         display flex
+        padding 0
+        //lex-direction column
+        position relative
     &__item
         display inline-block
+        display flex
+        align-items center
         // margin 0 10px
-        position relative
-        // padding 8px 15px 8px 8px
-        padding 8px 15px 8px 10px
+        //position relative
+        //width 100%
+        padding 8px 15px 8px 10px  
         background #2b519e
         transition .2s ease-out
         border-left 1px solid rgba(255, 255, 255, .08)
@@ -104,6 +109,7 @@
         &:hover
             background #364261
             .menu__submenu
+            .menu__general-submenu
                 visibility visible
                 opacity 1
                 //top 100%
@@ -115,10 +121,10 @@
         cursor pointer
         color #fff
         font-size 14px
-        line-height 1.25em
-        font-weight 400
+        line-height 1.2em
+        font-weight 500
         display inline-block
-        text-align center
+        // text-align center
         // &_arrow
         //     position relative
         //     padding-right 15px
@@ -137,6 +143,7 @@
         z-index 100
         // display none
         display flex
+        flex-wrap wrap
         position absolute
         visibility hidden
         opacity 0
@@ -148,26 +155,86 @@
         background #fff
         border 1px solid  rgb(232, 232, 232)
         box-shadow 0px 10px 15px 0px rgba(0, 0, 0, 0.14);
-        padding 0 0 20px 0 
+        padding 0 0 20px 0
+        // &_big
+        //     width 1160px
+        //     // visibility visible
+        //     // opacity 1
+        //     padding 0
         .menu__item
+            box-sizing border-box
+            word-wrap break-word
+            // margin-left 5px
+            // margin-right 5px
+            max-width calc(1160px / 5)
             padding 0
             margin 0
             width max-content
             background #fff
+            display inline-block
             &:hover
                 background none
         .menu__link
             color #1f1f1f
-            font-size 14px
+            font-size 13px
             padding 8px 20px
             display block
             text-align left
             &:hover
                 background #cacaca
             &_title
-                font-size 16px
+                font-size 14px
                 font-weight 600
                 margin 20px 0 5px 0
+// .big-menu
+//     // display grid
+//     // grid-template-columns 270px auto 
+//     width 100%
+//     position relative
+//     &__menu
+//         border-right 1px solid #ddd
+//         width 270px
+//         height 100%
+//     // &__content
+//     //     
+//     &__items
+//         display flex
+//         flex-wrap wrap
+//         margin 0 5px 10px 5px
+//         // visibility hidden
+//         // position absolute
+//         position absolute
+//         top 0
+//         left 275px
+//         width 880px
+//     &__item
+//         box-sizing border-box
+//         word-wrap break-word
+//         margin-left 5px
+//         margin-right 5px
+//         width calc(25% - 10px)
+//         //padding 0
+//         //margin 0
+//         //width max-content
+//         background #fff
+//         //display inline-block
+//         &:hover
+//             background none
+//     &__link
+//         color #1f1f1f
+//         font-size 13px
+//         padding 4px
+//         display block
+//         text-align left
+//         margin-bottom 5px
+//         &:hover
+//             background #cacaca
+//         &_title
+//             font-size 14px
+//             font-weight 600
+//             margin 10px 0 5px 0
+//             &:hover
+//                 background none
             
 .top-menu
     width 100%

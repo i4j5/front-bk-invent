@@ -332,6 +332,19 @@ $(function(){
 
     })
 
+    // let heightBigMenu = 0
+    // $('.big-menu__items').each(function() {
+    //     let $this = $(this)
+    //     let height = $this.height()
+    //     if (height > heightBigMenu) {
+    //         heightBigMenu = height
+    //     }
+    // })
+
+    // $('.big-menu').css('min-height', heightBigMenu + 20 +  'px')
+
+
+
     let $main = $('.main')
     $('.menu__item').hover(function() {
         setTimeout(() => { 
