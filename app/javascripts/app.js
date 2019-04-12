@@ -329,6 +329,7 @@ $(function(){
 
         }
     })
+    
     $('.menu__item').hover(function() {
         let $sub = $(this).children('.menu__submenu_big')
         if ( $sub.is(':visible') ) {
@@ -366,13 +367,17 @@ $(function(){
 
 
     let $main = $('.main')
+    let $fixedBlur = $('.fixed_blur')
+    $fixedBlur.css('top', $main.offset().top + 'px')
+
     $('.menu__item').hover(function() {
-        setTimeout(() => { 
+        //setTimeout(() => { 
             if ($(this).is(':hover')){
                 $main.addClass('main_blur')
+                $fixedBlur.addClass('fixed_blur_visible')
             }
             
-        }, 15)
+        //}, 15)
     }, function(e) {
         let isHover = false
 
@@ -385,6 +390,7 @@ $(function(){
 
         if (!isHover) {
             $main.removeClass('main_blur')
+            $fixedBlur.removeClass('fixed_blur_visible')
         }
     })
 

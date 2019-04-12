@@ -86,6 +86,7 @@
     z-index 120
     display none
     position relative
+    box-shadow 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     @media (min-width 1160px)
         display block
     .container
@@ -98,7 +99,7 @@
         display flex
         align-items center
         // margin 0 10px
-        //position relative
+        position relative
         //width 100%
         padding 8px 15px 8px 10px  
         background #2b519e
@@ -111,17 +112,18 @@
             .menu__submenu
                 visibility visible
                 opacity 1
+                // transition opacity 100ms 0ms, visibility 0ms 1200ms
                 //top 100%
         img
             width auto
             float left
-            margin 3px 10px 0 5px 
+            margin-right 10px
     &__link
         cursor pointer
         color #fff
         font-size 14px
         line-height 1.2em
-        font-weight 500
+        font-weight 600
         display inline-block
         // text-align center
         // &_arrow
@@ -142,11 +144,12 @@
         z-index 100
         // display none
         display flex
-        flex-wrap wrap
+        // flex-wrap wrap
         position absolute
         visibility hidden
         opacity 0
-        transition .2s ease-out
+        // transition .2s ease-out
+        transition opacity .2s ease-out, visibility 0ms 0ms
         // width 1160px
         left 0
         top 100%
@@ -1432,13 +1435,17 @@ ul.list
         padding 50px 0 20px 0
         position relative
     &__items
-        display flex
-        justify-content center
-        // margin -10px
+        
+        padding 0 20px
+        @media (min-width 900px)
+            padding 0
+            display flex
+            justify-content center
+            flex-wrap wrap
     &__item
         margin 10px
         width auto
-        max-width 1
+        // max-width 1
     &__title
         position absolute
         top -10px
@@ -1580,23 +1587,30 @@ ul.list
     // transition-delay 10ms
     position relative
     filter none
-    &:before
-        overflow auto
-        position absolute
-        content ''
-        left 0
-        top 0
-        height 100%
-        width 100%
-        z-index 1000
-        // transition opacity 10ms 1ms, visibility 0ms 0ms
-        opacity 0
-        visibility hidden
-        background-color rgba(185,185,185,0.4)
+    transition filter 300ms 0ms
     &_blur
-        filter blur(20px) 
-        &:before
-            // transition opacity 10ms 1ms, visibility 0ms 0ms
-            opacity 1
-            visibility visible
-    
+        filter blur(3px)
+        //box-shadow inset 0 0 6px #ddd 
+        //&:before //.fixed_blur
+            //transition opacity 100ms 0ms, visibility 0ms 200ms
+            // opacity 1
+            // visibility visible
+
+.fixed_blur
+    overflow auto
+    position absolute
+    // content ''
+    height 100%
+    width 200%
+    z-index 1
+    left 50%
+    top 0
+    transform translateX(-50%)
+    transition opacity 300ms 0ms, visibility 0ms 300ms
+    opacity 0
+    visibility hidden
+    background-color rgba(185,185,185,0.4)
+    &_visible
+        opacity 1
+        visibility visible
+        transition opacity 300ms 0ms, visibility 0ms 0ms
