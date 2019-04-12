@@ -328,20 +328,40 @@ $(function(){
             }
 
         }
+    })
+    $('.menu__item').hover(function() {
+        let $sub = $(this).children('.menu__submenu_big')
+        if ( $sub.is(':visible') ) {
+            $sub.children('.big-menu').addClass('big-menu_active')
+        }
+    }, function(e) {
+        // console.log(this)
+        $(this).children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
+    })
+    
 
-
+    let heightBigMenu = 0
+    $('.big-menu__items').each(function() {
+        let $this = $(this)
+        let height = $this.height()
+        if (height > heightBigMenu) {
+            heightBigMenu = height
+        }
     })
 
-    // let heightBigMenu = 0
-    // $('.big-menu__items').each(function() {
-    //     let $this = $(this)
-    //     let height = $this.height()
-    //     if (height > heightBigMenu) {
-    //         heightBigMenu = height
-    //     }
-    // })
 
-    // $('.big-menu').css('min-height', heightBigMenu + 20 +  'px')
+    let $menu__MMs = $('.big-menu__mm')
+
+    $menu__MMs.first().addClass('big-menu__mm_active')
+    $menu__MMs.first().children('.arrow').removeClass('arrow_right').addClass('arrow_left')
+
+    $menu__MMs.hover(function() {
+        $menu__MMs.removeClass('big-menu__mm_active')
+        $menu__MMs.children('.arrow').removeClass('arrow_left').addClass('arrow_right')
+        $(this).addClass('big-menu__mm_active').children('.arrow').removeClass('arrow_right').addClass('arrow_left')
+    })
+
+    $('.big-menu').css('min-height', heightBigMenu + 20 +  'px')
 
 
 
