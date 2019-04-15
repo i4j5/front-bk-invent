@@ -161,12 +161,19 @@ $(function(){
     // })
 
     $('.mobile-menu__link_arrow').click(function() {
-        let $menu = $(this).parent()
+        let $this = $(this)
+        let $arrow = $this.children('.arrow')
+        let $menu = $this.parent()
         let $submenu = $menu.children('.mobile-menu__submenu')
+
         if ( $menu.hasClass('mobile-menu__item_active') ) {
             $submenu.slideUp(450)
+            $arrow.removeClass('arrow_top').addClass('arrow_bottom')
+            
         } else {
-            $submenu.slideDown(450)        
+            $submenu.slideDown(450) 
+            $arrow.removeClass('arrow_bottom').addClass('arrow_top')
+
         }
         
         $menu.toggleClass('mobile-menu__item_active')
@@ -174,12 +181,17 @@ $(function(){
 
 
     $('.mobile-submenu__link_arrow').click(function() {
-        let $menu = $(this).parent()
+        let $this = $(this)
+        let $arrow = $this.children('.arrow')
+        let $menu = $this.parent()
         let $submenu = $menu.children('.mobile-submenu__submenu')
+
         if ( $menu.hasClass('mobile-submenu__item_active') ) {
             $submenu.slideUp(450)
+            $arrow.removeClass('arrow_top').addClass('arrow_bottom')
         } else {
-            $submenu.slideDown(450)        
+            $submenu.slideDown(450)
+            $arrow.removeClass('arrow_bottom').addClass('arrow_top')        
         }
         
         $menu.toggleClass('mobile-submenu__item_active')
@@ -289,8 +301,8 @@ $(function(){
             },
             messages: {
                 email: {
-                    email: "Вы допустили ошибку. Это не похоже E-mail",
-                    required: "Пожалуйста, введите Ваш адрес электронной почты"
+                    email: "Вы допустили ошибку. Это не похоже эл. почту",
+                    required: "Пожалуйста, введите Ваш адрес эл. почты"
                 },
                 name: {
                     required: "Напишите как к Вам обращаться"
@@ -368,18 +380,21 @@ $(function(){
 
     let $main = $('.main')
     let $fixedBlur = $('.fixed_blur')
-    $fixedBlur.css('top', $main.offset().top + 'px')
+    //$fixedBlur.css('top', $main.offset().top + 'px')
 
     $('.menu__item').hover(function() {
         //setTimeout(() => { 
-            if ($(this).is(':hover')){
-                $main.addClass('main_blur')
-                $fixedBlur.addClass('fixed_blur_visible')
-            }
+        let $this = $(this)
+        if ($this.is(':hover')){
+            $main.addClass('main_blur')
+            $fixedBlur.addClass('fixed_blur_visible')
+            $this.children('.arrow_theme_light').removeClass('arrow_bottom').addClass('arrow_top')
+        }
             
         //}, 15)
     }, function(e) {
         let isHover = false
+        $('.menu__item>.arrow_theme_light').removeClass('arrow_top').addClass('arrow_bottom')
 
         $('.menu__item').each(function() {
 
@@ -394,8 +409,19 @@ $(function(){
         }
     })
 
-    //filter blur(5px)
-
+    
+    (function($) {
+        let $items = $('.top-menu__items')
+        let $search = $('.top-menu__search')
+        $('.top-menu__search-btn').click(function() {
+            $items.removeClass('top-menu__items_visible')
+            $search.addClass('top-menu__search_visible')
+        })
+        $('.top-menu__close').click(function() {
+            $items.addClass('top-menu__items_visible')
+            $search.removeClass('top-menu__search_visible')
+        })
+    }($))
 })
 
 

@@ -25,6 +25,7 @@
 .header
     position fixed
     top 0px
+    left 0px
     width 100%
     background #fff
     box-shadow 0px 2px 6.96px 1.04px rgba(18, 16, 11, 0.08)
@@ -94,6 +95,8 @@
         padding 0
         //lex-direction column
         position relative
+    .arrow_theme_light
+        margin-left 8px
     &__item
         display inline-block
         display flex
@@ -101,7 +104,7 @@
         // margin 0 10px
         position relative
         //width 100%
-        padding 8px 15px 8px 10px  
+        padding 8px 10px 8px 10px  
         background #2b519e
         transition .2s ease-out
         border-left 1px solid rgba(255, 255, 255, .08)
@@ -278,7 +281,6 @@
 //                     opacity 1
 
 
-
 .top-menu
     width 100%
     height 100%
@@ -337,9 +339,75 @@
                 background-repeat no-repeat
                 right 0
                 top calc(50% - 3px)
-    &__search
+    &__search-btn
         margin-top 6px
         cursor pointer
+        transition all 100ms 0ms
+        &:hover
+            transform scale(1.15) rotate(20deg)
+    &__search
+        position absolute
+        opacity 0
+        width 400px
+        visibility hidden
+        opacity 0
+        transition transform 300ms 0ms, opacity 300ms 0ms, visibility 0ms 300ms
+        top 50%
+        transform translateY(50%)
+        &_visible
+            transform translateY(-50%)
+            opacity 1
+            visibility visible
+            transition transform 300ms 0ms, opacity 300ms 0ms, visibility 0ms 0ms
+    &__close
+        z-index 10
+        cursor pointer
+        position absolute
+        right 5px
+        top 50%
+        transform translateY(-50%)
+        opacity .6
+        display block
+        border-radius 50%
+        // box-shadow 0px 4px 10px 0px rgba(73, 73, 73, 0.4)
+        width 30px
+        height 30px
+        //background #4274d6
+        &:hover
+            &:before
+            &:after
+                transition transform 600ms 0ms
+            &:before
+                transform rotate(135deg)
+            &:after
+                transform rotate(-135deg)
+        &:before
+        &:after
+            transition transform 0ms 0ms
+            content ''
+            position absolute
+            width 14px
+            height 2px
+            background #4d4d4d
+            left calc(50% - 7px) 
+            top calc(50% - 1px)
+        &:before
+            transform rotate(-45deg)
+            //bottom -2px
+        &:after
+            transform rotate(45deg)
+    
+    &__items
+        position relative
+        top -20px
+        visibility hidden
+        opacity 0
+        transition top 300ms 0ms, opacity 300ms 0ms, visibility 0ms 300ms
+        &_visible
+            top 0px
+            opacity 1
+            visibility visible
+            transition top 300ms 0ms, opacity 300ms 0ms, visibility 0ms 0ms
     &__submenu
         &:before
             content ''
@@ -545,7 +613,8 @@
     // &__btn
     //     //width 100%
 .btn
-    padding 0.75em 1.2em
+    font-size 16px
+    padding 1em 1.2em
     border-radius 4px
     position relative
     user-select none
@@ -553,7 +622,7 @@
     cursor pointer
     display inline-block
     &__text
-        font-size 16px
+        font-size 1em
         line-height 1.2em
         position relative
         z-index 10
@@ -582,14 +651,14 @@
     &_view
         &_action
             border 2px solid #a61713
-            background none
+            background #a61713
             .btn__text
-                color #a61713
+                color #fff
             &:after
-                background #a61713
+                background #fff
             &:hover
                 .btn__text
-                    color #fff            
+                    color #a61713            
         &_pseudo
             border 2px solid #4273d6
             background none
@@ -716,13 +785,30 @@ ul.list
 .footer
     background #e7e7e7
     padding 20px 0
+    // &__icon
+    //     margin-right 10px
 
 .copyright
     background #545358
-    color #ffffff
-    font-size 13px
-    line-height 1.3em
     padding 15px 0
+    &__icons
+        display flex
+        align-items center
+        margin 0px 10px 5px 0px
+        // height 100%
+    &__text
+        color #ffffff
+        font-size 13px
+        line-height 1.3em
+        display inline-block
+        
+    img
+        margin-right 10px
+    @media (min-width 500px)
+        .container
+            display flex
+            //align-items center
+
 
 .nav
     transition all .8s ease 0s
@@ -751,6 +837,8 @@ ul.list
         line-height 1.5em
 
 .mobile-menu
+    .arrow
+        margin-left 5px
     //padding 20px 0
     &__item
         border-top 1px solid #d5d5d5
@@ -768,6 +856,8 @@ ul.list
                     transform rotate(180deg)!important
         &:last-child
             border-bottom 1px solid #d5d5d5
+    &__search
+        padding 20px
     &__submenu
         display none
         opacity 0
@@ -780,19 +870,23 @@ ul.list
         &_arrow
             display flex
             position relative
-            &:after
-                transition all .5s ease 0s
-                content ""
-                position absolute
-                width 11px
-                height 7px
-                background url(../images/link-arrow.svg)
-                background-size contain
-                background-repeat no-repeat
-                right 20px
-                top calc(50% - 3px)
+            align-items center
+            justify-content space-between
+            // &:after
+            //     transition all .5s ease 0s
+            //     content ""
+            //     position absolute
+            //     width 11px
+            //     height 7px
+            //     background url(../images/link-arrow.svg)
+            //     background-size contain
+            //     background-repeat no-repeat
+            //     right 20px
+            //     top calc(50% - 3px)
     
 .mobile-submenu
+    .arrow
+        margin-left 5px
     & &
         margin-bottom -10px
         .mobile-submenu__item
@@ -820,9 +914,9 @@ ul.list
             .mobile-submenu__submenu
                 display block
                 opacity 1
-            .mobile-submenu__link
-                &:after
-                    transform rotate(180deg)!important
+            // .mobile-submenu__link
+            //     &:after
+            //         transform rotate(180deg)!important
         &:last-child
             padding-bottom 0
     &__submenu
@@ -833,35 +927,70 @@ ul.list
         font-size 14px
         color #171717
         padding 0 20px
+        display inline-block
         &_arrow
             display flex
             position relative
-            &:after
-                transition all .5s ease 0s
-                content ""
-                position absolute
-                width 11px
-                height 7px
-                background url(../images/link-arrow.svg)
-                background-size contain
-                background-repeat no-repeat
-                right 20px
-                top calc(50% - 3px)
+            align-items center
+            justify-content space-between
+            // &:after
+            //     transition all .5s ease 0s
+            //     content ""
+            //     position absolute
+            //     width 11px
+            //     height 7px
+            //     background url(../images/link-arrow.svg)
+            //     background-size contain
+            //     background-repeat no-repeat
+            //     right 20px
+            //     top calc(50% - 3px)
 
-.icon-close
-    width 20px
-    height 20px
-    background url(../images/icon-close.svg)
-    background-size contain
-    background-repeat no-repeat
+// .icon-close
+//     width 20px
+//     height 20px
+//     background url(../images/icon-close.svg)
+//     background-size contain
+//     background-repeat no-repeat
+
+.search
+    font-size 14px
+    // max-width 300px
+    &__box
+        padding 0.711em 2.2em 0.711em 2.5em
+        border 1px solid #d5daef
+        border-radius 50px
+        width 100%
+        position relative
+        transition all .2s ease 0s
+        background #fff 
+    &__icon
+        position absolute
+        top 50%
+        left 12px
+        transform translateY(-50%)
+        opacity .6
+        width 15px
+        height 14px
+        background url(../images/search.svg) center no-repeat 
+    &__control
+        width 100%
+        font-size 1.1em
+        line-height 1.1em
+        color #787878
+        outline none
+        position relative
+        z-index 100
+        background none
+        +placeholder()
+            color #787878
 
 .input
     font-size 18px
     // padding-top 0.52em
     margin-bottom 1em
     // max-width 400px
-    min-width 290px
-    // width 100%
+    min-width 280px
+    width 100%
     &_error
         .input__message
             color #f95555 !important
@@ -968,6 +1097,11 @@ ul.list
         width 8px
         height 1px
         background #2b519e
+    &_theme_
+        &light
+            &:before
+            &:after
+                background #fff
     &_top
         &:before
             transform rotate(-45deg)
@@ -997,11 +1131,11 @@ ul.list
             left 2px
     &_bottom
         &:before
-            transform rotate(45deg)
+            transform rotate(-135deg)
             right 4px
             top 6px
         &:after
-            transform rotate(-45deg)
+            transform rotate(135deg)
             left 5px
             top 6px
 
@@ -1420,41 +1554,57 @@ ul.list
             &:after
                 background #5786e6
 
-.form-box
+.form-box //600px
     // padding 20px
     //background #ddd
-    margin 50px 0 
+    margin 50px 0
+    @media (min-width 360px)
+        padding 0  10px 
     &__wrapper
         //display table
         // box-shadow 0px 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 2px rgba(195, 195, 195, 0.09)
         // background #fdfdfd
         // padding 40px
-        //max-width 400px
-        border 1px solid #959595
-        border-radius 4px
-        padding 50px 0 20px 0
-        position relative
+        width 100%
+        // @media (min-width 600px)
+        max-width 600px
+        margin auto
+        //box-shadow 0 3px 20px 0px rgba(0, 0, 0, 0.1), 0 3px 20px 0px rgba(0, 0, 0, 0.1)
+        // border-radius 20px
+        //overflow hidden
+        // @media (min-width 500px)
+        //     border 1px solid #959595
+        //     border-radius 4px
+        //     padding 50px 15px 20px 15px
+        //     position relative
     &__items
-        
-        padding 0 20px
-        @media (min-width 900px)
-            padding 0
-            display flex
-            justify-content center
-            flex-wrap wrap
+        padding 40px 20px 20px 20px 
+        border-bottom 1px solid #ddd
+        @media (min-width 360px)
+            border 1px solid #ddd
+            border-top none
+            border-radius 0 0 8px 8px 
+        @media (min-width 600px)
+            padding 40px 80px
     &__item
-        margin 10px
+        margin-bottom 30px
         width auto
         // max-width 1
+        .btn
+            margin auto
+            display block
     &__title
-        position absolute
-        top -10px
-        font-size 20px
+        //top -10px
+        font-size 22px
         line-height 1em
-        padding 0 10px
-        background #fff
-        left 40px
-        font-weight 600
+        padding 20px 10px
+        text-align center
+        background #11244d
+        //left 40px
+        color #fff
+        font-weight 300
+        border-radius 8px 8px 0 0 
+
 
 
 .modal
@@ -1544,12 +1694,15 @@ ul.list
         background #4274d6
         &:hover
             &:before
+            &:after
+                transition transform 600ms 0ms
+            &:before
                 transform rotate(135deg)
             &:after
                 transform rotate(-135deg)
         &:before
         &:after
-            transition transform 600ms 0ms
+            transition transform 0ms 0ms
             content ''
             position absolute
             width 15px
@@ -1563,8 +1716,6 @@ ul.list
         &:after
             transform rotate(45deg)
             //top -2px
-
-        
     &.modal_visible
         .modal__wrapper
             transition opacity 300ms 0ms, visibility 0ms 0ms
@@ -1598,12 +1749,12 @@ ul.list
 
 .fixed_blur
     overflow auto
-    position absolute
+    position fixed
     // content ''
     height 100%
     width 200%
     z-index 1
-    left 50%
+    //left 50%
     top 0
     transform translateX(-50%)
     transition opacity 300ms 0ms, visibility 0ms 300ms

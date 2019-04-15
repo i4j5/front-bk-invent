@@ -11,38 +11,45 @@ block content
                             +e.plank
                             +e.plank
                             +e.plank
-                        .logo
-                            .logo__image
-                            .logo__description Проектно-строительная<br>компания
+                        +b.logo
+                            +e.image
+                            +e.description Проектно-строительная<br>компания
                     .header__center
                         +b.top-menu
-                            +e.wrapper
-                            +e.item
-                                +e({tag: 'a'}).link О нас
-                                +e.submenu
-                                    +e.item
-                                        +e({tag: 'a'}).link 100 слов о БК Инвент
-                                    +e.item
-                                        +e({tag: 'a'}).link Наши лицензии
-                                    +e.item
-                                        +e({tag: 'a'}).link Как мы работаем
-                                    +e.item
-                                        +e({tag: 'a'}).link Наша дружная команда
-                                    +e.item
-                                        +e({tag: 'a'}).link Мнение со стороны 
-                                    +e.item
-                                        +e({tag: 'a'}).link Как попасть в команду
-                            +e.item
-                                +e({tag: 'a'}).link Акции
-                            +e.item
-                                +e({tag: 'a'}).link Полезные статьи
-                            +e.item
-                                +e({tag: 'a'}).link Партнерам
-                            +e.item
-                                +e({tag: 'a'}).link Контакты
-                            +e.item
-                                //+e({tag: 'a'}).link
-                                img(src="images/search.svg").top-menu__search
+                            //+e.wrapper
+                            +e.search
+                                +e.close
+                                +b.search
+                                    +e.box
+                                        +e.icon
+                                        input(name='search' placeholder="Поиск на сайте").input__control
+                            +e.items.top-menu__items_visible
+                                +e.item
+                                    +e({tag: 'a'}).link О нас
+                                    +e.submenu
+                                        +e.item
+                                            +e({tag: 'a'}).link 100 слов о БК Инвент
+                                        +e.item
+                                            +e({tag: 'a'}).link Наши лицензии
+                                        +e.item
+                                            +e({tag: 'a'}).link Как мы работаем
+                                        +e.item
+                                            +e({tag: 'a'}).link Наша дружная команда
+                                        +e.item
+                                            +e({tag: 'a'}).link Мнение со стороны 
+                                        +e.item
+                                            +e({tag: 'a'}).link Как попасть в команду
+                                +e.item
+                                    +e({tag: 'a'}).link Акции
+                                +e.item
+                                    +e({tag: 'a'}).link Полезные статьи
+                                +e.item
+                                    +e({tag: 'a'}).link Партнерам
+                                +e.item
+                                    +e({tag: 'a'}).link Контакты
+                                +e.item
+                                    //+e({tag: 'a'}).link
+                                    img(src="images/search.svg").top-menu__search-btn
                     .header__right
                         +b.phone
                             +e.description Консультация по телефону
@@ -57,8 +64,9 @@ block content
         +b.menu
             .container
                 +e.item
-                    img(src="images/architect.png" height="25px")
+                    img(src="images/architect.png" height="23px")
                     +e({tag: 'a'}).link Архитектурное проектирование
+                    .arrow.arrow_bottom.arrow_theme_light
                     +e.submenu
                         +e.item
                             +e.title Индивидуальное проектирование
@@ -88,6 +96,7 @@ block content
                 +e.item
                     img(src="images/geodesy.svg" height="26px")
                     +e({tag: 'a'}).link Инженерные изыскания
+                    .arrow.arrow_bottom.arrow_theme_light
                     +e.submenu
                         +e.item
                             +e.title Инженерно-геодезические изыскания
@@ -102,8 +111,9 @@ block content
                             +e({tag: 'a'}).link Геологическое заключение
                 
                 +e.item
-                    img(src="images/land-survey.png" height="21px")
+                    img(src="images/land-survey.png" height="20px")
                     +e({tag: 'a'}).link Межевание и кадастр
+                    .arrow.arrow_bottom.arrow_theme_light
                     +e.submenu
                         +e.item
                             +e.title Межевание
@@ -129,8 +139,9 @@ block content
                             +e({tag: 'a'}).link Узаконивание объекта строительства (в судебном порядке)
 
                 +e.item
-                    img(src="images/engineer.png" height="24px")
+                    img(src="images/engineer.png" height="22px")
                     +e({tag: 'a'}).link Инженерные сети
+                    .arrow.arrow_bottom.arrow_theme_light
                     +e.submenu.menu__submenu_big
                         +b.big-menu
                             +e.menu
@@ -289,8 +300,9 @@ block content
                             +e.content
                                                  
                 +e.item
-                    img(src="images/gnb.png" height="26px")
+                    img(src="images/gnb.png" height="22px")
                     +e({tag: 'a'}).link Бестраншейные технологии
+                    .arrow.arrow_bottom.arrow_theme_light
                     +e.submenu
                         +e.item
                             +e.title ГНБ
@@ -326,22 +338,107 @@ block content
             //-     .nav__back
             //-     .icon-close
             +b.mobile-menu
+                +e.search
+                    +b.search
+                        +e.box
+                            +e.icon
+                            input(name='search' placeholder="Поиск на сайте").input__control
                 +e.item
-                    +e({tag: 'a'}).link.mobile-menu__link_arrow О нас
+                    +e({tag: 'a'}).link.mobile-menu__link_arrow
+                        |Архитектурное проектирование
+                        .arrow.arrow_bottom
                     +b.mobile-submenu.mobile-menu__submenu
                         +e.item
-                            +e({tag: 'a'}).link.mobile-submenu__link_arrow Акции
+                            +e({tag: 'a'}).link.mobile-submenu__link_arrow
+                                |Индивидуальное проектирование
+                                .arrow.arrow_bottom
                             +b.mobile-submenu.mobile-submenu__submenu
                                 +e.item
-                                    +e({tag: 'a'}).link Акции   
+                                    +e({tag: 'a'}).link Поиск земельного участка
                                 +e.item
-                                    +e({tag: 'a'}).link Акции
+                                    +e({tag: 'a'}).link Проект развития земельного участка
                                 +e.item
-                                    +e({tag: 'a'}).link Акции   
+                                    +e({tag: 'a'}).link СПОЗУ (схема планировочной организации зем.участка)
+                                +e.item
+                                    +e({tag: 'a'}).link Эскизное проектирование
+                                +e.item
+                                    +e({tag: 'a'}).link Генеральный план
+                                +e.item
+                                    +e({tag: 'a'}).link Архитектурные решения
+                                +e.item
+                                    +e({tag: 'a'}).link Конструктивные решения
+                                +e.item
+                                    +e({tag: 'a'}).link Инженерные системы
+                                +e.item
+                                    +e({tag: 'a'}).link Пожарная безопасность
+                                +e.item
+                                    +e({tag: 'a'}).link Охрана окружающей среды
+                                +e.item
+                                    +e({tag: 'a'}).link Проект организации строительства
+                                +e.item
+                                    +e({tag: 'a'}).link Проект реконструкции
+                                +e.item
+                                    +e({tag: 'a'}).link Комплексное проектирование дома 
+                +e.item
+                    +e({tag: 'a'}).link.mobile-menu__link_arrow
+                        |Инженерные сети
+                        .arrow.arrow_bottom
+                    +b.mobile-submenu.mobile-menu__submenu
                         +e.item
-                            +e({tag: 'a'}).link Акции
+                            +e({tag: 'a'}).link.mobile-submenu__link_arrow
+                                |Комплексное подключение инженерных сетей
+                                .arrow.arrow_bottom
+                            +b.mobile-submenu.mobile-submenu__submenu
+                                +e.item
+                                    +e({tag: 'a'}).link Водоснабжение
+                                +e.item
+                                    +e({tag: 'a'}).link Водоотведение
+                                +e.item
+                                    +e({tag: 'a'}).link Электричество
+                                +e.item
+                                    +e({tag: 'a'}).link Газификация
+                                +e.item
+                                    +e({tag: 'a'}).link Юридические услуги
                         +e.item
-                            +e({tag: 'a'}).link Акции        
+                            +e({tag: 'a'}).link.mobile-submenu__link_arrow
+                                |Расчеты
+                                .arrow.arrow_bottom
+                            +b.mobile-submenu.mobile-submenu__submenu
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по водоснабжению и водоотведению
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по газоснабжению
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по электричеству
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по ОВиК
+                +e.item
+                    +e({tag: 'a'}).link.mobile-menu__link_arrow
+                        |О нас
+                        .arrow.arrow_bottom
+                    +b.mobile-submenu.mobile-menu__submenu
+                        +e.item
+                            +e({tag: 'a'}).link 100 слов о БК Инвент
+                        +e.item
+                            +e({tag: 'a'}).link Наши лицензии
+                        +e.item
+                            +e({tag: 'a'}).link Как мы работаем
+                        +e.item
+                            +e({tag: 'a'}).link Наша дружная команда
+                        +e.item
+                            +e({tag: 'a'}).link Мнение со стороны
+                        +e.item
+                            +e({tag: 'a'}).link Как попасть в команду
+                +e.item
+                    +e({tag: 'a'}).link Акции
+                +e.item
+                    +e({tag: 'a'}).link Полезные статьи
+                +e.item
+                    +e({tag: 'a'}).link Партнерам
+                +e.item
+                    +e({tag: 'a'}).link Контакты
+                                          
+
         .main
             +b.offer
                 +e.wrapper.container
@@ -502,49 +599,55 @@ block content
                     img(src="http://farm8.static.flickr.com/7907/33535681578_4091be1523_b.jpg")
                     blockquote По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповт оримый колорит советских времен.
                     
-                    .form-box
-                        .form-box__wrapper
-                            .form-box__title Проектно-строительная компания
-                            form.form.ajax
-                                .form-box__items
-                                    .form-box__item
-                                        .input
-                                            .input__box
-                                                .input__top-border
-                                                .input__title Имя
-                                                .input__icon
-                                                input(name='name').input__control
-                                            .input__message(data-default="Укажите точно как в паспорте")
-                                    .form-box__item
-                                        .input
-                                            .input__box
-                                                .input__top-border
-                                                .input__title Имя
-                                                .input__icon
-                                                input(name='phone' value="123").input__control
-                                                //- label(for="name") 123
-                                    .form-box__item                                        
-                                        .input
-                                            .input__box
-                                                .input__top-border
-                                                .input__title Email
-                                                .input__icon
-                                                input(name='email').input__control
-                                            .input__message
-                                    .form-box__item                                   
-                                        button(type="submit").btn.btn_view_action
-                                            .btn__text Записаться
+                .form-box
+                    .form-box__wrapper
+                        .form-box__title Заполните контактную информацию
+                        form.form.ajax
+                            .form-box__items
+                                .form-box__item
+                                    .input
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Имя
+                                            .input__icon
+                                            input(name='name').input__control
+                                        .input__message(data-default="Укажите точно как в паспорте")
+                                .form-box__item
+                                    .input
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Имя
+                                            .input__icon
+                                            input(name='phone' value="123").input__control
+                                            //- label(for="name") 123
+                                .form-box__item                                        
+                                    .input
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Email
+                                            .input__icon
+                                            input(name='email').input__control
+                                        .input__message
+                                .form-box__item                                   
+                                    button(type="submit").btn.btn_view_action
+                                        .btn__text Записаться на консультацию
 
             
             .footer
                 .container 123
             .copyright
-                .container 
-                    |copyright © 2019 bY BK Invent LLC.
-                    br 
-                    |Все права защищены. 
-                    br
-                    |Запрещено любое копирование материалов ресурса без письменного согласия владельца — ООО "БК Инвент".
+                .container
+                    .copyright__icons
+                        a(href="")
+                            img(src="images/footer__vk.png") 
+                        a(href="")
+                            img(src="images/footer__ok.png") 
+                        a(href="")
+                            img(src="images/footer__instagram.png") 
+                    .copyright__text
+                        |copyright © 2019 By BK Invent LLC. Все права защищены. 
+                        br
+                        |Запрещено любое копирование материалов ресурса без письменного согласия владельца — ООО "БК Инвент".
         
     //- ////////////////////
 
