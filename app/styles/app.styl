@@ -98,7 +98,7 @@
     .arrow_theme_light
         margin-left 8px
     &__item
-        display inline-block
+        // display inline-block
         display flex
         align-items center
         // margin 0 10px
@@ -1051,7 +1051,7 @@ ul.list
         &_focus
             .input__title
                 top - 0.5em
-                left 15px
+                left 1.11em !important
                 font-size 0.778em
     &__message
         font-size 0.69em
@@ -1078,12 +1078,32 @@ ul.list
         position absolute
         top calc(50% - 0.5em)
         left 0.833em
-    &__icon
-        &_type
-            &_name
-            &_email
-            &_phone
-                display inline
+    // &__icon
+    //     width 20px
+    //     height 20px 
+    //     background #ddd
+    &_type
+        &_name
+        &_email
+        &_phone
+            .input__box
+                padding-left 2.2em
+                background-position left 0.556em center 
+                background-repeat no-repeat
+                background-size 1em 
+            .input__title
+                left 2em
+            // &__control
+            // &__title
+        &_name
+            .input__box
+                background-image url(../images/input_type_name.png)
+        &_phone
+            .input__box
+                background-image url(../images/input_type_phone.png)
+        &_email
+            .input__box
+                background-image url(../images/input_type_email.png)
 
 .arrow
     position relative
@@ -1560,6 +1580,11 @@ ul.list
     margin 50px 0
     @media (min-width 360px)
         padding 0  10px 
+    &__description
+        font-size 14px
+        line-height 1.3em
+        color #555
+        margin-bottom 30px
     &__wrapper
         //display table
         // box-shadow 0px 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 2px rgba(195, 195, 195, 0.09)
@@ -1578,14 +1603,14 @@ ul.list
         //     padding 50px 15px 20px 15px
         //     position relative
     &__items
-        padding 40px 20px 20px 20px 
+        padding 20px 
         border-bottom 1px solid #ddd
         @media (min-width 360px)
             border 1px solid #ddd
             border-top none
             border-radius 0 0 8px 8px 
         @media (min-width 600px)
-            padding 40px 80px
+            padding 20px 80px 40px 80px
     &__item
         margin-bottom 30px
         width auto

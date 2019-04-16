@@ -1,11 +1,15 @@
 const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
+// require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 
 const $page = $('.page')
 const $nav = $('.nav')
 const $header = $('.header') 
 const $offer = $('.offer') 
+
+
+
 
 $.fn.extend({
 openModal: function() {
@@ -28,7 +32,10 @@ closeModal: function() {
 }
 })
 
+
 $(function(){ 
+
+    // $('.input').mask('+7(000)000-00-00')
 
     $('.offer__btn').click(function() {
         $('#modal__order').openModal()
@@ -198,6 +205,8 @@ $(function(){
     })
 
 
+    // $(".input[name='phone']").mask("(999) 999-9999")
+
     $('.input').each(function() {
 
         let $input = $(this)
@@ -244,16 +253,19 @@ $(function(){
         $box.removeClass('input__box_focus')
     })
 
+    
     $('.ajax').each(function() {
-
-
-        // .trim()
 
         $(this).validate({
             unhighlight: function (element, errorClass) {
                 let $control = $(element)
-                let $input = $control.parent().parent().addClass('input_ok').removeClass('input_error')
+
+                let $input = $control.parent().parent().removeClass('input_error')
                 let $message = $input.children('.input__message')
+                
+                if ($control.val() != '') {
+                    $input.addClass('input_ok')
+                }
 
                 if ($message.data('default')) {
                     $message.text($message.data('default'))
@@ -296,7 +308,7 @@ $(function(){
                 },
                 'email': {
                     email: true,
-                    required: true
+                    //required: true
                 }
             },
             messages: {
@@ -342,15 +354,19 @@ $(function(){
         }
     })
     
-    $('.menu__item').hover(function() {
-        let $sub = $(this).children('.menu__submenu_big')
-        if ( $sub.is(':visible') ) {
-            $sub.children('.big-menu').addClass('big-menu_active')
-        }
-    }, function(e) {
-        // console.log(this)
-        $(this).children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
-    })
+
+//     mouseover()
+// mouseenter()
+
+    // $('.menu__item').mouseover(function() {
+    //     let $sub = $(this).children('.menu__submenu_big')
+    //     if ( $sub.is(':visible') ) {
+    //         $sub.children('.big-menu').addClass('big-menu_active')
+    //     }
+    // }).mouseenter(function(e) {
+    //     // console.log(this)
+    //     $(this).children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
+    // })
     
 
     let heightBigMenu = 0
@@ -385,6 +401,10 @@ $(function(){
     $('.menu__item').hover(function() {
         //setTimeout(() => { 
         let $this = $(this)
+        let $sub = $this.children('.menu__submenu_big')
+        if ( $sub.is(':visible') ) {
+            $sub.children('.big-menu').addClass('big-menu_active')
+        }
         if ($this.is(':hover')){
             $main.addClass('main_blur')
             $fixedBlur.addClass('fixed_blur_visible')
@@ -393,7 +413,9 @@ $(function(){
             
         //}, 15)
     }, function(e) {
+        let $this = $(this)
         let isHover = false
+
         $('.menu__item>.arrow_theme_light').removeClass('arrow_top').addClass('arrow_bottom')
 
         $('.menu__item').each(function() {
@@ -407,7 +429,20 @@ $(function(){
             $main.removeClass('main_blur')
             $fixedBlur.removeClass('fixed_blur_visible')
         }
+
+        $this.children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
     })
+
+
+    // $('.menu__item').mouseover(function() {
+    //     let $sub = $(this).children('.menu__submenu_big')
+    //     if ( $sub.is(':visible') ) {
+    //         $sub.children('.big-menu').addClass('big-menu_active')
+    //     }
+    // }).mouseenter(function(e) {
+    //     // console.log(this)
+    //     $(this).children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
+    // })
 
     
     (function($) {

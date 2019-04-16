@@ -604,28 +604,29 @@ block content
                         .form-box__title Заполните контактную информацию
                         form.form.ajax
                             .form-box__items
+                                .form-box__description Не следует, однако забывать, что дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки позиций
                                 .form-box__item
-                                    .input
+                                    .input.input_type_name
                                         .input__box
                                             .input__top-border
                                             .input__title Имя
-                                            .input__icon
+                                            //- .input__icon
                                             input(name='name').input__control
                                         .input__message(data-default="Укажите точно как в паспорте")
                                 .form-box__item
-                                    .input
+                                    .input.input_type_phone
                                         .input__box
                                             .input__top-border
-                                            .input__title Имя
-                                            .input__icon
-                                            input(name='phone' value="123").input__control
+                                            .input__title Телефон
+                                            //- .input__icon
+                                            input(name='phone').input__control
                                             //- label(for="name") 123
                                 .form-box__item                                        
-                                    .input
+                                    .input.input_type_email
                                         .input__box
                                             .input__top-border
                                             .input__title Email
-                                            .input__icon
+                                            //- .input__icon
                                             input(name='email').input__control
                                         .input__message
                                 .form-box__item                                   
@@ -657,29 +658,29 @@ block content
                 .close.modal__close
                 .modal__title Получить бесплатную консультацию
                 form.form.ajax
-                    .input
+                    .input.input_type_name
                         .input__box
                             .input__top-border
                             .input__title Имя
-                            .input__icon
+                            //- .input__icon
                             input(name='name').input__control
                         .input__message(data-default="Укажите точно как в паспорте")
-                    .input
+                    .input.input_type_phone
                         .input__box
                             .input__top-border
-                            .input__title Имя
-                            .input__icon
-                            input(name='phone' value="123").input__control
-                            //- label(for="name") 123
-                    .input
+                            .input__title Телефон
+                            //- .input__icon
+                            input(name='phone').input__control
+                            //- label(for="name") 123                                       
+                    .input.input_type_email
                         .input__box
                             .input__top-border
                             .input__title Email
-                            .input__icon
+                            //- .input__icon
                             input(name='email').input__control
-                        .input__message
+                        .input__message                               
                     button(type="submit").btn.btn_view_action
-                        .btn__text Записаться на консультацию
+                                .btn__text Записаться на консультацию
     .fixed_blur
     +scripts(['common.js', 'app.js'])
 
