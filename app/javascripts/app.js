@@ -260,17 +260,23 @@ $(function(){
             unhighlight: function (element, errorClass) {
                 let $control = $(element)
 
-                let $input = $control.parent().parent().removeClass('input_error')
-                let $message = $input.children('.input__message')
-                
-                if ($control.val() != '') {
-                    $input.addClass('input_ok')
-                }
-
-                if ($message.data('default')) {
-                    $message.text($message.data('default'))
+                if ($control.hasClass('checkbox__control')) {
+                    console.log($control.parent().parent().removeClass('checkbox_error'))  
+                } else if ($control.hasClass('radio__control')) {
+                    $control.parent().parent().removeClass('radio_error')
                 } else {
-                    $message.text(' ')
+                    let $input = $control.parent().parent().removeClass('input_error')
+                    let $message = $input.children('.input__message')
+                    
+                    if ($control.val() != '') {
+                        $input.addClass('input_ok')
+                    }
+
+                    if ($message.data('default')) {
+                        $message.text($message.data('default'))
+                    } else {
+                        $message.text(' ')
+                    }
                 }
             },
 
@@ -309,6 +315,16 @@ $(function(){
                 'email': {
                     email: true,
                     //required: true
+                },
+                'privacy': {
+                    required: true
+                },
+                'ok': {
+                    required: true
+                }
+                ,
+                'ok2': {
+                    required: true
                 }
             },
             messages: {
@@ -323,10 +339,18 @@ $(function(){
             },
             errorPlacement: function(error, element){
                 let $control = $(element)
-                let $input = $control.parent().parent().addClass('input_error').removeClass('input_ok')
-
-                let $message = $input.children('.input__message')
-                $message.text(error.html())
+                
+                
+                if ($control.hasClass('checkbox__control')) {
+                    $control.parent().parent().addClass('checkbox_error')
+                } else if ($control.hasClass('radio__control')) {
+                    $control.parent().parent().addClass('radio_error')
+                } else {
+                    let $input = $control.parent().parent().addClass('input_error').removeClass('input_ok')
+                    let $message = $input.children('.input__message')
+                    $message.text(error.html())
+                }
+                
             }
         })
     })

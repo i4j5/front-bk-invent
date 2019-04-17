@@ -175,6 +175,7 @@
             padding 0
             margin 0
             width max-content
+            max-width 290px
             background #fff
             display inline-block
             &:hover
@@ -191,7 +192,7 @@
         font-size 13px
         font-weight 700
         margin 20px 0 5px 0
-        color #2b519e
+        color #2b519e !important
         padding 0 10px 
 .big-menu
     // display grid
@@ -256,7 +257,7 @@
     &__link
         color #1f1f1f
         font-size 13px
-        padding 4px 10px
+        padding 4px 10px !important
         display block
         text-align left
         margin-bottom 2px
@@ -325,26 +326,32 @@
         // padding 0 20px
         color #1c1c1c
         font-weight 600
-        &_arrow
-            position relative
-            padding-right 15px
-            &:after
-                transition all .5s ease 0s
-                content ""
-                position absolute
-                width 11px
-                height 7px
-                background url(../images/link-arrow.svg)
-                background-size contain
-                background-repeat no-repeat
-                right 0
-                top calc(50% - 3px)
+        &:hover 
+            color #2b519e
+        // &_arrow
+        //     position relative
+        //     padding-right 15px
+        //     &:after
+        //         transition all .5s ease 0s
+        //         content ""
+        //         position absolute
+        //         width 11px
+        //         height 7px
+        //         background url(../images/link-arrow.svg)
+        //         background-size contain
+        //         background-repeat no-repeat
+        //         right 0
+        //         top calc(50% - 3px)
+    &__search-svg
+        fill #1c1c1c
     &__search-btn
         margin-top 6px
         cursor pointer
         transition all 100ms 0ms
         &:hover
-            transform scale(1.15) rotate(20deg)
+            .top-menu__search-svg
+                fill #2b519e
+    
     &__search
         position absolute
         opacity 0
@@ -455,6 +462,7 @@
                 background #cacaca
         .top-menu__link
             color #1f1f1f
+            font-size 13px
 
   
 .hamburger
@@ -514,13 +522,14 @@
             display block
         width 100%
         font-size 16px
-        color #000
+        color #2f2f2f
         line-height 1.3em
         padding-top 14px
-        font-weight 500
+        font-weight 600
 
 .phone
     display block
+    width max-content
     &__wrap
         display flex
         align-items center
@@ -1790,3 +1799,135 @@ ul.list
         opacity 1
         visibility visible
         transition opacity 300ms 0ms, visibility 0ms 0ms
+
+
+.checkbox
+    font-size 16px
+    // position relative
+    // display inline-block
+    margin-bottom 0.6em
+    &_error
+        .checkbox__box
+            border 2px solid #f95555 !important
+    &__wrapper
+        cursor pointer
+        display flex
+        align-items center
+        width max-content
+    &__control
+        visibility hidden
+        width 0
+        height 0
+        position absolute
+        &:checked + .checkbox__box
+            background #2b519e
+            border 2px solid #2b519e
+            &:before 
+                transform rotate(-45deg)
+    &:hover
+        .checkbox__box
+            border 2px solid #2b519e
+    &__text
+        font-size 1em
+        line-height 1.2em
+    &__box
+        width 1.5em
+        height 1.5em
+        background #fff
+        border 2px solid #5784e0
+        border-radius 4px
+        margin-right 0.6em
+        position relative
+        transition all 200ms 0ms
+        // 
+        &:before
+            content ''
+            width 0.874em
+            height 0.5em
+            position absolute
+            top calc(50% - 0.44em)
+            left calc(50% - 0.38em)
+            border 2px solid #fff
+            border-top none
+            border-right none
+            background transparent 
+            transform rotate(-20deg)
+            transition all 130ms 30ms
+    &_theme_light
+        display flex
+        align-items center 
+        justify-content center 
+        &:hover
+            .checkbox__box
+                border 2px solid #838383 
+        .checkbox__box
+            border 2px solid #adadad  
+        .checkbox__control
+            &:checked + .checkbox__box
+                background #fff
+                border 2px solid #838383
+                &:before
+                    left calc(50% - 0.39em) 
+                    transform rotate(-45deg)
+                    border-left 2px solid #838383
+                    border-bottom 2px solid #838383
+        .checkbox__text
+            color #838383
+        .checkbox__link
+            margin-left 0.23em
+            color #838383
+            font-size 1em
+            line-height 1.2em
+            display inline
+                // border-bottom 1px solid #838383
+.radio
+    font-size 16px
+    // position relative
+    // display inline-block
+    // margin-bottom 0.6em
+    &_error
+        .radio__box
+            border 2px solid #f95555 !important
+    &__item
+        cursor pointer
+        display flex
+        align-items center
+        width max-content
+        margin-bottom 0.6em
+    &__control
+        visibility hidden
+        width 0
+        height 0
+        position absolute
+        &:checked + .radio__box
+            // background #2b519e
+            border 2px solid #2b519e
+            &:before
+                transform scale(1.3)
+                background #2b519e
+    &:hover
+        .radio__box
+            border 2px solid #2b519e
+    &__text
+        font-size 1em
+        line-height 1.2em
+    &__box
+        width 1.5em
+        height 1.5em
+        background #fff
+        border 2px solid #5784e0
+        border-radius 50%
+        margin-right 0.6em
+        position relative
+        transition all 200ms 0ms
+        // 
+        &:before
+            content ''
+            width 0.5em
+            height 0.5em
+            position absolute
+            top calc(50% - 0.25em)
+            left calc(50% - 0.25em)
+            border-radius 50%
+            background #fff
+            transition all 200ms 50ms
