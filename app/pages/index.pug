@@ -606,7 +606,47 @@ block content
                         li Повседневная практика показывает, что сложившаяся структура организации требуют от нас анализа модели развития. Разнообразный и богатый опыт укрепление и развитие структуры способствует подготовки и реализации систем массового участия.
                     img(src="http://farm8.static.flickr.com/7907/33535681578_4091be1523_b.jpg")
                     blockquote По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповт оримый колорит советских времен.
-                    
+                    +b.services
+                        +e.items    
+                            +e.item
+                                +e.title Поиск земельного участка
+                                +e.arrow
+                            +e.item
+                                +e.title Проект развития земельного участка
+                                +e.arrow
+                            +e.item
+                                +e.title СПОЗУ (схема планировочной организации зем.участка)
+                                +e.arrow
+                            +e.item
+                                +e.title Эскизное проектирование
+                                +e.arrow
+                            +e.item
+                                +e.title Генеральный план
+                                +e.arrow
+                            +e.item
+                                +e.title Архитектурные решения
+                                +e.arrow
+                            +e.item
+                                +e.title Конструктивные решения
+                                +e.arrow
+                            +e.item
+                                +e.title Инженерные системы
+                                +e.arrow
+                            +e.item
+                                +e.title Пожарная безопасность
+                                +e.arrow
+                            +e.item
+                                +e.title Охрана окружающей среды
+                                +e.arrow
+                            +e.item
+                                +e.title Проект организации строительства
+                                +e.arrow
+                            +e.item
+                                +e.title Проект реконструкции
+                                +e.arrow
+                            +e.item
+                                +e.title Комплексное проектирование дома
+                                +e.arrow
                 .form-box
                     .form-box__wrapper
                         .form-box__title Заполните контактную информацию
@@ -639,17 +679,17 @@ block content
                                         .input__message
                                 .form-box__item  
                                     +b.checkbox 
-                                        +e({tag: 'label'}).wrapper                                     
+                                        +e({tag: 'label'}).item                                     
                                             input(name='a' type='checkbox').checkbox__control
                                             .checkbox__box
                                             .checkbox__text  123
                                     +b.checkbox 
-                                        +e({tag: 'label'}).wrapper                                     
-                                            input(name='a' type='checkbox').checkbox__control
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok' type='checkbox').checkbox__control
                                             .checkbox__box
                                             .checkbox__text  123
-                                    +b.checkbox 
-                                        +e({tag: 'label'}).wrapper                                     
+                                        //+b.checkbox 
+                                        +e({tag: 'label'}).item                                     
                                             input(name='ok' type='checkbox').checkbox__control
                                             .checkbox__box
                                             .checkbox__text  123
@@ -679,21 +719,49 @@ block content
                                         .btn__text Записаться на консультацию
                                 .form-box__item
                                     +b.checkbox.checkbox_theme_light 
-                                        +e({tag: 'label'}).wrapper                                     
+                                        +e({tag: 'label'}).item                                     
                                             input(name='privacy' type='checkbox' checked).checkbox__control
                                             .checkbox__box
-                                            .checkbox__text 
-                                                |Согласен  
-                                        +e({tag: 'a'}).link на обработку персональных данных
+                                        .checkbox__text 
+                                            |Согласен  
+                                            +e({tag: 'a'}).link на обработку персональных данных
 
             
-            .footer
-                .container 123
+            
+
+
+            //- +b.footer
+            //-     .container
+            //-         //- +b.logo
+            //-         //-     +e.image
+            //-         //-     +e.description Проектно-строительная<br>компания
+            //-         +b.phone
+            //-             +e.description Консультация по телефону
+            //-             +e.wrap
+            //-                 +e.icon 
+            //-                 +e.text 8 (863) 303-38-33
+            //-         +b.email
+            //-             +e.wrap
+            //-                 +e.icon 
+            //-                 +e.text info@bk-invent.ru
+            //-         +b.maps
+            //-             +e.wrap
+            //-                 +e.icon 
+            //-                 +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
+            //-         +e.title О нас
+            //-         +e({tag: 'a'}).link 100 слов о БК Инвент
+            //-         +e({tag: 'a'}).link Наши лицензии
+            //-         +e({tag: 'a'}).link Как мы работаем
+            //-         +e({tag: 'a'}).link Наша дружная команда
+            //-         +e({tag: 'a'}).link Мнение со стороны
+            //-         +e({tag: 'a'}).link Как попасть в команду
             .copyright
                 .container
                     .copyright__icons
                         a(href="")
                             img(src="images/footer__vk.png") 
+                        a(href="")
+                            img(src="images/footer__fb.png")
                         a(href="")
                             img(src="images/footer__ok.png") 
                         a(href="")
@@ -711,29 +779,41 @@ block content
                 .close.modal__close
                 .modal__title Получить бесплатную консультацию
                 form.form.ajax
-                    .input.input_type_name
-                        .input__box
-                            .input__top-border
-                            .input__title Имя
-                            //- .input__icon
-                            input(name='name').input__control
-                        .input__message(data-default="Укажите точно как в паспорте")
-                    .input.input_type_phone
-                        .input__box
-                            .input__top-border
-                            .input__title Телефон
-                            //- .input__icon
-                            input(name='phone').input__control
-                            //- label(for="name") 123                                       
-                    .input.input_type_email
-                        .input__box
-                            .input__top-border
-                            .input__title Email
-                            //- .input__icon
-                            input(name='email').input__control
-                        .input__message                               
-                    button(type="submit").btn.btn_view_action
+                    .modal__row
+                        .input.input_type_name
+                            .input__box
+                                .input__top-border
+                                .input__title Имя
+                                //- .input__icon
+                                input(name='name').input__control
+                            .input__message(data-default="Укажите точно как в паспорте")
+                    .modal__row
+                        .input.input_type_phone
+                            .input__box
+                                .input__top-border
+                                .input__title Телефон
+                                //- .input__icon
+                                input(name='phone').input__control
+                                //- label(for="name") 123                                       
+                    .modal__row
+                        .input.input_type_email
+                            .input__box
+                                .input__top-border
+                                .input__title Email
+                                //- .input__icon
+                                input(name='email').input__control
+                            .input__message                               
+                    .modal__row
+                        button(type="submit").btn.btn_view_action
                                 .btn__text Записаться на консультацию
+                    .modal__row
+                        +b.checkbox.checkbox_theme_light 
+                            +e({tag: 'label'}).item                                     
+                                input(name='privacy' type='checkbox' checked).checkbox__control
+                                .checkbox__box
+                            .checkbox__text 
+                                |Согласен  
+                                +e({tag: 'a'}).link на обработку персональных данных
     .fixed_blur
     +scripts(['common.js', 'app.js'])
 
