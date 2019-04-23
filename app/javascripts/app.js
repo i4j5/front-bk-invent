@@ -1,41 +1,39 @@
 const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
-// require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
-
-const $page = $('.page')
-const $nav = $('.nav')
-const $header = $('.header') 
-const $offer = $('.offer') 
-
-
-
+require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 
 $.fn.extend({
-openModal: function() {
-    $(this).addClass('modal_visible')
-    $('body').addClass('modal-open')
+    openModal: function() {
+        $(this).addClass('modal_visible')
+        $('body').addClass('modal-open')
 
-    $(this).on('click', function(event){
-    if( $(event.target).is('.modal__close') || $(event.target).is('.modal__wrapper') ) {
-        event.preventDefault()
-        $(this).closeModal()
+        $(this).on('click', function(event){
+        if( $(event.target).is('.modal__close') || $(event.target).is('.modal__wrapper') ) {
+            event.preventDefault()
+            $(this).closeModal()
+        }
+        })
+    },
+
+    closeModal: function() {
+        $(this).removeClass('modal_visible')
+        $('body').removeClass('modal-open')
     }
-    })
-}
-})
-
-$.fn.extend({
-closeModal: function() {
-    $(this).removeClass('modal_visible')
-    $('body').removeClass('modal-open')
-}
 })
 
 
-$(function(){ 
+$(function() { 
 
-    // $('.input').mask('+7(000)000-00-00')
+    const $page = $('.page')
+    const $nav = $('.nav')
+    const $header = $('.header') 
+    const $offer = $('.offer') 
+
+    //==========
+    // SIZE
+    //==========
+
 
     $('.offer__btn').click(function() {
         $('#modal__order').openModal()
@@ -48,86 +46,7 @@ $(function(){
         $nav.css({
             "padding-top": $header.height() + 10 + "px"
         })
-    }
-
-    $('.reviews__items').bxSlider({
-        // nextSelector: 'reviews__next',
-        // prevSelector:'reviews__prev',
-        touchEnabled: false,
-        nextText: '',
-        prevText: '',
-        pager: false,
-    })
-    
-
-    // let scrollPrev = 0
-    // $(window).scroll(function() {
-    //     // if ( $(this).width() < 1160) {
-    //     //     let  scrolled = $(window).scrollTop() // Высота скролла в px
-    //     //     let firstScrollUp = false // Параметр начала сколла вверх
-    //     //     let  firstScrollDown = false // Параметр начала сколла вниз
-            
-    //     //     // Если скроллим
-    //     //     if ( scrolled > 0 ) {
-    //     //         // Если текущее значение скролла > предыдущего, т.е. скроллим вниз
-    //     //         if ( scrolled > scrollPrev ) {
-    //     //             firstScrollUp = false // Обнуляем параметр начала скролла вверх
-    //     //             // Если меню видно
-    //     //             if ( scrolled < $header.height() + $header.offset().top ) {
-    //     //                 // Если только начали скроллить вниз
-    //     //                 if ( firstScrollDown === false ) {
-    //     //                     let topPosition = $header.offset().top // Фиксируем текущую позицию меню
-    //     //                     $header.css({
-    //     //                         "top": topPosition + "px"
-    //     //                     })
-                            
-    //     //                     firstScrollDown = true
-    //     //                 }
-    //     //                 // Позиционируем меню абсолютно
-    //     //                 $header.css({
-    //     //                     "position": "absolute"
-    //     //                 })
-    //     //             // Если меню НЕ видно
-    //     //             } else {
-    //     //                 // Позиционируем меню фиксированно вне экрана
-    //     //                 $header.css({
-    //     //                     "position": "fixed",
-    //     //                     "top": "-" + $header.height() + "px"
-    //     //                 })
-    //     //             }
-                    
-    //     //         // Если текущее значение скролла < предыдущего, т.е. скроллим вверх
-    //     //         } else {
-    //     //             firstScrollDown = false // Обнуляем параметр начала скролла вниз
-    //     //             // Если меню не видно
-    //     //             if ( scrolled > $header.offset().top ) {
-    //     //                 // Если только начали скроллить вверх
-    //     //                 if ( firstScrollUp === false ) {
-    //     //                     let topPosition = $header.offset().top // Фиксируем текущую позицию меню
-    //     //                     $header.css({
-    //     //                         "top": topPosition + "px"
-    //     //                     })
-    //     //                     firstScrollUp = true
-    //     //                 }
-    //     //                 // Позиционируем меню абсолютно
-    //     //                 $header.css({
-    //     //                     "position": "absolute"
-    //     //                 })
-    //     //             } else {
-    //     //                 // Убираем все стили
-    //     //                 $header.removeAttr("style")
-    //     //             }
-    //     //         }
-    //     //         // Присваеваем текущее значение скролла предыдущему
-    //     //         scrollPrev = scrolled
-    //     //     }
-    //     // }
-        
-
-
-    // })
-
-
+    }  
 
     let scrollPos = 0
     $(window).scroll(function(){
@@ -143,12 +62,50 @@ $(function(){
         }
 
         scrollPos = st
+    })
 
+    $(window).resize(function() {
+
+        if ( $(this).width() < 1160) {
+            $offer.css({
+                'padding-top': $header.height() + 'px'
+            })
+            $nav.css({
+                'padding-top': $header.height() + 10 + 'px'
+            })
+        } else {
+            $offer.css({
+                'padding-top': ''
+            })
+            $nav.css({
+                'padding-top': ''
+            })
+    
+            $header.removeClass('header_hidden')
+        }
     })
 
 
-    $('.hamburger').click(function() {
+    
 
+
+    $('.reviews__items').bxSlider({
+        // nextSelector: 'reviews__next',
+        // prevSelector:'reviews__prev',
+        touchEnabled: false,
+        nextText: '',
+        prevText: '',
+        pager: false,
+    })
+
+
+
+
+    //==========
+    // МЕНЮ
+    //==========
+
+    $('.hamburger').click(function() {
         let $this = $(this)
     
         if ( $this.hasClass('hamburger_open') ) {
@@ -159,13 +116,8 @@ $(function(){
             $nav.addClass('nav_active')
             $page.addClass('menu-open')
             $this.addClass('hamburger_open')     
-        }
-        
+        } 
     })
-
-    // $('.nav .icon-close').click(e => {
-    //     $('.nav').removeClass('nav_active')
-    // })
 
     $('.mobile-menu__link_arrow').click(function() {
         let $this = $(this)
@@ -186,7 +138,6 @@ $(function(){
         $menu.toggleClass('mobile-menu__item_active')
     })
 
-
     $('.mobile-submenu__link_arrow').click(function() {
         let $this = $(this)
         let $arrow = $this.children('.arrow')
@@ -204,11 +155,98 @@ $(function(){
         $menu.toggleClass('mobile-submenu__item_active')
     })
 
+    let offsetFirstItem = $('.menu__item:first-child').offset().left
 
-    // $(".input[name='phone']").mask("(999) 999-9999")
+    $('.menu__submenu').each(function() {
+        
+        let $this= $(this)    
+        let idx = Math.round( $this.width() + $this.offset().left - offsetFirstItem)
+        
+        if ( idx > 1160 ) {
+            
+            if($this.width() > 1100) { // (!) Изменить
+                $(this).css('left', `-${$this.offset().left - offsetFirstItem}px`)
+            } else if( 580 > (1160 - ($this.offset().left - offsetFirstItem))  ) {
+                $(this).css('right', '0').css('left', 'auto')
+            } else {
+                $(this).css('left', `-${idx - 1160}px`)
+            }
+
+        }
+    })
+
+    let heightBigMenu = 0
+    $('.big-menu__items').each(function() {
+        let $this = $(this)
+        let height = $this.height()
+        if (height > heightBigMenu) {
+            heightBigMenu = height
+        }
+    })
+
+    let $menu__MMs = $('.big-menu__mm')
+
+    $menu__MMs.first().addClass('big-menu__mm_active')
+    $menu__MMs.first().children('.arrow').removeClass('arrow_right').addClass('arrow_left')
+
+    $menu__MMs.hover(function() {
+        $menu__MMs.removeClass('big-menu__mm_active')
+        $menu__MMs.children('.arrow').removeClass('arrow_left').addClass('arrow_right')
+        $(this).addClass('big-menu__mm_active').children('.arrow').removeClass('arrow_right').addClass('arrow_left')
+    })
+
+    $('.big-menu').css('min-height', heightBigMenu + 20 +  'px')
+
+    let $main = $('.main')
+    let $fixedBlur = $('.fixed_blur')
+
+    $('.menu__item').hover(function() {
+
+        let $this = $(this)
+        let $sub = $this.children('.menu__submenu_big')
+        if ( $sub.is(':visible') ) {
+            $sub.children('.big-menu').addClass('big-menu_active')
+        }
+        if ($this.is(':hover')){
+            $main.addClass('main_blur')
+            $fixedBlur.addClass('fixed_blur_visible')
+            $this.children('.arrow_theme_light').removeClass('arrow_bottom').addClass('arrow_top')
+        }
+
+    }, function(e) {
+
+        let $this = $(this)
+        let isHover = false
+
+        $('.menu__item>.arrow_theme_light').removeClass('arrow_top').addClass('arrow_bottom')
+
+        $('.menu__item').each(function() {
+
+            if ($(this).is(':hover')) {
+                isHover = true
+            }
+        })
+
+        if (!isHover) {
+            $main.removeClass('main_blur')
+            $fixedBlur.removeClass('fixed_blur_visible')
+        }
+
+        $this.children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
+    })
+
+
+
+
+
+
+    //==========
+    // Формы
+    //==========
+
+    $("input[name='phone']").mask('+7 (999) 999-9999', {autoclear: false})
 
     $('.input').each(function() {
-
         let $input = $(this)
 
         let $box = $input.children('.input__box')
@@ -254,6 +292,12 @@ $(function(){
     })
 
     
+
+
+    //==============
+    // Работа с API
+    //===============
+
     $('.ajax').each(function() {
 
         $(this).validate({
@@ -261,9 +305,11 @@ $(function(){
                 let $control = $(element)
 
                 if ($control.hasClass('checkbox__control')) {
-                    console.log($control.parent().parent().removeClass('checkbox_error'))  
+                    $control.parent().parent().removeClass('checkbox_error')
+
                 } else if ($control.hasClass('radio__control')) {
                     $control.parent().parent().removeClass('radio_error')
+                    
                 } else {
                     let $input = $control.parent().parent().removeClass('input_error')
                     let $message = $input.children('.input__message')
@@ -308,6 +354,20 @@ $(function(){
             rules: {
                 'phone': {
                     required: true,
+                    minlength: 10,
+                    number: true,
+                    normalizer: value => {
+                        let phone = value
+                        
+                        phone = phone.replace(/-/g, '')
+                        phone = phone.replace(/_/g, '')
+                        phone = phone.replace(/ /g, '')
+                        phone = phone.replace('+7', '')
+                        phone = phone.replace('(', '')
+                        phone = phone.replace(')', '')
+
+                        return phone
+                    }
                 },
                 'name': {
                     required: true
@@ -318,28 +378,25 @@ $(function(){
                 },
                 'privacy': {
                     required: true
-                },
-                'ok': {
-                    required: true
-                }
-                ,
-                'ok2': {
-                    required: true
                 }
             },
             messages: {
                 email: {
-                    email: "Вы допустили ошибку. Это не похоже эл. почту",
+                    email: "Вы допустили ошибку. Это не похоже на эл. почту",
                     required: "Пожалуйста, введите Ваш адрес эл. почты"
                 },
                 name: {
                     required: "Напишите как к Вам обращаться"
+                },
+                phone: {
+                    minlength: "Вы допустили ошибку. Номер телефона должен состоять из 10 цифр",
+                    required: "Укажите номер телефона"
                 }
+
 
             },
             errorPlacement: function(error, element){
                 let $control = $(element)
-                
                 
                 if ($control.hasClass('checkbox__control')) {
                     $control.parent().parent().addClass('checkbox_error')
@@ -354,150 +411,42 @@ $(function(){
             }
         })
     })
-
-    // let baseLeftOffset =  Math.round( $('.menu>.container').offset().left )
-    let offsetFirstItem = $('.menu__item:first-child').offset().left
-    //let offsetLastItem = $('.menu__item:last-child').offset().left
-
-    $('.menu__submenu').each(function() {
-        
-        let $this= $(this)    
-        let idx = Math.round( $this.width() + $this.offset().left - offsetFirstItem)
-        
-
-        if ( idx > 1160 ) {
-            
-            if($this.width() > 1100) { // (!) Изменить
-                $(this).css('left', `-${$this.offset().left - offsetFirstItem}px`)
-            } else if( 580 > (1160 - ($this.offset().left - offsetFirstItem))  ) {
-                $(this).css('right', '0').css('left', 'auto')
-            } else {
-                $(this).css('left', `-${idx - 1160}px`)
-            }
-
-        }
-    })
     
-
-//     mouseover()
-// mouseenter()
-
-    // $('.menu__item').mouseover(function() {
-    //     let $sub = $(this).children('.menu__submenu_big')
-    //     if ( $sub.is(':visible') ) {
-    //         $sub.children('.big-menu').addClass('big-menu_active')
-    //     }
-    // }).mouseenter(function(e) {
-    //     // console.log(this)
-    //     $(this).children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
-    // })
     
-
-    let heightBigMenu = 0
-    $('.big-menu__items').each(function() {
-        let $this = $(this)
-        let height = $this.height()
-        if (height > heightBigMenu) {
-            heightBigMenu = height
-        }
+    let $topMenuItems = $('.top-menu__items')
+    let $search = $('.top-menu__search')
+    $('.top-menu__search-btn').click(function() {
+        $topMenuItems.removeClass('top-menu__items_visible')
+        $search.addClass('top-menu__search_visible')
     })
-
-
-    let $menu__MMs = $('.big-menu__mm')
-
-    $menu__MMs.first().addClass('big-menu__mm_active')
-    $menu__MMs.first().children('.arrow').removeClass('arrow_right').addClass('arrow_left')
-
-    $menu__MMs.hover(function() {
-        $menu__MMs.removeClass('big-menu__mm_active')
-        $menu__MMs.children('.arrow').removeClass('arrow_left').addClass('arrow_right')
-        $(this).addClass('big-menu__mm_active').children('.arrow').removeClass('arrow_right').addClass('arrow_left')
+    $('.top-menu__close').click(function() {
+        $topMenuItems.addClass('top-menu__items_visible')
+        $search.removeClass('top-menu__search_visible')
     })
-
-    $('.big-menu').css('min-height', heightBigMenu + 20 +  'px')
-
-
-
-    let $main = $('.main')
-    let $fixedBlur = $('.fixed_blur')
-    //$fixedBlur.css('top', $main.offset().top + 'px')
-
-    $('.menu__item').hover(function() {
-        //setTimeout(() => { 
-        let $this = $(this)
-        let $sub = $this.children('.menu__submenu_big')
-        if ( $sub.is(':visible') ) {
-            $sub.children('.big-menu').addClass('big-menu_active')
-        }
-        if ($this.is(':hover')){
-            $main.addClass('main_blur')
-            $fixedBlur.addClass('fixed_blur_visible')
-            $this.children('.arrow_theme_light').removeClass('arrow_bottom').addClass('arrow_top')
-        }
-            
-        //}, 15)
-    }, function(e) {
-        let $this = $(this)
-        let isHover = false
-
-        $('.menu__item>.arrow_theme_light').removeClass('arrow_top').addClass('arrow_bottom')
-
-        $('.menu__item').each(function() {
-
-            if ($(this).is(':hover')) {
-                isHover = true
-            }
-        })
-
-        if (!isHover) {
-            $main.removeClass('main_blur')
-            $fixedBlur.removeClass('fixed_blur_visible')
-        }
-
-        $this.children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
-    })
-
-
-    // $('.menu__item').mouseover(function() {
-    //     let $sub = $(this).children('.menu__submenu_big')
-    //     if ( $sub.is(':visible') ) {
-    //         $sub.children('.big-menu').addClass('big-menu_active')
-    //     }
-    // }).mouseenter(function(e) {
-    //     // console.log(this)
-    //     $(this).children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
-    // })
-
-    
-    (function($) {
-        let $items = $('.top-menu__items')
-        let $search = $('.top-menu__search')
-        $('.top-menu__search-btn').click(function() {
-            $items.removeClass('top-menu__items_visible')
-            $search.addClass('top-menu__search_visible')
-        })
-        $('.top-menu__close').click(function() {
-            $items.addClass('top-menu__items_visible')
-            $search.removeClass('top-menu__search_visible')
-        })
-    }($))
 })
 
 
-$(window).resize(function() {
-    // let widthWindow = $(this).width()
-    // if(widthWindow <= 1160) {
+// $(window).resize(function() {
+//     const $nav = $('.nav')
+//     const $header = $('.header')
+//     const $offer = $('.offer') 
 
-    // }
+//     if ( $(this).width() < 1160) {
+//         $offer.css({
+//             'padding-top': $header.height() + 'px'
+//         })
+//         $nav.css({
+//             'padding-top': $header.height() + 10 + 'px'
+//         })
+//     } else {
+//         $offer.css({
+//             'padding-top': ''
+//         })
+//         $nav.css({
+//             'padding-top': ''
+//         })
 
-
-    if ( $(this).width() < 1160) {
-        $offer.css({
-            "padding-top": $header.height() + "px"
-        })
-        $nav.css({
-            "padding-top": $header.height() + 10 + "px"
-        })
-    }
-})
+//         $header.removeClass('header_hidden')
+//     }
+// })
     

@@ -707,7 +707,6 @@ block content
                                         //+b.radio 
                                         +e({tag: 'label'}).item                                     
                                             input(name='ok2' type='radio').radio__control
-                                            .radio__box
                                             .radio__text  123
                                         //+b.radio 
                                         +e({tag: 'label'}).item                                     
@@ -786,7 +785,7 @@ block content
                                 .input__title Имя
                                 //- .input__icon
                                 input(name='name').input__control
-                            .input__message(data-default="Укажите точно как в паспорте")
+                            .input__message(data-default='Укажите точно как в паспорте')
                     .modal__row
                         .input.input_type_phone
                             .input__box
@@ -794,7 +793,7 @@ block content
                                 .input__title Телефон
                                 //- .input__icon
                                 input(name='phone').input__control
-                                //- label(for="name") 123                                       
+                            .input__message(data-default='Укажите номер телефона. Убедитесь, что телефон введен корректно                                   ') 
                     .modal__row
                         .input.input_type_email
                             .input__box
