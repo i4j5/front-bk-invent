@@ -193,7 +193,9 @@
         font-weight 700
         margin 20px 0 5px 0
         color #2b519e !important
-        padding 0 10px 
+        padding 0 10px
+    &__title&__link
+        margin-top 15px
 .big-menu
     // display grid
     // grid-template-columns 270px auto
@@ -2079,3 +2081,61 @@ ul.list
         &:after
             transform rotate(45deg)
             top -2px
+
+.cases
+    width 100%
+    margin-bottom 40px
+    display flex
+    flex-wrap wrap
+    &__item
+        border-radius 4px 4px 0 0
+        //max-width 1160px
+        margin 20px auto 
+        width 100%
+        @media (min-width 600px)
+            width calc(50% - 20px)
+        //border-radius 5px
+        background-image url(../images/cases__item.png), linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
+        @media (min-width 900px)
+            width 100%
+            display flex
+            border-radius 4px 0 0 4px
+            //flex-wrap wrap
+    &__body
+        padding 20px
+    &__title
+        font-size 20px
+        line-height 1.2em
+        color #000
+        margin-bottom 20px
+    &__texts
+        @media (min-width 900px)
+            display flex
+    &__text
+        font-size 14px
+        line-height 1.4em
+        margin-bottom 10px
+        span
+            display block
+            font-size 15px
+            font-weight 600
+            margin-bottom 5px
+            margin-top 20px
+    &__img
+        position relative
+        line-height 0
+        img
+            margin 0
+            border-radius 0 0 4px 4px
+            height 100%
+        @media (min-width 900px)
+            width auto
+            img 
+                border-radius 0 4px 4px 0
+       // background #000
+    &__btn
+        width max-content
+        position absolute
+        bottom 30px
+        left 50%
+        transform translateX(-50%)
