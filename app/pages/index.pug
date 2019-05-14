@@ -469,8 +469,13 @@ block content
                     +e({tag:'a'}).item О нас
             .content
                 +b.price
-                    +e.item 1
-                    +e.item 3
+                    +e.item
+                        +e.title Предпроектные + проектные работы
+                        +e.box от 35 000 рублей 
+                        
+                    +e.item
+                        +e.title Исполнительная документация + получение лицевого счета
+                        +e.box от 28000 рублей
                     +e.item
                         .form-box.price__form
                             .form-box__wrapper
@@ -510,7 +515,7 @@ block content
                                                     .input__top-border
                                                     .input__title Кол-во колодцев
                                                     //- .input__icon
-                                                    input(name='a' value="123").input__control
+                                                    input(name='a').input__control
                                                 .input__message(data-default="Кол-во колодцев, которые необходимо строить")
                                         .form-box__item
                                             .input
@@ -552,43 +557,20 @@ block content
                                                     //- .input__icon
                                                     input(name='email').input__control
                                                 .input__message
-                                        .form-box__item  
-                                            +b.checkbox 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='a' type='checkbox').checkbox__control
-                                                    .checkbox__box
-                                                    .checkbox__text  123
-                                            +b.checkbox 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok' type='checkbox').checkbox__control
-                                                    .checkbox__box
-                                                    .checkbox__text  123
-                                                //+b.checkbox 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok' type='checkbox').checkbox__control
-                                                    .checkbox__box
-                                                    .checkbox__text  123
-                                            
+
+                                        .form-box__description Или вы можете пригласить инженера на объект, и он сам сделает замеры и предоставит вам более достоверную смету!   
+                                        .form-box__item    
                                             +b.radio 
                                                 +e({tag: 'label'}).item                                     
                                                     input(name='ok2' type='radio').radio__control
                                                     .radio__box
-                                                    .radio__text  123
+                                                    .radio__text Пригласить
                                                 //+b.radio 
                                                 +e({tag: 'label'}).item                                     
                                                     input(name='ok2' type='radio').radio__control
                                                     .radio__box
-                                                    .radio__text  123
-                                                //+b.radio 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text  123
-                                                //+b.radio 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text  123
+                                                    .radio__text  Не приглашать 
+
                                         .form-box__item                                   
                                             button(type="submit").btn.btn_view_action
                                                 .btn__text Записаться на консультацию

@@ -271,7 +271,7 @@ $(function() {
         if ($control.val()) {
             $box.addClass('input__box_filled')
             if ($title.width()) {
-                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 10px)`)
+                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 11px)`)
             }
             
         }
@@ -292,7 +292,7 @@ $(function() {
         
         if (!$control.val()) {
             if ($title.width()) {
-                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 10px)`)
+                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 11px)`)
             }
         }
     }).blur(function(){

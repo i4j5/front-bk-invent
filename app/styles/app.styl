@@ -1633,6 +1633,7 @@ ul.list
 .form-box //600px
     // padding 20px
     //background #ddd
+    
     margin 50px 0
     @media (min-width 360px)
         padding 0  10px 
@@ -2148,15 +2149,15 @@ ul.list
         transform translateX(-50%)
 
 .price
-    @media (min-width 900px)
+    @media (min-width 1000px)
         display grid
         grid-template-areas 'stage1 stage2 stage3'
-        // grid-template-columns 20% 60% 20%
+        grid-template-columns calc(50% / 2) 50% calc(50% / 2)
     @media (min-width 1160px)
         margin auto
         width 1160px
     &__form
-        margin-top 10px
+        margin-top 0px
     &__item
         &:nth-child(1)
             grid-area stage1
@@ -2164,3 +2165,20 @@ ul.list
             grid-area stage3
         &:nth-child(3)
             grid-area stage2
+    &__title
+        background #ddd
+        padding 10px
+        text-align center
+        border-radius 8px 8px 0 0
+        font-size 20px
+        line-height 1em
+        padding 20px 10px
+        text-align center
+        background #11244d
+        color #fff
+        font-weight 300
+    &__box
+        border 1px solid #ddd
+        border-top none
+        border-radius 0 0 8px 8px
+        padding 10px
