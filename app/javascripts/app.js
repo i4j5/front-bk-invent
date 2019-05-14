@@ -84,8 +84,6 @@ $(function() {
             $header.removeClass('header_hidden')
         }
     })
-
-
     
 
 
@@ -95,6 +93,22 @@ $(function() {
         touchEnabled: false,
         nextText: '',
         prevText: '',
+        pager: false,
+    })
+
+    $('.cases__items1').bxSlider({
+        // nextSelector: '.cases__next',
+        // prevSelector:'.cases__prev',
+        touchEnabled: false,
+        nextText: '',
+        prevText: '',
+        // nextText: '',
+        // prevText: '',
+        // maxSlides: 3,
+        // minSlides: 1,
+       //moveSlides: 1,
+        // slideWidth: '280px',
+        //shrinkItems: true,
         pager: false,
     })
 
@@ -256,7 +270,10 @@ $(function() {
 
         if ($control.val()) {
             $box.addClass('input__box_filled')
-            $topBorder.css('width', `calc(((100% - 20px) - ${$title.width()}px) - 5px)`)
+            if ($title.width()) {
+                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 10px)`)
+            }
+            
         }
 
         let $message = $input.children('.input__message')
@@ -269,13 +286,15 @@ $(function() {
     $('.input__control').focus(function() {
         let $control = $(this)
         let $box = $control.parent()
+        $box.addClass('input__box_focus')
         let $topBorder = $control.parent().children('.input__top-border')
         let $title = $control.parent().children('.input__title')
-
+        
         if (!$control.val()) {
-            $topBorder.css('width', `calc(((100% - 20px) - ${$title.width()}px) - 5px)`)
+            if ($title.width()) {
+                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 10px)`)
+            }
         }
-        $box.addClass('input__box_focus')
     }).blur(function(){
         let $control = $(this)
         let $box = $control.parent()

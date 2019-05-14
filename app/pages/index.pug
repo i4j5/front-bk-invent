@@ -468,39 +468,190 @@ block content
                     //+e.separator 
                     +e({tag:'a'}).item О нас
             .content
+                +b.price
+                    +e.item 1
+                    +e.item 3
+                    +e.item
+                        .form-box.price__form
+                            .form-box__wrapper
+                                .form-box__title Строительно монтажные работы
+
+                                form.form.ajax
+                                    .form-box__items
+                                        .form-box__description Для того, чтобы рассчитать стоимость СМР, необходимо предоставить следующие данные:
+                                        
+                                        .form-box__item
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Длина трубопровода
+                                                    //- .input__icon
+                                                    input(name='a').input__control
+                                                .input__message(data-default="")
+                                        .form-box__item
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Диаметр трубопровода
+                                                    //- .input__icon
+                                                    input(name='a').input__control
+                                                .input__message(data-default="")
+                                        .form-box__item
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Глубина прокладки
+                                                    //- .input__icon
+                                                    input(name='a').input__control
+                                                .input__message(data-default="Глубина прокладки трубопровода")
+                                        .form-box__item
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Кол-во колодцев
+                                                    //- .input__icon
+                                                    input(name='a' value="123").input__control
+                                                .input__message(data-default="Кол-во колодцев, которые необходимо строить")
+                                        .form-box__item
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Диаметр магистральной трубы
+                                                    //- .input__icon
+                                                    input(name='a').input__control
+                                                .input__message(data-default="Диаметр и материал магистральной трубы")
+                                        .form-box__item
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Материал магистральной трубы
+                                                    //- .input__icon
+                                                    input(name='a').input__control
+                                                .input__message(data-default="Диаметр и материал магистральной трубы")
+                                        .form-box__item
+                                            .input.input_type_name
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Имя
+                                                    //- .input__icon
+                                                    input(name='name').input__control
+                                                .input__message(data-default="Укажите точно как в паспорте")
+                                        .form-box__item
+                                            .input.input_type_phone
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Телефон
+                                                    //- .input__icon
+                                                    input(name='phone').input__control
+                                                    //- label(for="name") 123
+                                        .form-box__item                                        
+                                            .input.input_type_email
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Email
+                                                    //- .input__icon
+                                                    input(name='email').input__control
+                                                .input__message
+                                        .form-box__item  
+                                            +b.checkbox 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='a' type='checkbox').checkbox__control
+                                                    .checkbox__box
+                                                    .checkbox__text  123
+                                            +b.checkbox 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='ok' type='checkbox').checkbox__control
+                                                    .checkbox__box
+                                                    .checkbox__text  123
+                                                //+b.checkbox 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='ok' type='checkbox').checkbox__control
+                                                    .checkbox__box
+                                                    .checkbox__text  123
+                                            
+                                            +b.radio 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='ok2' type='radio').radio__control
+                                                    .radio__box
+                                                    .radio__text  123
+                                                //+b.radio 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='ok2' type='radio').radio__control
+                                                    .radio__box
+                                                    .radio__text  123
+                                                //+b.radio 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='ok2' type='radio').radio__control
+                                                    .radio__box
+                                                    .radio__text  123
+                                                //+b.radio 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='ok2' type='radio').radio__control
+                                                    .radio__box
+                                                    .radio__text  123
+                                        .form-box__item                                   
+                                            button(type="submit").btn.btn_view_action
+                                                .btn__text Записаться на консультацию
+                                        .form-box__item
+                                            +b.checkbox.checkbox_theme_light 
+                                                +e({tag: 'label'}).item                                     
+                                                    input(name='privacy' type='checkbox' checked).checkbox__control
+                                                    .checkbox__box
+                                                .checkbox__text 
+                                                    |Согласен  
+                                                    +e({tag: 'a'}).link на обработку персональных данных 
+                
                 .container
+                                 
+
                     +b.cases
-                        +e.item
-                            +e.body
-                                +e.title Прокладка водоснабжения г. Ростов-на-Дону, л. Республиканская, 181
-                                +e.texts
-                                    +e.text
-                                        span ЗАДАЧА
-                                        |С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Товарищи! сложившаяся 
-                                    +e.text
-                                        span ОСОБЕННОСТИ ПРОЕКТА
-                                        |Задача организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
-                            +e.img
-                                img(src="http://volga-service63.ru/img/original_1621f515481580a5.jpg")
-                                +e.btn
-                                    +b.btn.btn_view_light
-                                        +e.text Подробнее о проекте
-                        +e.item
-                            +e.body
-                                +e.title Прокладка водоснабжения г. Ростов-на-Дону, л. Республиканская, 181
-                                +e.texts
-                                    +e.text
-                                        span ЗАДАЧА
-                                        |С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Товарищи! сложившаяся 
-                                    +e.text
-                                        span ОСОБЕННОСТИ ПРОЕКТА
-                                        |Задача организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
-                            +e.img
-                                img(src="http://volga-service63.ru/img/original_1621f515481580a5.jpg")
-                                +e.btn
-                                    +b.btn.btn_view_light
-                                        +e.text Подробнее о проекте
-                            
+                        +e.items
+                            +e.item
+                                +e.body
+                                    +e.title Прокладка водоснабжения г. Ростов-на-Дону, л. Республиканская, 181
+                                    +e.texts
+                                        +e.text
+                                            span ЗАДАЧА
+                                            |С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Товарищи! сложившаяся 
+                                        +e.text
+                                            span ОСОБЕННОСТИ ПРОЕКТА
+                                            |Задача организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
+                                +e.img
+                                    img(src="http://volga-service63.ru/img/original_1621f515481580a5.jpg")
+                                    +e.btn
+                                        +b.btn.btn_view_light
+                                            +e.text Подробнее о проекте
+                            +e.item
+                                +e.body
+                                    +e.title Прокладка водоснабжения г. Ростов-на-Дону, л. Республиканская, 181
+                                    +e.texts
+                                        +e.text
+                                            span ЗАДАЧА
+                                            |С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Товарищи! сложившаяся 
+                                        +e.text
+                                            span ОСОБЕННОСТИ ПРОЕКТА
+                                            |Задача организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
+                                +e.img
+                                    img(src="https://sorokainfo.com/_nw/108/92664276.jpg")
+                                    +e.btn
+                                        +b.btn.btn_view_light
+                                            +e.text Подробнее о проекте
+                            +e.item
+                                +e.body
+                                    +e.title Прокладка водоснабжения г. Ростов-на-Дону, л. Республиканская, 181
+                                    +e.texts
+                                        +e.text
+                                            span ЗАДАЧА
+                                            |С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Товарищи! сложившаяся 
+                                        +e.text
+                                            span ОСОБЕННОСТИ ПРОЕКТА
+                                            |Задача организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
+                                +e.img
+                                    img(src="https://s3-eu-west-1.amazonaws.com/files.surfory.com/uploads/2017/11/19/552cc1db1f395daf548b46c6/1280x/5a110e5bbd047080068b4941.jpg")
+                                    +e.btn
+                                        +b.btn.btn_view_light
+                                            +e.text Подробнее о проекте
+                                
 
             
                     +b.articles
