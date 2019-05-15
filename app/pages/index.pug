@@ -477,110 +477,84 @@ block content
                         +e.title Исполнительная документация + получение лицевого счета
                         +e.box от 28000 рублей
                     +e.item
-                        .form-box.price__form
-                            .form-box__wrapper
-                                .form-box__title Строительно монтажные работы
-
+                        +e.form
+                            +e.title Строительно монтажные работы
+                            +e.box
                                 form.form.ajax
-                                    .form-box__items
-                                        .form-box__description Для того, чтобы рассчитать стоимость СМР, необходимо предоставить следующие данные:
-                                        
-                                        .form-box__item
-                                            .input
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Длина трубопровода
-                                                    input(name='a' data-postfix=" метров" data-grid-num="6" data-min="0" data-max="500" data-from="200" data-grid="true").input__control.range-slider
-                                                .input__message(data-default="")
-                                        .form-box__item
-                                            .input
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Диаметр трубопровода
-                                                    //- .input__icon
-                                                    input(name='a').input__control
-                                                .input__message(data-default="")
-                                        .form-box__item
-                                            .input
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Глубина прокладки
-                                                    //- .input__icon
-                                                    input(name='a').input__control
-                                                .input__message(data-default="Глубина прокладки трубопровода")
-                                        .form-box__item
-                                            .input
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Кол-во колодцев
-                                                    //- .input__icon
-                                                    input(name='v' data-min="1" data-max="10" data-from="1" data-max-postfix="+").input__control.range-slider
-                                                .input__message(data-default="Кол-во колодцев, которые необходимо строить")
-                                        .form-box__item
-                                            .input
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Диаметр магистральной трубы
-                                                    //- .input__icon
-                                                    input(name='a').input__control
-                                                .input__message(data-default="Диаметр и материал магистральной трубы")
-                                        .form-box__item
-                                            .input
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Материал магистральной трубы
-                                                    //- .input__icon
-                                                    input(name='v'  data-from="1" data-values="Металл, ПВХ, ПВДФ, РЕХ" data-grid="true").input__control.range-slider
-                                                .input__message(data-default="Диаметр и материал магистральной трубы")
-                                        .form-box__item
-                                            .input.input_type_name
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Имя
-                                                    //- .input__icon
-                                                    input(name='name').input__control
-                                                .input__message(data-default="Укажите точно как в паспорте")
-                                        .form-box__item
-                                            .input.input_type_phone
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Телефон
-                                                    //- .input__icon
-                                                    input(name='phone').input__control
-                                                    //- label(for="name") 123
-                                        .form-box__item                                        
-                                            .input.input_type_email
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Email
-                                                    //- .input__icon
-                                                    input(name='email').input__control
-                                                .input__message
+                                    +e.grup
+                                        .input
+                                            .input__box
+                                                .input__top-border
+                                                .input__title Длина трубопровода
+                                                input(name='a' data-postfix=" метров" data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
+                                        .input
+                                            .input__box
+                                                .input__top-border
+                                                .input__title Диаметр трубопровода
+                                                //- .input__icon
+                                                input(name='a' data-postfix=" мм" data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
+                                    .input
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Кол-во колодцев
+                                            //- .input__icon
+                                            input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
+                                        .input__message(data-default="Кол-во колодцев, которые необходимо строить")
+                                    .input
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Диаметр магистральной трубы
+                                            //- .input__icon
+                                            input(name='a').input__control
+                                        .input__message(data-default="Диаметр и материал магистральной трубы")
+                                    .input
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Материал магистральной трубы
+                                            //- .input__icon
+                                            input(name='v'  data-from="1" data-values="Металл, ПВХ, ПВДФ, РЕХ").input__control.range-slider
+                                        .input__message(data-default="Диаметр и материал магистральной трубы")
+                                    .input.input_type_name
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Имя
+                                            //- .input__icon
+                                            input(name='name').input__control
+                                        .input__message(data-default="Укажите точно как в паспорте")
+                                    .input.input_type_phone
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Телефон
+                                            //- .input__icon
+                                            input(name='phone').input__control
+                                            //- label(for="name") 123                                       
+                                    .input.input_type_email
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Email
+                                            //- .input__icon
+                                            input(name='email').input__control
+                                        .input__message
 
-                                        .form-box__description Или вы можете пригласить инженера на объект, и он сам сделает замеры и предоставит вам более достоверную смету!   
-                                        .form-box__item    
-                                            +b.radio 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text Пригласить
-                                                //+b.radio 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text  Не приглашать 
-
-                                        .form-box__item                                   
-                                            button(type="submit").btn.btn_view_action
-                                                .btn__text Записаться на консультацию
-                                        .form-box__item
-                                            +b.checkbox.checkbox_theme_light 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='privacy' type='checkbox' checked).checkbox__control
-                                                    .checkbox__box
-                                                .checkbox__text 
-                                                    |Согласен  
-                                                    +e({tag: 'a'}).link на обработку персональных данных 
+                                    |Материал магистральной трубы
+                                    +b.radio 
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok2' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text Пригласить
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok2' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text  Не приглашать                                  
+                                    button(type="submit").btn.btn_view_action
+                                        .btn__text Записаться на консультацию
+                                    +b.checkbox.checkbox_theme_light 
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='privacy' type='checkbox' checked).checkbox__control
+                                            .checkbox__box
+                                        .checkbox__text 
+                                            |Согласен  
+                                            +e({tag: 'a'}).link на обработку персональных данных 
                 
                 .container
                                  

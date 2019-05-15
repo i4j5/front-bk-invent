@@ -29,8 +29,7 @@ $(function() {
     $('.range-slider').ionRangeSlider({
         skin: 'round',
         hide_min_max: true,
-        // prefix: '',
-        // postfix: '',
+        grid: true
     })
 
     const $page = $('.page')
