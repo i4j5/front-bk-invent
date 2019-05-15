@@ -2,6 +2,7 @@ const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
+require('ion-rangeslider')
 
 $.fn.extend({
     openModal: function() {
@@ -24,6 +25,13 @@ $.fn.extend({
 
 
 $(function() { 
+
+    $('.range-slider').ionRangeSlider({
+        skin: 'round',
+        hide_min_max: true,
+        // prefix: '',
+        // postfix: '',
+    })
 
     const $page = $('.page')
     const $nav = $('.nav')
