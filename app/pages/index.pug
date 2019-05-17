@@ -481,39 +481,54 @@ block content
                             +e.title Строительно монтажные работы
                             +e.box
                                 form.form.ajax
-                                    +e.grup
-                                        .input
-                                            .input__box
-                                                .input__top-border
-                                                .input__title Длина трубопровода
-                                                input(name='a' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
-                                        .input
-                                            .input__box
-                                                .input__top-border
-                                                .input__title Диаметр трубопровода
-                                                //- .input__icon
-                                                input(name='a' data-postfix=" мм." data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
-                                    .input
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Кол-во колодцев
-                                            //- .input__icon
-                                            input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
-                                        .input__message(data-default="Кол-во колодцев, которые необходимо строить")
-                                    .input
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Диаметр магистральной трубы
-                                            //- .input__icon
-                                            input(name='a').input__control
-                                        .input__message(data-default="Диаметр и материал магистральной трубы")
-                                    .input
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Материал магистральной трубы
-                                            //- .input__icon
-                                            input(name='v'  data-from="1" data-values="Металл, ПВХ, ПВДФ, РЕХ").input__control.range-slider
-                                        .input__message(data-default="Диаметр и материал магистральной трубы")
+                                    .row
+                                        .col.col_size-sm_2
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Длина трубопровода
+                                                    input(name='a' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
+                                        .col.col_size-sm_2
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Диаметр трубопровода
+                                                    //- .input__icon
+                                                    input(name='a' data-postfix=" мм." data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
+                                    .row
+                                        .col.col_size-sm_2
+                                            .input
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Кол-во колодцев
+                                                    input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
+                                                .input__message(data-default="Кол-во колодцев, которые необходимо строить")
+                                        .col.col_size-sm_2
+                                                .input
+                                                    .input__box
+                                                        .input__top-border
+                                                        .input__title Диаметр магистральной трубы
+                                                        input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
+                                                    .input__message(data-default="7777")
+                                    
+                                    |Материал магистральной трубы
+                                    +b.radio 
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok2' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text Металл
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok2' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text ПВХ
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok2' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text ПВДФ
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='ok2' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text РЕХ
                                     .input.input_type_name
                                         .input__box
                                             .input__top-border
