@@ -2455,3 +2455,55 @@ ul.list
         &_title
             font-size 18px
             color #222
+
+
+.tabs
+    &__item
+        margin-bottom 10px
+        position relative
+        &_active 
+            .tabs__title
+                //&:before
+                &:after
+                    height 0px
+                    //transform
+    &__title
+        position relative 
+        background #477be6
+        line-height 1.3em
+        font-size 16px
+        padding 10px 30px 10px 10px
+        color #fff
+        border-radius 4px
+        z-index 10
+        cursor pointer
+        &:before
+        &:after
+            content ''
+            position absolute
+            background #fff
+            top 50%
+            transition all 0.5s ease 0s
+            border-radius 2px
+        &:before
+            height 2px
+            width 12px
+            right 10px
+            // top calc(50%)
+            transform translateY(-50%)
+        &:after
+            height 12px
+            width 2px
+            right 15px
+            transform translateY(-50%)
+    &__text
+        line-height 1.4em
+        font-size 14px
+        background #fff
+        padding 20px 10px 10px 10px 
+        border-radius 4px
+        border 1px solid #e0e0e0
+        top -10px
+        margin-bottom -10px
+        position relative
+        display none 
