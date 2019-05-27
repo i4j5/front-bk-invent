@@ -2465,7 +2465,7 @@ ul.list
             .tabs__title
                 //&:before
                 &:after
-                    height 0px
+                    opacity 0
                     //transform
     &__title
         position relative 
@@ -2479,11 +2479,12 @@ ul.list
         cursor pointer
         &:before
         &:after
+            opacity 1
             content ''
             position absolute
             background #fff
             top 50%
-            transition all 0.5s ease 0s
+            transition all 0.8s
             border-radius 2px
         &:before
             height 2px
