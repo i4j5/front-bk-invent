@@ -43,19 +43,17 @@ $(function() {
         $items.each((index, el) => {
             let $el = $(el)
             $el.children('.tabs__title').click(function(event) {
+
                 $el.toggleClass('tabs__item_active')
-                
-                //$items.removeClass('tabs__item_active')
 
                 if ($el.hasClass('tabs__item_active')) {
+                    $items.find('.tabs__text').slideUp(500)
+                    $items.removeClass('tabs__item_active')
+                    $el.addClass('tabs__item_active')
                     $el.children('.tabs__text').slideDown(500)
                 } else {
-                    
-                    $items.find('.tabs__text').slideUp(500)
-                    
                     $el.addClass('.tabs__item_active')
                     $el.children('.tabs__text').slideUp(500)
-                    console.log('Закрытие')
                 }
             });	
         })
