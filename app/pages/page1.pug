@@ -453,10 +453,11 @@ block content
                     +b.breadcrumbs
                         +e.wrapper
                             +e.home
-                            .arrow.arrow_right.arrow_theme_light
+                            //- .arrow.arrow_right.arrow_theme_light
+                            +e.separator
                             +e({tag:'a'}).item Поиск земельного участка
-                            .arrow.arrow_right.arrow_theme_light
-                            +e({tag:'a'}).item О нас
+                            +e.separator
+                            +e({tag:'span'}).item.breadcrumbs__item_active О нас
                     +e.title Водоснабжение и канализация для частных домов
                     +e.description Работаем в Ростов-на-дону и Ростовской области
                     +b.btn.btn_view_light.offer__btn
@@ -491,7 +492,7 @@ block content
                         .col.col_size_12.col_size-sm_10.col_offset-sm_1
                             p.
                                 <b>Итого:</b> Вы получаете водоснабжение и полный перечень документов, который позволит безопасно пользоваться коммуникацией бессрочно.  
-
+                    hr
                     section.row
                         .col.col_size_12.col_size-sm_8
                             h2 Услуга “Комплексное водоснабжение”
@@ -581,11 +582,12 @@ block content
 
                                     +e.time-wrapper
                                         +e.time Сроки выполнения: 14 дней
+                        hr
                         p 
                             b Если Вы хотите получить детальный бизнес-процесс подключения к сетям водоснабжения и/или водоотведения, разработанный компанией ООО “БК Инвент”, вы можете его получить на электронную почту.
                         p Мы вышлем Вам на почту процесс, который происходит изнутри, для того, чтобы получить вышеперечисленные результаты!
 
-                    //+b.cases
+                    +b.cases
                         +e.items
                             +e.item
                                 +e.body
