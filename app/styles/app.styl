@@ -618,11 +618,16 @@
 .offer
     width 100%
     //height 400px
-    padding 5px 0 40px 0
-    background #7886ef url(../images/offer.jpg) center no-repeat
+    padding 0
+    background-color #7886ef 
+    background-image url(../images/offer.jpg) 
+    background-repeat no-repeat
+    background-position center
     background-size cover
     box-shadow inset 0px 4px 20px 0px rgba(0, 0, 0, 0.2)
     &__wrapper
+        padding-top 40px
+        padding-bottom 40px
         display flex
         align-items center
         justify-content center
@@ -635,7 +640,7 @@
         line-height 1.2em
         color #fff 
         font-weight 700
-        margin 20px 0
+        margin-bottom 20px
         text-shadow 0px 0px 10px rgba(60, 60, 60, 0.4)
         @media (min-width 700px)
             font-size 37px
@@ -799,36 +804,24 @@ ul.list
 .breadcrumbs
     width 100%
     //border-bottom 1px solid #ddd
-    margin 12px 0 20px 0
+    margin 0px 0 20px 0
+    background rgba(85, 97, 120, 0.23)
+    padding 10px 0 
     &__wrapper
         display flex
         flex-direction row
         align-items center
+        flex-wrap wrap
         //margin 20px auto
     &__item
-        font-size 13px
-        line-height 1.2em
+        font-size 12px
+        line-height 1.1em
         display inline-block
         cursor pointer
-        margin 0 8px
+        margin 2px 0px 2px 20px
         color #fff
-        &_active
-            color #c9cce0
-            cursor auto
-    &__home
-        width 12px
-        height 11px
-        background-image url(../images/breadcrumbs__home.png)
-        background-size contain
-        background-repeat no-repeat
-        display inline-block
-        margin -1px 8px 0 0
-    &__separator
+        width max-content
         position relative
-        width 10px
-        height 14px
-        display inline-block
-        //&:after
         &:before
             content ""
             position absolute
@@ -836,8 +829,43 @@ ul.list
             height 14px
             background #fff
             transform rotate(25deg)
-            top 0
-            left 50%
+            top calc(50% - 7px);
+            left -10px
+        &:first-child
+            &:before
+                display none
+        &_active
+            color #c9cce0
+            cursor auto
+        @media (min-width 500px)
+            font-size 13px
+    &__home
+        width 12px
+        height 15px
+        background-image url(../images/breadcrumbs__home.png)
+        background-size contain
+        background-repeat no-repeat
+        background-position center 2px
+        display inline-block
+        margin-left -12px
+        @media (min-width 1200px)
+            margin-left 0px 
+        //margin -1px 8px 0 0
+    // &__separator
+    //     position relative
+    //     width 10px
+    //     height 14px
+    //     display inline-block
+    //     //&:after
+    //     &:before
+    //         content ""
+    //         position absolute
+    //         width 1px
+    //         height 14px
+    //         background #fff
+    //         transform rotate(25deg)
+    //         top 0
+    //         left 50%
         // &:after
         //     transform rotate(38deg)
         //     top 0

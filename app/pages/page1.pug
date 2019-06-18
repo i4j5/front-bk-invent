@@ -448,21 +448,23 @@ block content
                                           
 
         .main
-            +b.offer
+            +b.offer(style="background-image:url(images/offer1.jpg);")
                 +e.wrapper.container
-                    +b.breadcrumbs
-                        +e.wrapper
-                            +e.home
-                            //- .arrow.arrow_right.arrow_theme_light
-                            +e.separator
-                            +e({tag:'a'}).item Поиск земельного участка
-                            +e.separator
-                            +e({tag:'span'}).item.breadcrumbs__item_active О нас
                     +e.title Водоснабжение и канализация для частных домов
                     +e.description Работаем в Ростов-на-дону и Ростовской области
                     +b.btn.btn_view_light.offer__btn
                         +e.text Записаться на консультацию
-            //- +b.btn.btn_view_action
+                +b.breadcrumbs
+                    +e.wrapper.container
+                        +e.home.breadcrumbs__item
+                        //+e.separator
+                        +e({tag:'a'}).item Поиск земельного участка
+                        //+e.separator
+                        +e({tag:'span'}).item Комплексное подключение инженерных сетей
+                        //+e.separator
+                        +e({tag:'span'}).item Юридические услуги
+                        //+e.separator
+                        +e({tag:'span'}).item.breadcrumbs__item_active Система электроснабжения для многоквартирных домов
             //-     +e.text Записаться на консультацию
             //- +b.btn.btn_view_pseudo
             //-     +e.text Записаться на консультацию
