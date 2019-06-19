@@ -161,7 +161,7 @@ $(function() {
         pager: false,
     })
 
-    $('.cases__items1').bxSlider({
+    $('.cases__items').bxSlider({
         // nextSelector: '.cases__next',
         // prevSelector:'.cases__prev',
         touchEnabled: false,

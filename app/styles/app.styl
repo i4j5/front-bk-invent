@@ -1307,7 +1307,14 @@ ul.list
         @media (min-width 700px)
             font-size 18px
     &__links
-        margin-bottom 20px
+        margin 10px 0 0 0
+        img 
+            width 25px
+    &__description
+        font-size 17px
+        line-height 1.45em
+        margin 0 0 10px 0
+        font-weight 600
     &__text
         font-size 14px
         line-height 1.45em
@@ -1315,7 +1322,7 @@ ul.list
         text-align left
         position relative
         @media (min-width 700px)
-            padding 20px 70px
+            padding 10px 70px 20px 70px 
             font-size 16px 
             &:before
             &:after
@@ -1333,53 +1340,55 @@ ul.list
                 background-image url(../images/quote-after.svg)
                 right 0
                 bottom 0             
-    .bx-wrapper
-        position relative
+.bx-wrapper
+    position relative
 
-    .bx-prev
-    .bx-next
+// .cases__next
+// .cases__prev
+.bx-prev
+.bx-next
+    position absolute
+    border-radius 5px
+    background #fff
+    box-shadow 0px 1px 4px 0px rgba(151, 147, 147, 0.5)
+    width 40px 
+    height 40px
+    top 110px
+    @media (min-width 700px)
+        top auto
+        bottom -10px
+    &:before
+    &:after
+        content ''
         position absolute
-        border-radius 5px
-        background #fff
-        box-shadow 0px 1px 4px 0px rgba(151, 147, 147, 0.5)
-        width 40px 
-        height 40px
-        top 110px
-        @media (min-width 700px)
-            top auto
-            bottom -10px
-        &:before
-        &:after
-            content ''
-            position absolute
-            width 18px
-            height 2px
-            background #4274d6
-    .bx-prev
-        left -5px
-        @media (min-width 700px)
-            left auto 
-            right 58px
-        &:before
-            transform rotate(-45deg)
-            top 13px
-            left 10px
-        &:after
-            transform rotate(45deg)
-            top 25px
-            left 10px
-    .bx-next
-        right -5px
-        @media (min-width 700px)
-            right 10px
-        &:before
-            transform rotate(45deg)
-            top 13px
-            right 10px
-        &:after
-            transform rotate(-45deg)
-            top 25px
-            right 10px
+        width 18px
+        height 2px
+        background #4274d6
+.bx-prev
+    left -15px
+    @media (min-width 700px)
+        left auto 
+        right 58px
+    &:before
+        transform rotate(-45deg)
+        top 13px
+        left 10px
+    &:after
+        transform rotate(45deg)
+        top 25px
+        left 10px
+.bx-next
+    right -15px
+    @media (min-width 700px)
+        right 10px
+    &:before
+        transform rotate(45deg)
+        top 13px
+        right 10px
+    &:after
+        transform rotate(-45deg)
+        top 25px
+        right 10px
 
 .stages
     margin 80px 0
@@ -2153,6 +2162,20 @@ ul.list
 .cases
     width 100%
     margin-bottom 40px
+    &__wrapper
+        position relative
+        .bx-prev
+        .bx-next
+            top 50%
+            transform translateY(-50%)
+            @media (min-width 700px)
+                top auto
+                bottom 10px
+        // .bx-prev
+        //     left -5px
+        // .bx-next
+        //     right -5px
+           
     &__items
         display flex
         flex-wrap wrap
@@ -2160,23 +2183,21 @@ ul.list
         overflow hidden
         border-radius 4px
         //max-width 1160px
-        margin 20px auto 
-        width 100%
-        @media (min-width 600px)
-            width calc(50% - 20px)
-            margin 20px 10px 
-        //border-radius 5px
         background-image url(../images/cases__item.png), linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
-        @media (min-width 900px)
-            width 100%
+        margin 0
+        //border-radius 5px
+        @media (min-width 700px)
+            //width 100%
             display grid
             grid-template-areas 'body image'
             grid-template-columns 70% 30%
-            &:nth-child(2n)
-                grid-template-areas 'image body'
-                grid-template-columns 30% 70%
+            // &:nth-child(2n)
+            //     grid-template-areas 'image body'
+            //     grid-template-columns 30% 70%
     &__body
-        padding 20px
+        padding 20px 35px
+        @media (min-width 700px)
+            padding 20px
         grid-area body
     &__title
         font-size 20px
@@ -2210,9 +2231,9 @@ ul.list
     &__btn
         width max-content
         position absolute
-        bottom 30px
+        top 50%
         left 50%
-        transform translateX(-50%)
+        transform translate(-50%, -50%)
 
 .price
     //margin 40px 0
@@ -2567,9 +2588,18 @@ ul.list
     background-size cover
     //background-attachment fixed
     box-shadow inset 0px 4px 20px 0px rgba(0,0,0,0.09)
+    &__items
+        row-flex()
+        margin-top 30px
     &__item
-        padding 10px 0
-        font-size 16px
+        col()
+        @media (min-width 700px)
+            size(6)
+        border 2px solid #d1ddec
+        border-radius 4px
+        padding 15px 10px 
+        margin-bottom 20px
+        font-size 16px 
         @media (min-width 700px)
             font-size 18px
         display flex
