@@ -502,7 +502,7 @@ block content
                             p омпания “БК Инвент” имеет продуктивный опыт работы с АО “Ростовводоканал”,МП "Азовводоканал", АО "Аксайская ПМК РСВС", что позволяет провести все работы не дольше, чем за 3 месяца и гарантировать получение лицевого счета. 
                             p В течение 2018 года организацией “БК Инвент” было подключено 127 объектов статуса ИЖС, а также 48  объектов коммерческого и муниципального назначения к центральной магистрали водоснабжения.  
                         .col.col_size_12.col_size-sm_4
-                            img(src="http://www.aquamater.it/wp-content/uploads/2019/02/cropped-videoblocks-plumbing-plastic-pipes-cold-and-hot-water-supply-taps-60fps_rburcjt3x_thumbnail-full01.png")
+                            img(class="zoom" data-zoom='https://images.wallpaperscraft.com/image/mountains_reflection_wood_canada_colors_45566_2048x1152.jpg' src="http://www.aquamater.it/wp-content/uploads/2019/02/cropped-videoblocks-plumbing-plastic-pipes-cold-and-hot-water-supply-taps-60fps_rburcjt3x_thumbnail-full01.png")
                     section
                         +b.deadlines
                             +e.header ЭТАПЫ ВОДОСНАБЖЕНИЯ И/ИЛИ КАНАЛИЗАЦИИ “ПОД КЛЮЧ”
@@ -589,6 +589,33 @@ block content
                             b Если Вы хотите получить детальный бизнес-процесс подключения к сетям водоснабжения и/или водоотведения, разработанный компанией ООО “БК Инвент”, вы можете его получить на электронную почту.
                         p Мы вышлем Вам на почту процесс, который происходит изнутри, для того, чтобы получить вышеперечисленные результаты!
 
+                    +b.stock.stock_type_slider
+                        +e.wrapper
+                            .cases__next
+                            .cases__prev
+                            +e.items
+                                +e.item
+                                    +e.img
+                                        img(src="https://cs9.pikabu.ru/post_img/2017/08/21/7/og_og_1503313201246247889.jpg")
+                                    +e.body
+                                        +e.title Акция 
+                                        +e.text
+                                            |ча организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
+                                        +e.btn
+                                            +b.btn.btn_view_action
+                                                +e.text Подробнее о проекте
+                                +e.item
+                                    +e.img
+                                        img(src="https://tdmspb.ru/files/free_data/-gallery-skidka_smesitel-1527660823.png")
+                                    +e.body
+                                        +e.title Акция 
+                                        +e.text
+                                            |ча организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
+                                        +e.btn
+                                            +b.btn.btn_view_action
+                                                +e.text Подробнее о проекте
+                                    
+
                     +b.cases
                         +e.wrapper
                             .cases__next
@@ -600,10 +627,10 @@ block content
                                         +e.texts
                                             +e.text
                                                 span ЗАДАЧА
-                                                |С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Товарищи! сложившаяся 
+                                                |-
                                             +e.text
                                                 span ОСОБЕННОСТИ ПРОЕКТА
-                                                |Задача организации, в особенности же укрепление и развитие структуры играет важную роль в формировании новых предложений. Таким образом начало повседневной работы по формированию позиции требуют от нас анализа 
+                                                |-
                                     +e.img
                                         img(src="http://volga-service63.ru/img/original_1621f515481580a5.jpg")
                                         +e.btn
@@ -996,7 +1023,13 @@ block content
                         |Запрещено любое копирование материалов ресурса без письменного согласия владельца — ООО "БК Инвент".
         
     //- ////////////////////
-
+    .modal.modal_type_zoom#modal__zoom
+        .modal__wrapper
+            .modal__dialog
+                .close.modal__close
+                //.modal__title
+                .modal__html 
+                
     .modal#modal__order
         .modal__wrapper
             .modal__dialog
@@ -1038,6 +1071,7 @@ block content
                             .checkbox__text 
                                 |Согласен  
                                 +e({tag: 'a'}).link на обработку персональных данных
+
     .fixed_blur
     +scripts(['common.js', 'app.js'])
 

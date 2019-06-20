@@ -1824,9 +1824,9 @@ ul.list
             width auto
             max-width 90%
             min-width 300px
-            padding 40px 20px 20px 20px
+            padding 15px
             line-height 0
-            margin 20px auto
+            //margin 40px auto
                         
     &__title
         font-size 18px
@@ -2171,6 +2171,7 @@ ul.list
             @media (min-width 700px)
                 top auto
                 bottom 10px
+                transform none
         // .bx-prev
         //     left -5px
         // .bx-next
@@ -2615,3 +2616,72 @@ ul.list
         color #000
         text-align center
         margin-bottom 5px
+
+img.zoom
+    cursor zoom-in
+
+.stock
+    width 100%
+    margin-bottom 40px
+    &_type_slider
+        .stock__item
+            margin-bottom 0
+
+    &__wrapper
+        position relative
+        .bx-prev
+        .bx-next
+            top 50%
+            transform translateY(-50%)
+            @media (min-width 700px)
+                top auto
+                bottom 10px
+                transform none       
+    &__items
+        display flex
+        flex-wrap wrap
+    &__item
+        margin-bottom 20px
+        overflow hidden
+        border-radius 4px
+        background-image linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
+        @media (min-width 700px)
+            display grid
+            grid-template-areas 'image body'
+            grid-template-columns 50% 50%
+    &__body
+        padding 20px 35px
+        grid-area body
+    &__title
+        font-size 20px
+        line-height 1.2em
+        color #000
+        margin-bottom 10px
+    &__text
+        font-size 14px
+        line-height 1.4em
+        margin-bottom 10px
+        span
+            display block
+            font-size 15px
+            font-weight 600
+            margin-bottom 5px
+            margin-top 20px
+    &__img
+        grid-area image
+        position relative
+        line-height 0
+        img
+            border-radius 0
+            margin 0
+            height 100%
+        @media (min-width 900px)
+            width auto
+    &__btn
+        width max-content
+        margin 20px auto
+        display table
+        // position absolute
+        // top 50%
+        // left 50%
+        // transform translate(-50%, -50%)
