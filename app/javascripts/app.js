@@ -177,7 +177,7 @@ $(function() {
         pager: false,
     })
 
-    $('.cases__items, .stock_type_slider .stock__items').bxSlider({
+    $('.cases__items').bxSlider({
         // nextSelector: '.cases__next',
         // prevSelector:'.cases__prev',
         touchEnabled: false,
@@ -192,6 +192,16 @@ $(function() {
         //shrinkItems: true,
         pager: false,
     })
+
+    $('.stock_type_slider .stock__items').bxSlider({
+        touchEnabled: false,
+        nextText: '',
+        prevText: '',
+        auto: true,
+        pause: 4000,
+        pager: false,
+    })
+
 
 
 
@@ -521,6 +531,36 @@ $(function() {
         $topMenuItems.addClass('top-menu__items_visible')
         $search.removeClass('top-menu__search_visible')
     })
+
+    ymaps.ready(init);
+	var map;
+
+	function init(){
+	  map = new ymaps.Map("map", {
+	      center: [47.229409, 39.678002],
+	      zoom: 17,
+	     controls: [
+	      'zoomControl'
+	     ]
+	  });
+
+	  map.behaviors.disable(['scrollZoom']);
+
+	  var placemark = new ymaps.Placemark([47.229409, 39.678002],
+	    {
+	      hintContent: 'БК Инвент ул. Текучева, 23, эт. 3'
+	      //balloonContent: 'html'
+	    }, 
+	    {
+	      iconLayout: 'default#image',
+	      iconImageHref: './images/ya-maps.png',
+	      iconImageSize: [90, 108],
+	      iconImageOffset: [-38, -110]
+	    }
+	  );
+
+	  map.geoObjects.add(placemark);
+	}
 })
 
 
