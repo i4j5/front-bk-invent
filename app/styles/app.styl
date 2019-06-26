@@ -1444,10 +1444,36 @@ ul.list
     &__image
         width 65px
         height 65px
-        background #ddd
+        // background #eee
         grid-area image
-        border-radius 100%
+        position relative
+        // padding 5px
+        &:before
+        &:after
+            content ''
+            position absolute
+        &:before   
+            width 80%
+            height 80%
+            left 10%
+            top 10%
+            background #eee
+            border-radius 100%
+        &:after
+            width 40%
+            height 40%
+            right 10%
+            bottom 10%
+            background rgba(197, 197, 197, 0.2)
+            border-radius 100% 1px
+        img
+            position relative 
+            z-index 10
+            width auto
+            max-width 80%
         @media (min-width 600px)
+            img
+                max-width 100%
             width 160px
             height 160px
     &__title
@@ -1607,6 +1633,7 @@ ul.list
     margin-bottom 30px
     &__item
         margin-bottom 40px
+        cursor pointer
         col()
         size(12)
         @media (min-width 600px)
@@ -2246,11 +2273,15 @@ ul.list
 
 .price
     //margin 40px 0
-    background #f5f5f5 radial-gradient(at top, #ddd, #f5f5f5)
+    background-color #f5f5f5 
+    background-image  radial-gradient(at top, rgba(221, 221, 221, 0.1), rgba(245, 245, 245, 0.1)), url('../images/price-bg.jpg')
+    background-repeat no-repeat
+    background-position center
+    background-size cover
     padding 20px 0
     @media (min-width 700px)
         padding 40px 0
-    box-shadow inset 0px 4px 20px 0px rgba(0,0,0,0.09)
+    box-shadow inset 0px 4px 20px 0px rgba(0,0,0,0.06)
     &__title
         font-size 22px
         line-height 1.3em
@@ -2657,7 +2688,7 @@ img.zoom
         @media (min-width 700px)
             display grid
             grid-template-areas 'image body'
-            grid-template-columns 50% 50%
+            grid-template-columns 55% 45%
     &__body
         padding 20px 35px
         grid-area body
