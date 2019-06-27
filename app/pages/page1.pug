@@ -25,7 +25,9 @@ block content
                                         input(name='search' placeholder="Поиск на сайте").input__control
                             +e.items.top-menu__items_visible
                                 +e.item
-                                    +e({tag: 'a'}).link О нас
+                                    +e({tag: 'a'}).link 
+                                        |О нас
+                                        .arrow.arrow_bottom
                                     +e.submenu
                                         +e.item
                                             +e({tag: 'a'}).link 100 слов о БК Инвент
@@ -473,27 +475,28 @@ block content
             
             .content
                 .container
-                    section.row
-                        .col.col_size_12.col_size-sm_6
-                            //- h4 Исходные данные (проблемы)
-                            ul.list 
-                                li Вы построили дом и хотите подключить центральный водопровод?
-                                li У вас был водопровод от соседа, и вам стало необходимо переподключиться к магистральной линии воды?
-                                li Вы купили участок и собираетесь строить дом, а для строительства необходимо водоснабжение?
-                                li Вы купили дом, и не знаете, как у вас обстоят дела с документами на воду?
-
-                        .col.col_size_12.col_size-sm_6
-                            //- h4 Результат
-                            p Мы предлагаем Вам:
-                            ul.list.list_type_check
-                                li Предпроектное решение
-                                li Рабочий согласованный проект
-                                li Строительство сети водопровода/канализации согласно ПД
-                                li Сдачу сетей в АО “Ростовводоканал”
-                                li Получение лицевого счета
-                        .col.col_size_12.col_size-sm_10.col_offset-sm_1
-                            p.
-                                <b>Итого:</b> Вы получаете водоснабжение и полный перечень документов, который позволит безопасно пользоваться коммуникацией бессрочно.  
+                    +b({tag: 'section'}).query2result  
+                        .row
+                            .col.col_size_12.col_size-sm_6
+                                +e.query
+                                    h4 Исходные данные (проблемы)
+                                    +e.item Вы построили дом и хотите подключить центральный водопровод?
+                                    +e.item У вас был водопровод от соседа, и вам стало необходимо переподключиться к магистральной линии воды?
+                                    +e.item Вы купили участок и собираетесь строить дом, а для строительства необходимо водоснабжение?
+                                    +e.item Вы купили дом, и не знаете, как у вас обстоят дела с документами на воду?
+                            div(style="align-self: center; align-items: flex-start; display: flex;").col.col_size_0.col_size-sm_1
+                                img(src="images/i27.png")
+                            .col.col_size_12.col_size-sm_5
+                                +e.result
+                                    h4 Мы предлагаем Вам:
+                                    +e.item Предпроектное решение
+                                    +e.item Рабочий согласованный проект
+                                    +e.item Строительство сети водопровода/канализации согласно ПД
+                                    +e.item Сдачу сетей в АО “Ростовводоканал”
+                                    +e.item Получение лицевого счета
+                            .col.col_size_12.col_size-sm_10.col_offset-sm_1
+                                blockquote 
+                                    b Вы получаете водоснабжение и полный перечень документов, который позволит безопасно пользоваться коммуникацией бессрочно.  
                     hr
                     section.row
                         .col.col_size_12.col_size-sm_8
@@ -586,12 +589,12 @@ block content
 
                                     +e.time-wrapper
                                         +e.time Сроки выполнения: 14 дней
-                        .row
-                            .col.col_size_12.col_size-sm_8.col_offset-sm_2
-                                //hr
-                                p 
-                                    b Если Вы хотите получить детальный бизнес-процесс подключения к сетям водоснабжения и/или водоотведения, разработанный компанией ООО “БК Инвент”, вы можете его получить на электронную почту.
-                                p Мы вышлем Вам на почту процесс, который происходит изнутри, для того, чтобы получить вышеперечисленные результаты!
+                        div(style="margin: auto;display: table;").btn.btn_view_pseudo
+                           .btn__text Скачать
+                                //-hr
+                                //- p 
+                                //-     b Если Вы хотите получить детальный бизнес-процесс подключения к сетям водоснабжения и/или водоотведения, разработанный компанией ООО “БК Инвент”, вы можете его получить на электронную почту.
+                                //- p Мы вышлем Вам на почту процесс, который происходит изнутри, для того, чтобы получить вышеперечисленные результаты!
                         hr
                     +b.stock.stock_type_slider
                         +e.wrapper
@@ -673,37 +676,34 @@ block content
                                     
 
             
-                    section.row
-                        .col.col_size_12.col_size-sm_5
-                            h4 Правоустанавливающие документы, которые необходимы от Вас, чтобы начать процесс подключения:
-                            ul.list 
-                                li Копия паспорта гражданина РФ
-                                li Правоустанавливающие документы на участок и объект недвижимости
-                                li Документы-основания (договор купли-продажи, договор дарения и т.д.)
-                                li Технический паспорт (с привязкой к объекту)
-                                li Доверенность на сотрудника БК Инвент
-                            p Если из перечисленного списка, у Вас не хватает какого-то документа, юрист БК Инвент подскажет, как восстановить/получить/изготовить.
-                            .btn.btn_view_action
-                                .btn__text Заказать звонок
-                        .col.col_size_12.col_size-sm_6.col_offset-sm_1
-                            h4 Документы, входящие  в “Папку клиента” по завершении подключения:
-                            ul.list.list_type_check
-                                li Баланс водопотребления и водоотведения
-                                li Топографическая съемка (заверенная департаментом архитектуры и Градостроительства г.Ростова-на-Дону) 
-                                li Договор на технологическое присоединение с АО “Ростовводоканал” и/или технические условия
-                                li Рабочая проектная документация, согласованная с 17 организациями
-                                li Ордер на разрытие, схема организации дорожного движения, справка о благоустройстве территории
-                                li Исполнительные акты
-                                li Протокол лабораторных исследований воды
-                                li Исполнительная топографическая съемка (заверенная департаментом Архитектуры и Градостроительства г.Ростова-на-Дону)
-                                li Акт допуска водопроводного/канализационного ввода в эксплуатаци
-                                li Акт о разграничении балансовой принадлежности
-                                li Акт о готовности внутриплощадочных и(или) внутридомовых сетей и оборудования
-                                li Акт об опломбировке счетчика (по водоснабжению)
-                                li Справка о выполнении технических условий 
-                                li Договор на холодное водоснабжение/водоотведения
-                                li Первая квитанция на оплату 
-                      
+                    section
+                        +b.docs
+                            .row
+                                +e.col.col
+                                    h4 Правоустанавливающие документы, которые необходимы от Вас, чтобы начать процесс подключения:
+                                    ul.list 
+                                        li Копия паспорта гражданина РФ
+                                        li Правоустанавливающие документы на участок и объект недвижимости
+                                        li Документы-основания (договор купли-продажи, договор дарения и т.д.)
+                                        li Технический паспорт (с привязкой к объекту)
+                                        li Доверенность на сотрудника БК Инвент
+                                    p
+                                        blockquote Если из перечисленного списка, у Вас не хватает какого-то документа, юрист БК Инвент подскажет, как восстановить/получить/изготовить.
+                                    .btn.btn_view_pseudo
+                                        .btn__text Заказать звонок
+                                +e.col.docs__col_well.col
+                                    h4 Документы, входящие  в “Папку клиента” по завершении подключения:
+                                    ul.list.list_type_check
+                                        li Баланс водопотребления и водоотведения
+                                        li Топографическая съемка (заверенная департаментом архитектуры и Градостроительства г.Ростова-на-Дону) 
+                                        li Договор на технологическое присоединение с АО “Ростовводоканал” и/или технические условия
+                                        li Рабочая проектная документация, согласованная с 17 организациями
+                                        li Ордер на разрытие, схема организации дорожного движения, справка о благоустройстве территории
+                                        li Исполнительные акты
+                                        li Протокол лабораторных исследований воды
+                                        li Исполнительная топографическая съемка (заверенная департаментом Архитектуры и Градостроительства г.Ростова-на-Дону)
+                                        li Акт допуска водопроводного/канализационного ввода в эксплуатаци
+                                    
                     
 
                     
@@ -783,106 +783,105 @@ block content
 
                 +b.price
                     .container
-                        +e.wrapper
-                            +e.title Рассчитать коммерческую стоимость
-                            +e.text
-                                blockquote 
-                                    p. 
-                                        <b>Справочно:</b> Правильный и честный подход к формированию конечной стоимости прокладки трубопровода составляется на основании согласованного проекта. На цену влияют огромное количество факторов, к примеру: открытым или закрытым методом целесообразнее прокладывать трубопровод, нужно ли восстанавливать покрытие и т.д. 
-                                        Но ввиду большого опыта, специалисты БК Инвент могут сделать предварительный расчет с небольшой погрешностью. 
-                                        <br>Но, если подрядчик сходу называет конечную стоимость работ, не выезжая и не осматривая местность, стоит насторожиться, так как как минимум подрядчик должен определить каков объем работ, чтобы задать цену
-
-                            form.form.ajax
-                                .row
-                                    .col.col_size_12.col_size-sm_7
-                                        +e.calculator
-                                            .form__row
-                                                
+                        +e.title Рассчитать коммерческую стоимость
+                        
+                        form.form.ajax
+                            .row
+                                .col.col_size_12.col_size-sm_7
+                                    +e.calculator
+                                        .form__row
+                                            
+                                                .input
+                                                    .input__box
+                                                        .input__top-border
+                                                        .input__title Длина трубопровода
+                                                        input(name='a' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
+                                        .form__row
+                                                .input
+                                                    .input__box
+                                                        .input__top-border
+                                                        .input__title Диаметр трубопровода
+                                                        //- .input__icon
+                                                        input(name='a' data-postfix=" мм." data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
+                                        .form__row
+                                                .input
+                                                    .input__box
+                                                        .input__top-border
+                                                        .input__title Кол-во проектируемых колодцев
+                                                        input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
+                                                    //.input__message(data-default="Кол-во колодцев, которые необходимо строить")
+                                        .form__row
                                                     .input
                                                         .input__box
                                                             .input__top-border
-                                                            .input__title Длина трубопровода
-                                                            input(name='a' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
-                                            .form__row
-                                                    .input
-                                                        .input__box
-                                                            .input__top-border
-                                                            .input__title Диаметр трубопровода
-                                                            //- .input__icon
-                                                            input(name='a' data-postfix=" мм." data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
-                                            .form__row
-                                                    .input
-                                                        .input__box
-                                                            .input__top-border
-                                                            .input__title Кол-во проектируемых колодцев
+                                                            .input__title Диаметр магистральной трубы
                                                             input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
-                                                        //.input__message(data-default="Кол-во колодцев, которые необходимо строить")
-                                            .form__row
-                                                        .input
-                                                            .input__box
-                                                                .input__top-border
-                                                                .input__title Диаметр магистральной трубы
-                                                                input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
-                                                            .input__message(data-default="Диаметр магистральной трубы (в которую будет осуществляться врезка)")
-                                            
-                                            
-                                            .form__text.form__text_title Материал магистральной трубы:
-                                            +b.radio.radio_row
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text Металл
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text ПВХ
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text ПВДФ
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='ok2' type='radio').radio__control
-                                                    .radio__box
-                                                    .radio__text РЕХ
-                                    .col.col_size_12.col_size-sm_5          
-                                        +e.form
-                                            .form__row 
-                                                .input.input_type_name
-                                                    .input__box
-                                                        .input__top-border
-                                                        .input__title Имя
-                                                        //- .input__icon
-                                                        input(name='name').input__control
-                                                    .input__message(data-default="Укажите точно как в паспорте")
-                                            .form__row 
-                                                .input.input_type_phone
-                                                    .input__box
-                                                        .input__top-border
-                                                        .input__title Телефон
-                                                        //- .input__icon
-                                                        input(name='phone').input__control
-                                                        //- label(for="name") 123                                       
-                                            .form__row 
-                                                .input.input_type_email
-                                                    .input__box
-                                                        .input__top-border
-                                                        .input__title Email
-                                                        //- .input__icon
-                                                        input(name='email').input__control
-                                                    .input__message                                                              
-                                            .form__row 
-                                                button(type="submit").btn.btn_view_action
-                                                    .btn__text Записаться на консультацию
-                                                   
-                                            +b.checkbox.checkbox_theme_light 
-                                                +e({tag: 'label'}).item                                     
-                                                    input(name='privacy' type='checkbox' checked).checkbox__control
-                                                    .checkbox__box
-                                                .checkbox__text 
-                                                    |Согласен  
-                                                    +e({tag: 'a'}).link на обработку персональных данных 
-                                    
-                
+                                                        .input__message(data-default="Диаметр магистральной трубы (в которую будет осуществляться врезка)")
+                                        
+                                        
+                                        .form__text.form__text_title Материал магистральной трубы:
+                                        +b.radio.radio_row
+                                            +e({tag: 'label'}).item                                     
+                                                input(name='ok2' type='radio').radio__control
+                                                .radio__box
+                                                .radio__text Металл
+                                            +e({tag: 'label'}).item                                     
+                                                input(name='ok2' type='radio').radio__control
+                                                .radio__box
+                                                .radio__text ПВХ
+                                            +e({tag: 'label'}).item                                     
+                                                input(name='ok2' type='radio').radio__control
+                                                .radio__box
+                                                .radio__text ПВДФ
+                                            +e({tag: 'label'}).item                                     
+                                                input(name='ok2' type='radio').radio__control
+                                                .radio__box
+                                                .radio__text РЕХ
+                                .col.col_size_12.col_size-sm_5          
+                                    +e.form
+                                        .form__row 
+                                            .input.input_type_name
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Имя
+                                                    //- .input__icon
+                                                    input(name='name').input__control
+                                                .input__message(data-default="Укажите точно как в паспорте")
+                                        .form__row 
+                                            .input.input_type_phone
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Телефон
+                                                    //- .input__icon
+                                                    input(name='phone').input__control
+                                                    //- label(for="name") 123                                       
+                                        .form__row 
+                                            .input.input_type_email
+                                                .input__box
+                                                    .input__top-border
+                                                    .input__title Email
+                                                    //- .input__icon
+                                                    input(name='email').input__control
+                                                .input__message                                                              
+                                        .form__row 
+                                            button(type="submit").btn.btn_view_action
+                                                .btn__text Записаться на консультацию
+                                                
+                                        +b.checkbox.checkbox_theme_light 
+                                            +e({tag: 'label'}).item                                     
+                                                input(name='privacy' type='checkbox' checked).checkbox__control
+                                                .checkbox__box
+                                            .checkbox__text 
+                                                |Согласен  
+                                                +e({tag: 'a'}).link на обработку персональных данных 
+                                
+                        +e.text
+                            blockquote 
+                                p. 
+                                    <b>Справочно:</b> Правильный и честный подход к формированию конечной стоимости прокладки трубопровода составляется на основании согласованного проекта. На цену влияют огромное количество факторов, к примеру: открытым или закрытым методом целесообразнее прокладывать трубопровод, нужно ли восстанавливать покрытие и т.д. 
+                                    Но ввиду большого опыта, специалисты БК Инвент могут сделать предварительный расчет с небольшой погрешностью. 
+                                    <br>Но, если подрядчик сходу называет конечную стоимость работ, не выезжая и не осматривая местность, стоит насторожиться, так как как минимум подрядчик должен определить каков объем работ, чтобы задать цену
+
                 +b.triggers
                     .container
                         +e.title Ваши преимущества сотрудничества с ООО ”БК Инвент”
@@ -979,10 +978,33 @@ block content
                 
                 .form-box
                     .form-box__wrapper
-                        .form-box__title Заполните контактную информацию
+                        .form-box__header
+                            .form-box__title Заполните контактную информацию
+                            .form-box__description Для того, чтобы начать работу прямо сейчас, необходимо заполнить форму:
                         form.form.ajax
                             .form-box__items
-                                .form-box__description Для того, чтобы начать работу прямо сейчас, необходимо заполнить форму:
+                                .form-box__item
+                                    .form-box__label Получить бесплатную консультацию от:
+                                    +b.radio 
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='comment' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text Cпециалиста по оформлению документов 
+                                    
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='comment' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text Ведущего инженера
+                      
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='comment' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text Инженера-консультанта общего профиля
+
+                                        +e({tag: 'label'}).item                                     
+                                            input(name='comment' type='radio').radio__control
+                                            .radio__box
+                                            .radio__text Юриста
                                 .form-box__item
                                     .input.input_type_name
                                         .input__box
@@ -1007,6 +1029,7 @@ block content
                                             //- .input__icon
                                             input(name='email').input__control
                                         .input__message
+                                
                                 .form-box__item                                   
                                     button(type="submit").btn.btn_view_action
                                         .btn__text Записаться на консультацию

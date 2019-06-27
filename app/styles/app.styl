@@ -321,13 +321,19 @@
             .top-menu__submenu
                 visibility visible
                 opacity 1
+        .arrow
+            margin 3px 0 0 6px
+            display inline-block
     &__link
+        display flex
+        align-items center
         font-size 15px
         line-height 1.4em
         cursor pointer
         // padding 0 20px
         color #1c1c1c
         font-weight 600
+        //padding 5px 0
         &:hover 
             color #2b519e
         // &_arrow
@@ -1291,7 +1297,6 @@ ul.list
             padding-bottom 50px !important
     &__person
         @media (min-width 700px)
-            //float left
             margin-right 40px
     &__avatar
         border-radius 100% !important
@@ -1734,7 +1739,6 @@ ul.list
         font-size 14px
         line-height 1.3em
         color #555
-        margin-bottom 25px
     &__label
         font-size 18px
         line-height 1.3em
@@ -1772,23 +1776,26 @@ ul.list
         @media (min-width 600px)
             padding 20px 80px 5px 80px
     &__item
-        margin-bottom 30px
+        margin-bottom 25px
         width auto
         // max-width 1
         .btn
             margin auto
             display block
+    &__header
+        padding 20px 10px
+        background #ddd
+        border-radius 8px 8px 0 0
+        @media (min-width 600px)
+            padding 20px 80px 20px 80px
     &__title
-        //top -10px
         font-size 22px
         line-height 1em
-        padding 20px 10px
         text-align center
-        background #ddd
-        //left 40px
         color #3d3d3d
         font-weight 400
-        border-radius 8px 8px 0 0 
+        margin-bottom 12px
+        
 
 
 
@@ -1965,10 +1972,11 @@ ul.list
         .checkbox__box
             border 2px solid #f95555 !important
     &__item
-        cursor pointer
         display flex
-        align-items center
-        width max-content
+        align-items center 
+        flex-wrap wrap
+        cursor pointer
+        // width max-content
         margin-bottom 0.6em
         &:hover
             .checkbox__box
@@ -1987,6 +1995,7 @@ ul.list
     &__text
         font-size 1em
         line-height 1.2em
+        width calc(100% - 2.1em)
     &__box
         width 1.5em
         height 1.5em
@@ -2055,10 +2064,11 @@ ul.list
         .radio__box
             border 2px solid #f95555 !important
     &__item
-        cursor pointer
         display flex
-        align-items center
-        width max-content
+        align-items center 
+        flex-wrap wrap
+        cursor pointer
+        //width max-content
         margin-bottom 0.6em
         &:hover
             .radio__box
@@ -2078,6 +2088,7 @@ ul.list
     &__text
         font-size 1em
         line-height 1.2em
+        width calc(100% - 2.1em)
     &__box
         width 1.5em
         height 1.5em
@@ -2283,6 +2294,7 @@ ul.list
         padding 40px 0
     box-shadow inset 0px 4px 20px 0px rgba(0,0,0,0.06)
     &__title
+        text-align center
         font-size 22px
         line-height 1.3em
         margin-bottom 25px
@@ -2300,7 +2312,7 @@ ul.list
     &__calculator
         grid-area calculator
     &__text
-        margin-bottom 25px
+        margin-top 25px
 
 
 
@@ -2508,27 +2520,42 @@ ul.list
     row-flex()
 .col
     col()
-    &_size        
+    &_size      
+        &_0
+            width 0
+            height auto 
         for $n in (1..12)
             &_{$n}
                 size($n)
         &-xs
             @media (min-width 560px)
+                &_0
+                   width 0
+                   height auto  
                 for $n in (1..12)
                     &_{$n}
                         size($n)
         &-sm
             @media (min-width 780px)
+                &_0
+                   width 0
+                   height auto 
                 for $n in (1..12)
                     &_{$n}
                         size($n)
         &-md
             @media (min-width 960px)
+                &_0
+                   width 0
+                   height auto 
                 for $n in (1..12)
                     &_{$n}
                         size($n)
         &-lg
             @media (min-width 1100px)
+                &_0
+                   width 0
+                   height auto 
                 for $n in (1..12)
                     &_{$n}
                         size($n)
@@ -2812,4 +2839,48 @@ img.zoom
         left -10px
     &:after 
         right -10px
-         
+
+
+.query2result          
+    &__query
+    &__result
+        border-radius 4px
+        padding 10px 20px  
+        margin-bottom 20px
+    &__item
+        margin-bottom 15px
+        background-position left center
+        background-repeat no-repeat
+        background-size 25px
+        padding 5px 0 5px 30px 
+        line-height 1.2em
+    &__result
+        //background #eee
+        border 2px solid #4273d6
+        .query2result__item
+            background-image url(../images/i32.png) 
+    &__query
+        font-weight 600
+        @media (min-width 780px)  
+            margin-bottom 5px
+        border 2px solid #d1ddec
+        .query2result__item
+            background-image url(../images/i68.png) 
+
+
+.docs
+    &__col
+        width 100%
+        margin 0
+        background #eee
+        padding 10px 20px
+        border-radius 4px 4px 0 0 
+        @media (min-width 780px)
+            border-radius 4px 0 0 4px 
+            width 40%
+        &_well
+            background #cddbf7
+            border-radius 0 0 4px 4px
+            @media (min-width 780px)
+                border-radius 0 4px 4px 0 
+                width 60%

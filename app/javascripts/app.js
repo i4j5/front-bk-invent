@@ -532,6 +532,24 @@ $(function() {
         $search.removeClass('top-menu__search_visible')
     })
 
+    let $topMenuItem = $('.top-menu__item')
+
+    $topMenuItem.hover(function() {
+
+        $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_bottom').addClass('arrow_top')
+        console.log($(this).children('.top-menu__link').children('.arrow'))
+
+    }, function(e) {
+
+        let $this = $(this)
+        
+        // console.log($this, $this.is(':hover'))
+        // if ($this.is(':hover')) {
+        //     $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_top').addClass('arrow_bottom')
+        // }
+        $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_top').addClass('arrow_bottom')
+    })
+
     ymaps.ready(init);
 	var map;
 
