@@ -352,6 +352,12 @@ $(function() {
     $('.input').each(function() {
         let $input = $(this)
 
+        // if ($input.hasClass('input_type_select')) {
+        //     let items =  $input.data('items')
+
+        //     console.log(items[0].name)
+        // }
+
         let $box = $input.children('.input__box')
         let $control = $box.children('.input__control')
         let $topBorder = $box.children('.input__top-border')
@@ -370,6 +376,52 @@ $(function() {
             $message.text($message.data('default'))
         }
 
+    })
+
+    $('.input__text').click(function() {
+        let $text = $(this)
+        let $box = $text.parent()
+        let $items = $box.children('.input__items')
+        
+        let $topBorder = $text.parent().children('.input__top-border')
+        let $title = $text.parent().children('.input__title')
+
+        $box.parent().addClass('input_select_open')
+                
+        if (!$box.hasClass('input__box_filled') && !$box.hasClass('input__box_focus')) {
+            if ($title.width()) {
+                $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 11px)`)
+            }
+        }
+
+        $box.addClass('input__box_focus')
+        $text.slideUp(500)
+        $items.slideDown(500)
+
+    })
+
+    $('.input__item').click(function() {
+        let $item = $(this)
+        let $box = $item.parent().parent()
+        let $items = $item.parent()
+        let $control = $box.children('.input__control')
+        let $text = $box.children('.input__text')
+
+        $items.slideUp(500)
+        $text.slideDown(500)
+
+        $item.data('value')
+        $control.val($item.data('value'))
+        $text.text($item.text())
+        
+        setTimeout(function() { 
+            $items.children('.input__item').removeClass('input__item_active')
+            $item.addClass('input__item_active')
+            $box.parent().removeClass('input_select_open')
+        }, 501)
+        
+        $box.addClass('input__box_filled')
+        $box.removeClass('input__box_focus')
     })
 
     $('.input__control').focus(function() {

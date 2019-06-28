@@ -1029,6 +1029,21 @@ block content
                                             //- .input__icon
                                             input(name='email').input__control
                                         .input__message
+
+                                .form-box__item
+                                    .input.input_type_select
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Выберите специалиста
+                                            //- .input__icon
+                                            input(name='name').input__control
+                                            .input__text
+                                            .input__items
+                                                .input__item(data-value="123") Cпециалист по оформлению документов
+                                                .input__item(data-value="32312") Ведущий инженер
+                                                .input__item(data-value="32312") Инженер-консультант общего профиля
+                                                .input__item(data-value="32312") Юрист
+                                        .input__message(data-default="Укажите точно как в паспорте")
                                 
                                 .form-box__item                                   
                                     button(type="submit").btn.btn_view_action

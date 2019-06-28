@@ -1111,8 +1111,7 @@ ul.list
             .input__control
                 background url(../images/input-error.svg) no-repeat center right .01em
                 background-size .7em
-    &_ok
-        .input__control
+    &_ok .input__control
             background url(../images/input-ok.svg) no-repeat center right .01em
             background-size .75em
     &__top-border 
@@ -1170,15 +1169,27 @@ ul.list
         min-height 1em
         margin-top 5px
     &__control
+    &__text
+        cursor pointer
         width 100%
         font-size 1em
         line-height 1em
+        height 1.278em
         color #5a5a5a
         outline none
         position relative
         z-index 100
         background none
-        padding-right 1em
+        padding-right 1.3em
+    &__text
+        position relative
+        padding-left 1em
+        line-height 1.2em
+        height auto
+        min-height 0
+        &:after
+            content '-'
+            color #fff
     &__title
         transition all .2s ease 0s
         color #444
@@ -1191,6 +1202,13 @@ ul.list
     //     width 20px
     //     height 20px 
     //     background #ddd
+    &_select_open
+        &:before
+            transform rotate(-50deg) !important
+        &:after
+            transform rotate(50deg) !important
+        .input__text
+            min-height 
     &_type
         &_name
         &_email
@@ -1213,6 +1231,59 @@ ul.list
         &_email
             .input__box
                 background-image url(../images/input_type_email.png)
+        &_select
+            position relative
+            &:before
+            &:after
+                transition all .5s ease 0s
+                content ''
+                position absolute
+                width 12px
+                height 2px
+                background #84aeff
+                border-radius 4px
+                top 1.15em
+            &:before
+                transform rotate(-130deg)
+                right 0.87em
+            &:after
+                transform rotate(130deg)
+                right 0.5em
+
+            .input__box
+                padding-left 0
+            .input__items
+                display none
+                padding-left 0.5em
+            .input__item
+                &:last-child
+                    border none 
+                font-size 1em
+                padding .3em .82em
+                line-height 1.2em
+                cursor pointer
+                color #5a5a5a
+                border-bottom 1px dotted #ddd
+                &_active
+                    position relative
+                    &:before
+                        content: '';
+                        width 0.6em
+                        height 0.34em
+                        position absolute
+                        top 0.6em;
+                        left 0
+                        border 1px solid #fff
+                        border-top none
+                        border-right none
+                        background transparent
+                        transform rotate(-45deg)
+                        border-left 2px solid #5784e0
+                        border-bottom 2px solid #5784e0
+            .input__control
+                display none
+
+
 
 .arrow
     position relative
