@@ -454,8 +454,8 @@ block content
                 +e.wrapper.container
                     +e.title Водоснабжение и канализация для частных домов
                     +e.description Работаем в Ростов-на-дону и Ростовской области
-                    +b.btn.btn_view_light.offer__btn
-                        +e.text Записаться на консультацию
+                    .btn(data-modal="modal__order").btn_view_light.offer__btn
+                        .btn__text Записаться на консультацию
                 +b.breadcrumbs
                     +e.wrapper.container
                         +e.home.breadcrumbs__item
@@ -1058,6 +1058,11 @@ block content
                                             +e({tag: 'a'}).link на обработку персональных данных
 
                 .container
+                    .btn(data-quiz="modal__quiz1").run-quiz.btn_view_action
+                        .btn__text КВИЗ
+                    
+
+                    
                     p Вы можете скачать материал, который содержит в себе следующую информацию: какая документация понадобится от вас в процессе подключения водоснабжения, какая этапность подключения воды, и какой пакет документов вы обязаны иметь на выходе (предоставляем мы), чтобы пользоваться водопроводом законно и гарантированно. 
             
                     +b.title
@@ -1115,6 +1120,82 @@ block content
                 .close.modal__close
                 //.modal__title
                 .modal__html 
+
+    .modal.modal_type_zoom#modal__quiz1
+        .modal__wrapper
+            .modal__dialog
+                .close.modal__close
+                //.modal__title Вода и канализация “Под ключ”
+                
+                +b({tag: 'form'}).quiz.form.ajax
+                    +e.title Вода и канализация “Под ключ”
+                    +e.items
+                        +e.item
+                            +e.test
+                                +e.question Какую коммуникацию Вам необходимо подключить?
+                                +b.radio 
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio' value='Водоснабжение').radio__control
+                                        .radio__box
+                                        .radio__text Cпециалиста по оформлению документов 
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio'  value='Канализация').radio__control
+                                        .radio__box
+                                        .radio__text Канализация
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio'  value='Водоснабжение + канализацию').radio__control
+                                        .radio__box
+                                        .radio__text Водоснабжение + канализация
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio'  value='Кодоснабжение, канализация и другие коммуникации (окошко для того, чтобы можно было вписать)').radio__control
+                                        .radio__box
+                                        .radio__text Кодоснабжение, канализация и другие коммуникации (окошко для того, чтобы можно было вписать)
+                            +e.description 123
+                        +e.item
+                            +e.test
+                                +e.question Когда Вы хотели бы, чтобы приступили к работам? 
+                                +b.radio 
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio' value='Как можно скорее').radio__control
+                                        .radio__box
+                                        .radio__text Как можно скорее
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio'  value='В течение 1-3 месцев').radio__control
+                                        .radio__box
+                                        .radio__text В течение 1-3 месцев
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__1' type='radio'  value='более чем через 3 месяца').radio__control
+                                        .radio__box
+                                        .radio__text Водоснабжение + канализация
+                            +e.description 123
+                        +e.item
+                            .input
+                                .input__box
+                                    .input__top-border
+                                    .input__title Длина трубопровода
+                                    input(name='comment[3]' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
+                                    
+                        +e.item
+                            .input.input_type_phone
+                                .input__box
+                                    .input__top-border
+                                    .input__title Телефон
+                                    //- .input__icon
+                                    input(name='phone').input__control
+                                .input__message
+                            button(type="submit").btn.btn_view_action
+                                .btn__text Записаться на консультацию
+                    .quiz__footer
+                        .quiz__progress-bar
+                            .quiz__progress-bar-label 0%
+                            .quiz__progress-bar-field
+                                span
+                        .quiz__previous
+                            .arrow.arrow_left
+                        .quiz__next 
+                            |Далее 
+                            .arrow.arrow_theme_light.arrow_right
+
                 
     .modal#modal__order
         .modal__wrapper

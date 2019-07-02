@@ -116,8 +116,8 @@ $(function() {
     //==========
 
 
-    $('.offer__btn').click(function() {
-        $('#modal__order').openModal()
+    $('[data-modal]').click(function() {
+        $(`#${$(this).data('modal')}`).openModal()
     })
 
     if ( $(this).width() < 1160) {
@@ -201,6 +201,84 @@ $(function() {
         pause: 4000,
         pager: false,
     })
+
+
+    $('.quiz').each(function() {
+
+        let $quiz = $(this)
+        $quiz.slider = $quiz.find('.quiz__items').bxSlider({
+            touchEnabled: false,
+            controls: false,
+            auto: false,
+            pager: false,
+            // adaptiveHeight: true,
+            // adaptiveHeightSpeed: 100
+        })
+    
+        let quantity =$quiz.slider.getSlideCount()
+        let i = 1
+    
+        let $progressBar = $quiz.find('.quiz__progress-bar')
+        $progressBar._label = $progressBar.children('.quiz__progress-bar-label')
+        $progressBar._field = $progressBar.children('.quiz__progress-bar-field').children('span')
+    
+        // Сделать Автоматическое далее !!!
+        $quiz.find('.quiz__next').click(function() {
+            
+            if(quantity > i) {
+                // Сделать Проверка валидации!
+
+                let $input = $quiz.find(`[name="comment[${i}]"]`)
+                // Проверка чекбоксоы 
+                console.log($input, $input.val())
+
+                if(i+1 == quantity ) {
+                    $progressBar._field.css('transition', 'none')
+                    $quiz.find('.quiz__footer').css({
+                        visibility: 'hidden',
+                        opacity: '0'
+                    })
+                }
+                $quiz.slider.goToNextSlide() 
+                $progressBar._field.css('width', `${parseInt(100/(quantity-1)*i)}%`)
+                $progressBar._label.html(`${parseInt(100/(quantity-1)*i)}%`)
+                ++i
+                
+            } 
+        })
+
+        $quiz.find('.quiz__previous').click(function() {
+            if(i != 1) {
+                $quiz.slider.goToPrevSlide()
+                --i
+                $progressBar._field.css('width', `${parseInt(100/(quantity-1)*(i-1))}%`)
+                $progressBar._label.html(`${parseInt(100/(quantity-1)*(i-1))}%`)
+            }  
+        })
+
+        $('.run-quiz').click(function() {
+            $quiz.slider.goToSlide(0)
+            $progressBar._field.css({
+                transition: 'none',
+                width: '0%'
+            })
+            $progressBar._label.html('0%')
+            $quiz.find('.quiz__footer').css({
+                visibility: 'visible',
+                opacity: '1'
+            })
+            i = 1
+            $(`#${$(this).data('quiz')}`).openModal()
+            $quiz.slider.reloadSlider()
+            $progressBar._field.css('transition', '')
+           
+        })
+    })
+
+
+    
+
+    
 
 
 
@@ -417,9 +495,9 @@ $(function() {
         setTimeout(function() { 
             $items.children('.input__item').removeClass('input__item_active')
             $item.addClass('input__item_active')
-            $box.parent().removeClass('input_select_open')
         }, 501)
         
+        $box.parent().removeClass('input_select_open')
         $box.addClass('input__box_filled')
         $box.removeClass('input__box_focus')
     })
