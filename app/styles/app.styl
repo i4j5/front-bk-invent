@@ -1912,7 +1912,7 @@ ul.list
         visibility visible
 
     &__dialog
-        display inline-table
+        //display inline-table
         vertical-align middle
         z-index 100
         margin auto
@@ -1931,15 +1931,26 @@ ul.list
             img
                 max-width 100%
             
-    &_type_zoom
-        .modal__dialog
-            background #fff
-            width auto
-            max-width 90%
-            min-width 300px
-            padding 15px
-            line-height 0
-            //margin 40px auto
+    &_type
+        &_zoom
+            .modal__dialog
+                background #fff
+                width auto
+                max-width 90%
+                min-width 300px
+                padding 15px
+                line-height 0
+                //margin 40px auto
+        &_quiz
+            .modal__dialog
+                background #fff
+                // width auto
+                max-width 1200px
+                min-width 300px
+                padding 15px
+                line-height 0
+                .input
+                    max-width 500px
                         
     &__title
         font-size 18px
@@ -2959,30 +2970,59 @@ img.zoom
 
 
 .quiz
-    padding 20px 30px 
-    line-height 1.2em
+    @media (min-width 700px)
+        padding 20px 30px 
+    line-height 1.25em
+    &__ok
+        .quiz__question
+            text-align center
+        //     margin-bottom 30px
+        max-width 500px 
+        min-width 200px
+        width 100% 
+        margin auto
+        .input
+            margin-left auto 
+            margin-right auto
     &__title
         font-size 14px
         margin-bottom 10px
         padding-bottom 10px
         border-bottom 1px solid #eee 
     &__test
-        width calc(100% - 300px)
+        @media (min-width 700px)
+            width calc(100% - 200px)
+            padding-right 20px
+        @media (min-width 900px)
+            padding-right 30px
+            width calc(100% - 350px)
     &__description
-        width 300px
+        text-align center
+        @media (min-width 700px)
+            width 200px
+        @media (min-width 900px)
+            width 350px
     &__question
         font-size 20px
+        @media (min-width 700px)
+            font-size 22px
         margin-bottom 20px
-   
+        span 
+            font-size 16px
+            padding-top 12px
+            display inherit
     &__footer
-        display flex
-        align-items center
+        @media (min-width 700px)
+            display flex
+            align-items center
     &__progress-bar-label  
         position relative
         font-size 18px
         color #f95555
         font-weight 600
-        margin-bottom 15px
+        margin-bottom 5px
+        @media (min-width 700px)
+            margin-bottom 15px
         &:before
             position relative
             content 'Готово '
@@ -2991,17 +3031,17 @@ img.zoom
             color #000
             font-weight 500
     &__progress-bar
-        margin-right 40px
         width 100%
-        margin-right 40px
     &__progress-bar-field
         height 10px
-        box-shadow 0 0px 6px 0px rgba(207, 207, 207, 0.76);
+        box-shadow 0 0px 6px 0px rgba(207, 207, 207, 0.4);
         width 100%
         border-radius 40px
         background #eee 
         position relative
-        margin-bottom 20px
+        margin-bottom 5px
+        @media (min-width 700px)
+            margin-bottom 20px
         flex-shrink 0
         border 1px solid #ddd
         span
@@ -3033,7 +3073,15 @@ img.zoom
                 animation quiz__progress-bar__move 3s linear infinite
     &__item
         padding 20px 0
-        display flex
+        @media (min-width 700px)
+            display flex
+            flex-wrap wrap
+    &__number
+        font-size 13px
+        flex-shrink 0
+        margin-bottom 10px
+        @media (min-width 700px)
+            margin 12px 30px 0 20px
     &__next
     &__previous
         cursor pointer
@@ -3046,6 +3094,10 @@ img.zoom
         flex-shrink 0
         font-size 16px
     &__next 
+        width max-content
+        float right
+        @media (min-width 700px)
+            float none
         background #f95555
         color #fff
         padding 0 25px 0 20px
@@ -3055,7 +3107,11 @@ img.zoom
     &__previous
         width 40px
         border 1px solid #ddd
-        margin 0 10px  
+        background #eee
+        float left
+        @media (min-width 700px)
+            float none 
+            margin 0 10px 
         
 @keyframes quiz__progress-bar__move 
     0%

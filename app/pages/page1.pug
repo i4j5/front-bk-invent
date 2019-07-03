@@ -1121,7 +1121,7 @@ block content
                 //.modal__title
                 .modal__html 
 
-    .modal.modal_type_zoom#modal__quiz1
+    .modal.modal_type_quiz#modal__quiz1
         .modal__wrapper
             .modal__dialog
                 .close.modal__close
@@ -1137,59 +1137,141 @@ block content
                                     +e({tag: 'label'}).item                                     
                                         input(name='quiz__1' type='radio' value='Водоснабжение').radio__control
                                         .radio__box
-                                        .radio__text Cпециалиста по оформлению документов 
+                                        .radio__text Водоснабжение
                                     +e({tag: 'label'}).item                                     
                                         input(name='quiz__1' type='radio'  value='Канализация').radio__control
                                         .radio__box
                                         .radio__text Канализация
                                     +e({tag: 'label'}).item                                     
-                                        input(name='quiz__1' type='radio'  value='Водоснабжение + канализацию').radio__control
+                                        input(name='quiz__1' type='radio'  value='Водоснабжение + канализация').radio__control
                                         .radio__box
                                         .radio__text Водоснабжение + канализация
                                     +e({tag: 'label'}).item                                     
                                         input(name='quiz__1' type='radio'  value='Кодоснабжение, канализация и другие коммуникации (окошко для того, чтобы можно было вписать)').radio__control
                                         .radio__box
-                                        .radio__text Кодоснабжение, канализация и другие коммуникации (окошко для того, чтобы можно было вписать)
-                            +e.description 123
+                                        .radio__text Водоснабжение, канализация и другие коммуникации <br>(окошко для того, чтобы можно было вписать)
+                            +e.description
+                                img(src="https://vsem-remont44.ru/wp-content/uploads/2018/09/proekt.jpg")
                         +e.item
                             +e.test
                                 +e.question Когда Вы хотели бы, чтобы приступили к работам? 
                                 +b.radio 
                                     +e({tag: 'label'}).item                                     
-                                        input(name='quiz__1' type='radio' value='Как можно скорее').radio__control
+                                        input(name='quiz__2' type='radio' value='Как можно скорее ').radio__control
                                         .radio__box
                                         .radio__text Как можно скорее
                                     +e({tag: 'label'}).item                                     
-                                        input(name='quiz__1' type='radio'  value='В течение 1-3 месцев').radio__control
+                                        input(name='quiz__2' type='radio'  value='В течение 1-3 месцев').radio__control
                                         .radio__box
                                         .radio__text В течение 1-3 месцев
                                     +e({tag: 'label'}).item                                     
-                                        input(name='quiz__1' type='radio'  value='более чем через 3 месяца').radio__control
+                                        input(name='quiz__2' type='radio'  value='Более чем через 3 месяца').radio__control
                                         .radio__box
-                                        .radio__text Водоснабжение + канализация
+                                        .radio__text Более чем через 3 месяца
+                            +e.description
+                                img(src="https://staiinforma.ro/wp-content/uploads/2015/12/calendar-page-768x512.jpg")
+                        +e.item
+                            +e.test
+                                +e.question Какое расстояние от дома до предполагаемой точки подключени? 
+                                .input
+                                    .input__box
+                                        .input__top-border
+                                        .input__title Водоснабжение (м.)
+                                        input(name='quiz__3').input__control
+                                    .input__message(data-default="Оставьте пустым если не знаете")
+                                .input
+                                    .input__box
+                                        .input__top-border
+                                        .input__title Канализация  (м.)
+                                        input(name='quiz__4').input__control
+                                    .input__message(data-default="Оставьте пустым если не знаете")
                             +e.description 123
                         +e.item
-                            .input
-                                .input__box
-                                    .input__top-border
-                                    .input__title Длина трубопровода
-                                    input(name='comment[3]' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
-                                    
+                            +e.test
+                                +e.question Имеется ли колодец на предполагаемой точке врезки?
+                                +b.radio 
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__5' type='radio' value='Есть').radio__control
+                                        .radio__box
+                                        .radio__text Есть
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__5' type='radio'  value='Нет').radio__control
+                                        .radio__box
+                                        .radio__text Нет
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__5' type='radio'  value='Не обладаю информацией').radio__control
+                                        .radio__box
+                                        .radio__text Не обладаю информацией
+                            +e.description
+                                img(src="https://im0-tub-ru.yandex.net/i?id=95e1a13c4cc75f5bcf1ee9a3800401e2-l&n=13")
                         +e.item
-                            .input.input_type_phone
-                                .input__box
-                                    .input__top-border
-                                    .input__title Телефон
-                                    //- .input__icon
-                                    input(name='phone').input__control
-                                .input__message
-                            button(type="submit").btn.btn_view_action
-                                .btn__text Записаться на консультацию
+                            +e.test
+                                +e.question На каком этапе подключения Вы находитесь на данный момент?
+                                +b.radio 
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__6' type='radio' value='Имеется желание подключить сеть, узнаю информацию').radio__control
+                                        .radio__box
+                                        .radio__text Имеется желание подключить сеть, узнаю информацию
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__6' type='radio'  value='Имеются технические условия (договор на подключение) от Водоканала').radio__control
+                                        .radio__box
+                                        .radio__text Имеются технические условия (договор на подключение) от Водоканала
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__6' type='radio'  value=' Имеется готовый согласованный проект').radio__control
+                                        .radio__box
+                                        .radio__text  Имеется готовый согласованный проект
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__6' type='radio'  value='Сеть построена, но не сдана в Водоканал').radio__control
+                                        .radio__box
+                                        .radio__text Сеть построена, но не сдана в Водоканал
+                                    +e({tag: 'label'}).item                                     
+                                        input(name='quiz__6' type='radio'  value='Пользуюсь коммуникацией, но еще не оформлено').radio__control
+                                        .radio__box
+                                        .radio__text Пользуюсь коммуникацией, но еще не оформлено
+                            +e.description
+                                img(src="http://www.arnimaone.com/wp-content/uploads/2015/04/Steps.jpg")       
+                        +e.item
+                            //+e.test
+                            +e.ok
+                                +e.question 
+                                    |Отлично. Последний шаг!
+                                    br
+                                    span Куда Вам отправить промокод на скидку 7%?
+                                .modal__row
+                                    .input.input_type_name
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Имя
+                                            //- .input__icon
+                                            input(name='name').input__control
+                                        .input__message(data-default='Укажите точно как в паспорте')
+                                .modal__row
+                                    .input.input_type_phone
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Телефон
+                                            //- .input__icon
+                                            input(name='phone').input__control
+                                        .input__message(data-default='Укажите номер телефона. Убедитесь, что телефон введен корректно                                   ') 
+                                .modal__row
+                                    .input.input_type_email
+                                        .input__box
+                                            .input__top-border
+                                            .input__title Email
+                                            //- .input__icon
+                                            input(name='email').input__control
+                                        .input__message                               
+                                .modal__row
+                                    button(type="submit").btn.btn_view_action
+                                        .btn__text Получить промокод
+                            //- +e.description
+                            //-     img(src="../images/i54.png")
                     .quiz__footer
                         .quiz__progress-bar
                             .quiz__progress-bar-label 0%
                             .quiz__progress-bar-field
                                 span
+                        .quiz__number
                         .quiz__previous
                             .arrow.arrow_left
                         .quiz__next 
