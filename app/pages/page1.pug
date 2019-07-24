@@ -1133,23 +1133,31 @@ block content
                         +e.item
                             +e.test
                                 +e.question Какую коммуникацию Вам необходимо подключить?
-                                +b.radio 
-                                    +e({tag: 'label'}).item                                     
+                                +b.radio.radio_type_img
+                                    +e({tag: 'label'}).item 
+                                        .radio__img
+                                            img(src="http://placehold.it/350x200")          
                                         input(name='quiz__1' type='radio' value='Водоснабжение').radio__control
                                         .radio__box
                                         .radio__text Водоснабжение
-                                    +e({tag: 'label'}).item                                     
+                                    +e({tag: 'label'}).item 
+                                        .radio__img
+                                            img(src="http://placehold.it/350x200")                                    
                                         input(name='quiz__1' type='radio'  value='Канализация').radio__control
                                         .radio__box
                                         .radio__text Канализация
-                                    +e({tag: 'label'}).item                                     
+                                    +e({tag: 'label'}).item 
+                                        .radio__img
+                                            img(src="http://placehold.it/350x200")                                    
                                         input(name='quiz__1' type='radio'  value='Водоснабжение + канализация').radio__control
                                         .radio__box
                                         .radio__text Водоснабжение + канализация
-                                    +e({tag: 'label'}).item                                     
+                                    +e({tag: 'label'}).item  
+                                        .radio__img
+                                            img(src="http://placehold.it/350x200")                                   
                                         input(name='quiz__1' type='radio'  value='Кодоснабжение, канализация и другие коммуникации (окошко для того, чтобы можно было вписать)').radio__control
                                         .radio__box
-                                        .radio__text Водоснабжение, канализация и другие коммуникации <br>(окошко для того, чтобы можно было вписать)
+                                        .radio__text Водоснабжение, канализация и другие коммуникации (окошко для того, чтобы можно было вписать)
                             +e.description
                                 img(src="https://vsem-remont44.ru/wp-content/uploads/2018/09/proekt.jpg")
                         +e.item

@@ -2135,6 +2135,24 @@ ul.list
     // position relative
     // display inline-block
     // margin-bottom 0.6em
+    &_type
+        &_img
+            .radio__item
+                position relative
+                align-items end 
+                overflow hidden
+                border-radius 4px
+                border 2px solid #eee
+                padding 10px
+                transition all 50ms 0ms
+                &:hover
+                  border 2px solid #e9e9e9 
+            .radio__img
+                //border-bottom 1px solid #ddd
+                margin -10px -10px 5px -10px
+            .radio__box
+                position absolute
+                right 0
     &_row
         display flex
         flex-wrap wrap
@@ -2967,12 +2985,19 @@ img.zoom
                 border-radius 0 4px 4px 0 
                 width 60%
 
-
-
 .quiz
     @media (min-width 700px)
         padding 20px 30px 
     line-height 1.25em
+
+    .radio_type_img
+        display flex
+        flex-wrap wrap
+        .radio__item
+            width 100%
+            @media (min-width 500px)
+                width calc(50% - 20px)
+            margin 10px
     &__ok
         .quiz__question
             text-align center
@@ -2993,14 +3018,14 @@ img.zoom
         @media (min-width 700px)
             width calc(100% - 200px)
             padding-right 20px
-        @media (min-width 900px)
+        @media (min-width 1000px)
             padding-right 30px
             width calc(100% - 350px)
     &__description
         text-align center
         @media (min-width 700px)
             width 200px
-        @media (min-width 900px)
+        @media (min-width 1000px)
             width 350px
     &__question
         font-size 20px
