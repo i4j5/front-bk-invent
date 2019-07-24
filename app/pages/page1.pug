@@ -778,109 +778,116 @@ block content
                                     +e.description Приехали ребята из БК Инвент и сделали за 2 дня
                                     |Имел дело с этой компанией впервые в 2016 году, проводил воду. Потом появилась возможность, обратился к ним же, чтобы сделали мне канализацию. Первый раз работы проводились долго, но все довели до ума. А второй раз как обратился все сделали хорошо, быстро. Видно, что стали еще более профессиональными. в общем, рекомендую!
 
-                               
-
 
                 +b.price
                     .container
-                        +e.title Рассчитать коммерческую стоимость
+                        +e.title Рассчитать стоимость
+                        .row
+                            .col.col_size_12.col_size-sm_6
+                                img(src="images/b1.png")
+                            .col.col_size_12.col_size-sm_6
+                                img(src="images/b2.png")
+                        .btn(data-quiz="modal__quiz1").run-quiz.btn_view_action
+                            .btn__text ОПРОС
+
+
                         
-                        form.form.ajax
-                            .row
-                                .col.col_size_12.col_size-sm_7
-                                    +e.calculator
-                                        .form__row
+                        //- form.form.ajax
+                        //-     .row
+                        //-         .col.col_size_12.col_size-sm_7
+                        //-             +e.calculator
+                        //-                 .form__row
                                             
-                                                .input
-                                                    .input__box
-                                                        .input__top-border
-                                                        .input__title Длина трубопровода
-                                                        input(name='a' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
-                                        .form__row
-                                                .input
-                                                    .input__box
-                                                        .input__top-border
-                                                        .input__title Диаметр трубопровода
-                                                        //- .input__icon
-                                                        input(name='a' data-postfix=" мм." data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
-                                        .form__row
-                                                .input
-                                                    .input__box
-                                                        .input__top-border
-                                                        .input__title Кол-во проектируемых колодцев
-                                                        input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
-                                                    //.input__message(data-default="Кол-во колодцев, которые необходимо строить")
-                                        .form__row
-                                                    .input
-                                                        .input__box
-                                                            .input__top-border
-                                                            .input__title Диаметр магистральной трубы
-                                                            input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
-                                                        .input__message(data-default="Диаметр магистральной трубы (в которую будет осуществляться врезка)")
+                        //-                         .input
+                        //-                             .input__box
+                        //-                                 .input__top-border
+                        //-                                 .input__title Длина трубопровода
+                        //-                                 input(name='a' data-postfix=" м." data-grid-num="9" data-min="0" data-max="500" data-from="200" ).input__control.range-slider
+                        //-                 .form__row
+                        //-                         .input
+                        //-                             .input__box
+                        //-                                 .input__top-border
+                        //-                                 .input__title Диаметр трубопровода
+                        //-                                 //- .input__icon
+                        //-                                 input(name='a' data-postfix=" мм." data-grid-num="6" data-from="1" data-values="8, 10, 12, 15, 20, 25, 32, 40, 50, 70, 100").input__control.range-slider
+                        //-                 .form__row
+                        //-                         .input
+                        //-                             .input__box
+                        //-                                 .input__top-border
+                        //-                                 .input__title Кол-во проектируемых колодцев
+                        //-                                 input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
+                        //-                             //.input__message(data-default="Кол-во колодцев, которые необходимо строить")
+                        //-                 .form__row
+                        //-                             .input
+                        //-                                 .input__box
+                        //-                                     .input__top-border
+                        //-                                     .input__title Диаметр магистральной трубы
+                        //-                                     input(name='v' data-min="1" data-max="10" data-grid-num="9" data-from="1" data-max-postfix="+").input__control.range-slider
+                        //-                                 .input__message(data-default="Диаметр магистральной трубы (в которую будет осуществляться врезка)")
                                         
                                         
-                                        .form__text.form__text_title Материал магистральной трубы:
-                                        +b.radio.radio_row
-                                            +e({tag: 'label'}).item                                     
-                                                input(name='ok2' type='radio').radio__control
-                                                .radio__box
-                                                .radio__text Металл
-                                            +e({tag: 'label'}).item                                     
-                                                input(name='ok2' type='radio').radio__control
-                                                .radio__box
-                                                .radio__text ПВХ
-                                            +e({tag: 'label'}).item                                     
-                                                input(name='ok2' type='radio').radio__control
-                                                .radio__box
-                                                .radio__text ПВДФ
-                                            +e({tag: 'label'}).item                                     
-                                                input(name='ok2' type='radio').radio__control
-                                                .radio__box
-                                                .radio__text РЕХ
-                                .col.col_size_12.col_size-sm_5          
-                                    +e.form
-                                        .form__row 
-                                            .input.input_type_name
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Имя
-                                                    //- .input__icon
-                                                    input(name='name').input__control
-                                                .input__message(data-default="Укажите точно как в паспорте")
-                                        .form__row 
-                                            .input.input_type_phone
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Телефон
-                                                    //- .input__icon
-                                                    input(name='phone').input__control
-                                                    //- label(for="name") 123                                       
-                                        .form__row 
-                                            .input.input_type_email
-                                                .input__box
-                                                    .input__top-border
-                                                    .input__title Email
-                                                    //- .input__icon
-                                                    input(name='email').input__control
-                                                .input__message                                                              
-                                        .form__row 
-                                            button(type="submit").btn.btn_view_action
-                                                .btn__text Записаться на консультацию
+                        //-                 .form__text.form__text_title Материал магистральной трубы:
+                        //-                 +b.radio.radio_row
+                        //-                     +e({tag: 'label'}).item                                     
+                        //-                         input(name='ok2' type='radio').radio__control
+                        //-                         .radio__box
+                        //-                         .radio__text Металл
+                        //-                     +e({tag: 'label'}).item                                     
+                        //-                         input(name='ok2' type='radio').radio__control
+                        //-                         .radio__box
+                        //-                         .radio__text ПВХ
+                        //-                     +e({tag: 'label'}).item                                     
+                        //-                         input(name='ok2' type='radio').radio__control
+                        //-                         .radio__box
+                        //-                         .radio__text ПВДФ
+                        //-                     +e({tag: 'label'}).item                                     
+                        //-                         input(name='ok2' type='radio').radio__control
+                        //-                         .radio__box
+                        //-                         .radio__text РЕХ
+                        //-         .col.col_size_12.col_size-sm_5          
+                        //-             +e.form
+                        //-                 .form__row 
+                        //-                     .input.input_type_name
+                        //-                         .input__box
+                        //-                             .input__top-border
+                        //-                             .input__title Имя
+                        //-                             //- .input__icon
+                        //-                             input(name='name').input__control
+                        //-                         .input__message(data-default="Укажите точно как в паспорте")
+                        //-                 .form__row 
+                        //-                     .input.input_type_phone
+                        //-                         .input__box
+                        //-                             .input__top-border
+                        //-                             .input__title Телефон
+                        //-                             //- .input__icon
+                        //-                             input(name='phone').input__control
+                        //-                             //- label(for="name") 123                                       
+                        //-                 .form__row 
+                        //-                     .input.input_type_email
+                        //-                         .input__box
+                        //-                             .input__top-border
+                        //-                             .input__title Email
+                        //-                             //- .input__icon
+                        //-                             input(name='email').input__control
+                        //-                         .input__message                                                              
+                        //-                 .form__row 
+                        //-                     button(type="submit").btn.btn_view_action
+                        //-                         .btn__text Записаться на консультацию
                                                 
-                                        +b.checkbox.checkbox_theme_light 
-                                            +e({tag: 'label'}).item                                     
-                                                input(name='privacy' type='checkbox' checked).checkbox__control
-                                                .checkbox__box
-                                            .checkbox__text 
-                                                |Согласен  
-                                                +e({tag: 'a'}).link на обработку персональных данных 
+                        //-                 +b.checkbox.checkbox_theme_light 
+                        //-                     +e({tag: 'label'}).item                                     
+                        //-                         input(name='privacy' type='checkbox' checked).checkbox__control
+                        //-                         .checkbox__box
+                        //-                     .checkbox__text 
+                        //-                         |Согласен  
+                        //-                         +e({tag: 'a'}).link на обработку персональных данных 
                                 
-                        +e.text
-                            blockquote 
-                                p. 
-                                    <b>Справочно:</b> Правильный и честный подход к формированию конечной стоимости прокладки трубопровода составляется на основании согласованного проекта. На цену влияют огромное количество факторов, к примеру: открытым или закрытым методом целесообразнее прокладывать трубопровод, нужно ли восстанавливать покрытие и т.д. 
-                                    Но ввиду большого опыта, специалисты БК Инвент могут сделать предварительный расчет с небольшой погрешностью. 
-                                    <br>Но, если подрядчик сходу называет конечную стоимость работ, не выезжая и не осматривая местность, стоит насторожиться, так как как минимум подрядчик должен определить каков объем работ, чтобы задать цену
+                        //- +e.text
+                        //-     blockquote 
+                        //-         p. 
+                        //-             <b>Справочно:</b> Правильный и честный подход к формированию конечной стоимости прокладки трубопровода составляется на основании согласованного проекта. На цену влияют огромное количество факторов, к примеру: открытым или закрытым методом целесообразнее прокладывать трубопровод, нужно ли восстанавливать покрытие и т.д. 
+                        //-             Но ввиду большого опыта, специалисты БК Инвент могут сделать предварительный расчет с небольшой погрешностью. 
+                        //-             <br>Но, если подрядчик сходу называет конечную стоимость работ, не выезжая и не осматривая местность, стоит насторожиться, так как как минимум подрядчик должен определить каков объем работ, чтобы задать цену
 
                 +b.triggers
                     .container
@@ -1056,13 +1063,9 @@ block content
                                         .checkbox__text 
                                             |Согласен  
                                             +e({tag: 'a'}).link на обработку персональных данных
-
-                .container
-                    .btn(data-quiz="modal__quiz1").run-quiz.btn_view_action
-                        .btn__text КВИЗ
                     
 
-                    
+                .container  
                     p Вы можете скачать материал, который содержит в себе следующую информацию: какая документация понадобится от вас в процессе подключения водоснабжения, какая этапность подключения воды, и какой пакет документов вы обязаны иметь на выходе (предоставляем мы), чтобы пользоваться водопроводом законно и гарантированно. 
             
                     +b.title
