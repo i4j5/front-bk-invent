@@ -1,0 +1,589 @@
+extends ../blocks/layout-default/layout-default
+prepend head
+    title HI
+block content
+    .page__main
+        .header
+            .container
+                .header__wrapper
+                    .header__left
+                        +b.hamburger
+                            +e.plank
+                            +e.plank
+                            +e.plank
+                        +b.logo
+                            +e.image
+                            +e.description Проектно-строительная<br>компания
+                    .header__center
+                        +b.top-menu
+                            //+e.wrapper
+                            +e.search
+                                +e.close
+                                +b.search
+                                    +e.box
+                                        +e.icon
+                                        input(name='search' placeholder="Поиск на сайте").input__control
+                            +e.items.top-menu__items_visible
+                                +e.item
+                                    +e({tag: 'a'}).link О нас
+                                    +e.submenu
+                                        +e.item
+                                            +e({tag: 'a'}).link 100 слов о БК Инвент
+                                        +e.item
+                                            +e({tag: 'a'}).link Наши лицензии
+                                        +e.item
+                                            +e({tag: 'a'}).link Как мы работаем
+                                        +e.item
+                                            +e({tag: 'a'}).link Наша дружная команда
+                                        +e.item
+                                            +e({tag: 'a'}).link Мнение со стороны 
+                                        +e.item
+                                            +e({tag: 'a'}).link Как попасть в команду
+                                +e.item
+                                    +e({tag: 'a'}).link Акции
+                                +e.item
+                                    +e({tag: 'a'}).link Полезные статьи
+                                +e.item
+                                    +e({tag: 'a'}).link Партнерам
+                                +e.item
+                                    +e({tag: 'a'}).link Контакты
+                                +e.item
+                                    //+e({tag: 'a'}).link
+                                    .top-menu__search-btn.
+                                        <svg 
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="13px" height="13px">
+                                        <path fill-rule="evenodd" class="top-menu__search-svg"  
+                                        d="M5.038,1.607 C6.956,1.607 8.525,3.232 8.525,5.218 C8.525,5.891 8.335,6.547 7.986,7.121 L7.669,7.647 L7.225,8.025 C6.607,8.550 5.846,8.829 5.038,8.829 C3.120,8.829 1.551,7.204 1.551,5.218 C1.551,3.232 3.120,1.607 5.038,1.607 ZM12.741,12.735 C13.074,12.374 13.074,11.783 12.741,11.439 L9.603,8.189 C9.508,8.090 9.412,8.025 9.301,7.975 C9.793,7.188 10.078,6.236 10.078,5.218 C10.078,2.329 7.811,-0.002 5.038,-0.002 C2.248,-0.002 -0.003,2.329 -0.003,5.218 C-0.003,8.106 2.248,10.437 5.038,10.437 C6.242,10.437 7.336,9.994 8.208,9.272 C8.240,9.338 8.287,9.419 8.335,9.485 L11.473,12.735 C11.647,12.916 11.885,12.998 12.107,12.998 C12.329,12.998 12.567,12.916 12.741,12.735 Z"/>
+                                        </svg>
+                                    
+                    .header__right
+                        +b.phone
+                            +e.description Консультация по телефону
+                            +e.wrap
+                                +e.icon 
+                                +e.text 8 (863) 303-38-33
+                        +b.maps
+                            +e.wrap
+                                +e.icon 
+                                +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
+        .fixed_blur
+        +b.menu
+            .container
+                +e.item
+                    img(src="images/architect.png" height="23px")
+                    +e({tag: 'a'}).link Архитектурное проектирование
+                    .arrow.arrow_bottom.arrow_theme_light
+                    +e.submenu
+                        +e.item
+                            +e({tag: 'a'}).title.menu__link Индивидуальное проектирование
+                            +e({tag: 'a'}).link Поиск земельного участка
+                            +e({tag: 'a'}).link Проект развития земельного участка
+                            +e({tag: 'a'}).link СПОЗУ (схема планировочной организации зем.участка)
+                            +e({tag: 'a'}).link Эскизное проектирование
+                            +e({tag: 'a'}).link Генеральный план
+                            +e({tag: 'a'}).link Архитектурные решения
+                            +e({tag: 'a'}).link Конструктивные решения
+                            +e({tag: 'a'}).link Инженерные системы
+                            +e({tag: 'a'}).link Пожарная безопасность
+                            +e({tag: 'a'}).link Охрана окружающей среды
+                            +e({tag: 'a'}).link Проект организации строительства
+                            +e({tag: 'a'}).link Проект реконструкции
+                            +e({tag: 'a'}).link Комплексное проектирование дома
+                        +e.item
+                            +e.title Дизайн экстерьера
+                            +e({tag: 'a'}).link Дизайн-проект фасада
+                            +e({tag: 'a'}).link Дизайн-проект ландшафтного дизайна
+                            +e({tag: 'a'}).link Дизайн-проект развития площади
+                        +e.item
+                            +e.title Дизайн интерьера
+                            +e({tag: 'a'}).link Дизайн-проект интерьера здания/помещений стадия РД 
+                            +e({tag: 'a'}).link  Дизайн-проект интерьера здания/помещений с 3D визуализацией
+
+                +e.item
+                    img(src="images/geodesy.svg" height="26px")
+                    +e({tag: 'a'}).link Инженерные изыскания
+                    .arrow.arrow_bottom.arrow_theme_light
+                    +e.submenu
+                        +e.item
+                            +e.title Инженерно-геодезические изыскания
+                            +e({tag: 'a'}).link Топографические съемки 1:500
+                            +e({tag: 'a'}).link Топографические съемки 1:2000
+                            +e({tag: 'a'}).link Сопровождение СМР (геодезическая разбивка)
+                            +e({tag: 'a'}).link Фасадная съемка
+                            +e({tag: 'a'}).link Обмерные работы
+                            +e({tag: 'a'}).link Спутниковые (GPS) измерения
+                        +e.item
+                            +e.title Инженерно-геологические изыскания
+                            +e({tag: 'a'}).link Геологическое заключение
+                
+                +e.item
+                    img(src="images/land-survey.png" height="20px")
+                    +e({tag: 'a'}).link Межевание и кадастр
+                    .arrow.arrow_bottom.arrow_theme_light
+                    +e.submenu
+                        +e.item
+                            +e.title Межевание
+                            +e({tag: 'a'}).link Межевание земельных участков
+                            +e({tag: 'a'}).link  Изготовление межевого  плана
+                            +e({tag: 'a'}).link  Установка и восстановление межевых знаков
+                        +e.item
+                            +e.title Кадастровые работы
+                            +e({tag: 'a'}).link Получение кадастрового паспорта на земельный участок
+                            +e({tag: 'a'}).link Получение схемы расположения земельного участка
+                            +e({tag: 'a'}).link Постановка земельного участка на кадастровый учет
+                            +e({tag: 'a'}).link Снятие земельного участка с кадастрового учета
+                            +e({tag: 'a'}).link Изготовление технического плана
+                            +e({tag: 'a'}).link Согласование перепланировок
+                            +e({tag: 'a'}).link Изготовление технического паспорта дома
+                            +e({tag: 'a'}).link Изготовление технического паспорта квартиры
+                        +e.item
+                            +e.title Юридическое сопровождение
+                            +e({tag: 'a'}).link Оформление земельного участка в собственность
+                            +e({tag: 'a'}).link Узаконивание земельного участка ( в судебном порядке)
+                            +e({tag: 'a'}).link Получение разрешения на строительство
+                            +e({tag: 'a'}).link Регистрация права собственности на объект недвижимости
+                            +e({tag: 'a'}).link Узаконивание объекта строительства (в судебном порядке)
+
+                +e.item
+                    img(src="images/engineer.png" height="22px")
+                    +e({tag: 'a'}).link Инженерные сети
+                    .arrow.arrow_bottom.arrow_theme_light
+                    +e.submenu.menu__submenu_big
+                        +b.big-menu
+                            +e.menu
+                                +e.mm
+                                    span Комплексное подключение<br>инженерных сетей
+                                    .arrow.arrow_right
+                                    +e.items
+                                        +e.item
+                                            +e.title Водоснабжение
+                                            +e({tag: 'a'}).link Система водоснабжения для ИЖС
+                                            +e({tag: 'a'}).link Система водоснабжения (линейные объекты)
+                                            +e({tag: 'a'}).link Система водоснабжения для многоквартирных домов
+                                            //-+e.item
+                                            +e.title Водоотведение
+                                            +e({tag: 'a'}).link Система водоотведения для ИЖС
+                                            +e({tag: 'a'}).link Система водоотведения (линейные объекты)
+                                            +e({tag: 'a'}).link Система водоотведения для многоквартирных домов
+                                        +e.item
+                                            +e.title Электричество
+                                            +e({tag: 'a'}).link Система электроснабжения для ИЖС
+                                            +e({tag: 'a'}).link  Система электроснабжения (линейные объекты)
+                                            +e({tag: 'a'}).link  Система электроснабжения для многоквартирных
+                                            +e({tag: 'a'}).link  Система электроснабжения для многоквартирных домов
+                                        +e.item
+                                            +e.title Газификация
+                                            +e({tag: 'a'}).link Система газификации для ИЖС
+                                            +e({tag: 'a'}).link Система газификации (линейные объекты)
+                                            +e({tag: 'a'}).link Система газификации (многоквартирные дома)
+                                        +e.item
+                                            +e.title Юридические услуги
+                                            +e({tag: 'a'}).link Узаконивание инженерных сетей
+                                            +e({tag: 'a'}).link Оформление документов по всем инженерным сетям 
+                                +e.mm
+                                    a Расчеты
+                                    .arrow.arrow_right
+                                    +e.items
+                                        +e.item
+                                            +e({tag: 'a'}).link.big-menu__title Расчеты по водоснабжению и водоотведению
+                                            +e({tag: 'a'}).link Баланс водопотребления и водоотведения для ИЖС и многоквартирных домоы
+                                            +e({tag: 'a'}).link Баланс водопотребления и водоотведения коммерческих, муниципальных объектов
+                                            +e({tag: 'a'}).link Водохозяйственный паспорт для предприятий
+                                        +e.item
+                                            +e.title Расчеты по газоснабжению
+                                            +e({tag: 'a'}).link Расчет МЧРГ для ИЖС
+                                            +e({tag: 'a'}).link Расчет МЧРГ для многоквартирных домов
+                                            +e({tag: 'a'}).link Расчет МЧРГ для ком. быт
+                                        +e.item
+                                            +e.title Расчеты по электричеству
+                                            +e({tag: 'a'}).link Расчет 1
+                                            +e({tag: 'a'}).link Расчет 2
+                                            +e({tag: 'a'}).link Расчет 3
+                                        +e.item
+                                            +e.title Расчеты по  ОВиК
+                                            +e({tag: 'a'}).link Расчет 1
+                                            +e({tag: 'a'}).link Расчет 2
+                                            +e({tag: 'a'}).link Расчет 3
+
+
+                                +e.mm
+                                    span Проектирование
+                                    .arrow.arrow_right
+                                    +e.items
+                                        +e.item
+                                            +e.title Проект водоснабжения и водоотведения
+                                            +e({tag: 'a'}).link Проект наружных сетей водоснабжения и/или водоотведения для ИЖС
+                                            +e({tag: 'a'}).link  Проект внутриплощадочных сетей водоснабжения и/или водоотведения
+                                            +e({tag: 'a'}).link  Проект узла учета водоснабжения
+                                            +e({tag: 'a'}).link  Проект линейных объектов водоснабжения и/или водоотведения
+                                            +e({tag: 'a'}).link  Проект внутридомовой разводки 
+                                        +e.item
+                                            +e.title Проект газификации
+                                            +e({tag: 'a'}).link Проект внутриплощадочных сетей
+                                            +e({tag: 'a'}).link Проект изменения оборудования, узла учета, схемы газопровода
+                                            //-+e.item
+                                            +e.title Проект электричества
+                                            +e({tag: 'a'}).link Проект внутриплощадочных сетей
+                                            +e({tag: 'a'}).link Проект линейных объектов
+                                            +e({tag: 'a'}).link Проект внутридомовой разводки 
+                                        +e.item
+                                            +e.title Проект теплоснабжения
+                                            +e({tag: 'a'}).link Проект тепловых сетей
+                                            +e({tag: 'a'}).link Проект потребителей тепла
+                                            //-+e.item
+                                            +e.title Проект ОВиК
+                                            +e({tag: 'a'}).link Проект систем отопления
+                                            +e({tag: 'a'}).link  Проект системы вентиляции (естественной, приточной, вытяжной)
+                                            +e({tag: 'a'}).link  Проектирование воздуховодов
+                                            +e({tag: 'a'}).link  Проект систем кондиционирования воздуха
+                                            +e({tag: 'a'}).link  Проект комбинированной системы в и к
+                                        +e.item
+                                            +e.title Проект безопасности и автоматизации
+                                            +e({tag: 'a'}).link Проект системы видеонаблюдения
+                                            +e({tag: 'a'}).link Проект системы контроля доступа
+                                            +e({tag: 'a'}).link Проект охранной сигнализации
+                                            +e({tag: 'a'}).link Проект автоматизации  инженерных систем
+
+                                +e.mm
+                                    span Строительно-монтажные работы
+                                    .arrow.arrow_right
+                                    +e.items
+                                        +e.item
+                                            +e.title Водоснабжение и водоотведение
+                                            +e({tag: 'a'}).link СМР линейных сетей
+                                            +e({tag: 'a'}).link СМР наружных сетей
+                                            +e({tag: 'a'}).link СМР внутриплощадочных сетей
+                                            +e({tag: 'a'}).link Монтаж внутридомовой разводки
+                                        +e.item
+                                            +e.title Газификация
+                                            +e({tag: 'a'}).link СМР линейных сетей
+                                            +e({tag: 'a'}).link СМР наружных сетей
+                                            +e({tag: 'a'}).link Монтаж  внутриплощадочных сетей
+                                            //-+e.item
+                                            +e.title Электричество
+                                            +e({tag: 'a'}).link СМР линейных сетей
+                                            +e({tag: 'a'}).link СМР наружных сетей
+                                            +e({tag: 'a'}).link СМР внутриплощадочных сетей
+                                            +e({tag: 'a'}).link Монтаж внутридомовой разводки
+                                        +e.item
+                                            +e.title ОВиК
+                                            +e({tag: 'a'}).link Монтаж тепловых сетей
+                                            +e({tag: 'a'}).link Монтаж систем  отопления
+                                            +e({tag: 'a'}).link Монтаж  системы вентиляции
+                                            +e({tag: 'a'}).link Монтаж воздухозаборных сооружений и устройств
+                                            +e({tag: 'a'}).link Монтаж воздуховодов
+                                            +e({tag: 'a'}).link Монтаж систем кондиционирования воздуха
+                                            +e({tag: 'a'}).link Монтаж  комбинированной системы вентиляции и кондиционирования    
+                                        +e.item
+                                            +e.title Система безопасности и автоматизации
+                                            +e({tag: 'a'}).link Монтаж системы видеонаблюдения
+                                            +e({tag: 'a'}).link Монтаж системы контроля доступа
+                                            +e({tag: 'a'}).link Монтаж охранной сигнализации
+                                            +e({tag: 'a'}).link Монтаж автоматизации  инженерных систем
+                                
+                                +e.mm
+                                    span Автономные инженерные системы
+                                    .arrow.arrow_right
+                                    +e.items
+                                        +e.item
+                                            +e.title Водоснабжение
+                                            +e({tag: 'a'}).link Артезианские скважины  водоснабжения
+                                            +e({tag: 'a'}).link Кессоны
+                                            +e({tag: 'a'}).link Автономные системы очистки питьевой воды
+                                            +e({tag: 'a'}).link Системы сбора, очистки и использования дождевой воды
+                                        +e.item
+                                            +e.title Канализация
+                                            +e({tag: 'a'}).link Септики
+                                            +e({tag: 'a'}).link Локальные очистные сооружения
+                                        +e.item
+                                            +e.title Газификация
+                                            +e({tag: 'a'}).link Газголдеры
+                                        +e.item
+                                            +e.title Тепло и энергоснабжение
+                                            +e({tag: 'a'}).link Автономные источники тепла и энергоснабжения;
+                                            +e({tag: 'a'}).link Нетрадиционные источники энергии: солнечной, энергии ветра, биогаза и т. д.
+
+                            +e.content
+                                                 
+                +e.item
+                    img(src="images/gnb.png" height="22px")
+                    +e({tag: 'a'}).link Бестраншейные технологии
+                    .arrow.arrow_bottom.arrow_theme_light
+                    +e.submenu
+                        +e.item
+                            +e.title ГНБ
+                            +e({tag: 'a'}).link ГНБ в стесненных условиях города
+                            +e({tag: 'a'}).link ГНБ в открытой местности
+                            +e({tag: 'a'}).link ГНБ в различных грунтах
+                        +e.item
+                            +e.title Управляемый прокол грунта
+                            +e({tag: 'a'}).link Прокол из колодца
+                            +e({tag: 'a'}).link Прокол из приямка
+                            +e({tag: 'a'}).link Прокол из подвального помещения
+                        +e.item
+                            +e.title Санация
+                            +e({tag: 'a'}).link Санация чугунных и пластиковых труб
+                            +e({tag: 'a'}).link Релайнинг/Реновация
+
+
+
+        .nav
+            //- .nav__header
+            //-     .nav__back
+            //-     .icon-close
+            +b.mobile-menu
+                +e.search
+                    +b.search
+                        +e.box
+                            +e.icon
+                            input(name='search' placeholder="Поиск на сайте").input__control
+                +e.item
+                    +e({tag: 'a'}).link.mobile-menu__link_arrow
+                        |Архитектурное проектирование
+                        .arrow.arrow_bottom
+                    +b.mobile-submenu.mobile-menu__submenu
+                        +e.item
+                            +e({tag: 'a'}).link.mobile-submenu__link_arrow
+                                |Индивидуальное проектирование
+                                .arrow.arrow_bottom
+                            +b.mobile-submenu.mobile-submenu__submenu
+                                +e.item
+                                    +e({tag: 'a'}).link Поиск земельного участка
+                                +e.item
+                                    +e({tag: 'a'}).link Проект развития земельного участка
+                                +e.item
+                                    +e({tag: 'a'}).link СПОЗУ (схема планировочной организации зем.участка)
+                                +e.item
+                                    +e({tag: 'a'}).link Эскизное проектирование
+                                +e.item
+                                    +e({tag: 'a'}).link Генеральный план
+                                +e.item
+                                    +e({tag: 'a'}).link Архитектурные решения
+                                +e.item
+                                    +e({tag: 'a'}).link Конструктивные решения
+                                +e.item
+                                    +e({tag: 'a'}).link Инженерные системы
+                                +e.item
+                                    +e({tag: 'a'}).link Пожарная безопасность
+                                +e.item
+                                    +e({tag: 'a'}).link Охрана окружающей среды
+                                +e.item
+                                    +e({tag: 'a'}).link Проект организации строительства
+                                +e.item
+                                    +e({tag: 'a'}).link Проект реконструкции
+                                +e.item
+                                    +e({tag: 'a'}).link Комплексное проектирование дома 
+                +e.item
+                    +e({tag: 'a'}).link.mobile-menu__link_arrow
+                        |Инженерные сети
+                        .arrow.arrow_bottom
+                    +b.mobile-submenu.mobile-menu__submenu
+                        +e.item
+                            +e({tag: 'a'}).link.mobile-submenu__link_arrow
+                                |Комплексное подключение инженерных сетей
+                                .arrow.arrow_bottom
+                            +b.mobile-submenu.mobile-submenu__submenu
+                                +e.item
+                                    +e({tag: 'a'}).link Водоснабжение
+                                +e.item
+                                    +e({tag: 'a'}).link Водоотведение
+                                +e.item
+                                    +e({tag: 'a'}).link Электричество
+                                +e.item
+                                    +e({tag: 'a'}).link Газификация
+                                +e.item
+                                    +e({tag: 'a'}).link Юридические услуги
+                        +e.item
+                            +e({tag: 'a'}).link.mobile-submenu__link_arrow
+                                |Расчеты
+                                .arrow.arrow_bottom
+                            +b.mobile-submenu.mobile-submenu__submenu
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по водоснабжению и водоотведению
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по газоснабжению
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по электричеству
+                                +e.item
+                                    +e({tag: 'a'}).link Расчеты по ОВиК
+                +e.item
+                    +e({tag: 'a'}).link.mobile-menu__link_arrow
+                        |О нас
+                        .arrow.arrow_bottom
+                    +b.mobile-submenu.mobile-menu__submenu
+                        +e.item
+                            +e({tag: 'a'}).link 100 слов о БК Инвент
+                        +e.item
+                            +e({tag: 'a'}).link Наши лицензии
+                        +e.item
+                            +e({tag: 'a'}).link Как мы работаем
+                        +e.item
+                            +e({tag: 'a'}).link Наша дружная команда
+                        +e.item
+                            +e({tag: 'a'}).link Мнение со стороны
+                        +e.item
+                            +e({tag: 'a'}).link Как попасть в команду
+                +e.item
+                    +e({tag: 'a'}).link Акции
+                +e.item
+                    +e({tag: 'a'}).link Полезные статьи
+                +e.item
+                    +e({tag: 'a'}).link Партнерам
+                +e.item
+                    +e({tag: 'a'}).link Контакты
+                                          
+
+        .main
+            +b.offer
+                +e.wrapper.container
+                    +e.title Проектно-строительная компания
+                    +e.description Работаем в Ростов-на-дону и Ростовской области
+                    +b.btn.btn_view_light.offer__btn
+                        +e.text Записаться на консультацию
+            //- +b.btn.btn_view_action
+            //-     +e.text Записаться на консультацию
+            //- +b.btn.btn_view_pseudo
+            //-     +e.text Записаться на консультацию
+            .content
+                .container
+                    h1 Проектно-строительная компания (h1)
+                    h2 Проектно-строительная компания (h2)
+                    h3 Проектно-строительная компания (h3)
+                    h4 Проектно-строительная компания (h4)
+                    p Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение дальнейших направлений развития. Таким образом начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач. <a>С другой стороны</a> постоянное <b>информационно-пропагандистское</b> обеспечение нашей деятельности представляет собой интересный <a href='/'>эксперимент</a> проверки форм развития. Повседневная практика показывает, что сложившаяся структура организации требуют от нас анализа модели развития. Разнообразный и богатый опыт укрепление и развитие структуры способствует подготовки и реализации систем массового участия.
+                    ul.list.list_type_check
+                        li 123
+                        li Повседневная практика показывает, что сложившаяся структура организации требуют от нас анализа модели развития. Разнообразный и богатый опыт укрепление и развитие структуры способствует подготовки и реализации систем массового участия.
+                        li 123
+                    ul.list
+                        li 123
+                        li 123
+                        li Повседневная практика показывает, что сложившаяся структура организации требуют от нас анализа модели развития. Разнообразный и богатый опыт укрепление и развитие структуры способствует подготовки и реализации систем массового участия.
+                    img(src="http://placehold.it/1160x100")
+                    blockquote
+                        |Максимальная ширина картинки может быть 1160 пикселей<br>
+                        |Высота не ограничена<br>
+                        |При подборе картинки можно выбирать любого размера
+
+                    br
+                    br
+                    section
+                        .row(style="border: 1px solid #ddd; text-align:center;")
+                            .col.col_size_1(style="background: #ddd;") 1
+                            .col.col_size_1(style="background: #ddd;") 2
+                            .col.col_size_1(style="background: #ddd;") 3
+                            .col.col_size_1(style="background: #ddd;") 4
+                            .col.col_size_1(style="background: #ddd;") 5
+                            .col.col_size_1(style="background: #ddd;") 6
+                            .col.col_size_1(style="background: #ddd;") 7
+                            .col.col_size_1(style="background: #ddd;") 8
+                            .col.col_size_1(style="background: #ddd;") 9
+                            .col.col_size_1(style="background: #ddd;") 10
+                            .col.col_size_1(style="background: #ddd;") 11
+                            .col.col_size_1(style="background: #ddd;") 12
+                    section
+                        .row(style="border: 1px solid #ddd; text-align:center;")    
+                            .col.col_size_2(style="background: #ddd;") 2
+                            .col.col_size_1(style="background: #ddd;") 1
+                            .col.col_size_4(style="background: #ddd;") 4
+                            .col.col_size_2.col_offset_3(style="background: #ddd;") 2 <br>Отступ 3
+
+                    section
+                        .row
+                            .col.col_size_6
+                                p По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповт оримый колорит советских времен.
+                            .col.col_size_6 
+                                img(src="http://placehold.it/1160x900")
+                        
+            
+
+
+            //- +b.footer
+            //-     .container
+            //-         //- +b.logo
+            //-         //-     +e.image
+            //-         //-     +e.description Проектно-строительная<br>компания
+            //-         +b.phone
+            //-             +e.description Консультация по телефону
+            //-             +e.wrap
+            //-                 +e.icon 
+            //-                 +e.text 8 (863) 303-38-33
+            //-         +b.email
+            //-             +e.wrap
+            //-                 +e.icon 
+            //-                 +e.text info@bk-invent.ru
+            //-         +b.maps
+            //-             +e.wrap
+            //-                 +e.icon 
+            //-                 +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
+            //-         +e.title О нас
+            //-         +e({tag: 'a'}).link 100 слов о БК Инвент
+            //-         +e({tag: 'a'}).link Наши лицензии
+            //-         +e({tag: 'a'}).link Как мы работаем
+            //-         +e({tag: 'a'}).link Наша дружная команда
+            //-         +e({tag: 'a'}).link Мнение со стороны
+            //-         +e({tag: 'a'}).link Как попасть в команду
+            .copyright
+                .container
+                    .copyright__icons
+                        a(href="")
+                            img(src="images/footer__vk.png") 
+                        a(href="")
+                            img(src="images/footer__fb.png")
+                        a(href="")
+                            img(src="images/footer__ok.png") 
+                        a(href="")
+                            img(src="images/footer__instagram.png") 
+                    .copyright__text
+                        |copyright © 2019 By BK Invent LLC. Все права защищены. 
+                        br
+                        |Запрещено любое копирование материалов ресурса без письменного согласия владельца — ООО "БК Инвент".
+        
+    //- ////////////////////
+
+    .modal#modal__order
+        .modal__wrapper
+            .modal__dialog
+                .close.modal__close
+                .modal__title Получить бесплатную консультацию
+                form.form.ajax
+                    .modal__row
+                        .input.input_type_name
+                            .input__box
+                                .input__top-border
+                                .input__title Имя
+                                //- .input__icon
+                                input(name='name').input__control
+                            .input__message(data-default='Укажите точно как в паспорте')
+                    .modal__row
+                        .input.input_type_phone
+                            .input__box
+                                .input__top-border
+                                .input__title Телефон
+                                //- .input__icon
+                                input(name='phone').input__control
+                            .input__message(data-default='Укажите номер телефона. Убедитесь, что телефон введен корректно                                   ') 
+                    .modal__row
+                        .input.input_type_email
+                            .input__box
+                                .input__top-border
+                                .input__title Email
+                                //- .input__icon
+                                input(name='email').input__control
+                            .input__message                               
+                    .modal__row
+                        button(type="submit").btn.btn_view_action
+                                .btn__text Записаться на консультацию
+                    .modal__row
+                        +b.checkbox.checkbox_theme_light 
+                            +e({tag: 'label'}).item                                     
+                                input(name='privacy' type='checkbox' checked).checkbox__control
+                                .checkbox__box
+                            .checkbox__text 
+                                |Согласен  
+                                +e({tag: 'a'}).link на обработку персональных данных
+    .fixed_blur
+    +scripts(['common.js', 'app.js'])
+
