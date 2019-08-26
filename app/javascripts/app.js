@@ -4,6 +4,15 @@ require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 require('ion-rangeslider')
 
+let url = 'https://private.bk-invent.ru/api'
+
+const API = {
+    methods: {
+        order: `${url}/amo/create-lead-from-form`
+    }
+
+};
+
 $.fn.extend({
     openModal: function() {
         $(this).addClass('modal_visible')
@@ -41,7 +50,6 @@ $(function() {
         hide_min_max: true,
         grid: true
     })
-
     
     $('img.zoom').click(function() {
         let $this = $(this)
@@ -166,8 +174,6 @@ $(function() {
         }
     })
     
-
-
     $('.reviews__items').bxSlider({
         // nextSelector: 'reviews__next',
         // prevSelector:'reviews__prev',
@@ -201,7 +207,6 @@ $(function() {
         pause: 4000,
         pager: false,
     })
-
 
     $('.quiz').each(function() {
 
@@ -293,10 +298,6 @@ $(function() {
     })
 
 
-    
-
-
-
     //==========
     // МЕНЮ
     //==========
@@ -367,7 +368,6 @@ $(function() {
             } else {
                 $(this).css('left', `-${idx - 1160}px`)
             }
-
         }
     })
 
@@ -430,7 +430,6 @@ $(function() {
 
         $this.children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
     })
-
 
 
 
@@ -542,7 +541,6 @@ $(function() {
         $box.removeClass('input__box_focus')
     })
 
-    
 
 
     //==============
@@ -588,13 +586,13 @@ $(function() {
                 btn.prop('disabled', true)
 
                 $.ajax({
-                    url: '/',
-                    type: 'get',
+                    url: API.methods.order,
+                    type: 'post',
                     data: str
                 })
                 .done(function() {
-                    //$('.modal').closeModal()
-                    //$('#modal__ok').openModal()
+                    $('.modal').closeModal()
+                    $('#modal__ok').openModal()
                 })
                 .always(function() {
                     //$('.loader_submit').removeClass('loader_active')
@@ -609,14 +607,12 @@ $(function() {
                     number: true,
                     normalizer: value => {
                         let phone = value
-                        
                         phone = phone.replace(/-/g, '')
                         phone = phone.replace(/_/g, '')
                         phone = phone.replace(/ /g, '')
                         phone = phone.replace('+7', '')
                         phone = phone.replace('(', '')
                         phone = phone.replace(')', '')
-
                         return phone
                     }
                 },
@@ -643,8 +639,6 @@ $(function() {
                     minlength: "Вы допустили ошибку. Номер телефона должен состоять из 10 цифр",
                     required: "Укажите номер телефона"
                 }
-
-
             },
             errorPlacement: function(error, element){
                 let $control = $(element)
