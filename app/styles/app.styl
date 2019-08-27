@@ -327,6 +327,7 @@
     &__link
         display flex
         align-items center
+        text-decoration none
         font-size 15px
         line-height 1.4em
         cursor pointer
@@ -509,6 +510,8 @@
                 transform rotate(45deg)
 .logo
     // width 100%
+    a
+        text-decoration none
     flex-grow 1
     &__image
         margin 0 20px
@@ -646,7 +649,6 @@
         line-height 1.2em
         color #fff 
         font-weight 700
-        margin-bottom 20px
         text-shadow 0px 0px 10px rgba(60, 60, 60, 0.4)
         @media (min-width 700px)
             font-size 37px
@@ -655,12 +657,14 @@
         line-height 1.2em
         color #fff 
         font-weight 300
-        margin-bottom 40px
+        margin-top 20px
         text-shadow 0px 0px 10px rgba(60, 60, 60, 0.3)
         @media (min-width 700px)
             font-size 30px
-    // &__btn
-    //     //width 100%
+    .breadcrumbs
+        background rgba(85, 97, 120, 0.23) !important
+    &__btn
+        margin-top 30px
 .btn
     font-size 16px
     padding 1em 1.2em
@@ -775,7 +779,7 @@
     img 
         margin-bottom 1em
         border-radius 4px
-        width 100%
+        width auto
         max-width 100%
     blockquote
         border-left 4px solid #4273d6
@@ -811,7 +815,8 @@ ul.list
     width 100%
     //border-bottom 1px solid #ddd
     margin 0px 0 20px 0
-    background rgba(85, 97, 120, 0.23)
+    background #6f7dd4
+   
     padding 10px 0 
     &__wrapper
         display flex
@@ -2372,6 +2377,7 @@ ul.list
             border-radius 0
             margin 0
             height 100%
+            width 100%
         @media (min-width 900px)
             width auto
        // background #000
@@ -2631,7 +2637,7 @@ ul.list
             height auto 
         for $n in (1..12)
             &_{$n}
-                size($n)`
+                size($n)
         &-xs
             @media (min-width 560px)
                 &_0
@@ -2868,7 +2874,8 @@ img.zoom
         margin 5px
         text-align center 
         img
-         max-width 156px
+            // max-width 156px
+            width auto
         @media (min-width 640px)
             width calc(20% - 20px)
             margin 10px
@@ -3155,9 +3162,12 @@ img.zoom
     border-radius 4px
     background-image linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
     form
-        margin 15px
+        margin 10px
         background #fff
-        padding 20px
+        padding 10px 15px
+        @media (min-width 900px)
+            padding 20px
+            margin 15px
         border-radius 4px
         box-shadow 0 6px 20px 0px #d0d0d0
     &__title
