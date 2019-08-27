@@ -107,7 +107,7 @@ const config = {
 	},
 
 	tinypng: {
-		key: 'Dngc1ZkMnBxr8sPwZmJjvcHBrYn7W6H9',
+		key: 'nVGxjs6CRkM9p2PN9dTNv6h1vsJkmZF4',
 		sigFile: './app/.tinypng-sigs',
 		log: true
 	},

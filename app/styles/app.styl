@@ -632,8 +632,8 @@
     background-size cover
     box-shadow inset 0px 4px 20px 0px rgba(0, 0, 0, 0.2)
     &__wrapper
-        padding-top 40px
-        padding-bottom 40px
+        padding-top 40px !important
+        padding-bottom 40px !important
         display flex
         align-items center
         justify-content center
@@ -736,7 +736,7 @@
                 .btn__text
                     color #000
 .content
-    padding 20px 0 
+    padding 20px 0 0 0
     font-size 14px
     line-height 1.6em
     color #121212
@@ -2631,7 +2631,7 @@ ul.list
             height auto 
         for $n in (1..12)
             &_{$n}
-                size($n)
+                size($n)`
         &-xs
             @media (min-width 560px)
                 &_0
