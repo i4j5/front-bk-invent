@@ -663,6 +663,7 @@
             font-size 30px
     .breadcrumbs
         background rgba(85, 97, 120, 0.23) !important
+        margin-bottom 0 !important
     &__btn
         margin-top 30px
 .btn
@@ -740,7 +741,7 @@
                 .btn__text
                     color #000
 .content
-    padding 20px 0 0 0
+    // padding 20px 0 0 0
     font-size 14px
     line-height 1.6em
     color #121212
@@ -814,7 +815,7 @@ ul.list
 .breadcrumbs
     width 100%
     //border-bottom 1px solid #ddd
-    margin 0px 0 20px 0
+    margin-bottom 20px
     background #6f7dd4
    
     padding 10px 0 
@@ -1129,6 +1130,7 @@ ul.list
         width calc(100% - 20px)
     &__box
         // box-shadow 0 2px 11px -4px rgba(0, 0, 0, 0.2)
+        // background-color #fff
         padding 0.556em 0.5em 0.556em 0.833em
         border 2px solid #d6dcf5
         border-top 0
@@ -3199,3 +3201,98 @@ img.zoom
             height 100%
         @media (min-width 900px)
             width auto
+
+.product
+    background #f1f1f1
+    line-height 1.2em
+    margin auto
+    text-align center
+    font-weight 500
+    margin-bottom 20px
+    width 275px
+    height 250px
+    position relative
+    overflow hidden
+    border-radius 4px 
+    &__img
+        transition all .8s linear
+        &_hover
+            transform scale(1.2,1.2) rotate(10grad)
+    &__bg
+        padding 5px 5px
+        position absolute
+        top 0
+        left 0
+        width 275px
+        height 250px
+        background rgba(0, 0, 0, 0.3)
+    &__text
+        display flex
+        justify-content center
+        flex-direction column
+        border 1px solid #fff
+        width 100%
+        height 100%
+        border-radius 2px 
+    &__title
+        font-size 20px
+        line-height 1.4em
+        color #fff
+        margin-bottom 20px
+        text-shadow 0 0 9px rgba(0, 0, 0, 0.9)
+    &__price
+        font-size 17px
+        color #fff
+        margin-bottom 10px
+        font-weight 500
+        &_old
+            font-weight 300
+            font-size 15px
+            text-decoration line-through
+    &__btn
+        display table
+        width max-content
+        margin 15px auto 
+
+.card
+    margin-bottom 30px
+    position relative
+    width 100%
+    border 1px solid #f4f4f4
+    border-radius 4px
+    background #fff
+    box-shadow 0px 5px 20px 0px rgba(92, 92, 92, 0.1)
+    &__body
+        padding 0 20px 10px 20px
+        line-height 1.4em
+        color #000
+    &__title
+        font-size 17px
+        margin-bottom 15px
+        font-weight 600
+        text-align center
+    &__img
+        width 100%
+        max-width 100%
+        height auto
+        border-radius 4px 4px 0 0 !important 
+        margin-bottom 10px
+
+.form-horizontal
+    width 100% 
+    padding 20px 0
+    background #fdfdfd
+    border-bottom 1px solid #eee
+    box-shadow 0 3px 5px 0px #e8e8e8
+    &__title
+        font-size 18px
+        margin-bottom 10px 
+        font-weight 600
+    &__description 
+        font-size 15px
+        margin-bottom 25px 
+
+.center
+    text-align center
+    margin auto
+    display table

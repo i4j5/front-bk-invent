@@ -50,6 +50,12 @@ $(function() {
         hide_min_max: true,
         grid: true
     })
+
+    $('.product').hover(function() {
+		$(this).children('.product__img').addClass('product__img_hover')
+	}, function() {
+		$(this).children('.product__img').removeClass('product__img_hover')
+	});
     
     $('img.zoom').click(function() {
         let $this = $(this)

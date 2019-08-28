@@ -474,6 +474,149 @@ block content
             
             
             .content
+
+                section.form-horizontal
+                    .container
+                        .form-horizontal__title ПОЛУЧИТЬ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ
+                        .form-horizontal__description Заполните форму, и с Вами свяжется выбранный Вами специалист
+                        .row
+                            .col.col_size_12.col_size-sm_3
+                                .input.input_type_select
+                                    .input__box
+                                        .input__top-border
+                                        .input__title Выберите специалиста
+                                        //- .input__icon
+                                        input(name='name').input__control
+                                        .input__text
+                                        .input__items
+                                            .input__item(data-value="123") Cпециалист по оформлению документов
+                                            .input__item(data-value="32312") Ведущий инженер
+                                            .input__item(data-value="32312") Инженер-консультант общего профиля
+                                            .input__item(data-value="32312") Юрист
+                                    .input__message
+                    
+                            .col.col_size_12.col_size-sm_3
+                                .input.input_type_phone
+                                    .input__box
+                                        .input__top-border
+                                        .input__title Имя
+                                        //- .input__icon
+                                        input(name='name').input__control
+                                    .input__message(data-default="Укажите точно как в паспорте")
+                            .col.col_size_12.col_size-sm_3
+                                .input.input_type_phone
+                                    .input__box
+                                        .input__top-border
+                                        .input__title Телефон
+                                        //- .input__icon
+                                        input(name='phone').input__control
+                                    .input__message(data-default="Укажите точно как в паспорте")
+                            .col.col_size_12.col_size-sm_3
+                                button(type="submit").btn.btn_view_action
+                                    .btn__text Записаться на консультацию
+                            //- .col.col_size_12
+                        .centasser
+                            +b.checkbox.checkbox_theme_light 
+                                +e({tag: 'label'}).item                                     
+                                    input(name='privacy' type='checkbox' checked).checkbox__control
+                                    .checkbox__box
+                                .checkbox__text 
+                                    |Согласен  
+                                    +e({tag: 'a'}).link на обработку персональных данных
+
+
+
+
+
+                section.container
+                    .row
+                        .col.col_size_12.col_size-sm_4
+                            +b.card
+                                img(class="card__img" src="http://farm8.static.flickr.com/7907/33535681578_4091be1523_b.jpg")
+                                +e.body
+                                    +e.title По своей сути рыбатекст является альтернативой традиционному
+                                    p Повседневная практика показывает, что сложившаяся структура организации требуют от нас анализа модели развития. Разнообразный и богатый опыт укрепление и развитие структуры способствует подготовки и реализации систем массового участия.
+                                        
+                                    ul.list.list_type_check
+                                        li 123
+                                        li 123
+                                    ul.list
+                                        li 123
+                                        li 123
+                                        li Повседневная практика показы
+
+                                    .btn.btn_view_action(data-modal="modal__order")
+                                        .btn__text Подробнее
+
+
+
+
+                .container
+                    .row
+                        .col.col_size_12.col_size-sm_3
+                            +b.product
+                                img(src="https://moygrad.kiev.ua/media/CACHE/images/img/upload/1338/b22e581c34c5aa7b6c3d0b6cc0249dd4.jpg").product__img
+                                +e.bg
+                                    +e.text
+                                        +e.title Жилой дом<br>на 123,4 кв.м
+                                        //- +e.price 4434343443
+                                        //- +e.price.product__price_old 4434343443
+                                        +e.btn.btn.btn_view_light
+                                            .btn__text Подробнее
+                        .col.col_size_12.col_size-sm_3
+                            +b.product
+                                img(src="https://moygrad.kiev.ua/media/CACHE/images/img/upload/1338/b22e581c34c5aa7b6c3d0b6cc0249dd4.jpg").product__img
+                                +e.bg
+                                    +e.text
+                                        +e.title Жилой дом<br>на 123,4 кв.м
+                                        //- +e.price 4434343443
+                                        //- +e.price.product__price_old 4434343443
+                                        +e.btn.btn.btn_view_light
+                                            .btn__text Подробнее
+                        .col.col_size_12.col_size-sm_3
+                            +b.product
+                                img(src="https://farm8.static.flickr.com/7907/33535681578_4091be1523_b.jpg").product__img
+                                +e.bg
+                                    +e.text
+                                        +e.title Жилой дом<br>на 123,4 кв.м
+                                        //- +e.price 4434343443
+                                        //- +e.price.product__price_old 4434343443
+                                        +e.btn.btn.btn_view_light
+                                            .btn__text Подробнее
+                        .col.col_size_12.col_size-sm_3
+                            +b.product
+                                img(src="https://moygrad.kiev.ua/media/CACHE/images/img/upload/1338/b22e581c34c5aa7b6c3d0b6cc0249dd4.jpg").product__img
+                                +e.bg
+                                    +e.text
+                                        +e.title Жилой дом<br>на 123,4 кв.м
+                                        //- +e.price 4434343443
+                                        //- +e.price.product__price_old 4434343443
+                                        +e.btn.btn.btn_view_light
+                                            .btn__text Подробнее
+                        .col.col_size_12.col_size-sm_3
+                            +b.product
+                                img(src="https://moygrad.kiev.ua/media/CACHE/images/img/upload/1338/b22e581c34c5aa7b6c3d0b6cc0249dd4.jpg").product__img
+                                +e.bg
+                                    +e.text
+                                        +e.title Жилой дом<br>на 123,4 кв.м
+                                        //- +e.price 4434343443
+                                        //- +e.price.product__price_old 4434343443
+                                        +e.btn.btn.btn_view_light
+                                            .btn__text Подробнее
+                        .col.col_size_12.col_size-sm_3
+                            +b.product
+                                img(src="https://moygrad.kiev.ua/media/CACHE/images/img/upload/1338/b22e581c34c5aa7b6c3d0b6cc0249dd4.jpg").product__img
+                                +e.bg
+                                    +e.text
+                                        +e.title Жилой дом<br>на 123,4 кв.м
+                                        //- +e.price 4434343443
+                                        //- +e.price.product__price_old 4434343443
+                                        +e.btn.btn.btn_view_light
+                                            .btn__text Подробнее
+
+
+
+
                 .container
                     +b({tag: 'section'}).query2result  
                         .row
