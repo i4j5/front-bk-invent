@@ -4,6 +4,9 @@ require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 require('ion-rangeslider')
 
+const moment = require('moment')
+moment.locale('ru')
+
 let url = 'https://private.bk-invent.ru/api'
 
 const API = {
@@ -40,10 +43,29 @@ $.fn.extend({
     
         $('#modal__zoom').openModal()       
     }
+
+
 })
 
-
 $(function() { 
+
+    let now = moment()
+
+    let startActions = ''
+    // localStorage.setItem('test', 1)
+    // localStorage.getItem('test')
+
+    let then = moment().add(2023, 'minutes')
+
+    // $(".now").text(moment(now).format('h:mm:ss a'));
+    $(".then").text('Срок действия акции: до ' + moment(then).format('LL'))
+    // $(".duration").text('Акция закончится ' + moment(now).to(then));
+    $(".duration").html('<b>Акция закончится ' + moment(then).calendar().toLowerCase() + '</b>');
+    // (function timerLoop() {
+    //     // $(".difference > span").text(moment().to(then));
+    //     $(".countdown").text(countdown(then).toString());
+    //     requestAnimationFrame(timerLoop);
+    // })();
 
     $('.range-slider').ionRangeSlider({
         skin: 'round',
