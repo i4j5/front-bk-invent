@@ -4,10 +4,11 @@ require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 require('ion-rangeslider')
 
-const moment = require('moment')
-moment.locale('ru')
+// const moment = require('moment')
+// moment.locale('ru')
 
-let url = 'https://private.bk-invent.ru/api'
+// let url = 'https://private.bk-invent.ru/api'
+let url = '/'
 
 const API = {
     methods: {
@@ -49,23 +50,25 @@ $.fn.extend({
 
 $(function() { 
 
-    let now = moment()
+    // let now = moment()
 
-    let startActions = ''
-    // localStorage.setItem('test', 1)
-    // localStorage.getItem('test')
+    // let startActions = ''
+    // // Получить страницу 
+    
+    // // localStorage.setItem('test', 1)
+    // // localStorage.getItem('test')
 
-    let then = moment().add(2023, 'minutes')
+    // let then = moment().add(2023, 'minutes')
 
-    // $(".now").text(moment(now).format('h:mm:ss a'));
-    $(".then").text('Срок действия акции: до ' + moment(then).format('LL'))
-    // $(".duration").text('Акция закончится ' + moment(now).to(then));
-    $(".duration").html('<b>Акция закончится ' + moment(then).calendar().toLowerCase() + '</b>');
-    // (function timerLoop() {
-    //     // $(".difference > span").text(moment().to(then));
-    //     $(".countdown").text(countdown(then).toString());
-    //     requestAnimationFrame(timerLoop);
-    // })();
+    // // $(".now").text(moment(now).format('h:mm:ss a'));
+    // $(".then").text('Срок действия акции: до ' + moment(then).format('LL'))
+    // // $(".duration").text('Акция закончится ' + moment(now).to(then));
+    // $(".duration").html('<b>Акция закончится ' + moment(then).format('LL').calendar().toLowerCase() + '</b>');
+    // // (function timerLoop() {
+    // //     // $(".difference > span").text(moment().to(then));
+    // //     $(".countdown").text(countdown(then).toString());
+    // //     requestAnimationFrame(timerLoop);
+    // // })();
 
     $('.range-slider').ionRangeSlider({
         skin: 'round',
@@ -236,94 +239,99 @@ $(function() {
         pager: false,
     })
 
-    $('.quiz').each(function() {
 
-        let $quiz = $(this)
-        $quiz.slider = $quiz.find('.quiz__items').bxSlider({
-            touchEnabled: false,
-            controls: false,
-            auto: false,
-            pager: false,
-            adaptiveHeight: true,
-            adaptiveHeightSpeed: 400
-        })
+    //==========
+    // КВИЗЫ
+    //==========
+
+    // $('.quiz').each(function() {
+
+    //     let $quiz = $(this)
+    //     $quiz.slider = $quiz.find('.quiz__items').bxSlider({
+    //         touchEnabled: false,
+    //         controls: false,
+    //         auto: false,
+    //         pager: false,
+    //         adaptiveHeight: true,
+    //         adaptiveHeightSpeed: 400
+    //     })
     
-        let quantity =$quiz.slider.getSlideCount()
-        let i = 1
+    //     let quantity =$quiz.slider.getSlideCount()
+    //     let i = 1
 
     
-        let $progressBar = $quiz.find('.quiz__progress-bar')
-        $progressBar._label = $progressBar.children('.quiz__progress-bar-label')
-        $progressBar._field = $progressBar.children('.quiz__progress-bar-field').children('span')
-        let $number = $quiz.find('.quiz__number')
-        $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //     let $progressBar = $quiz.find('.quiz__progress-bar')
+    //     $progressBar._label = $progressBar.children('.quiz__progress-bar-label')
+    //     $progressBar._field = $progressBar.children('.quiz__progress-bar-field').children('span')
+    //     let $number = $quiz.find('.quiz__number')
+    //     $number.html(`${i}-й вопрос из ${quantity-1}`)
 
-        // Сделать Автоматическое далее !!!
-        $quiz.find('.quiz__next').click(function() {
+    //     // Сделать Автоматическое далее !!!
+    //     $quiz.find('.quiz__next').click(function() {
             
-            if(quantity > i) {
-                // Сделать Проверка валидации!
+    //         if(quantity > i) {
+    //             // Сделать Проверка валидации!
 
-                let $input = $quiz.find(`[name="comment[${i}]"]`)
-                // Проверка чекбоксоы 
+    //             let $input = $quiz.find(`[name="comment[${i}]"]`)
+    //             // Проверка чекбоксоы 
 
-                if(i+1 == quantity ) {
-                    $progressBar._field.css('transition', 'none')
-                    $quiz.find('.quiz__footer').css({
-                        visibility: 'hidden',
-                        display: 'none',
-                        opacity: '0'
-                    })
-                }
-                $quiz.slider.goToNextSlide() 
-                $progressBar._field.css('width', `${parseInt(100/(quantity-1)*i)}%`)
-                $progressBar._label.html(`${parseInt(100/(quantity-1)*i)}%`)
-                ++i
-                $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //             if(i+1 == quantity ) {
+    //                 $progressBar._field.css('transition', 'none')
+    //                 $quiz.find('.quiz__footer').css({
+    //                     visibility: 'hidden',
+    //                     display: 'none',
+    //                     opacity: '0'
+    //                 })
+    //             }
+    //             $quiz.slider.goToNextSlide() 
+    //             $progressBar._field.css('width', `${parseInt(100/(quantity-1)*i)}%`)
+    //             $progressBar._label.html(`${parseInt(100/(quantity-1)*i)}%`)
+    //             ++i
+    //             $number.html(`${i}-й вопрос из ${quantity-1}`)
                 
-            } 
-        })
+    //         } 
+    //     })
 
-        $quiz.find('.quiz__previous').click(function() {
-            if(i != 1) {
-                $quiz.slider.goToPrevSlide()
-                --i
-                $progressBar._field.css('width', `${parseInt(100/(quantity-1)*(i-1))}%`)
-                $progressBar._label.html(`${parseInt(100/(quantity-1)*(i-1))}%`)
-                $number.html(`${i}-й вопрос из ${quantity-1}`)
-            }  
-        })
+    //     $quiz.find('.quiz__previous').click(function() {
+    //         if(i != 1) {
+    //             $quiz.slider.goToPrevSlide()
+    //             --i
+    //             $progressBar._field.css('width', `${parseInt(100/(quantity-1)*(i-1))}%`)
+    //             $progressBar._label.html(`${parseInt(100/(quantity-1)*(i-1))}%`)
+    //             $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //         }  
+    //     })
 
-        $('.run-quiz').click(function() {
-            if($(window).width() >= 700) {
-                $quiz.slider.reloadSlider({
-                    touchEnabled: false,
-                    controls: false,
-                    auto: false,
-                    pager: false,
-                    adaptiveHeight: false
-                })
-            }
+    //     $('.run-quiz').click(function() {
+    //         if($(window).width() >= 700) {
+    //             $quiz.slider.reloadSlider({
+    //                 touchEnabled: false,
+    //                 controls: false,
+    //                 auto: false,
+    //                 pager: false,
+    //                 adaptiveHeight: false
+    //             })
+    //         }
 
-            $quiz.slider.goToSlide(0)
-            $progressBar._field.css({
-                transition: 'none',
-                width: '0%'
-            })
-            $progressBar._label.html('0%')
-            $quiz.find('.quiz__footer').css({
-                visibility: 'visible',
-                display: '',
-                opacity: '1'
-            })
-            i = 1
-            $number.html(`${i}-й вопрос из ${quantity-1}`)
-            $(`#${$(this).data('quiz')}`).openModal()
-            $quiz.slider.reloadSlider()
-            $progressBar._field.css('transition', '')
+    //         $quiz.slider.goToSlide(0)
+    //         $progressBar._field.css({
+    //             transition: 'none',
+    //             width: '0%'
+    //         })
+    //         $progressBar._label.html('0%')
+    //         $quiz.find('.quiz__footer').css({
+    //             visibility: 'visible',
+    //             display: '',
+    //             opacity: '1'
+    //         })
+    //         i = 1
+    //         $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //         $(`#${$(this).data('quiz')}`).openModal()
+    //         $quiz.slider.reloadSlider()
+    //         $progressBar._field.css('transition', '')
            
-        })
-    })
+    //     })
+    // })
 
 
     //==========
@@ -531,6 +539,8 @@ $(function() {
         $item.data('value')
         $control.val($item.data('value'))
         $text.text($item.text())
+
+        // console.log($control.val())
         
         setTimeout(function() { 
             $items.children('.input__item').removeClass('input__item_active')
@@ -580,7 +590,6 @@ $(function() {
         $(this).validate({
             unhighlight: function (element, errorClass) {
                 let $control = $(element)
-
                 if ($control.hasClass('checkbox__control')) {
                     $control.parent().parent().removeClass('checkbox_error')
 
@@ -648,10 +657,13 @@ $(function() {
                     required: true
                 },
                 'email': {
-                    email: true,
+                    email: true
                     //required: true
                 },
                 'privacy': {
+                    required: true
+                },
+                'specialist': {
                     required: true
                 }
             },
@@ -663,12 +675,18 @@ $(function() {
                 name: {
                     required: "Напишите как к Вам обращаться"
                 },
+                specialist: {
+                    required: "Выберите специалиста"
+                },
                 phone: {
                     minlength: "Вы допустили ошибку. Номер телефона должен состоять из 10 цифр",
                     required: "Укажите номер телефона"
                 }
             },
             errorPlacement: function(error, element){
+                console.log('->', element)
+
+
                 let $control = $(element)
                 
                 if ($control.hasClass('checkbox__control')) {

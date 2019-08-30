@@ -741,7 +741,7 @@
                 .btn__text
                     color #000
 .content
-    padding-top 20px
+    // padding-top 20px
     font-size 14px
     line-height 1.6em
     color #121212
@@ -1288,7 +1288,12 @@ ul.list
                         border-left 2px solid #5784e0
                         border-bottom 2px solid #5784e0
             .input__control
-                display none
+                // display none
+                visibility hidden
+                position absolute
+                left -99999999px
+                height 0
+                width 0
 
 
 
@@ -3285,14 +3290,19 @@ img.zoom
     padding 20px 0
     background #fdfdfd
     border-bottom 1px solid #eee
-    box-shadow 0 3px 5px 0px #e8e8e8
+    border-top 1px solid #eee
+    box-shadow inset 0 0 6px 0px #e0e0e0
     &__title
         font-size 18px
-        margin-bottom 10px 
+        margin-bottom 15px 
+        padding-top 10px
         font-weight 600
     &__description 
         font-size 15px
         margin-bottom 25px 
+    &__btn
+        margin-top -4px
+        margin-bottom 10px
 
 .center
     text-align center
