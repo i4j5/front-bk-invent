@@ -4,8 +4,8 @@ require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 require('ion-rangeslider')
 
-// const moment = require('moment')
-// moment.locale('ru')
+const moment = require('moment')
+moment.locale('ru')
 
 // let url = 'https://private.bk-invent.ru/api'
 let url = '/'
@@ -48,9 +48,51 @@ $.fn.extend({
 
 })
 
+function iMoment() {
+    let url = document.location.pathname
+    let visits = localStorage.getItem('visits')
+    // JSON.stringify
+    
+    let obj = JSON.parse(visits)
+
+    if(obj === null || obj === '') {
+        obj = {}
+    }
+
+    let $share = $('.share:first')
+
+    if($share) {
+        let arr = $share.data('duration').split(' ')
+        
+        let now = moment()
+        let time = now.toDate().getTime()
+        if(obj[url]) {
+            if(time <= obj[url]) {
+                obj[url] = time
+                localStorage.setItem('visits', JSON.stringify(obj))
+            } else {
+                let thenTime = moment(time).add(arr[0], arr[1]).toDate().getTime()
+                if(thenTime > obj[url]) {
+                    time = obj[url]
+                }
+            }
+        } else {
+            obj[url] = time
+            localStorage.setItem('visits', JSON.stringify(obj))
+        }
+
+        let then = moment(time).add(arr[0], arr[1]) 
+        
+        $share.find('.share__duration:first').html(moment(then).format('LL'))
+        $share.find('.share__difference:first').html('Акция закончится ' + now.to(then))
+    }
+}
+
 $(function() { 
 
     // let now = moment()
+
+    iMoment()
 
     // let startActions = ''
     // // Получить страницу 
