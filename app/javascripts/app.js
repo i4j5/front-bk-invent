@@ -661,6 +661,23 @@ $(function() {
 
                 let $form = $(form)
                 let str = $form.serialize()
+                
+                str = str + '&url=' + document.location.host + document.location.pathname
+                str = str + '&utm=' + document.location.search.slice(1).replace(/&/g, '|')
+                str = str + '&' + document.location.search.slice(1) 
+
+                let roistat = window.roistat ? window.roistat.visit : null
+                str = str + '&roistat=' + roistat
+
+                // let arrUTM = document.location.search.slice(1).split('&')
+                // console.log(arrUTM) 
+                // for (let i = 0; i < arrUTM.length; i++) {
+                //     let str = arrUTM[i]
+                //     let utm = str.split('=')
+                //     console.log(utm) 
+                //     str = `${str}&${utm[0]}=${utm[1]}`
+                // }
+                
                 let btn = $form.children("[type='submit']")
                 btn.prop('disabled', true)
 
