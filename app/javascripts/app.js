@@ -8,11 +8,12 @@ const moment = require('moment')
 moment.locale('ru')
 
 // let url = 'https://private.bk-invent.ru/api'
-let url = '/'
+// let url = '/send.php'
 
 const API = {
     methods: {
-        order: `${url}/amo/create-lead-from-form`
+        // order: `${url}/amo/create-lead-from-form`
+        order: '/send.php'
     }
 
 };
@@ -791,36 +792,6 @@ $(function() {
         // }
         $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_top').addClass('arrow_bottom')
     })
-
-    ymaps.ready(init);
-	var map;
-
-	function init(){
-	  map = new ymaps.Map("map", {
-	      center: [47.229409, 39.678002],
-	      zoom: 17,
-	     controls: [
-	      'zoomControl'
-	     ]
-	  });
-
-	  map.behaviors.disable(['scrollZoom']);
-
-	  var placemark = new ymaps.Placemark([47.229409, 39.678002],
-	    {
-	      hintContent: 'БК Инвент ул. Текучева, 23, эт. 3'
-	      //balloonContent: 'html'
-	    }, 
-	    {
-	      iconLayout: 'default#image',
-	      iconImageHref: './images/ya-maps.png',
-	      iconImageSize: [90, 108],
-	      iconImageOffset: [-38, -110]
-	    }
-	  );
-
-	  map.geoObjects.add(placemark);
-	}
 })
 
 
