@@ -690,6 +690,7 @@ $(function() {
                 .done(function() {
                     $('.modal').closeModal()
                     $('#modal__ok').openModal()
+                    yaCounter53737453.reachGoal('site')
                 })
                 .always(function() {
                     //$('.loader_submit').removeClass('loader_active')
