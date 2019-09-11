@@ -95,6 +95,14 @@ $(function() {
 
     iMoment()
 
+    $('.articles__date').each((index, el) => {
+
+        let $this = $(el)
+        let date = moment($this.html(), "DDMMYYYY")
+        $this.html(moment(date).format('LL'))
+
+    })
+
     // let startActions = ''
     // // Получить страницу 
     
@@ -125,7 +133,7 @@ $(function() {
 		$(this).children('.product__img').removeClass('product__img_hover')
 	});
     
-    $('img.zoom').click(function() {
+    $('.zoom-img').click(function() {
         let $this = $(this)
         $this.zoom(`<img src="${$this.data('zoom')}">`)
     })

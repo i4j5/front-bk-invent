@@ -2234,6 +2234,8 @@ ul.list
         
 .services       
     margin-bottom 30px
+    a
+        text-decoration none
     &__items
         row-flex()
     &__item
@@ -2254,8 +2256,8 @@ ul.list
             size(6)
         @media (min-width 700px)
             size(4)
-        @media (min-width 1000px)
-            size(3)
+        // @media (min-width 1000px)
+        //     size(3)
         transition transform 100ms 0ms, background 200ms 0ms, border 200ms 50ms
         overflow hidden
         &:after
@@ -2812,7 +2814,7 @@ ul.list
         text-align center
         margin-bottom 5px
 
-img.zoom
+img.zoom-img
     cursor zoom-in
 
 .stock
@@ -3182,6 +3184,7 @@ img.zoom
     margin-bottom 40px
     border-radius 4px
     background-image linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
+    padding 15px 0
     form
         margin 10px
         background #fff
@@ -3267,13 +3270,16 @@ img.zoom
         margin-bottom 20px
         text-shadow 0 0 9px rgba(0, 0, 0, 0.9)
     &__price
-        font-size 17px
+        font-size 20px
         color #fff
         margin-bottom 10px
         font-weight 500
+        text-shadow 0 0 8px rgba(0, 0, 0, 0.9)
         &_old
+            text-shadow 0 0 7px rgba(0, 0, 0, 0.9)
+            color #fff
             font-weight 300
-            font-size 15px
+            font-size 17px
             text-decoration line-through
     &__btn
         display table
