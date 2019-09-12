@@ -2,21 +2,21 @@ const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
-require('ion-rangeslider')
+// require('ion-rangeslider')
 
+/**
+ * TODO:
+ * Проверить подгружаются ли другие языки
+ */
 const moment = require('moment')
 moment.locale('ru')
-
-// let url = 'https://private.bk-invent.ru/api'
-// let url = '/send.php'
 
 const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
         order: '/send.php'
     }
-
-};
+}
 
 $.fn.extend({
     openModal: function() {
@@ -45,15 +45,12 @@ $.fn.extend({
     
         $('#modal__zoom').openModal()       
     }
-
-
 })
 
 function iMoment() {
     let url = document.location.pathname
     let visits = localStorage.getItem('visits')
-    // JSON.stringify
-    
+
     let obj = JSON.parse(visits)
 
     if(obj === null || obj === '') {
@@ -91,41 +88,24 @@ function iMoment() {
 
 $(function() { 
 
-    // let now = moment()
-
     iMoment()
 
+    /**
+     * TODO:
+     * В отдельный билд (для статей)
+     */
     $('.articles__date').each((index, el) => {
-
         let $this = $(el)
         let date = moment($this.html(), "DDMMYYYY")
         $this.html(moment(date).format('LL'))
-
     })
 
-    // let startActions = ''
-    // // Получить страницу 
-    
-    // // localStorage.setItem('test', 1)
-    // // localStorage.getItem('test')
-
-    // let then = moment().add(2023, 'minutes')
-
-    // // $(".now").text(moment(now).format('h:mm:ss a'));
-    // $(".then").text('Срок действия акции: до ' + moment(then).format('LL'))
-    // // $(".duration").text('Акция закончится ' + moment(now).to(then));
-    // $(".duration").html('<b>Акция закончится ' + moment(then).format('LL').calendar().toLowerCase() + '</b>');
-    // // (function timerLoop() {
-    // //     // $(".difference > span").text(moment().to(then));
-    // //     $(".countdown").text(countdown(then).toString());
-    // //     requestAnimationFrame(timerLoop);
-    // // })();
-
-    $('.range-slider').ionRangeSlider({
-        skin: 'round',
-        hide_min_max: true,
-        grid: true
-    })
+    // ПОЛЗУНОК
+    // $('.range-slider').ionRangeSlider({
+    //     skin: 'round',
+    //     hide_min_max: true,
+    //     grid: true
+    // })
 
     $('.product').hover(function() {
 		$(this).children('.product__img').addClass('product__img_hover')
@@ -201,14 +181,13 @@ $(function() {
 	// 	});	
 	// })
 
-    //==========
-    // SIZE
-    //==========
-
-
     $('[data-modal]').click(function() {
         $(`#${$(this).data('modal')}`).openModal()
     })
+
+    //==========
+    // SIZE
+    //==========
 
     if ( $(this).width() < 1160) {
         $offer.css({
@@ -295,94 +274,97 @@ $(function() {
     // КВИЗЫ
     //==========
 
-    $('.quiz').each(function() {
+    /**
+     * TODO:
+     * В отдельный билд
+     */
+    // $('.quiz').each(function() {
 
-        let $quiz = $(this)
-        $quiz.slider = $quiz.find('.quiz__items').bxSlider({
-            touchEnabled: false,
-            controls: false,
-            auto: false,
-            pager: false,
-            adaptiveHeight: true,
-            adaptiveHeightSpeed: 400
-        })
+    //     let $quiz = $(this)
+    //     $quiz.slider = $quiz.find('.quiz__items').bxSlider({
+    //         touchEnabled: false,
+    //         controls: false,
+    //         auto: false,
+    //         pager: false,
+    //         adaptiveHeight: true,
+    //         adaptiveHeightSpeed: 400
+    //     })
     
-        let quantity =$quiz.slider.getSlideCount()
-        let i = 1
+    //     let quantity =$quiz.slider.getSlideCount()
+    //     let i = 1
 
-    
-        let $progressBar = $quiz.find('.quiz__progress-bar')
-        $progressBar._label = $progressBar.children('.quiz__progress-bar-label')
-        $progressBar._field = $progressBar.children('.quiz__progress-bar-field').children('span')
-        let $number = $quiz.find('.quiz__number')
-        $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //     let $progressBar = $quiz.find('.quiz__progress-bar')
+    //     $progressBar._label = $progressBar.children('.quiz__progress-bar-label')
+    //     $progressBar._field = $progressBar.children('.quiz__progress-bar-field').children('span')
+    //     let $number = $quiz.find('.quiz__number')
+    //     $number.html(`${i}-й вопрос из ${quantity-1}`)
 
-        // Сделать Автоматическое далее !!!
-        $quiz.find('.quiz__next').click(function() {
+    //     // Сделать Автоматическое далее !!!
+    //     $quiz.find('.quiz__next').click(function() {
             
-            if(quantity > i) {
-                // Сделать Проверка валидации!
+    //         if(quantity > i) {
+    //             // Сделать Проверка валидации!
 
-                let $input = $quiz.find(`[name="comment[${i}]"]`)
-                // Проверка чекбоксоы 
+    //             let $input = $quiz.find(`[name="comment[${i}]"]`)
+    //             // Проверка чекбоксоы 
 
-                if(i+1 == quantity ) {
-                    $progressBar._field.css('transition', 'none')
-                    $quiz.find('.quiz__footer').css({
-                        visibility: 'hidden',
-                        display: 'none',
-                        opacity: '0'
-                    })
-                }
-                $quiz.slider.goToNextSlide() 
-                $progressBar._field.css('width', `${parseInt(100/(quantity-1)*i)}%`)
-                $progressBar._label.html(`${parseInt(100/(quantity-1)*i)}%`)
-                ++i
-                $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //             if(i+1 == quantity ) {
+    //                 $progressBar._field.css('transition', 'none')
+    //                 $quiz.find('.quiz__footer').css({
+    //                     visibility: 'hidden',
+    //                     display: 'none',
+    //                     opacity: '0'
+    //                 })
+    //             }
+    //             $quiz.slider.goToNextSlide() 
+    //             $progressBar._field.css('width', `${parseInt(100/(quantity-1)*i)}%`)
+    //             $progressBar._label.html(`${parseInt(100/(quantity-1)*i)}%`)
+    //             ++i
+    //             $number.html(`${i}-й вопрос из ${quantity-1}`)
                 
-            } 
-        })
+    //         } 
+    //     })
 
-        $quiz.find('.quiz__previous').click(function() {
-            if(i != 1) {
-                $quiz.slider.goToPrevSlide()
-                --i
-                $progressBar._field.css('width', `${parseInt(100/(quantity-1)*(i-1))}%`)
-                $progressBar._label.html(`${parseInt(100/(quantity-1)*(i-1))}%`)
-                $number.html(`${i}-й вопрос из ${quantity-1}`)
-            }  
-        })
+    //     $quiz.find('.quiz__previous').click(function() {
+    //         if(i != 1) {
+    //             $quiz.slider.goToPrevSlide()
+    //             --i
+    //             $progressBar._field.css('width', `${parseInt(100/(quantity-1)*(i-1))}%`)
+    //             $progressBar._label.html(`${parseInt(100/(quantity-1)*(i-1))}%`)
+    //             $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //         }  
+    //     })
 
-        $('.run-quiz').click(function() {
-            if($(window).width() >= 700) {
-                $quiz.slider.reloadSlider({
-                    touchEnabled: false,
-                    controls: false,
-                    auto: false,
-                    pager: false,
-                    adaptiveHeight: false
-                })
-            }
+    //     $('.run-quiz').click(function() {
+    //         if($(window).width() >= 700) {
+    //             $quiz.slider.reloadSlider({
+    //                 touchEnabled: false,
+    //                 controls: false,
+    //                 auto: false,
+    //                 pager: false,
+    //                 adaptiveHeight: false
+    //             })
+    //         }
 
-            $quiz.slider.goToSlide(0)
-            $progressBar._field.css({
-                transition: 'none',
-                width: '0%'
-            })
-            $progressBar._label.html('0%')
-            $quiz.find('.quiz__footer').css({
-                visibility: 'visible',
-                display: '',
-                opacity: '1'
-            })
-            i = 1
-            $number.html(`${i}-й вопрос из ${quantity-1}`)
-            $(`#${$(this).data('quiz')}`).openModal()
-            $quiz.slider.reloadSlider()
-            $progressBar._field.css('transition', '')
+    //         $quiz.slider.goToSlide(0)
+    //         $progressBar._field.css({
+    //             transition: 'none',
+    //             width: '0%'
+    //         })
+    //         $progressBar._label.html('0%')
+    //         $quiz.find('.quiz__footer').css({
+    //             visibility: 'visible',
+    //             display: '',
+    //             opacity: '1'
+    //         })
+    //         i = 1
+    //         $number.html(`${i}-й вопрос из ${quantity-1}`)
+    //         $(`#${$(this).data('quiz')}`).openModal()
+    //         $quiz.slider.reloadSlider()
+    //         $progressBar._field.css('transition', '')
            
-        })
-    })
+    //     })
+    // })
 
 
     //==========
@@ -519,7 +501,6 @@ $(function() {
     })
 
 
-
     //==========
     // Формы
     //==========
@@ -528,13 +509,6 @@ $(function() {
 
     $('.input').each(function() {
         let $input = $(this)
-
-        // if ($input.hasClass('input_type_select')) {
-        //     let items =  $input.data('items')
-
-        //     console.log(items[0].name)
-        // }
-
         let $box = $input.children('.input__box')
         let $control = $box.children('.input__control')
         let $topBorder = $box.children('.input__top-border')
@@ -590,8 +564,6 @@ $(function() {
         $item.data('value')
         $control.val($item.data('value'))
         $text.text($item.text())
-
-        // console.log($control.val())
         
         setTimeout(function() { 
             $items.children('.input__item').removeClass('input__item_active')
@@ -629,7 +601,6 @@ $(function() {
         
         $box.removeClass('input__box_focus')
     })
-
 
 
     //==============
@@ -727,7 +698,6 @@ $(function() {
                 },
                 'email': {
                     email: true
-                    //required: true
                 },
                 'privacy': {
                     required: true
@@ -753,8 +723,6 @@ $(function() {
                 }
             },
             errorPlacement: function(error, element){
-                console.log('->', element)
-
 
                 let $control = $(element)
                 
@@ -771,7 +739,6 @@ $(function() {
             }
         })
     })
-    
     
     let $topMenuItems = $('.top-menu__items')
     let $search = $('.top-menu__search')
@@ -795,36 +762,9 @@ $(function() {
 
         let $this = $(this)
         
-        // console.log($this, $this.is(':hover'))
         // if ($this.is(':hover')) {
         //     $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_top').addClass('arrow_bottom')
         // }
         $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_top').addClass('arrow_bottom')
     })
 })
-
-
-// $(window).resize(function() {
-//     const $nav = $('.nav')
-//     const $header = $('.header')
-//     const $offer = $('.offer') 
-
-//     if ( $(this).width() < 1160) {
-//         $offer.css({
-//             'padding-top': $header.height() + 'px'
-//         })
-//         $nav.css({
-//             'padding-top': $header.height() + 10 + 'px'
-//         })
-//     } else {
-//         $offer.css({
-//             'padding-top': ''
-//         })
-//         $nav.css({
-//             'padding-top': ''
-//         })
-
-//         $header.removeClass('header_hidden')
-//     }
-// })
-    
