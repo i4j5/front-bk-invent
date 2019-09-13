@@ -519,7 +519,6 @@ $(function() {
             if ($title.width()) {
                 $topBorder.css('width', `calc(((100% - 20px) - ${$title.width() * 0.7777472}px) - 11px)`)
             }
-            
         }
 
         let $message = $input.children('.input__message')
@@ -548,7 +547,6 @@ $(function() {
         $box.addClass('input__box_focus')
         $text.slideUp(500)
         $items.slideDown(500)
-
     })
 
     $('.input__item').click(function() {
