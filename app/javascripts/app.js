@@ -88,6 +88,13 @@ function iMoment() {
 
 $(function() { 
 
+    $('img[data-src]').each((index, img) => {
+        img.setAttribute('src', img.getAttribute('data-src'))
+        img.onload = function() {
+            img.removeAttribute('data-src')
+        }
+    })
+
     iMoment()
 
     /**
