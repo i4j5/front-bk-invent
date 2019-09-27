@@ -743,7 +743,7 @@
                     color #000
 .content
     // padding-top 20px
-    font-size 14px
+    font-size 15px
     line-height 1.6em
     color #121212
     section
@@ -779,7 +779,7 @@
     b
         font-weight 800
     img 
-        margin-bottom 1em
+        //margin-bottom 1em
         border-radius 4px
         width auto
         max-width 100%
@@ -796,19 +796,20 @@
 
 ul.list
     //padding-left 10px
-    margin-bottom 1em
+    margin-bottom .9em
     li
         padding-left 1.714em
         list-style-type none
-        background  url(../images/list-item.svg) 0.14em  0.143em no-repeat
+        background  url(../images/list-item.svg) 0.14em  0 no-repeat
         background-size 1.35em 
-        margin-bottom 1em
-        line-height 1.5
+        margin-bottom .9em
+        line-height 1.4em
 
     &_type
         &_check
             li
-                padding-left 1.714em
+                padding-top 0.313em
+                margin-bottom .85em
                 list-style-type none
                 background  url(../images/list-item-check.svg) left top no-repeat
                 background-size 1.62em 
@@ -3456,3 +3457,34 @@ img
     transition opacity 0.35s
     &[data-src]
         opacity 0
+
+
+padding-size($d)
+    &_0
+        padding-{$d} 0
+    for $n in (1..5)
+        &_{$n}
+            padding-{$d} ($n * 0.25em) 
+padding($d)
+    &-xs
+        @media (min-width 560px)
+            padding-size($d) 
+    &-sm
+        @media (min-width 780px)
+            padding-size($d)
+    &-md
+        @media (min-width 960px)
+            padding-size($d)
+    &-lg
+        @media (min-width 1100px)
+            padding-size($d)
+.p
+    &_t 
+        padding('top')   
+    &_r
+        padding('right')    
+    &_b
+        padding('bottom')
+    &_l 
+        padding('left')
+        
