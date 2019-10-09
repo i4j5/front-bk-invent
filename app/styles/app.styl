@@ -3465,7 +3465,7 @@ padding-size($d)
     for $n in (1..5)
         &_{$n}
             padding-{$d} ($n * 0.25em) 
-padding($d)
+_padding($d)
     &-xs
         @media (min-width 560px)
             padding-size($d) 
@@ -3480,18 +3480,18 @@ padding($d)
             padding-size($d)
 .p
     &_t 
-        padding('top')   
+        _padding('top')   
     &_r
-        padding('right')    
+        _padding('right')    
     &_b
-        padding('bottom')
+        _padding('bottom')
     &_l 
-        padding('left')
+        _padding('left')
         
 
 .bg
     width 100%
-    padding 25px 0
+    padding 25px 0px
     background-color #fff
     background-repeat no-repeat
     background-position center
