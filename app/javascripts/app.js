@@ -85,7 +85,7 @@ function iMoment() {
         $share.find('.share__difference:first').html('Акция закончится ' + now.to(then))
     }
 }
-
+git 
 $(function() { 
 
     $('img[data-src]').each((index, img) => {
