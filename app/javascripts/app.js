@@ -86,7 +86,35 @@ function iMoment() {
     }
 }
 
-$(function() { 
+(function () {
+
+    let permissible = [
+        'utm_medium', 
+        'utm_source', 
+        'utm_campaign', 
+        'utm_term', 
+        'utm_content',
+    ]
+
+    let arrUTM = document.location.search.slice(1).split('&')
+
+    let utm = ''
+    for (let i = 0; i < arrUTM.length; i++) {
+        let str = arrUTM[i]
+        let elem = str.split('=')
+        if (permissible.indexOf(elem[0]) != -1) {
+            utm = `${utm}&${elem[0]}=${elem[1]}`
+        }
+    }
+
+    if(utm) {
+        localStorage.setItem('utm', utm)
+    }
+
+}())
+
+
+$(function() {
 
     $('img[data-src]').each((index, img) => {
         img.setAttribute('src', img.getAttribute('data-src'))
@@ -649,7 +677,7 @@ $(function() {
                 
                 str = str + '&url=' + document.location.host + document.location.pathname
                 str = str + '&utm=' + document.location.search.slice(1).replace(/&/g, '|')
-                str = str + '&' + document.location.search.slice(1) 
+                str = str + localStorage.getItem('utm')
 
                 let roistat = window.roistat ? window.roistat.visit : null
                 str = str + '&roistat=' + roistat
