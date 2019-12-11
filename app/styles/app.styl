@@ -1363,14 +1363,14 @@ ul.list
     margin-bottom 30px
     &__title
         color #3d3d3d
-        font-weight 600
+        // font-weight 600
         font-size 20px
         line-height 1.3em
         text-align center
         padding 0 10px
         margin-bottom 30px
         @media (min-width 700px)
-            font-size 22px
+            font-size 28px
     &__items
         position relative
     &__item
@@ -1442,9 +1442,10 @@ ul.list
     position absolute
     border-radius 5px
     background #fff
-    box-shadow 0px 1px 4px 0px rgba(151, 147, 147, 0.5)
-    width 40px 
-    height 40px
+    border 2px solid #4274d6
+    //box-shadow 0px 1px 4px 0px rgba(151, 147, 147, 0.5)
+    width 42px 
+    height 42px
     top 110px
     @media (min-width 700px)
         top auto
@@ -2321,54 +2322,34 @@ ul.list
             top -2px
 
 .cases
+    // border 1px solid #ddd
+    //box-shadow 0 4px 8px 5px rgba(207, 207, 207, 0.34)
     width 100%
     margin-bottom 40px
+    border-radius 5px
+    background linear-gradient(100deg, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 1) 50%, rgba(205, 219, 247, 1) 50%, rgba(205, 219, 247, 1) 100%)
     &__wrapper
         position relative
         .bx-prev
         .bx-next
             top 50%
             transform translateY(-50%)
-            @media (min-width 700px)
-                top auto
-                bottom 10px
-                transform none
-        // .bx-prev
-        //     left -5px
-        // .bx-next
-        //     right -5px
-           
-    &__items
-        display flex
-        flex-wrap wrap
+        .bx-prev
+            left - 20px
+        .bx-next
+            right - 20px
     &__item
         overflow hidden
-        border-radius 4px
-        //max-width 1160px
-        background-image url(../images/cases__item.png), linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
+        //background-image url(../images/cases__item.png), linear-gradient( 107deg, rgba(214,227,254,.3) 0%, rgba(201,199,199,.3) 78%, rgba(213,213,213,.3) 100%)
         margin 0
-        //border-radius 5px
-        @media (min-width 700px)
-            //width 100%
-            display grid
-            grid-template-areas 'body image'
-            grid-template-columns 70% 30%
-            // &:nth-child(2n)
-            //     grid-template-areas 'image body'
-            //     grid-template-columns 30% 70%
     &__body
         padding 20px 35px
-        @media (min-width 700px)
-            padding 20px
-        grid-area body
     &__title
-        font-size 20px
+        font-size 22px
         line-height 1.2em
         color #000
-        margin-bottom 20px
-    &__texts
-        @media (min-width 900px)
-            display flex
+        margin-bottom 30px
+        font-weight 700
     &__text
         font-size 14px
         line-height 1.4em
@@ -2379,24 +2360,16 @@ ul.list
             font-weight 600
             margin-bottom 5px
             margin-top 20px
-    &__img
-        grid-area image
-        position relative
-        line-height 0
-        img
-            border-radius 0
-            margin 0
-            height 100%
-            width 100%
-        @media (min-width 900px)
-            width auto
-       // background #000
-    &__btn
-        width max-content
-        position absolute
-        top 50%
-        left 50%
-        transform translate(-50%, -50%)
+
+    // .bx-prev
+    // .bx-next
+    //     transform translateY(-50%)
+    //     top 50%
+    //     bottom 10px
+    // .bx-prev
+    //     left - 20px
+    // .bx-next
+    //     right - 20px
 
 .price
     //margin 40px 0
@@ -3498,3 +3471,78 @@ _padding($d)
     background-repeat no-repeat
     background-position center
     background-size cover
+
+.stage
+    position relative
+    margin-bottom 20px
+    background linear-gradient( 45deg, rgba(213,213,213,.4) 0%, rgba(201,199,199,.4) 78%, rgba(214,227,254,.4) 100%)
+    width 100%
+    padding 0px
+    border-radius 4px
+    margin-top 30px
+    &__header
+        font-size 20px
+        color #fff
+        padding 35px 20px 10px 20px
+        border-radius 4px 4px 0 0 
+        background #3059ab
+        text-align center
+    &__body
+        padding 0 20px 20px 20px 
+    &__title
+        font-size 20px
+        text-align center
+        line-height 1.3em
+        margin-bottom 10px
+        margin-top 20px
+    &__text
+        font-size 14px
+        line-height 1.4em
+    &__number
+        width 44px
+        height 44px
+        background #fff
+        box-shadow 0 0 0px 3px #aabfe7, 0 0 0px 9px #fff
+        border-radius 50%
+        top -25px;
+        left calc(50% - 22px)
+        position absolute;
+        z-index 10
+        padding-top 5px
+
+        font-size 13px
+        line-height 1em
+        font-weight 600
+        text-align center
+        @media (min-width 900px)
+                font-size 14px
+                line-height 1.2em
+        span
+            font-size 16px
+            display block
+            @media (min-width 900px)
+                font-size 24px
+        margin auto
+    
+    
+    
+    &__stage
+        width 44px
+        height 44px
+        background #fff
+        box-shadow 0 0 0px 3px #aabfe7, 0 0 0px 9px #fff
+        border-radius 50%
+        display flex
+        align-items center
+        top -25px
+        left calc(50% - 22px)
+        position absolute
+        z-index 10
+        @media (min-width 900px)
+            box-shadow 0 0 0px 4px #aabfe7, 0 0 0px 10px #fff
+            position relative
+            top auto
+            left auto
+            width 50px
+            height 50px
+        
