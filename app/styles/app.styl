@@ -3620,3 +3620,90 @@ _padding($d)
         border-radius 30px
         top calc(50% - 12px)
         left 10px
+
+
+.process
+    &__item
+        display block
+    @media (min-width 1100px)
+        position relative
+        width 1000px
+        height 1000px
+        margin 100px auto 
+
+        &:before
+            content ''
+            position absolute
+            height 600px
+            width 600px
+            top 0
+            left calc(50% - 300px)
+            border 2px solid #d9e2f4
+            border-radius 100%
+
+        &__item
+            position absolute
+            width max-content
+
+    &__item
+        display flex
+        flex-wrap wrap
+
+    &__image
+        width 65px
+        height 65px
+        position relative
+        margin 0 5px 5px 0
+        &:before
+        &:after
+            content ''
+            position absolute
+            z-inxex -1
+        &:before   
+            width 80%
+            height 80%
+            left 10%
+            top 10%
+            background #eee
+            border-radius 100%
+        &:after
+            width 40%
+            height 40%
+            right 10%
+            bottom 10%
+            background rgba(197, 197, 197, 0.2)
+            border-radius 100% 1px
+        span 
+            position absolute 
+            z-index 10
+            bottom 20%
+            right 25%
+            font-size 20px
+            font-weight 700
+            color #335dae
+        img
+            position absolute 
+            z-index 10
+            width auto
+            max-width 60%
+            top 0
+            left 0
+    &__title
+        padding-top 5px
+        font-size 17px
+        line-height 1.3em
+        color #335dae
+        font-weight 600
+        grid-area title
+        display flex
+        @media (min-width 600px)
+            font-size 20px
+    &__text
+        font-size 13px
+        line-height 1.4em
+        color #262626
+        padding-top 10px
+        @media (min-width 600px)
+            font-size 14px
+            padding-top 0
+            max-width 400px
