@@ -15,6 +15,7 @@ const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
         order: '/send.php'
+        // order: 'http://dev-api.bk-invent.ru/api/webhook/test'
     }
 }
 
@@ -542,6 +543,13 @@ $(function() {
 
     $("input[name='phone']").mask('+7 (999) 999-9999', {autoclear: false})
 
+    $('.input_type_file').each(function() {
+        let $input = $(this)
+
+        //.change(function() { });
+
+    })
+
     $('.input').each(function() {
         let $input = $(this)
         let $box = $input.children('.input__box')
@@ -670,6 +678,8 @@ $(function() {
             submitHandler: function(form, e) {
                 e.preventDefault()
 
+                console.log('123123123')
+
                 //$('.loader_submit').addClass('loader_active')
 
                 let $form = $(form)
@@ -694,10 +704,16 @@ $(function() {
                 let btn = $form.children("[type='submit']")
                 btn.prop('disabled', true)
 
+                let formData = new FormData($form.get(0))
+
+                console.log(formData)
+
                 $.ajax({
                     url: API.methods.order,
                     type: 'post',
-                    data: str
+                    data: formData,
+                    contentType: false, 
+                    processData: false,
                 })
                 .done(function() {
                     $('.modal').closeModal()
@@ -729,6 +745,12 @@ $(function() {
                 'name': {
                     required: true
                 },
+                'fio': {
+                    required: true
+                },
+                'text': {
+                    required: true
+                },
                 'email': {
                     email: true
                 },
@@ -746,6 +768,12 @@ $(function() {
                 },
                 name: {
                     required: "Напишите как к Вам обращаться"
+                },
+                fio: {
+                    required: "Представьтесь, пожалуйста"
+                },
+                text: {
+                    required: "Напишите отзыв"
                 },
                 specialist: {
                     required: "Выберите специалиста"

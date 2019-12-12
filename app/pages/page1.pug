@@ -1018,12 +1018,18 @@ block content
                     
 
                     section
+                        .list-wall
+                            .list-wall__number 1
+                            | 221321321
+                        .list-wall
+                            .list-wall__number 2
+                            |221321321
                         +b.title
                             +e.wrap 
                                 +e.text Часто задаваемые вопросы
                         .row
                             .col.col_size_12.col_size-sm_8.col_offset-sm_2
-                                +b.tabs
+                                +b.tabs.tabs_type_pale
                                     +e.item
                                         +e.title 123
                                         +e.text 123
@@ -1084,6 +1090,12 @@ block content
                                 +e.text
                                     +e.description Приехали ребята из БК Инвент и сделали за 2 дня
                                     |Имел дело с этой компанией впервые в 2016 году, проводил воду. Потом появилась возможность, обратился к ним же, чтобы сделали мне канализацию. Первый раз работы проводились долго, но все довели до ума. А второй раз как обратился все сделали хорошо, быстро. Видно, что стали еще более профессиональными. в общем, рекомендую!
+
+                        +e.add(data-modal="modal__add-review")
+                            .btn.btn_view_action
+                                .btn__text ADD
+
+                    
 
 
                 +b.price
@@ -1607,7 +1619,45 @@ block content
             .modal__dialog
                 .close.modal__close
                 .modal__title ----
-                
+
+    .modal#modal__add-review
+        .modal__wrapper
+            .modal__dialog
+                .close.modal__close
+                .modal__title add
+                form.form.ajax
+                    .modal__row
+                        .input.input_type_name
+                            .input__box
+                                .input__top-border
+                                .input__title ФИО
+                                input(name='fio').input__control
+                            .input__message(data-default='Укажите точно как в паспорте')
+                    .modal__row
+                        .input.input_type_textarea
+                            .input__box
+                                .input__top-border
+                                .input__title Текст
+                                textarea(name='text').input__control
+                            .input__message(data-default='аааааа') 
+                    .modal__row
+                        .input.input_type_file
+                            label(for="input__file").input__box
+                                .input__title Фото
+                                input(name='file' type="file" id="input__file").input__control
+                            .input__message                               
+                    .modal__row
+                        input(type="hidden" name="action" value="review")
+                        button(type="submit").btn.btn_view_action
+                                .btn__text add
+                    .modal__row
+                        +b.checkbox.checkbox_theme_light 
+                            +e({tag: 'label'}).item                                     
+                                input(name='privacy' type='checkbox' checked).checkbox__control
+                                .checkbox__box
+                            .checkbox__text 
+                                |Согласен  
+                                +e({tag: 'a'}).link на обработку персональных данных          
                 
     .modal#modal__order
         .modal__wrapper

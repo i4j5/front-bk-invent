@@ -1170,9 +1170,9 @@ ul.list
         &_filled
         &_focus
             .input__title
-                top - 0.5em
+                top - 0.5em !important
                 left 1.11em !important
-                font-size 0.778em
+                font-size 0.778em !important
                 //transform scale(0.778) 
     &__message
         font-size 0.69em
@@ -1222,9 +1222,32 @@ ul.list
         .input__text
             min-height 
     &_type
+        &_file
+            .input__control
+                // visibility hidden
+                opacity 0
+                visibility hidden
+                position absolute
+            .input__box
+                cursor pointer
+                background-image url(../images/input_type_file.png)
+                border 2px solid #d6dcf5
+                display block
+                height 45px
+                &:before
+                &:after
+                    display none 
+        &_textarea
+            .input__control
+                resize none
+                height 120px
+            .input__title
+                top 1em
+
         &_name
         &_email
         &_phone
+        &_file
             .input__box
                 padding-left 2.2em
                 background-position left 0.556em center 
@@ -1357,15 +1380,20 @@ ul.list
 
 .reviews
     border-radius 5px
-    background-image url(../images/reviews-bg.jpg)
+    // background-image url(../images/reviews-bg.jpg)
     background-position center 
     background-size cover
-    // background-image linear-gradient( 45deg, rgba(214,227,254,.4) 0%, rgba(201,199,199,.4) 78%, rgba(213,213,213,.4) 100%)
+    //background-image linear-gradient( 45deg, rgba(214,227,254,.4) 0%, rgba(201,199,199,.4) 78%, rgba(213,213,213,.4) 100%)
+    background radial-gradient(circle, #3763ba 6%, #4273d6 100%)
     padding 20px 0
     position relative
     margin-bottom 30px
+    &__add
+        display inline-block
+        margin 10px 10px 0 10px  
     &__title
-        color #3d3d3d
+        //color #3d3d3d
+        color #fff
         // font-weight 600
         font-size 20px
         line-height 1.3em
@@ -1394,7 +1422,8 @@ ul.list
         height 130px !important
         max-width 130px !important
     &__name
-        color #52475b
+        // color #52475b
+        color #fff
         line-height 1em
         font-size 16px 
         font-weight 600
@@ -1413,7 +1442,8 @@ ul.list
     &__text
         font-size 14px
         line-height 1.45em
-        color #363636
+        // color #363636
+        color #fff
         text-align left
         position relative
         // @media (min-width 700px)
@@ -2700,10 +2730,12 @@ ul.list
         position relative
         &_active 
             .tabs__title
-                //&:before
                 &:after
-                    opacity 0
+                    //opacity 0
                     //transform
+                    transform rotate(45deg)
+                 &:before
+                    transform rotate(-45deg)
     &__title
         position relative 
         background #477be6
@@ -2720,20 +2752,24 @@ ul.list
             content ''
             position absolute
             background #fff
-            top 50%
+            top calc(50% - 6px)
             transition all 0.8s
             border-radius 2px
-        &:before
-            height 2px
-            width 12px
-            right 10px
-            // top calc(50%)
-            transform translateY(-50%)
-        &:after
             height 12px
             width 2px
-            right 15px
-            transform translateY(-50%)
+        &:before
+            // height 2px
+            // width 12px
+            right 12px
+            // top calc(50%)
+            //transform translateY(-50%)
+            transform: rotate(45deg);
+        &:after
+            // height 12px
+            // width 2px
+            right 19px
+            // transform translateY(-50%)
+            transform rotate(-45deg)
     &__text
         line-height 1.4em
         font-size 14px
@@ -2745,6 +2781,17 @@ ul.list
         margin-bottom -10px
         position relative
         display none 
+     &_type_pale
+        .tabs__title
+            color #477be6
+            background #cddbf7
+            border 1px solid #477be6
+            &:before
+            &:after
+                background #477be6
+        .tabs__text
+            background #f9f9f9
+            border 1px solid #477be6
 
 .triggers
     padding 25px 0
@@ -3549,3 +3596,27 @@ _padding($d)
             width 50px
             height 50px
         
+
+.list-wall
+    margin-bottom 10px
+    color #fff
+    line-height 1.2em
+    font-size 16px
+    background #477be6
+    border-radius 5px
+    padding 10px 20px 10px 50px
+    position relative
+    z-index 10
+    &__number
+        font-weight 700
+        position absolute
+        font-size 16px
+        text-align center
+        line-height 23px
+        color #e1e3ed
+        width 24px
+        height 24px
+        background #2b5ab3
+        border-radius 30px
+        top calc(50% - 12px)
+        left 10px
