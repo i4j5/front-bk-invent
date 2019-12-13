@@ -14,8 +14,8 @@ moment.locale('ru')
 const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
-        order: '/send.php',
-        review: 'http://localhost/api/site/create-review'
+        order: 'https://bk-invent.ru/send.php',
+        review: 'https://private.bk-invent.ru/api/site/create-review'
     }
 }
 
@@ -543,10 +543,45 @@ $(function() {
 
     $("input[name='phone']").mask('+7 (999) 999-9999', {autoclear: false})
 
-    $('.input_type_file').each(function() {
+    $('.input_type_file .input__control').each(function() {
         let $input = $(this)
 
-        //.change(function() { });
+        $input.change(function() {
+
+            let $this = $(this)
+
+            let $messag = $this.parent().parent().children('.input__message')
+
+            let messag = '';
+            console.log(this.files)
+
+            for (let i = 0; i < this.files.length; i++) {
+                messag = messag + this.files[i]['name'];
+            }
+
+            if (this.files && this.files.length != 0) {
+                $messag.html(messag)
+                $messag.parent().addClass('input_ok')
+            } else {
+                $messag.html('')
+                $messag.parent().removeClass('input_ok')
+            }
+
+        });
+
+    //     input.addEventListener('change', function (e) {
+    //         let countFiles = '';
+    //         if (this.files && this.files.length >= 1)
+    //             countFiles = this.files.length;
+
+
+     
+    //         if (countFiles)
+    //             .input__message(data-default=''
+    //           label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
+    //         else
+    //           label.querySelector('.input__file-button-text').innerText = labelVal;
+    //       });
 
     })
 
@@ -705,13 +740,18 @@ $(function() {
                 let formData = new FormData($form.get(0))
                 formData.append('url', document.location.host + document.location.pathname)
 
-                let arrUTM = localStorage.getItem('utm').split('&')
 
-                for (let i = 0; i < arrUTM.length; i++) {
-                    let str = arrUTM[i]
-                    let utm = str.split('=')
+                if (localStorage.getItem('utm')) {
 
-                    formData.append(utm[0], utm[1])
+                    let arrUTM = localStorage.getItem('utm').split('&')
+
+                    for (let i = 0; i < arrUTM.length; i++) {
+                        let str = arrUTM[i]
+                        let utm = str.split('=')
+    
+                        formData.append(utm[0], utm[1])
+                    }
+
                 }
 
                 let method =  'order'
