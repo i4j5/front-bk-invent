@@ -472,6 +472,7 @@ block content
             //-     +e.text Записаться на консультацию
             
             +b.process
+                +e.bg(style="background: url(images/process-bg.png);")
                 +e.item(style="left: 500px;top: -28px;")
                     +e.image
                         img(src="images/i63.png")
@@ -480,15 +481,15 @@ block content
                         +e.title Заявка
                         +e.text Вы звоните или заполняете форму обратной связи
 
-                +e.item(style="left: 170px; top: 300px;")
+                +e.item(style="left: -79px; top: 300px").process__item_direction_right
                     +e.image
                         img(src="images/i3.png")
-                        span 1
-                    +e.body
+                        span 3
+                    +e.body(style="width: 300px")
                         +e.title Подписание договора
                         +e.text Вы получаете коммерческое предложение и договор на согласование. После подписания договора, вносите первый аванс
 
-                +e.item(style="left: 767px;; top: 250px;")
+                +e.item(style="left: 672px; top: 250px;")
                     +e.image
                         img(src="images/i63.png")
                         span 1
