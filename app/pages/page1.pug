@@ -1120,7 +1120,7 @@ block content
 
                         +e.add(data-modal="modal__add-review")
                             .btn.btn_view_action
-                                .btn__text ADD
+                                .btn__text Оставить отзыв
 
                     
 
@@ -1651,7 +1651,7 @@ block content
         .modal__wrapper
             .modal__dialog
                 .close.modal__close
-                .modal__title add
+                .modal__title Оставьте свой отзыв на сайте
                 form.form.ajax
                     .modal__row
                         .input.input_type_name
@@ -1661,12 +1661,19 @@ block content
                                 input(name='fio').input__control
                             .input__message(data-default='Укажите точно как в паспорте')
                     .modal__row
+                        .input.input_type_name
+                            .input__box
+                                .input__top-border
+                                .input__title E-mail
+                                input(name='email').input__control
+                            .input__message(data-default='')
+                    .modal__row
                         .input.input_type_textarea
                             .input__box
                                 .input__top-border
                                 .input__title Текст
                                 textarea(name='text').input__control
-                            .input__message(data-default='аааааа') 
+                            .input__message(data-default='') 
                     .modal__row
                         .input.input_type_file
                             label(for="input__file").input__box
@@ -1674,9 +1681,10 @@ block content
                                 input(name='file' type="file" id="input__file").input__control
                             .input__message                               
                     .modal__row
-                        input(type="hidden" name="action" value="review")
+                        input(type="hidden" name="method" value="review")
+                        input(type="hidden" name="modal" value="order")
                         button(type="submit").btn.btn_view_action
-                                .btn__text add
+                                .btn__text Отправить
                     .modal__row
                         +b.checkbox.checkbox_theme_light 
                             +e({tag: 'label'}).item                                     

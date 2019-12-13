@@ -3628,7 +3628,7 @@ _padding($d)
     @media (min-width 1100px)
         position relative
         width 1000px
-        height 1000px
+        min-height 500px
         margin 100px auto 
 
         &:before
@@ -3662,7 +3662,7 @@ _padding($d)
         z-index 50
         display flex
         flex-wrap wrap
-        padding-left 20px 
+        // padding-left 20px 
         margin-bottom 20px
         @media (min-width 1100px)
             &_direction
@@ -3673,8 +3673,11 @@ _padding($d)
                     text-align right
 
     &__image
-        width 90px
-        height 90px
+        width 60px
+        height 60px
+        @media (min-width 600px)
+            width 90px
+            height 90px
         position relative
         &:before
         &:after
@@ -3729,5 +3732,5 @@ _padding($d)
 
     &__body
         padding 4px 12px 0 8px 
-        @media (max-width 1100px)
+        @media (max-width 1099px)
             width calc(100% - 90px) !important

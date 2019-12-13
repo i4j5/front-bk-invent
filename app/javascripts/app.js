@@ -14,8 +14,8 @@ moment.locale('ru')
 const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
-        order: '/send.php'
-        // order: 'http://dev-api.bk-invent.ru/api/webhook/test'
+        order: '/send.php',
+        review: 'http://localhost/api/site/create-review'
     }
 }
 
@@ -678,19 +678,17 @@ $(function() {
             submitHandler: function(form, e) {
                 e.preventDefault()
 
-                console.log('123123123')
-
                 //$('.loader_submit').addClass('loader_active')
 
                 let $form = $(form)
-                let str = $form.serialize()
+                // let str = $form.serialize()
                 
-                str = str + '&url=' + document.location.host + document.location.pathname
-                str = str + '&utm=' + document.location.search.slice(1).replace(/&/g, '|')
-                str = str + localStorage.getItem('utm')
+                // str = str + '&url=' + document.location.host + document.location.pathname
+                // str = str + '&utm=' + document.location.search.slice(1).replace(/&/g, '|')
+                // str = str + localStorage.getItem('utm')
 
-                let roistat = window.roistat ? window.roistat.visit : null
-                str = str + '&roistat=' + roistat
+                // let roistat = window.roistat ? window.roistat.visit : null
+                // str = str + '&roistat=' + roistat
 
                 // let arrUTM = document.location.search.slice(1).split('&')
                 // console.log(arrUTM) 
@@ -705,11 +703,25 @@ $(function() {
                 btn.prop('disabled', true)
 
                 let formData = new FormData($form.get(0))
+                formData.append('url', document.location.host + document.location.pathname)
 
-                console.log(formData)
+                let arrUTM = localStorage.getItem('utm').split('&')
+
+                for (let i = 0; i < arrUTM.length; i++) {
+                    let str = arrUTM[i]
+                    let utm = str.split('=')
+
+                    formData.append(utm[0], utm[1])
+                }
+
+                let method =  'order'
+
+                if (formData.has('method')) {
+                    method =  formData.get('method')
+                }
 
                 $.ajax({
-                    url: API.methods.order,
+                    url: API.methods[method],
                     type: 'post',
                     data: formData,
                     contentType: false, 
@@ -717,8 +729,13 @@ $(function() {
                 })
                 .done(function() {
                     $('.modal').closeModal()
-                    $('#modal__ok').openModal()
-                    yaCounter53737453.reachGoal('site')
+
+                    if (formData.has('modal')) {
+                        $( '#modal__' + formData.get('modal') ).openModal()
+                    } else {
+                        $('#modal__ok').openModal()
+                        yaCounter53737453.reachGoal('site')
+                    }
                 })
                 .always(function() {
                     //$('.loader_submit').removeClass('loader_active')
