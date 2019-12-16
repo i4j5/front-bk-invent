@@ -117,6 +117,17 @@ function iMoment() {
 
 $(function() {
 
+
+    $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
+       let $this =  $(this)
+
+       let phone =  $this.html()
+
+       if (phone[0] == '+' && phone.length == 12)  {
+            $this.html( phone.substring(1).replace(/(\d)(\d\d\d)(\d\d\d)(\d\d)(\d\d)/, '8 ($2) $3-$4-$5') )
+       }
+    })
+
     $('img[data-src]').each((index, img) => {
         img.setAttribute('src', img.getAttribute('data-src'))
         img.onload = function() {
