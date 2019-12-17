@@ -124,6 +124,11 @@ $(function() {
        let phone =  $this.html().replace(/\s{2,}/g, '')
 
        if (phone[0] == '+' && phone.length == 12)  {
+
+            if ($this.get(0).tagName === 'A') {
+                $this.attr('href', 'tel:' + phone);
+            }
+
             $this.html( phone.substring(1).replace(/(\d)(\d\d\d)(\d\d\d)(\d\d)(\d\d)/, '8 ($2) $3-$4-$5') )
        }
     })
