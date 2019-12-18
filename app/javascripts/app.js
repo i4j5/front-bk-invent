@@ -15,7 +15,8 @@ const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
         order: 'https://bk-invent.ru/send.php',
-        review: 'https://private.bk-invent.ru/api/site/create-review'
+        review: 'https://private.bk-invent.ru/api/site/create-review',
+        question: 'https://private.bk-invent.ru/api/site/create-question',
     }
 }
 
