@@ -26,10 +26,10 @@ $.fn.extend({
         $('body').addClass('modal-open')
 
         $(this).on('click', function(event){
-        if( $(event.target).is('.modal__close') || $(event.target).is('.modal__wrapper') ) {
-            event.preventDefault()
-            $(this).closeModal()
-        }
+            if( $(event.target).is('.modal__close') || $(event.target).is('.modal__wrapper') ) {
+                event.preventDefault()
+                $(this).closeModal()
+            }
         })
     },
 
@@ -113,10 +113,39 @@ function iMoment() {
         localStorage.setItem('utm', utm)
     }
 
+
+    let events = localStorage.getItem('events')
+
+    
+
+    if (events == null) {
+        
+        events = {
+            firstVizit: true
+        }
+
+        localStorage.setItem('events', JSON.stringify(events))
+    } else {
+        //events = JSON.parse(events)
+    }
+
+    //////....
 }())
 
 
 $(function() {
+
+
+    let events =  JSON.parse(localStorage.getItem('events'))
+
+    if (events.firstVizit) {
+        
+        $('#modal__first-vizit').openModal()
+
+        events.firstVizit = false 
+        localStorage.setItem('events', JSON.stringify(events))
+    }
+
 
 
     $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
@@ -164,7 +193,7 @@ $(function() {
 		$(this).children('.product__img').addClass('product__img_hover')
 	}, function() {
 		$(this).children('.product__img').removeClass('product__img_hover')
-	});
+	})
     
     $('.zoom-img').click(function() {
         let $this = $(this)
@@ -194,7 +223,7 @@ $(function() {
                     $el.addClass('.tabs__item_active')
                     $el.children('.tabs__text').slideUp(500)
                 }
-            });	
+            })	
         })
     })
 
@@ -553,7 +582,6 @@ $(function() {
         $this.children('.menu__submenu_big').children('.big-menu').removeClass('big-menu_active')
     })
 
-
     //==========
     // Формы
     //==========
@@ -584,15 +612,13 @@ $(function() {
                 $messag.parent().removeClass('input_ok')
             }
 
-        });
+        })
 
     //     input.addEventListener('change', function (e) {
     //         let countFiles = '';
     //         if (this.files && this.files.length >= 1)
     //             countFiles = this.files.length;
 
-
-     
     //         if (countFiles)
     //             .input__message(data-default=''
     //           label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
@@ -694,7 +720,6 @@ $(function() {
         
         $box.removeClass('input__box_focus')
     })
-
 
     //==============
     // Работа с API
