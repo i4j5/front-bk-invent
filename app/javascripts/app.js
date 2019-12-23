@@ -235,8 +235,7 @@ $(function() {
 
 	// 		let $progressBar = $el.children('.tabs__text').children('.progress-bar')
 	// 		let interest = $progressBar.data('interest')
-
-			
+	
 	// 		if ( $el.hasClass('tabs__item_active') ) {
 	// 			$progressBar.children('.progress-bar__pace').children('.progress-bar__interest').text('')
 	// 			$progressBar.children('.progress-bar__pace').width('0%')
@@ -598,7 +597,7 @@ $(function() {
             let $messag = $this.parent().parent().children('.input__message')
 
             let messag = '';
-            console.log(this.files)
+            //console.log(this.files)
 
             for (let i = 0; i < this.files.length; i++) {
                 messag = messag + this.files[i]['name'];
@@ -923,7 +922,7 @@ $(function() {
     $topMenuItem.hover(function() {
 
         $(this).children('.top-menu__link').children('.arrow').removeClass('arrow_bottom').addClass('arrow_top')
-        console.log($(this).children('.top-menu__link').children('.arrow'))
+        //console.log($(this).children('.top-menu__link').children('.arrow'))
 
     }, function(e) {
 
