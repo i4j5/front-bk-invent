@@ -792,7 +792,7 @@ $(function() {
 
                 if (localStorage.getItem('utm')) {
 
-                    let arrUTM = localStorage.getItem('utm').split('&')
+                    let arrUTM = decodeURI(localStorage.getItem('utm')).split('&')
 
                     for (let i = 0; i < arrUTM.length; i++) {
                         let str = arrUTM[i]
