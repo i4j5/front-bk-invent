@@ -143,8 +143,6 @@ $(function() {
         localStorage.setItem('events', JSON.stringify(events))
     }
 
-
-
     $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
        let $this =  $(this)
 
@@ -823,7 +821,6 @@ $(function() {
                     }
                 })
                 .always(function() {
-                    //$('.loader_submit').removeClass('loader_active')
                     btn.prop('disabled', false)
                 })
             },
