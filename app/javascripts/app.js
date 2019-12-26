@@ -125,11 +125,8 @@ function iMoment() {
         }
 
         localStorage.setItem('events', JSON.stringify(events))
-    } else {
-        //events = JSON.parse(events)
     }
 
-    //////....
 }())
 
 
@@ -140,7 +137,7 @@ $(function() {
 
     if (events.firstVizit) {
         
-        $('#modal__first-vizit').openModal()
+        // $('#modal__first-vizit').openModal()
 
         events.firstVizit = false 
         localStorage.setItem('events', JSON.stringify(events))
