@@ -2,6 +2,7 @@ const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
+import Analytic from './analytic';
 // require('ion-rangeslider')
 
 /**
@@ -17,6 +18,7 @@ const API = {
         order: 'https://bk-invent.ru/send.php',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
+        analytic: 'https://private.bk-invent.ru/api/webhook/test',
     }
 }
 
@@ -114,34 +116,39 @@ function iMoment() {
     }
 
 
-    let events = localStorage.getItem('events')
+    // let events = localStorage.getItem('events')
 
     
 
-    if (events == null) {
+    // if (events == null) {
         
-        events = {
-            firstVizit: true
-        }
+    //     events = {
+    //         firstVizit: true
+    //     }
 
-        localStorage.setItem('events', JSON.stringify(events))
-    }
+    //     localStorage.setItem('events', JSON.stringify(events))
+    // }
 
 }())
 
 
 $(function() {
 
+    Analytic({
+        url: API.methods.analytic,
+        select: '.phone__text'
+    })
 
-    let events =  JSON.parse(localStorage.getItem('events'))
 
-    if (events.firstVizit) {
+    // let events =  JSON.parse(localStorage.getItem('events'))
+
+    // if (events.firstVizit) {
         
-        // $('#modal__first-vizit').openModal()
+    //     // $('#modal__first-vizit').openModal()
 
-        events.firstVizit = false 
-        localStorage.setItem('events', JSON.stringify(events))
-    }
+    //     events.firstVizit = false 
+    //     localStorage.setItem('events', JSON.stringify(events))
+    // }
 
     $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
        let $this =  $(this)
