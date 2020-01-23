@@ -37,6 +37,9 @@ export default function init(options) {
     data.referrer = getLocalStorage('referrer') || setLocalStorage('referrer', document.referrer)
     data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.href)
 
+
+    // document.location.host + document.location.pathname + document.location.search
+
     // data.trace = b24Tracker.guest.getTrace()
     // let client = JSON.parse(data.trace).client
     // data.google_client_id = client.gaId
@@ -58,12 +61,12 @@ export default function init(options) {
 
         setLocalStorage('utm', JSON.stringify(data.utm))
 
+        history.pushState(null, null, document.location.pathname)
+
     } else {
         let utm = getLocalStorage('utm')
-        if(utm) data.utm = JSON.parse(utm)
+        if (utm) data.utm = JSON.parse(utm)
     }
-
-    //del UTM of URL
 
     data.first_visit = getLocalStorage('first_visit') || 0
     data.visit = getCookie('visit') || 0
@@ -105,11 +108,13 @@ function send(data, type = 'update') {
         if (type == 'init') {
             data.visit =  res.data.visit
             data.first_visit =  res.data.first_visit
-            setCookie('visit', res.data.visit)
+            setCookie('visit', res.data.visit, 86400e3)
             setLocalStorage('first_visit', res.data.first_visit)
         } 
 
-        if (res.data.phone) substitutionNumber(res.data.phone)
+        data.phone = res.phone
+
+        if (data.phone) substitutionNumber()
         
     })
     .always(function() {
@@ -118,9 +123,12 @@ function send(data, type = 'update') {
     })
 }
 
-
-function substitutionNumber(phone) {
-    $(select).html(phone.number)
+/**
+ * Замена телефона
+ * @param {string} phone 
+ */
+function substitutionNumber() {
+    $(select).html(data.phone.number)
 }
 
 function getCookie(name) {
@@ -130,8 +138,14 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined
 }
 
-function setCookie(name, value) {
-    document.cookie = prefix + name + "=" + value
+function setCookie(name, value, date) {
+    let str = prefix + name + '=' + value
+
+    if (data) {
+        str = str + '; expires=' + (new Date(Date.now() + date).toUTCString())
+    }
+
+    document.cookie = str
     return value
 }
 
@@ -142,21 +156,4 @@ function getLocalStorage(name) {
 function setLocalStorage(name, value) {
     localStorage.setItem(prefix + name, value)
     return value
-}
-
-
-
-
-function intervalCheck(callback, maxTimeout) {
-    if (callback()) {
-        return;
-    }
-    var checks = 0,
-        interval = 50,
-        maxChecks = (maxTimeout || 2000) / interval,
-        t = setInterval(function () {
-            if (callback() || ++checks > maxChecks) {
-                clearInterval(t);
-            }
-        }, interval);
 }
