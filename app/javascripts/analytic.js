@@ -61,7 +61,8 @@ export default function init(options) {
 
         setLocalStorage('utm', JSON.stringify(data.utm))
 
-        history.pushState(null, null, document.location.pathname)
+        // TODO: Убирать только utm
+        window.history.replaceState(null, null, document.location.pathname)
 
     } else {
         let utm = getLocalStorage('utm')
@@ -99,7 +100,7 @@ function send(data, type = 'update') {
                 visit: 1,
                 first_visit: 1,
                 phone: {
-                    number: '1232123123',
+                    number: '79874632819',
                     ttl: 12321312312,
                 }
             }
@@ -112,7 +113,7 @@ function send(data, type = 'update') {
             setLocalStorage('first_visit', res.data.first_visit)
         } 
 
-        data.phone = res.phone
+        data.phone = res.data.phone
 
         if (data.phone) substitutionNumber()
         
@@ -128,7 +129,24 @@ function send(data, type = 'update') {
  * @param {string} phone 
  */
 function substitutionNumber() {
-    $(select).html(data.phone.number)
+
+    let number = data.phone.number
+                    .replace(/\s{2,}/g, '')
+                    .substring(0).replace(/(\d)(\d\d\d)(\d\d\d)(\d\d)(\d\d)/, '8 ($2) $3-$4-$5')
+
+    console.log(number)
+
+    $(select).each(function () {
+        let $this = $(this)
+
+        $this.html(number)
+
+        if ($this.get(0).tagName === 'A') {
+            $this.attr('href', 'tel:+' + data.phone.number)
+        }
+    })
+
+    //$(select).html(data.phone.number)
 }
 
 function getCookie(name) {

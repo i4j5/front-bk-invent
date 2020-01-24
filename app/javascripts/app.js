@@ -136,7 +136,7 @@ $(function() {
 
     Analytic({
         url: API.methods.analytic,
-        select: '.phone__text'
+        select: '.dynamic-phone'
     })
 
 
