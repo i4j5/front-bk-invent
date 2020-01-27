@@ -18,7 +18,7 @@ const API = {
         order: 'https://bk-invent.ru/send.php',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
-        analytic: 'https://private.bk-invent.ru/api/webhook/test',
+        analytic: 'http://localhost/api/analytic',
     }
 }
 

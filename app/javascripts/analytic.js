@@ -1,6 +1,6 @@
 const $ = require('jquery')
 
-const prefix  = 'i4j5_'
+const prefix  = 'bkinvent_'
 
 let url, select
 
@@ -37,9 +37,6 @@ export default function init(options) {
     data.referrer = getLocalStorage('referrer') || setLocalStorage('referrer', document.referrer)
     data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.href)
 
-
-    // document.location.host + document.location.pathname + document.location.search
-
     // data.trace = b24Tracker.guest.getTrace()
     // let client = JSON.parse(data.trace).client
     // data.google_client_id = client.gaId
@@ -75,7 +72,7 @@ export default function init(options) {
     if (data.visit) {
         send(data)
     } else {
-        send(data, 'init')
+        send(data, 'create')
     }
 }
 
@@ -87,7 +84,7 @@ export default function init(options) {
 function send(data, type = 'update') {
 
     $.ajax({
-        url: url,
+        url: url + '/' + type + '-visit',
         type: 'post',
         data: JSON.stringify(data),
         contentType: 'json', 
@@ -95,32 +92,21 @@ function send(data, type = 'update') {
     })
     .done(function(res) {
 
-        res = {
-            data: {
-                visit: 1,
-                first_visit: 1,
-                phone: {
-                    number: '79874632819',
-                    ttl: 12321312312,
-                }
-            }
-        }
-
-        if (type == 'init') {
+        if (type == 'create') {
             data.visit =  res.data.visit
             data.first_visit =  res.data.first_visit
             setCookie('visit', res.data.visit, 86400e3)
             setLocalStorage('first_visit', res.data.first_visit)
         } 
 
-        data.phone = res.data.phone
+        if (data.phone != 'false') data.phone = res.data.phone
 
         if (data.phone) substitutionNumber()
         
     })
-    .always(function() {
+    .always(function(res) {
        //END
-       console.log(data)
+       console.info('INFO', data, res)
     })
 }
 
@@ -134,8 +120,6 @@ function substitutionNumber() {
                     .replace(/\s{2,}/g, '')
                     .substring(0).replace(/(\d)(\d\d\d)(\d\d\d)(\d\d)(\d\d)/, '8 ($2) $3-$4-$5')
 
-    console.log(number)
-
     $(select).each(function () {
         let $this = $(this)
 
@@ -145,8 +129,6 @@ function substitutionNumber() {
             $this.attr('href', 'tel:+' + data.phone.number)
         }
     })
-
-    //$(select).html(data.phone.number)
 }
 
 function getCookie(name) {
