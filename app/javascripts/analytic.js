@@ -39,8 +39,12 @@ export default function init(options) {
 
     // data.trace = b24Tracker.guest.getTrace()
     // let client = JSON.parse(data.trace).client
-    // data.google_client_id = client.gaId
-    // data.metrika_client_id = client.yaId
+
+    let google_client_id = getCookie('_ga', false)
+    let metrika_client_id = getCookie('_ym_uid', false)
+
+    if (google_client_id) data.google_client_id = google_client_id.split('.').slice(-2).join('.')
+    if (metrika_client_id) data.metrika_client_id = metrika_client_id
     
     let search = window.location.search
 
@@ -92,16 +96,21 @@ function send(data, type = 'update') {
     })
     .done(function(res) {
 
-        if (type == 'create') {
-            data.visit =  res.data.visit
-            data.first_visit =  res.data.first_visit
-            setCookie('visit', res.data.visit, 86400e3)
-            setLocalStorage('first_visit', res.data.first_visit)
-        } 
+        if (res.error == undefined) {
 
-        if (data.phone != 'false') data.phone = res.data.phone
+            if (type == 'create') {
+                data.visit =  res.data.visit
+                data.first_visit =  res.data.first_visit
+                setCookie('visit', res.data.visit, 86400e3)
+                setLocalStorage('first_visit', res.data.first_visit)
+            }
 
-        if (data.phone) substitutionNumber()
+            if (data.phone != false) data.phone = res.data.phone
+
+            if (data.phone) substitutionNumber()
+        } else {
+            send(data, 'create')
+        }
         
     })
     .always(function(res) {
@@ -129,11 +138,14 @@ function substitutionNumber() {
             $this.attr('href', 'tel:+' + data.phone.number)
         }
     })
+    
 }
 
-function getCookie(name) {
+function getCookie(name, _private = true) {
+    let _prefix = _private ? prefix : ''
+
     let matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + prefix + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      "(?:^|; )" + _prefix + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ))
     return matches ? decodeURIComponent(matches[1]) : undefined
 }
