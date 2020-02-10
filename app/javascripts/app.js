@@ -789,6 +789,7 @@ $(function() {
                 formData.append('metrika_client_id', dataAnalytic.metrika_client_id)
                 formData.append('google_client_id', dataAnalytic.google_client_id)
                 formData.append('referrer', dataAnalytic.referrer)
+                formData.append('roistat', roistat.getVisit())
 
                 $.each( dataAnalytic.utm, function( key, value ) {
                     formData.append(key, value)
@@ -828,9 +829,13 @@ $(function() {
                     } else {
                         $('#modal__ok').openModal()
                         yaCounter53737453.reachGoal('site')
-                        gtag('event', 'form', {
-                            'event_category': 'site'
+
+                        gtag('event', 'Заявка с сайта', { 
+                            'event_category': 'site', 
+                            'event_action': 'form', 
                         })
+
+                        //ga ('send', 'event', 'site', 'form');
 
                     }
                 })
