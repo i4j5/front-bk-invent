@@ -12,6 +12,7 @@ let data = {
     landing_page: '',
     referrer: '',
     trace: '',
+    roistat: '',
     phone: {
         number: '',
         ttl: '',
@@ -42,6 +43,8 @@ export default function init(options) {
 
     let google_client_id = getCookie('_ga', false)
     let metrika_client_id = getCookie('_ym_uid', false)
+
+    data.roistat = getCookie('roistat_visit', false)
 
     if (google_client_id) data.google_client_id = google_client_id.split('.').slice(-2).join('.')
     if (metrika_client_id) data.metrika_client_id = metrika_client_id
@@ -78,6 +81,8 @@ export default function init(options) {
     } else {
         send(data, 'create')
     }
+
+    intervalCheck() 
 
     return {
         send, 
@@ -182,4 +187,45 @@ function setLocalStorage(name, value) {
 
 function getData() {
     return data
+}
+
+function getAsynсData() {
+
+    if (data.metrika_client_id && data.google_client_id && data.roistat) {
+        
+        return true
+    }
+
+    if (!data.roistat) {
+        data.roistat = getCookie('roistat_visit', false)
+    }
+
+    if (!data.google_client_id) {
+        let google_client_id = getCookie('_ga', false)
+        if (google_client_id) data.google_client_id = google_client_id.split('.').slice(-2).join('.')
+    }
+
+    if (!data.metrika_client_id) {
+        let metrika_client_id = getCookie('_ym_uid', false)
+        if (metrika_client_id) data.metrika_client_id = metrika_client_id
+    }
+
+    return false;
+
+}
+
+function intervalCheck() {
+    let checks = 0
+    let interval = 50
+    let maxTimeout = 2000
+
+    let maxChecks = maxTimeout / interval,
+
+    t = setInterval(function () {
+
+        if (getAsynсData() || ++checks > maxChecks) {
+            send(data)
+            clearInterval(t)
+        } 
+    }, interval)
 }
