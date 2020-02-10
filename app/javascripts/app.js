@@ -828,6 +828,10 @@ $(function() {
                     } else {
                         $('#modal__ok').openModal()
                         yaCounter53737453.reachGoal('site')
+                        gtag('event', 'form', {
+                            'event_category': 'site'
+                        })
+
                     }
                 })
                 .always(function() {
