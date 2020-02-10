@@ -78,6 +78,15 @@ export default function init(options) {
     } else {
         send(data, 'create')
     }
+
+    return {
+        send, 
+        substitutionNumber,
+        getCookie,
+        setCookie,
+        getLocalStorage,
+        setLocalStorage
+    }
 }
 
 /**

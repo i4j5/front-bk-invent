@@ -134,9 +134,9 @@ function iMoment() {
 
 $(function() {
 
-    Analytic({
+    let analytic = Analytic({
         url: API.methods.analytic,
-        select: '.dynamic-phone'
+        select: '.dynamic-phone__test'
     })
 
 
@@ -783,14 +783,10 @@ $(function() {
                 let formData = new FormData($form.get(0))
                 formData.append('url', document.location.host + document.location.pathname)
 
-                let cm = Comagic.getCredentials()
-
-                formData.append('site_key', cm.site_key)
-                formData.append('visitor_id', cm.visitor_id)
-                formData.append('hit_id', cm.hit_id)
-                formData.append('session_id', cm.session_id)
-                formData.append('consultant_server_url', cm.consultant_server_url)
-
+                formData.append('visit', analytic.getCookie('visit'))
+                formData.append('metrika_client_id', analytic.getCookie('_ym_uid', false))
+                formData.append('google_client_id', analytic.getCookie('_ga', false))
+                
                 if (localStorage.getItem('utm')) {
 
                     let arrUTM = decodeURI(localStorage.getItem('utm')).split('&')
