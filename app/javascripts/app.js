@@ -15,7 +15,7 @@ moment.locale('ru')
 const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
-        order: 'https://bk-invent.ru/send.php',
+        order: 'https://private.bk-invent.ru/api/site/create-lead-from-form',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
         analytic: 'https://private.bk-invent.ru/api/analytic',
@@ -783,22 +783,29 @@ $(function() {
                 let formData = new FormData($form.get(0))
                 formData.append('url', document.location.host + document.location.pathname)
 
-                formData.append('visit', analytic.getCookie('visit'))
-                formData.append('metrika_client_id', analytic.getCookie('_ym_uid', false))
-                formData.append('google_client_id', analytic.getCookie('_ga', false))
+                let dataAnalytic = analytic.getData()
+
+                formData.append('visit', dataAnalytic.visit)
+                formData.append('metrika_client_id', dataAnalytic.metrika_client_id)
+                formData.append('google_client_id', dataAnalytic.google_client_id)
+                formData.append('referrer', dataAnalytic.referrer)
+
+                $.each( dataAnalytic.utm, function( key, value ) {
+                    formData.append(key, value)
+                })
                 
-                if (localStorage.getItem('utm')) {
+                // if (localStorage.getItem('utm')) {
 
-                    let arrUTM = decodeURI(localStorage.getItem('utm')).split('&')
+                //     let arrUTM = decodeURI(localStorage.getItem('utm')).split('&')
 
-                    for (let i = 0; i < arrUTM.length; i++) {
-                        let str = arrUTM[i]
-                        let utm = str.split('=')
+                //     for (let i = 0; i < arrUTM.length; i++) {
+                //         let str = arrUTM[i]
+                //         let utm = str.split('=')
     
-                        formData.append(utm[0], utm[1])
-                    }
+                //         formData.append(utm[0], utm[1])
+                //     }
 
-                }
+                // }
 
                 let method =  'order'
 

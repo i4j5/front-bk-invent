@@ -85,7 +85,8 @@ export default function init(options) {
         getCookie,
         setCookie,
         getLocalStorage,
-        setLocalStorage
+        setLocalStorage,
+        getData,
     }
 }
 
@@ -177,4 +178,8 @@ function getLocalStorage(name) {
 function setLocalStorage(name, value) {
     localStorage.setItem(prefix + name, value)
     return value
+}
+
+function getData() {
+    return data
 }
