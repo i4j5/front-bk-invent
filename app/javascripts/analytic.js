@@ -65,8 +65,20 @@ export default function init(options) {
 
         setLocalStorage('utm', JSON.stringify(data.utm))
 
-        // TODO: Убирать только utm
-        window.history.replaceState(null, null, document.location.pathname)
+        search = search.substr(1)
+
+        let searchArr =  search.split('&')
+
+        let newSearch = '?'
+        $.each( searchArr, function( key, value ) {
+            if(!value.match(/utm_/)) {
+                newSearch = newSearch + value + '&'
+            } 
+        })
+
+        newSearch = newSearch.substring(0, newSearch.length - 1)
+        
+        window.history.replaceState(null, null, document.location.pathname + newSearch)
 
     } else {
         let utm = getLocalStorage('utm')
@@ -77,12 +89,13 @@ export default function init(options) {
     data.visit = getCookie('visit') || 0
 
     if (data.visit) {
-        send(data)
+        //send(data)
+        intervalCheck()
     } else {
         send(data, 'create')
     }
 
-    intervalCheck() 
+    // intervalCheck() 
 
     return {
         send, 
@@ -118,6 +131,8 @@ function send(data, type = 'update') {
                 data.first_visit =  res.data.first_visit
                 setCookie('visit', res.data.visit, 86400e3)
                 setLocalStorage('first_visit', res.data.first_visit)
+
+                intervalCheck() 
             }
 
             if (data.phone != false) data.phone = res.data.phone
