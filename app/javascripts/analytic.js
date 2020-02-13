@@ -64,22 +64,6 @@ export default function init(options) {
            data.utm.utm_term = search.split('utm_term=')[1].split('&')[0]
 
         setLocalStorage('utm', JSON.stringify(data.utm))
-
-        search = search.substr(1)
-
-        let searchArr =  search.split('&')
-
-        let newSearch = '?'
-        $.each( searchArr, function( key, value ) {
-            if(!value.match(/utm_/)) {
-                newSearch = newSearch + value + '&'
-            } 
-        })
-
-        newSearch = newSearch.substring(0, newSearch.length - 1)
-        
-        window.history.replaceState(null, null, document.location.pathname + newSearch)
-
     } else {
         let utm = getLocalStorage('utm')
         if (utm) data.utm = JSON.parse(utm)
@@ -240,6 +224,21 @@ function intervalCheck() {
 
         if (getAsynсData() || ++checks > maxChecks) {
             send(data)
+
+            let searchArr = window.location.search.substr(1).split('&')
+
+            if (searchArr[0]) {
+                let newSearch = '?'
+                $.each( searchArr, function( key, value ) {
+                    if(!value.match(/utm_/)) {
+                        newSearch = newSearch + value + '&'
+                    } 
+                })
+                
+                newSearch = newSearch.substring(0, newSearch.length - 1)
+                window.history.replaceState(null, null, document.location.pathname + newSearch)
+            }
+
             clearInterval(t)
         } 
     }, interval)
