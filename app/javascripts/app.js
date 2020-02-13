@@ -136,7 +136,7 @@ $(function() {
 
     let analytic = Analytic({
         url: API.methods.analytic,
-        select: '.dynamic-phone__test'
+        select: '.dynamic-phone'
     })
 
 
