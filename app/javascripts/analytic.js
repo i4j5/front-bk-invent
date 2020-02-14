@@ -61,7 +61,7 @@ export default function init(options) {
         if (search.match(/utm_content=/))
            data.utm.utm_content = search.split('utm_content=')[1].split('&')[0]
         if (search.match(/utm_term=/))
-           data.utm.utm_term = search.split('utm_term=')[1].split('&')[0]
+           data.utm.utm_term = decodeURI(search.split('utm_term=')[1].split('&')[0])
 
         setLocalStorage('utm', JSON.stringify(data.utm))
     } else {
@@ -225,19 +225,19 @@ function intervalCheck() {
         if (getAsynсData() || ++checks > maxChecks) {
             send(data)
 
-            let searchArr = window.location.search.substr(1).split('&')
+            // let searchArr = window.location.search.substr(1).split('&')
 
-            if (searchArr[0]) {
-                let newSearch = '?'
-                $.each( searchArr, function( key, value ) {
-                    if(!value.match(/utm_/)) {
-                        newSearch = newSearch + value + '&'
-                    } 
-                })
+            // if (searchArr[0]) {
+            //     let newSearch = '?'
+            //     $.each( searchArr, function( key, value ) {
+            //         if(!value.match(/utm_/)) {
+            //             newSearch = newSearch + value + '&'
+            //         } 
+            //     })
                 
-                newSearch = newSearch.substring(0, newSearch.length - 1)
-                window.history.replaceState(null, null, document.location.pathname + newSearch)
-            }
+            //     newSearch = newSearch.substring(0, newSearch.length - 1)
+            //     window.history.replaceState(null, null, document.location.pathname + newSearch)
+            // }
 
             clearInterval(t)
         } 
