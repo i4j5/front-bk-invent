@@ -36,7 +36,7 @@ export default function init(options) {
     select = options.select 
 
     data.referrer = getLocalStorage('referrer') || setLocalStorage('referrer', document.referrer)
-    data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.href)
+    data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.hostname + document.location.pathname)
 
     // data.trace = b24Tracker.guest.getTrace()
     // let client = JSON.parse(data.trace).client
