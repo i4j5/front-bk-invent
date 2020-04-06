@@ -159,7 +159,7 @@ function getCookie(name, _private = true) {
     let _prefix = _private ? prefix : ''
 
     let matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + _prefix + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      "(?:^|; )" + _prefix + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
     ))
     return matches ? decodeURIComponent(matches[1]) : undefined
 }
@@ -209,8 +209,7 @@ function getAsynсData() {
         if (metrika_client_id) data.metrika_client_id = metrika_client_id
     }
 
-    return false;
-
+	return false
 }
 
 function intervalCheck() {
