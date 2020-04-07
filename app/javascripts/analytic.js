@@ -191,7 +191,6 @@ function getData() {
 function getAsynсData() {
 
     if (data.metrika_client_id && data.google_client_id && data.roistat) {
-        
         return true
     }
 
@@ -216,7 +215,7 @@ function getAsynсData() {
 function intervalCheck() {
     let checks = 0
     let interval = 50
-    let maxTimeout = 2000
+    let maxTimeout = 3000
 
     let maxChecks = maxTimeout / interval,
 
