@@ -12,6 +12,10 @@ import Analytic from './analytic';
 const moment = require('moment')
 moment.locale('ru')
 
+let now = moment()
+let runTimeM = now.toDate().getTime()
+
+
 const API = {
     methods: {
         // order: `${url}/amo/create-lead-from-form`
@@ -116,18 +120,17 @@ function iMoment() {
     }
 
 
-    // let events = localStorage.getItem('events')
+    let events = localStorage.getItem('events')
 
     
 
-    // if (events == null) {
-        
-    //     events = {
-    //         firstVizit: true
-    //     }
+    if (events == null) {
+        events = {
+            firstVizit: runTimeM
+        }
 
-    //     localStorage.setItem('events', JSON.stringify(events))
-    // }
+        localStorage.setItem('events', JSON.stringify(events))
+    }
 
 }())
 
@@ -139,16 +142,15 @@ $(function() {
         select: '.dynamic-phone'
     })
 
+    let events =  JSON.parse(localStorage.getItem('events'))
 
-    // let events =  JSON.parse(localStorage.getItem('events'))
-
-    // if (events.firstVizit) {
+    if (events.firstVizit == runTimeM || events.firstVizit + 43200000 <= runTimeM) {
         
-    //     // $('#modal__first-vizit').openModal()
+        $('#modal__first-vizit').openModal()
 
-    //     events.firstVizit = false 
-    //     localStorage.setItem('events', JSON.stringify(events))
-    // }
+        events.firstVizit = runTimeM 
+        localStorage.setItem('events', JSON.stringify(events))
+    }
 
     $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
        let $this =  $(this)
