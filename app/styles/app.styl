@@ -3743,6 +3743,27 @@ _padding($d)
 .vi
     font-weight 600
     background-color #abcdff !important
-    background-image url(http://bk-invent.ru/images/vi-bg.jpg) !important
-    background-position top center !important
-    background-size cover !important
+    span
+        color #032e84
+   
+    @media (min-width 1300px)
+        & .modal__title
+            padding-left 230px
+        &__img
+            width 430px 
+            height 430px
+            position absolute
+            left -50px
+            //top -30px;
+            background-image url(../images/vi.png) !important
+            background-repeat no-repeat !important
+            background-size cover !important
+            background-position top left !important
+            background-size 280px !important
+
+    @media (min-width 1800px)
+        & .modal__title
+            padding-left 200px
+        &__img
+            left -230px
+            background-size 430px !important

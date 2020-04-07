@@ -144,13 +144,13 @@ $(function() {
 
     let events =  JSON.parse(localStorage.getItem('events'))
 
-    //if (events.firstVizit == runTimeM || events.firstVizit + 43200000 <= runTimeM) {
+    if (events.firstVizit == runTimeM || events.firstVizit + 43200000 <= runTimeM) {
         
         $('#modal__first-vizit').openModal()
 
         events.firstVizit = runTimeM 
         localStorage.setItem('events', JSON.stringify(events))
-    //}
+    }
 
     $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
        let $this =  $(this)
