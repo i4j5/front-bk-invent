@@ -146,7 +146,7 @@ $(function() {
 
     if (events.firstVizit == runTimeM || events.firstVizit + 43200000 <= runTimeM) {
         
-        $('#modal__first-vizit').openModal()
+       //$('#modal__first-vizit').openModal()
 
         events.firstVizit = runTimeM 
         localStorage.setItem('events', JSON.stringify(events))
