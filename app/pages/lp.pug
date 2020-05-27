@@ -1,0 +1,63 @@
+extends ../blocks/layout-default/layout-default
+prepend head
+    title HI
+block content
+    .page__main
+        .fixed_blur
+
+        +b.lp
+            +e.content
+                +e.logo
+                //- +e.title МЫ В СОЦИАЛЬНЫХ СЕТЯХ
+                //- .row.social-icon-grup
+                //-     .col.col_size_12.col_size-xs_6 
+                //-         a(href="vk").social-icon
+                //-             img(src='/images/vk.png').social-icon__img 
+                //-             .social-icon__text ВКонтакте 
+                //-     .col.col_size_12.col_size-xs_6
+                //-         a(href="vk").social-icon
+                //-             img(src='/images/fb.png').social-icon__img 
+                //-             .social-icon__text Facebook 
+                //-     .col.col_size_12.col_size-xs_6
+                //-         a(href="vk").social-icon
+                //-             img(src='/images/ok.png').social-icon__img 
+                //-             .social-icon__text OK.ru 
+                //-     .col.col_size_12.col_size-xs_6 
+                //-         a(href="vk").social-icon
+                //-             img(src='/images/instagram.png').social-icon__img 
+                //-             .social-icon__text Instagram
+
+                //- br
+                //- br
+                //- br
+                +e.title ОСТАВЬТЕ СВОЙ ОТЗЫВ О НАШЕЙ РАБОТЕ
+                .row.social-icon-grup
+                    .col.col_size_12.col_size-xs_6
+                        a(href="vk").social-icon
+                            img(src='/images/googlemaps.png').social-icon__img 
+                            .social-icon__text Google Карты
+                        br
+                        a(href="vk").social-icon
+                            img(src='/images/yandexmaps.png').social-icon__img 
+                            .social-icon__text Яндекс.Карты
+                        br
+                        a(href="vk").social-icon
+                            img(src='/images/2gis.png').social-icon__img 
+                            .social-icon__text 2ГИС
+
+                    .col.col_size_12.col_size-xs_6
+                        a(href="https://www.yell.ru/rostov-na-donu/com/ooo-bk-invent_11900346/").social-icon
+                            img(src='/images/yell.png').social-icon__img 
+                            .social-icon__text Yell
+                        br
+                        a(href="https://rostov.flamp.ru/firm/bk_invent_ooo-70000001028462470#reviews").social-icon
+                            img(src='/images/flamp.png').social-icon__img 
+                            .social-icon__text Flamp
+                        br
+                        a(href="https://rostov.zoon.ru/building/bk_invent/").social-icon
+                            img(src='/images/zoon.png').social-icon__img 
+                            .social-icon__text Zoon
+
+
+    //+scripts(['common.js', 'app.js'])
+
