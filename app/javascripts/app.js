@@ -791,7 +791,7 @@ $(function() {
                 formData.append('metrika_client_id', dataAnalytic.metrika_client_id)
                 formData.append('google_client_id', dataAnalytic.google_client_id)
                 formData.append('referrer', dataAnalytic.referrer)
-                formData.append('roistat', roistat.getVisit())
+                //formData.append('roistat', roistat.getVisit())
 
                 $.each( dataAnalytic.utm, function( key, value ) {
                     formData.append(key, value)
