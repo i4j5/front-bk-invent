@@ -2368,8 +2368,11 @@ ul.list
     margin-bottom 40px
     border-radius 5px
     background linear-gradient(100deg, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 1) 50%, rgba(205, 219, 247, 1) 50%, rgba(205, 219, 247, 1) 100%)
-    &__light
-        background #fff;
+    &__presentation
+        background #fff
+        display none
+        @media (min-width 930px)
+            display block
     &__wrapper
         position relative
         .bx-prev
