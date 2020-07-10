@@ -45,12 +45,14 @@ $(function() {
 
     let $leadHunter = $('#lead-hunter')
 
-    $('.page').mouseleave(function(){
-        if (!analytic.getCookie('leadHunterCaugh')) {
-            $leadHunter.openModal()
-            analytic.setCookie('leadHunterCaugh', '1',  3600000)
-        }
-    })
+    setTimeout(function() {
+        $('.page').mouseleave(function(){
+            if (!analytic.getCookie('leadHunterCaugh')) {
+                $leadHunter.openModal()
+                analytic.setCookie('leadHunterCaugh', '1',  3600000)
+            }
+        })
+    }, 10000)
 
     setTimeout(function() {
         if (!analytic.getCookie('leadHunterCaugh')) {
