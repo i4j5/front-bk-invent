@@ -14,8 +14,26 @@ block content
                         +b.logo
                             +e.image
                             +e.description Проектно-строительная<br>компания
-                            a.dynamic-phone 8 (863) 303-38-33
                     .header__center
+                        
+                        //- +b.messengers
+                        //-     +e.title Напишите нам в мессенджер
+                        //-     +e({tag: 'a'})( href="https://api.whatsapp.com/send?phone=79614270609", target="_blank").button.messengers__button_whatsapp
+                        //-     +e({tag: 'a'})( href="viber://pa?chatURI=bkinventbot", target="_blank").button.messengers__button_viber
+                        //-     +e({tag: 'a'})( href="tg://resolve?domain=BKInventBot", target="_blank").button.messengers__button_telegram
+                        //-     +e({tag: 'a'})( href="https://vk.me/-151917740", target="_blank").button.messengers__button_vk
+                       
+                        //- +b.maps
+                        //-     +e.wrap
+                        //-     +e.icon 
+                        //-     +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
+
+                        //- +b.phone
+                        //-     +e.description Консультация по телефону
+                        //-     +e.wrap
+                        //-         +e.icon 
+                        //-         +e.text.dynamic-phone 8 (863) 303-38-33
+
                         +b.top-menu
                             //+e.wrapper
                             +e.search
@@ -25,6 +43,7 @@ block content
                                         +e.icon
                                         input(name='search' placeholder="Поиск на сайте").input__control
                             +e.items.top-menu__items_visible
+
                                 +e.item
                                     +e({tag: 'a'}).link 
                                         |О нас
@@ -42,24 +61,27 @@ block content
                                             +e({tag: 'a'}).link Мнение со стороны 
                                         +e.item
                                             +e({tag: 'a'}).link Как попасть в команду
-                                +e.item
-                                    +e({tag: 'a'}).link Акции
+                                //- +e.item
+                                //-     +e({tag: 'a'}).link Акции
                                 +e.item
                                     +e({tag: 'a'}).link Полезные статьи
-                                +e.item
-                                    +e({tag: 'a'}).link Партнерам
+                                //- +e.item
+                                //-     +e({tag: 'a'}).link Партнерам
                                 +e.item
                                     +e({tag: 'a'}).link Контакты
-                                +e.item
-                                    //+e({tag: 'a'}).link
-                                    .top-menu__search-btn.
-                                        <svg 
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="13px" height="13px">
-                                        <path fill-rule="evenodd" class="top-menu__search-svg"  
-                                        d="M5.038,1.607 C6.956,1.607 8.525,3.232 8.525,5.218 C8.525,5.891 8.335,6.547 7.986,7.121 L7.669,7.647 L7.225,8.025 C6.607,8.550 5.846,8.829 5.038,8.829 C3.120,8.829 1.551,7.204 1.551,5.218 C1.551,3.232 3.120,1.607 5.038,1.607 ZM12.741,12.735 C13.074,12.374 13.074,11.783 12.741,11.439 L9.603,8.189 C9.508,8.090 9.412,8.025 9.301,7.975 C9.793,7.188 10.078,6.236 10.078,5.218 C10.078,2.329 7.811,-0.002 5.038,-0.002 C2.248,-0.002 -0.003,2.329 -0.003,5.218 C-0.003,8.106 2.248,10.437 5.038,10.437 C6.242,10.437 7.336,9.994 8.208,9.272 C8.240,9.338 8.287,9.419 8.335,9.485 L11.473,12.735 C11.647,12.916 11.885,12.998 12.107,12.998 C12.329,12.998 12.567,12.916 12.741,12.735 Z"/>
-                                        </svg>
+                             
+                                    
+                                   
+                                //- +e.item
+                                //-     //+e({tag: 'a'}).link
+                                //-     .top-menu__search-btn.
+                                //-         <svg 
+                                //-         xmlns="http://www.w3.org/2000/svg"
+                                //-         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                //-         width="13px" height="13px">
+                                //-         <path fill-rule="evenodd" class="top-menu__search-svg"  
+                                //-         d="M5.038,1.607 C6.956,1.607 8.525,3.232 8.525,5.218 C8.525,5.891 8.335,6.547 7.986,7.121 L7.669,7.647 L7.225,8.025 C6.607,8.550 5.846,8.829 5.038,8.829 C3.120,8.829 1.551,7.204 1.551,5.218 C1.551,3.232 3.120,1.607 5.038,1.607 ZM12.741,12.735 C13.074,12.374 13.074,11.783 12.741,11.439 L9.603,8.189 C9.508,8.090 9.412,8.025 9.301,7.975 C9.793,7.188 10.078,6.236 10.078,5.218 C10.078,2.329 7.811,-0.002 5.038,-0.002 C2.248,-0.002 -0.003,2.329 -0.003,5.218 C-0.003,8.106 2.248,10.437 5.038,10.437 C6.242,10.437 7.336,9.994 8.208,9.272 C8.240,9.338 8.287,9.419 8.335,9.485 L11.473,12.735 C11.647,12.916 11.885,12.998 12.107,12.998 C12.329,12.998 12.567,12.916 12.741,12.735 Z"/>
+                                //-         </svg>
                                     
                     .header__right
                         +b.phone
@@ -67,14 +89,17 @@ block content
                             +e.wrap
                                 +e.icon 
                                 +e.text.dynamic-phone 8 (863) 303-38-33
-                        +b({tag: 'a'})( href="https://api.whatsapp.com/send?phone=79614270609", target="_blank").whatsapp
-                            +e.wrap
-                                +e.icon
-                                +e.text Напишите нам в WhatsApp
-                        +b.maps
-                            +e.wrap
-                                +e.icon 
-                                +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
+                        +b.messengers
+                            //+e.title Напишите нам в мессенджер
+                            +e({tag: 'a'})( href="https://api.whatsapp.com/send?phone=79614270609", target="_blank").button.messengers__button_whatsapp
+                            +e({tag: 'a'})( href="viber://pa?chatURI=bkinventbot", target="_blank").button.messengers__button_viber
+                            +e({tag: 'a'})( href="tg://resolve?domain=BKInventBot", target="_blank").button.messengers__button_telegram
+                            +e({tag: 'a'})( href="https://vk.me/-151917740", target="_blank").button.messengers__button_vk
+                            +e.title Напишите нам в мессенджер
+                        //- +b.maps
+                        //-     +e.wrap
+                        //-         +e.icon 
+                        //-         +e.text Ростов-на-Дону <br>ул.Текучева, 23, эт. 3
         .fixed_blur
         +b.menu
             .container
@@ -480,31 +505,31 @@ block content
         
 
 
-            +b.process
-                +e.bg(style="background: url(images/process-bg.png);")
-                +e.item(style="left: 500px;top: -28px;")
-                    +e.image
-                        img(src="images/i63.png")
-                        span 1
-                    +e.body
-                        +e.title Заявка
-                        +e.text Вы звоните или заполняете форму обратной связи
+            //- +b.process
+            //-     +e.bg(style="background: url(images/process-bg.png);")
+            //-     +e.item(style="left: 500px;top: -28px;")
+            //-         +e.image
+            //-             img(src="images/i63.png")
+            //-             span 1
+            //-         +e.body
+            //-             +e.title Заявка
+            //-             +e.text Вы звоните или заполняете форму обратной связи
 
-                +e.item(style="left: -79px; top: 300px").process__item_direction_right
-                    +e.image
-                        img(src="images/i3.png")
-                        span 3
-                    +e.body(style="width: 300px")
-                        +e.title Подписание договора
-                        +e.text Вы получаете коммерческое предложение и договор на согласование. После подписания договора, вносите первый аванс
+            //-     +e.item(style="left: -79px; top: 300px").process__item_direction_right
+            //-         +e.image
+            //-             img(src="images/i3.png")
+            //-             span 3
+            //-         +e.body(style="width: 300px")
+            //-             +e.title Подписание договора
+            //-             +e.text Вы получаете коммерческое предложение и договор на согласование. После подписания договора, вносите первый аванс
 
-                +e.item(style="left: 672px; top: 250px;")
-                    +e.image
-                        img(src="images/i63.png")
-                        span 1
-                    +e.body
-                        +e.title Заявка
-                        +e.text Вы звоните или заполняете форму обратной связи
+            //-     +e.item(style="left: 672px; top: 250px;")
+            //-         +e.image
+            //-             img(src="images/i63.png")
+            //-             span 1
+            //-         +e.body
+            //-             +e.title Заявка
+            //-             +e.text Вы звоните или заполняете форму обратной связи
 
 
             .content
@@ -1802,7 +1827,33 @@ block content
                             .checkbox__text 
                                 |Согласен  
                                 +e({tag: 'a'}).link на обработку персональных данных          
-                
+        .modal#lead-hunter
+            .modal__wrapper
+                .modal__dialog
+                    .close.modal__close
+                    .modal__title У Вас остались вопросы?<br>Давайте мы перезвоним Вам
+                    form.form.ajax
+                        .modal__row
+                            .input.input_type_phone
+                                .input__box
+                                    .input__top-border
+                                    .input__title Телефон
+                                    //- .input__icon
+                                    input(name='phone').input__control
+                                .input__message(data-default='Укажите номер телефона. Убедитесь, что телефон введен корректно                                   ')                    
+                        .modal__row
+                            input(type="hidden" name="order" value="Ловец лидов")
+                            button(type="submit").btn.btn_view_action
+                                    .btn__text Жду звонка
+                        .modal__row
+                            +b.checkbox.checkbox_theme_light 
+                                +e({tag: 'label'}).item                                     
+                                    input(name='privacy' type='checkbox' checked).checkbox__control
+                                    .checkbox__box
+                                .checkbox__text 
+                                    |Согласен  
+                                    +e({tag: 'a'}).link на обработку персональных данных
+
     .modal#modal__order
         .modal__wrapper
             .modal__dialog
