@@ -41,17 +41,58 @@ $(function() {
        }
     })
 
+    // function getPosition(e){
+        
+    //     let x = 0
+    //     let y = 0
+     
+    //     if (!e) {
+    //         var e = window.event;
+    //     }
+     
+    //     if (e.pageX || e.pageY){
+    //         x = e.pageX;
+    //         y = e.pageY;
+    //     } else if (e.clientX || e.clientY){
+    //         x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+    //         y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    //     }
+     
+    //     return {x: x, y: y}
+    // }
+
+    // $('body').mousemove(function(e){
+    //     var coord = getPosition(e);
+    //     console.log(coord.x + "," + coord.y)
+    // });
+
 
 
     let $leadHunter = $('#lead-hunter')
 
     setTimeout(function() {
-        $('.page').mouseleave(function(){
-            if (!analytic.getCookie('leadHunterCaugh')) {
+        $('.page').mouseleave(function(e){
+
+            let x = 0
+            let y = 0
+
+            if (e.pageX || e.pageY){
+                x = e.pageX;
+                y = e.pageY;
+            } else if (e.clientX || e.clientY){
+                x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+
+            // console.log(analytic.getCookie('leadHunterCaugh'), x, y - window.pageYOffset)
+            
+            if (!analytic.getCookie('leadHunterCaugh') && ((y - window.pageYOffset) < 0)) {
                 $leadHunter.openModal()
-                analytic.setCookie('leadHunterCaugh', '1',  3600000)
+                analytic.setCookie('leadHunterCaugh', '1',  600000)
             }
         })
+
+        // console.log('mouseleave')
     }, 10000)
 
     setTimeout(function() {
