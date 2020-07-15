@@ -27,7 +27,7 @@ function save(inx, pageViewTracker) {
     if (inx === null) {
         pageViewTracker.push(item)
     } else {
-        pageViewTracker[inx].timeIntervals.push(item.timeIntervals)
+        pageViewTracker[inx].timeIntervals.push(item.timeIntervals[0])
     }
 
     let str = JSON.stringify(pageViewTracker)
@@ -47,11 +47,9 @@ export default function run() {
         if (item.url === page.url) inx = index
     })
 
-    save(inx, pageViewTracker)
-
-    window.addEventListener('onbeforeunload', function() {
+    window.onbeforeunload = function() {
         save(inx, pageViewTracker)
-    })
+    }
 
 
     setInterval(watcher, 500);

@@ -267,9 +267,9 @@ $(function() {
                     method =  formData.get('method')
                 }
 
-                analytic.setLocalStorage('name', formData.get('name'))
-                analytic.setLocalStorage('email', formData.get('email'))
-                analytic.setLocalStorage('phone', formData.get('phone'))
+                if (formData.get('name')) analytic.setLocalStorage('name', formData.get('name'));
+                if (formData.get('phone')) analytic.setLocalStorage('phone', formData.get('phone'));
+                if (formData.get('email')) analytic.setLocalStorage('email', formData.get('email'));
 
                 $.ajax({
                     url: API.methods[method],
