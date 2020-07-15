@@ -1,12 +1,12 @@
 const $ = require('jquery')
 require('jquery-validation')
 require('../../node_modules/bxslider/dist/jquery.bxslider')
-require('./form')
 require('./modal')
 require('./resize')
 require('./menu')
 // require('./share') // Акция
 import Analytic from './analytic';
+import PageViewTracker from './pageViewTracker';
 const moment = require('moment')
 moment.locale('ru')
 
@@ -15,9 +15,12 @@ const API = {
         order: 'https://private.bk-invent.ru/api/site/create-lead-from-form',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
+        //analytic: 'http://localhost/api/analytic',
         analytic: 'https://private.bk-invent.ru/api/analytic',
     }
 }
+
+PageViewTracker()
 
 $(function() {
 
@@ -25,6 +28,12 @@ $(function() {
         url: API.methods.analytic,
         select: '.dynamic-phone'
     })
+
+    $('[name="name"]').val(analytic.getLocalStorage('name'))
+    $('[name="email"]').val(analytic.getLocalStorage('email'))
+    $('[name="phone"]').val(analytic.getLocalStorage('phone'))
+
+    require('./form')
 
     $('body').on('DOMSubtreeModified', '.dynamic-phone', function() {
        let $this =  $(this)
@@ -258,6 +267,10 @@ $(function() {
                     method =  formData.get('method')
                 }
 
+                analytic.setLocalStorage('name', formData.get('name'))
+                analytic.setLocalStorage('email', formData.get('email'))
+                analytic.setLocalStorage('phone', formData.get('phone'))
+
                 $.ajax({
                     url: API.methods[method],
                     type: 'post',
@@ -268,6 +281,10 @@ $(function() {
                 .done(function() {
                     
                     $('.modal').closeModal()
+
+                    // analytic.setLocalStorage('name', formData.get('name'))
+                    // analytic.setLocalStorage('email', formData.get('email'))
+                    // analytic.setLocalStorage('phone', formData.get('phone'))
 
                     if (formData.has('modal')) {
                         $( '#modal__' + formData.get('modal') ).openModal()

@@ -33,13 +33,35 @@ let data = {
 export default function init(options) {
 
     url = options.url
-    select = options.select 
+    select = options.select
+
+    // let page = []
+    // page.push(document.location.href)
+    // page.push(Date.now())
+    // page.push(document.title)
+
+    // let pages = getLocalStorage('pages') ? JSON.parse(getLocalStorage('pages')) : []   
+
+    // pages.forEach((item, index) => {
+    //     if (item[0] === page[0]) pages.splice(index, 1)
+    // })
+
+    // pages.push(page)
+    // setLocalStorage('pages', JSON.stringify(pages))
+
+    let search = window.location.search
+
+    data.first_visit = getLocalStorage('first_visit') || 0
+    data.visit = getCookie('visit') || 0
+
+    if (data.visit == 0) {
+        setLocalStorage('referrer', '')
+        // setLocalStorage('landing_page')
+        setLocalStorage('utm', '')
+    }
 
     data.referrer = getLocalStorage('referrer') || setLocalStorage('referrer', document.referrer)
     data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.hostname + document.location.pathname)
-
-    // data.trace = b24Tracker.guest.getTrace()
-    // let client = JSON.parse(data.trace).client
 
     let google_client_id = getCookie('_ga', false)
     let metrika_client_id = getCookie('_ym_uid', false)
@@ -48,11 +70,14 @@ export default function init(options) {
 
     if (google_client_id) data.google_client_id = google_client_id.split('.').slice(-2).join('.')
     if (metrika_client_id) data.metrika_client_id = metrika_client_id
-    
-    let search = window.location.search
 
     if (search.match(/utm_source=/)) {
-        data.utm.utm_source= search.split('utm_source=')[1].split('&')[0]
+
+        let old_utm = getLocalStorage('utm') ? JSON.parse(getLocalStorage('utm')) : {}
+
+        data.utm.utm_source = search.split('utm_source=')[1].split('&')[0]
+
+        if (data.visit && (data.utm.utm_source != old_utm.utm_source) ) data.visit = 0;
 
         if (search.match(/utm_medium=/))
             data.utm.utm_medium = search.split('utm_medium=')[1].split('&')[0]
@@ -69,8 +94,11 @@ export default function init(options) {
         if (utm) data.utm = JSON.parse(utm)
     }
 
-    data.first_visit = getLocalStorage('first_visit') || 0
-    data.visit = getCookie('visit') || 0
+    // if (data.visit && document.referrer) {
+    //     if ( data.referrer != document.referrer ) {
+    //         data.visit = 0
+    //     }
+    // }
 
     if (data.visit) {
         //send(data)
@@ -109,7 +137,6 @@ function send(data, type = 'update') {
     .done(function(res) {
 
         if (res.error == undefined) {
-
             if (type == 'create') {
                 data.visit =  res.data.visit
                 data.first_visit =  res.data.first_visit
