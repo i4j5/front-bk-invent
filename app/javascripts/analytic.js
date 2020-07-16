@@ -17,6 +17,9 @@ let data = {
         number: '',
         ttl: '',
     },
+    
+    page_view_tracker: [],
+
     utm: {
         utm_source: '',
         utm_medium: '',
@@ -56,17 +59,24 @@ export default function init(options) {
 
     if (data.visit == 0) {
         setLocalStorage('referrer', '')
-        // setLocalStorage('landing_page')
+        setLocalStorage('landing_page', '')
         setLocalStorage('utm', '')
     }
 
-    data.referrer = getLocalStorage('referrer') || setLocalStorage('referrer', document.referrer)
-    data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.hostname + document.location.pathname)
-
+    if (document.referrer && (document.referrer.split('/')[2] != window.location.hostname)) {
+        data.referrer = setLocalStorage('referrer', document.referrer)
+        setLocalStorage('utm', '')
+        data.landing_page = setLocalStorage('landing_page', document.location.hostname + document.location.pathname)
+        data.visit = 0
+    } else {
+        data.referrer = getLocalStorage('referrer')
+        data.landing_page = getLocalStorage('landing_page') || setLocalStorage('landing_page', document.location.hostname + document.location.pathname)
+    }
+    
     let google_client_id = getCookie('_ga', false)
     let metrika_client_id = getCookie('_ym_uid', false)
 
-    data.roistat = getCookie('roistat_visit', false)
+    // data.roistat = getCookie('roistat_visit', false)
 
     if (google_client_id) data.google_client_id = google_client_id.split('.').slice(-2).join('.')
     if (metrika_client_id) data.metrika_client_id = metrika_client_id
@@ -77,7 +87,9 @@ export default function init(options) {
 
         data.utm.utm_source = search.split('utm_source=')[1].split('&')[0]
 
-        if (data.visit && (data.utm.utm_source != old_utm.utm_source) ) data.visit = 0;
+        if (data.visit && (data.utm.utm_source != old_utm.utm_source) ) data.visit = 0 // ???
+
+        // TODO Проверка всех значений 
 
         if (search.match(/utm_medium=/))
             data.utm.utm_medium = search.split('utm_medium=')[1].split('&')[0]
@@ -93,12 +105,6 @@ export default function init(options) {
         let utm = getLocalStorage('utm')
         if (utm) data.utm = JSON.parse(utm)
     }
-
-    // if (data.visit && document.referrer) {
-    //     if ( data.referrer != document.referrer ) {
-    //         data.visit = 0
-    //     }
-    // }
 
     if (data.visit) {
         //send(data)
@@ -156,7 +162,7 @@ function send(data, type = 'update') {
     })
     .always(function(res) {
        //END
-       console.info('INFO', data, res)
+    //    console.info('INFO', data, res)
     })
 }
 
@@ -242,8 +248,10 @@ function intervalCheck() {
     let checks = 0
     let interval = 50
     let maxTimeout = 3000
+    
+    data.page_view_tracker = getLocalStorage('pageViewTracker')
 
-    let maxChecks = maxTimeout / interval,
+    let maxChecks = maxTimeout / interval, 
 
     t = setInterval(function () {
 
