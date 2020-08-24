@@ -13,6 +13,7 @@ moment.locale('ru')
 const API = {
     methods: {
         order: 'https://private.bk-invent.ru/api/site/create-lead-from-form',
+        //order: 'http://localhost/api/site/create-lead-from-form',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
         //analytic: 'http://localhost/api/analytic',

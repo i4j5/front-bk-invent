@@ -515,32 +515,39 @@
     // width 100%
     a
         text-decoration none
-    flex-grow 1
+    // flex-grow 1
     &__image
         margin 0 20px
         width 50px
-        height 45px
-        background-image url(../images/logo-mobile.png)
-        @media (min-width 390px)
-            width 77px
-            height 70px
-            margin 0 20px 0 0 
-            background-image url(../images/logo.png)
+        height 50px
+        background-image url(../images/logo_min.svg)
+        @media (min-width 480px)
+            background-image url(../images/logo.svg)
+            width 200px
+            height 40px
+            margin 0 
+        @media (min-width 530px)
+            width 255px
+            height 48px
+            // margin 0
+            //background-image url(../images/logo.svg)
         background-repeat no-repeat
         background-size contain
         margin-right 15px
-        float left
+        // float left
     &__description
         display none
-        @media (min-width 530px)
-            display block
         width 100%
-        font-size 14px
+        font-size 10px
         color #2f2f2f
         line-height 1.3em
-        padding-top 8px
+        // padding-top 8px
         font-weight 600
 
+        @media (min-width 480px)
+            display block
+        @media (min-width 530px)
+            font-size 12px
 .phone
     display inline-block
     width max-content
@@ -3867,12 +3874,13 @@ _padding($d)
     padding-top 60px
     &__logo
         position absolute
-        width 100px
-        height 100px 
+        width 80px
+        height 80px 
         top - 45px 
-        left calc(50% - 50px)
+        left calc(50% - 40px)
         border-radius 100%
-        background #fff url('../images/logo.png') no-repeat center
+        background #fff url('../images/logo_min.svg') no-repeat center
+        background-size 60px
     &__title
         text-align center 
         margin-bottom 40px
