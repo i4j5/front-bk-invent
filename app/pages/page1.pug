@@ -484,8 +484,22 @@ block content
                 +e.wrapper.container
                     +e.title Водоснабжение и канализация для частных домов
                     +e.description Работаем в Ростов-на-дону и Ростовской области
-                    .btn(data-modal="modal__order").btn_view_light.offer__btn
-                        .btn__text Записаться на консультацию
+                    //- .btn(data-modal="modal__order").btn_view_light.offer__btn
+                    //-     .btn__text Записаться на консультацию
+                    div 
+                        +b.installment
+                            +e.title Рассрочка
+                            .row 
+                                +e.item.col
+                                    +e.item-title 0₽
+                                    span Первый взнос
+                                +e.item.col
+                                    +e.item-title 0%
+                                    span Переплат
+                                +e.item.col
+                                    +e.item-title 12 
+                                    span Месяцев
+                    
                 +b.breadcrumbs
                     +e.wrapper.container
                         +e.home.breadcrumbs__item
@@ -533,6 +547,18 @@ block content
 
 
             .content
+
+                section.container
+
+                    .btn(data-quiz="modal__quiz1").run-quiz.btn_view_action
+                        .btn__text Пройти опрос!
+
+                    picture
+                        source(srcset="https://bk-invent.ru/uploads/images/banner/gaz/400.jpg" media="(min-width: 320px)")
+                        source(srcset="https://bk-invent.ru/uploads/images/banner/gaz/700.jpg" media="(min-width: 400px)")
+                        source(srcset="https://bk-invent.ru/uploads/images/banner/gaz/1160.jpg" media="(min-width: 700px)")
+                        img(src="https://bk-invent.ru/uploads/images/banner/gaz/400.jpg")
+
                 .container
 
                     +b.cases.cases__presentation
@@ -681,6 +707,7 @@ block content
                 //- .difference
                 //-     span
                 //- .countdown
+
 
                 section.form-horizontal
                     .container

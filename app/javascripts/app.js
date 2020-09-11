@@ -5,6 +5,8 @@ require('./modal')
 require('./resize')
 require('./menu')
 // require('./share') // Акция
+require('./quiz.js')
+// require('./banner.js')
 import Analytic from './analytic';
 import PageViewTracker from './pageViewTracker';
 const moment = require('moment')
@@ -75,8 +77,6 @@ $(function() {
     //     var coord = getPosition(e);
     //     console.log(coord.x + "," + coord.y)
     // });
-
-
 
     let $leadHunter = $('#lead-hunter')
 
