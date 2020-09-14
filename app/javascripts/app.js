@@ -5,12 +5,12 @@ require('./modal')
 require('./resize')
 require('./menu')
 // require('./share') // Акция
-require('./quiz.js')
+// require('./quiz.js')
 // require('./banner.js')
 import Analytic from './analytic';
 import PageViewTracker from './pageViewTracker';
-const moment = require('moment')
-moment.locale('ru')
+// const moment = require('moment')
+// moment.locale('ru')
 
 const API = {
     methods: {
@@ -52,31 +52,6 @@ $(function() {
             $this.html( phone.substring(1).replace(/(\d)(\d\d\d)(\d\d\d)(\d\d)(\d\d)/, '8 ($2) $3-$4-$5') )
        }
     })
-
-    // function getPosition(e){
-        
-    //     let x = 0
-    //     let y = 0
-     
-    //     if (!e) {
-    //         var e = window.event;
-    //     }
-     
-    //     if (e.pageX || e.pageY){
-    //         x = e.pageX;
-    //         y = e.pageY;
-    //     } else if (e.clientX || e.clientY){
-    //         x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-    //         y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-    //     }
-     
-    //     return {x: x, y: y}
-    // }
-
-    // $('body').mousemove(function(e){
-    //     var coord = getPosition(e);
-    //     console.log(coord.x + "," + coord.y)
-    // });
 
     let $leadHunter = $('#lead-hunter')
 
@@ -121,11 +96,11 @@ $(function() {
         }
     })
 
-    $('.articles__date').each((index, el) => {
-        let $this = $(el)
-        let date = moment($this.html(), "DDMMYYYY")
-        $this.html(moment(date).format('LL'))
-    })
+    // $('.articles__date').each((index, el) => {
+    //     let $this = $(el)
+    //     let date = moment($this.html(), "DDMMYYYY")
+    //     $this.html(moment(date).format('LL'))
+    // })
 
     $('.product').hover(function() {
 		$(this).children('.product__img').addClass('product__img_hover')
