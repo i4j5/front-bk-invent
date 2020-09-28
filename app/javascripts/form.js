@@ -3,11 +3,11 @@
 //==========
 
 const $ = require('jquery')
-require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
+// require('../../node_modules/jquery.maskedinput/src/jquery.maskedinput')
 
 $(function() {
 
-    $("input[name='phone']").mask('+7 (999) 999-9999', {autoclear: false})
+    // $("input[name='phone']").mask('+7 (999) 999-9999', {autoclear: false})
 
     $('.input_type_file .input__control').each(function() {
         let $input = $(this)
