@@ -7,6 +7,7 @@ require('./menu')
 // require('./share') // Акция
 // require('./quiz.js')
 // require('./banner.js')
+// require('./mainPage.js')
 import Analytic from './analytic';
 import PageViewTracker from './pageViewTracker';
 // const moment = require('moment')
