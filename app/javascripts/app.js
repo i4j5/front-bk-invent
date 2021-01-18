@@ -4,6 +4,7 @@ require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('./modal')
 require('./resize')
 require('./menu')
+// require('./videobox')
 // require('./share') // Акция
 // require('./quiz.js')
 // require('./banner.js')

@@ -35,7 +35,7 @@ $(function() {
         scrollPos = st
     })
 
-    $(window).resize(function() {
+    $(window).resize(function() {    
 
         if ($(this).width() < 1160) {
             $offer.css({

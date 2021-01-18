@@ -483,7 +483,7 @@ block content
                                           
 
         .main
-            +b.offer(style="background-image:url(images/offer1.jpg);")
+            +b.offer(style="background-image:url(images/offer1.jpg);")#ddd
                 +e.wrapper.container
                     +e.title Водоснабжение и канализация для частных домов
                     +e.description Работаем в Ростов-на-дону и Ростовской области
@@ -550,6 +550,11 @@ block content
 
 
             .content
+
+
+                //- section.container
+                //-     +b.videobox <iframe class="videobox__youtube" src="https://www.youtube-nocookie.com/embed/UBn4so20DO8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
                 section.container
 
@@ -1492,90 +1497,95 @@ block content
                             img(src="images/logo8.jpg")
                         .logos__item
                             img(src="images/logo9.jpg")
-                    
-                
-                
-                .form-box
-                    .form-box__wrapper
-                        .form-box__header
-                            .form-box__title Заполните контактную информацию
-                            .form-box__description Для того, чтобы начать работу прямо сейчас, необходимо заполнить форму:
-                        form.form.ajax
-                            .form-box__items
-                                .form-box__item
-                                    .form-box__label Получить бесплатную консультацию от:
-                                    +b.radio 
-                                        +e({tag: 'label'}).item                                     
-                                            input(name='comment' type='radio').radio__control
-                                            .radio__box
-                                            .radio__text Cпециалиста по оформлению документов 
+                .videobox    
+                    .container
+                        .row
+                            .col.col_size_12.col_size-md_6
+                                .videobox__play
+                                    .videobox__title Краткий экскурс в историю БК Инвент!
+
+                            .col.col_size_12.col_size-md_6
+                                .form-box
+                                    .form-box__wrapper
+                                        .form-box__header
+                                            .form-box__title Заполните контактную информацию
+                                            .form-box__description Для того, чтобы начать работу прямо сейчас, необходимо заполнить форму:
+                                        form.form.ajax
+                                            .form-box__items
+                                                .form-box__item
+                                                    .form-box__label Получить бесплатную консультацию от:
+                                                    //- +b.radio 
+                                                    //-     +e({tag: 'label'}).item                                     
+                                                    //-         input(name='comment' type='radio').radio__control
+                                                    //-         .radio__box
+                                                    //-         .radio__text Cпециалиста по оформлению документов 
+                                                    
+                                                    //-     +e({tag: 'label'}).item                                     
+                                                    //-         input(name='comment' type='radio').radio__control
+                                                    //-         .radio__box
+                                                    //-         .radio__text Ведущего инженера
                                     
-                                        +e({tag: 'label'}).item                                     
-                                            input(name='comment' type='radio').radio__control
-                                            .radio__box
-                                            .radio__text Ведущего инженера
-                      
-                                        +e({tag: 'label'}).item                                     
-                                            input(name='comment' type='radio').radio__control
-                                            .radio__box
-                                            .radio__text Инженера-консультанта общего профиля
+                                                    //-     +e({tag: 'label'}).item                                     
+                                                    //-         input(name='comment' type='radio').radio__control
+                                                    //-         .radio__box
+                                                    //-         .radio__text Инженера-консультанта общего профиля
 
-                                        +e({tag: 'label'}).item                                     
-                                            input(name='comment' type='radio').radio__control
-                                            .radio__box
-                                            .radio__text Юриста
-                                .form-box__item
-                                    .input.input_type_name
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Имя
-                                            //- .input__icon
-                                            input(name='name').input__control
-                                        .input__message(data-default="Укажите точно как в паспорте")
-                                .form-box__item
-                                    .input.input_type_phone
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Телефон
-                                            //- .input__icon
-                                            input(name='phone').input__control
-                                        .input__message
-                                .form-box__item                                        
-                                    .input.input_type_email
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Email
-                                            //- .input__icon
-                                            input(name='email').input__control
-                                        .input__message
+                                                    //-     +e({tag: 'label'}).item                                     
+                                                    //-         input(name='comment' type='radio').radio__control
+                                                    //-         .radio__box
+                                                    //-         .radio__text Юриста
+                                                .form-box__item
+                                                    .input.input_type_name
+                                                        .input__box
+                                                            .input__top-border
+                                                            .input__title Имя
+                                                            //- .input__icon
+                                                            input(name='name').input__control
+                                                        .input__message(data-default="Укажите точно как в паспорте")
+                                                .form-box__item
+                                                    .input.input_type_phone
+                                                        .input__box
+                                                            .input__top-border
+                                                            .input__title Телефон
+                                                            //- .input__icon
+                                                            input(name='phone').input__control
+                                                        .input__message
+                                                .form-box__item                                        
+                                                    .input.input_type_email
+                                                        .input__box
+                                                            .input__top-border
+                                                            .input__title Email
+                                                            //- .input__icon
+                                                            input(name='email').input__control
+                                                        .input__message
 
-                                .form-box__item
-                                    .input.input_type_select
-                                        .input__box
-                                            .input__top-border
-                                            .input__title Выберите специалиста
-                                            //- .input__icon
-                                            input(name='name').input__control
-                                            .input__text
-                                            .input__items
-                                                .input__item(data-value="123") Cпециалист по оформлению документов
-                                                .input__item(data-value="32312") Ведущий инженер
-                                                .input__item(data-value="32312") Инженер-консультант общего профиля
-                                                .input__item(data-value="32312") Юрист
-                                        .input__message(data-default="Укажите точно как в паспорте")
-                                
-                                .form-box__item                                   
-                                    button(type="submit").btn.btn_view_action
-                                        .btn__text Записаться на консультацию
-                                .form-box__item
-                                    +b.checkbox.checkbox_theme_light 
-                                        +e({tag: 'label'}).item                                     
-                                            input(name='privacy' type='checkbox' checked).checkbox__control
-                                            .checkbox__box
-                                        .checkbox__text 
-                                            |Согласен  
-                                            +e({tag: 'a'}).link на обработку персональных данных
-                    
+                                                //- .form-box__item
+                                                //-     .input.input_type_select
+                                                //-         .input__box
+                                                //-             .input__top-border
+                                                //-             .input__title Выберите специалиста
+                                                //-             //- .input__icon
+                                                //-             input(name='name').input__control
+                                                //-             .input__text
+                                                //-             .input__items
+                                                //-                 .input__item(data-value="123") Cпециалист по оформлению документов
+                                                //-                 .input__item(data-value="32312") Ведущий инженер
+                                                //-                 .input__item(data-value="32312") Инженер-консультант общего профиля
+                                                //-                 .input__item(data-value="32312") Юрист
+                                                //-         .input__message(data-default="Укажите точно как в паспорте")
+                                                
+                                                .form-box__item                                   
+                                                    button(type="submit").btn.btn_view_action
+                                                        .btn__text Записаться на консультацию
+                                                .form-box__item
+                                                    +b.checkbox.checkbox_theme_light 
+                                                        +e({tag: 'label'}).item                                     
+                                                            input(name='privacy' type='checkbox' checked).checkbox__control
+                                                            .checkbox__box
+                                                        .checkbox__text 
+                                                            |Согласен  
+                                                            +e({tag: 'a'}).link на обработку персональных данных
+                            
 
                 .container  
                     p Вы можете скачать материал, который содержит в себе следующую информацию: какая документация понадобится от вас в процессе подключения водоснабжения, какая этапность подключения воды, и какой пакет документов вы обязаны иметь на выходе (предоставляем мы), чтобы пользоваться водопроводом законно и гарантированно. 
@@ -1810,7 +1820,11 @@ block content
     
 
 
-
+    .modal.modal_type_quiz#modal__videobox
+        .modal__wrapper
+            .modal__dialog
+                .close.modal__close
+                div <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/UBn4so20DO8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
     .modal.modal_type_zoom#modal__first-vizit
