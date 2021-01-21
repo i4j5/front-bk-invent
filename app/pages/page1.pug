@@ -552,8 +552,31 @@ block content
             .content
 
 
-                //- section.container
-                //-     +b.videobox <iframe class="videobox__youtube" src="https://www.youtube-nocookie.com/embed/UBn4so20DO8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                section.container
+                    +b.slider
+                        +e.wrapper
+                            //- +e.next
+                            //- +e.prev
+                            +e.items
+                                +e.item
+                                    +e.body
+                                        .row 
+                                            .col.col_size_12.col_size-sm_12.col_size-md_6.col_size-lg_6
+                                                img(src="https://info-tses.kz/wp-content/uploads/2019/10/D_x-f9IXkAIpKdo-600x400.jpg")
+                                            .col.col_size_12.col_size-sm_12.col_size-md_6.col_size-lg_6
+                                                |1234
+                                +e.item
+                                    +e.body 2
+                                +e.item
+                                    +e.body 3
+                                +e.item
+                                    +e.body 4
+                                +e.item
+                                    +e.body 5
+                                +e.item
+                                    +e.body 6
+                                +e.item
+                                    +e.body 7
 
 
                 section.container

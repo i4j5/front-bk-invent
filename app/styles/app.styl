@@ -4184,3 +4184,65 @@ blog_size($n)
     border-radius 4px
     width 100%
     height auto
+
+.slider
+    .bx-wrapper
+        max-width 1160px !important
+        width 100%
+    display block
+    // margin 0px -10px
+    width 100%
+    // background #FFFFFF
+    // border 1px solid rgba(231, 231, 231, 0.35)
+    // box-sizing border-box
+    // box-shadow 0px 2px 10px rgba(0, 0, 0, 0.1)
+    // border-radius 10px
+    &__wrapper
+        position relative
+    .bx-next
+    .bx-prev
+        top 50%
+        transform translateY(-50%)
+        position absolute
+        border-radius 100%
+        background #fff
+        border 2px solid #4274d6
+        width 42px 
+        height 42px
+        &:before
+        &:after
+            content ''
+            position absolute
+            width 18px
+            height 2px
+            background #4274d6
+    .bx-prev
+        left -20px
+        &:before
+            transform rotate(-45deg)
+            top 13px
+            left 10px
+        &:after
+            transform rotate(45deg)
+            top 25px
+            left 10px
+    .bx-next
+        right -20px
+        &:before
+            transform rotate(45deg)
+            top 13px
+            right 10px
+        &:after
+            transform rotate(-45deg)
+            top 25px
+            right 10px
+    &__item
+        margin 0 10px
+        // background #ddd
+        background #FFFFFF
+        border 1px solid rgba(231, 231, 231, 0.35)
+        box-sizing border-box
+        box-shadow 0px 2px 10px rgba(0, 0, 0, 0.1)
+        border-radius 10px
+    &__body
+        padding 20px 40px 

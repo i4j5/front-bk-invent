@@ -4,6 +4,7 @@ require('../../node_modules/bxslider/dist/jquery.bxslider')
 require('./modal')
 require('./resize')
 require('./menu')
+require('./slider')
 // require('./videobox')
 // require('./share') // Акция
 // require('./quiz.js')
@@ -141,7 +142,7 @@ $(function() {
         $(`#${$(this).data('modal')}`).openModal()
     })
 
-    $('.reviews__items').bxSlider({
+    window.ss = $('.reviews__items').bxSlider({
         touchEnabled: false,
         nextText: '',
         prevText: '',
@@ -152,6 +153,9 @@ $(function() {
         touchEnabled: false,
         nextText: '',
         prevText: '',
+        // minSlides: 1,
+        // maxSlides: 3,
+        // slideWidth: 258,
         pager: false,
     })
 
