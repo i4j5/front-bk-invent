@@ -4186,19 +4186,79 @@ blog_size($n)
     height auto
 
 .slider
+    margin 20px 0
+    display block
+    width 100%
+    &__title
+        font-size 16px
+        line-height 1.2em
+        margin-bottom 10px
+    &__text
+        font-size 13px
+        line-height 1.3em
+    &_type_cases
+        .slider__item
+            margin 10px 10px
+            background #FFFFFF
+            border 1px solid rgba(231, 231, 231, 0.35)
+            box-sizing border-box
+            box-shadow 0px 2px 10px rgba(0, 0, 0, 0.1)
+            border-radius 10px
+        .slider__body
+            padding 0px
+        .slider__text
+            padding 0 20px 20px 20px
+        .slider__title
+            padding 12px 20px 10px 20px
+            background #3059ab
+            color #fff
+            border-radius 10px 10px 0 0
+        .bx-pager
+            bottom 0 !important
+    &_type_objects
+        background #FFFFFF
+        border 1px solid rgba(231, 231, 231, 0.35)
+        box-sizing border-box
+        box-shadow 0px 2px 10px rgba(0, 0, 0, 0.1)
+        border-radius 10px
+        .slider__body
+            padding 20px 40px 
+        .slider__title
+            font-size 20px
+            margin 10px 0 
+
     .bx-wrapper
         max-width 1160px !important
         width 100%
-    display block
-    // margin 0px -8px
-    width 100%
-    // background #FFFFFF
-    // border 1px solid rgba(231, 231, 231, 0.35)
-    // box-sizing border-box
-    // box-shadow 0px 2px 10px rgba(0, 0, 0, 0.1)
-    // border-radius 10px
+    .bx-viewport
+        height auto !important
+    &__items
+        display flex
+        flex-wrap wrap
+
     &__wrapper
         position relative
+
+    .bx-pager
+        display flex
+        flex-wrap wrap
+        justify-content center
+        align-items center
+        bottom -20px
+        position relative
+    // .bx-pager-item
+    .bx-pager-link
+        display block
+        width 10px
+        height 10px
+        border 2px solid #4274d6
+        font-size 0
+        border-radius 100% 
+        margin 0 2px
+    .bx-pager-link.active
+        background #4274d6
+
+    
     .bx-next
     .bx-prev
         top 50%
@@ -4213,36 +4273,26 @@ blog_size($n)
         &:after
             content ''
             position absolute
-            width 18px
+            width 15px
             height 2px
             background #4274d6
     .bx-prev
         left -20px
         &:before
             transform rotate(-45deg)
-            top 13px
+            top 14px
             left 10px
         &:after
             transform rotate(45deg)
-            top 25px
+            top 24px
             left 10px
     .bx-next
         right -20px
         &:before
             transform rotate(45deg)
-            top 13px
+            top 14px
             right 10px
         &:after
             transform rotate(-45deg)
-            top 25px
+            top 24px
             right 10px
-    &__item
-        margin 0 10px
-        // background #ddd
-        background #FFFFFF
-        border 1px solid rgba(231, 231, 231, 0.35)
-        box-sizing border-box
-        box-shadow 0px 2px 10px rgba(0, 0, 0, 0.1)
-        border-radius 10px
-    &__body
-        padding 20px 40px 

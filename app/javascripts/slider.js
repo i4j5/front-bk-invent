@@ -2,7 +2,7 @@ const $ = require('jquery')
 
 $(function() {
 
-    $('.slider__items').bxSlider({
+    $('.slider_type_cases .slider__items').bxSlider({
         touchEnabled: false,
         nextText: '',
         prevText: '',
@@ -11,7 +11,14 @@ $(function() {
         minSlides: 1,
         maxSlides: 4,
         slideWidth: 271,
-        pager: false,
+        pager: true,
+    })
+
+    $('.slider_type_objects .slider__items').bxSlider({
+        touchEnabled: false,
+        nextText: '',
+        prevText: '',
+        pager: true,
     })
 
 
