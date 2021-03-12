@@ -489,19 +489,25 @@ block content
                     +e.description Работаем в Ростов-на-дону и Ростовской области
                     //- .btn(data-modal="modal__order").btn_view_light.offer__btn
                     //-     .btn__text Записаться на консультацию
-                    div 
-                        +b.installment
-                            +e.title Рассрочка
-                            .row 
-                                +e.item.col
-                                    +e.item-title 0₽
-                                    span Первый взнос
-                                +e.item.col
-                                    +e.item-title 0%
-                                    span Переплат
-                                +e.item.col
-                                    +e.item-title 12 
-                                    span Месяцев
+
+                    +b.price-per-day 
+                        +e.wrapper 
+                            //- +e.close
+                            +e.text Водоснабжение и канализация<br>от 398 руб./день
+                            +e.btn Подробнее
+                    //- div 
+                    //-     +b.installment
+                    //-         +e.title Рассрочка
+                    //-         .row 
+                    //-             +e.item.col
+                    //-                 +e.item-title 0₽
+                    //-                 span Первый взнос
+                    //-             +e.item.col
+                    //-                 +e.item-title 0%
+                    //-                 span Переплат
+                    //-             +e.item.col
+                    //-                 +e.item-title 12 
+                    //-                 span Месяцев
                     
                 +b.breadcrumbs
                     +e.wrapper.container
