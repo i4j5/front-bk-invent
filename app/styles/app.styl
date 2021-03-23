@@ -4206,14 +4206,16 @@ blog_size($n)
             border-radius 10px
         .slider__body
             padding 20px
-        .slider__text
-            padding 0 20px 20px 20px
-        .slider__title
-            padding 12px 20px 10px 20px
-            background #3059ab
-            color #fff
-            border-radius 10px 10px 0 0
+        // .slider__text
+        //     padding 0 20px 20px 20px
+        // .slider__title
+        //     padding 12px 20px 10px 20px
+        //     background #3059ab
+        //     color #fff
+        //     border-radius 10px 10px 0 0
         .bx-pager
+            @media (max-width 550px)
+                display none !important
             bottom 0 !important
     &_type_cases
         background #FFFFFF
@@ -4461,15 +4463,16 @@ blog_size($n)
     // &__body
 
     &__img
-        width 50px !important
-        height 50px !important
+        width 45px !important
+        height 45px !important
         border-radius 100% !important
     &__name
         padding 10px
+        line-height 1.28em
     &__title
         line-height 1.24em
-        font-size 16px
-        margin-bottom 10px
+        font-size 15px
+        margin-bottom 8px
    
 
     // .feedback__text-visible
@@ -4485,8 +4488,8 @@ blog_size($n)
             cursor pointer
 
     &__text
-        line-height 1.24em
-        font-size 14px
+        line-height 1.25em
+        font-size 13px
         &_open
             .feedback__text-invisible
                 display inherit

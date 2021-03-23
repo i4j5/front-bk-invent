@@ -18,8 +18,8 @@ $(function() {
         nextText: '',
         prevText: '',
         minSlides: 1,
-        maxSlides: 3,
-        slideWidth: 368,
+        maxSlides: 4,
+        slideWidth: 270,
         pager: true,
         stopAutoOnClick: true,
         onSlideBefore: function() {
