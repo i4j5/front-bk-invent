@@ -30,6 +30,16 @@ PageViewTracker()
 
 $(function() {
 
+    $('.cut__more>a').click(function() {
+        let $this = $(this)
+        $this.parent().parent().addClass('cut_open')
+    })
+
+    $('.cut__dide>a').click(function() {
+        let $this = $(this)
+        $this.parent().parent().parent().removeClass('cut_open')
+    })
+
     let analytic = Analytic({
         url: API.methods.analytic,
         select: '.dynamic-phone'
@@ -166,6 +176,17 @@ $(function() {
         auto: true,
         pause: 4000,
         pager: false,
+    })
+
+
+    $('.cut__more>a').click(function() {
+        let $this = $(this)
+        $this.parent().parent().addClass('cut__text_open')
+    })
+
+    $('.cut__dide>a').click(function() {
+        let $this = $(this)
+        $this.parent().parent().parent().removeClass('cut__text_open')
     })
 
 

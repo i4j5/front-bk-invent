@@ -24,6 +24,7 @@ $(function() {
         stopAutoOnClick: true,
         onSlideBefore: function() {
             $('.feedback__text_open').removeClass('feedback__text_open')
+            this.find('.cut_open').removeClass('cut_open')
         }
     })
 
@@ -36,9 +37,9 @@ $(function() {
         slideWidth: 270,
         pager: true,
         stopAutoOnClick: true,
-        // onSlideBefore: function() {
-        //     $('.feedback__text_open').removeClass('feedback__text_open')
-        // }
+        onSlideBefore: function() {
+            this.find('.cut_open').removeClass('cut_open')
+        }
     })
 
     $('.slider_type_cases .slider__items').bxSlider({
@@ -46,17 +47,11 @@ $(function() {
         nextText: '',
         prevText: '',
         pager: true,
+        onSlideBefore: function() {
+            this.find('.cut_open').removeClass('cut_open')
+        }
     })
 
-    // $('.cases__items').bxSlider({
-    //     touchEnabled: false,
-    //     nextText: '',
-    //     prevText: '',
-    //     // minSlides: 1,
-    //     // maxSlides: 3,
-    //     // slideWidth: 258,
-    //     pager: false,
-    // })
 
     $('.feedback__more>a').click(function() {
         let $this = $(this)
