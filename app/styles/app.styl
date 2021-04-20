@@ -85,7 +85,7 @@
 .menu
     a
         text-decoration none
-    background #2b519e
+    background #364d8c
     z-index 120
     display none
     position relative
@@ -107,7 +107,7 @@
         position relative
         //width 100%
         padding 8px 10px 8px 10px  
-        background #2b519e
+        background #364d8c
         transition .2s ease-out
         border-left 1px solid rgba(255, 255, 255, .08)
         &:last-child
@@ -569,7 +569,7 @@
     &__icon
         width 22px
         height 22px
-        background-image url(../images/phone.svg)
+        background-image url(../images/n/phone.svg)
         background-repeat no-repeat
         background-size contain
         margin -1px 10px 0 0
@@ -1220,14 +1220,14 @@ ul.list
         right 10px
         top -1px
         border-top 2px solid
-        border-top-color #d6dcf5
+        border-top-color #DEE3EB
         transition all .2s ease 0s //transition border-color .13s ease-in,width 0s .1s;
         width calc(100% - 20px)
     &__box
         // box-shadow 0 2px 11px -4px rgba(0, 0, 0, 0.2)
         background-color #fff
         padding 0.556em 0.5em 0.556em 0.833em
-        border 2px solid #d6dcf5
+        border 2px solid #DEE3EB
         border-top 0
         border-radius 4px
         width 100%
@@ -1244,7 +1244,7 @@ ul.list
             width 11px
             height 8px
             border-top 2px solid
-            border-top-color #d6dcf5
+            border-top-color #DEE3EB
         &:before
             left -1px
             border-top-left-radius 4px
@@ -1355,13 +1355,13 @@ ul.list
             // &__title
         &_name
             .input__box
-                background-image url(../images/input_type_name.png)
+                background-image url(../images/n/user.svg)
         &_phone
             .input__box
-                background-image url(../images/input_type_phone.png)
+                background-image url(../images/n/phone.svg)
         &_email
             .input__box
-                background-image url(../images/input_type_email.png)
+                background-image url(../images/n/email.svg)
         &_select
             position relative
             &:before
@@ -1371,7 +1371,7 @@ ul.list
                 position absolute
                 width 12px
                 height 2px
-                background #84aeff
+                background #364d8c
                 border-radius 4px
                 top 1.15em
                 z-index 1
@@ -1635,7 +1635,6 @@ ul.list
             grid-template-columns 175px calc(100% - 175px)
             .stages__line
                 margin 10px 0 10px 79px
-
 
         &:last-child>.stages__line
             display none
@@ -3017,22 +3016,21 @@ img.zoom-img
         // transform translate(-50%, -50%)
 
 .logos
+    .bx-viewport
+        height auto !important
     text-align center 
-    display flex
-    flex-wrap wrap
-    justify-content center
+    width 100%
     &__item
-        width calc(33% - 10px)
-        margin 5px
+        margin 5px 10px
         text-align center 
         img
-            // max-width 156px
+            max-width 100%
             width auto
-        @media (min-width 640px)
-            width calc(20% - 20px)
-            margin 10px
-        @media (min-width 1140px)
-            width calc(20% - 20px)
+        // @media (min-width 640px)
+        //     width calc(20% - 20px)
+        //     margin 10px
+        // @media (min-width 1140px)
+        //     width calc(20% - 20px)
 
 
 .map
@@ -3654,7 +3652,7 @@ _padding($d)
         color #fff
         padding 35px 20px 10px 20px
         border-radius 4px 4px 0 0 
-        background #3059ab
+        background #364d8c
         text-align center
     &__body
         padding 0 20px 20px 20px 

@@ -13,11 +13,28 @@ $(function() {
     //     stopAutoOnClick: true,
     // })
 
+    $('.logos__items').bxSlider({
+        touchEnabled: false,
+        nextText: '',
+        prevText: '',
+        minSlides: 1,
+        moveSlides: 1,
+        maxSlides: 100,
+        slideWidth: 90,
+        auto: true,
+        pause: 1300,
+        stopAutoOnClick: true,
+        pager: false,
+        controls: false,
+        autoHover: true
+    })
+
     $('.slider_type_feedbacks .slider__items').bxSlider({
         touchEnabled: false,
         nextText: '',
         prevText: '',
         minSlides: 1,
+        moveSlides: 1,
         maxSlides: 4,
         slideWidth: 270,
         pager: true,
@@ -33,6 +50,7 @@ $(function() {
         nextText: '',
         prevText: '',
         minSlides: 1,
+        moveSlides: 1,
         maxSlides: 4,
         slideWidth: 270,
         pager: true,

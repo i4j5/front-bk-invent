@@ -6,15 +6,70 @@ block content
         .main
             .content
                 section.container
-                    +b({tag:'span'}).cut
-                        +e.visible 1 
-                        +e.invisible
-                            | 2 
-                            +e.dide 
-                                a cкрыть
-                        +e.more 
-                            +e.ellipsis 
-                            a eщё
+                    +b.title 
+                        +e.wrap
+                            +e.text Образцы наших проектов
+                    .row 
+                        .col.col_size_12.col_size-sm_12.col_size-md_4
+                            img(data-src="images/p/p1/0.jpg" data-modal="p1").zoom-img
+                            .modal.modal_type_zoom#p1
+                                .modal__wrapper
+                                    .modal__dialog
+                                        .close.modal__close
+                                        .modal__html 
+                                            +b.slider.slider_type_cases
+                                                +e.wrapper
+                                                    +e.items
+                                                        +e.item
+                                                            img(data-src="images/p/p1/1.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p1/2.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p1/3.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p1/4.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p1/5.jpg" )
+                        .col.col_size_12.col_size-sm_12.col_size-md_4
+                            img(data-src="images/p/p2/0.jpg" data-modal="p2").zoom-img
+                            .modal.modal_type_zoom#p2
+                                .modal__wrapper
+                                    .modal__dialog
+                                        .close.modal__close
+                                        .modal__html 
+                                            +b.slider.slider_type_cases
+                                                +e.wrapper
+                                                    +e.items
+                                                        +e.item
+                                                            img(data-src="images/p/p2/1.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p2/2.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p2/3.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p2/4.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p2/5.jpg" )
+                        .col.col_size_12.col_size-sm_12.col_size-md_4
+                            img(data-src="images/p/p3/0.jpg" data-modal="p3").zoom-img
+                            .modal.modal_type_zoom#p3
+                                .modal__wrapper
+                                    .modal__dialog
+                                        .close.modal__close
+                                        .modal__html 
+                                            +b.slider.slider_type_cases
+                                                +e.wrapper
+                                                    +e.items
+                                                        +e.item
+                                                            img(data-src="images/p/p3/1.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p3/2.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p3/3.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p3/4.jpg" )
+                                                        +e.item
+                                                            img(data-src="images/p/p3/5.jpg" )
                 section.container
                     +b.title 
                         +e.wrap
