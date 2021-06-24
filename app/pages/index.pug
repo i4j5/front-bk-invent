@@ -4,6 +4,18 @@ prepend head
 block content
     .page__main                               
         .main
+            +b.banner(style="background-image:url(images/baner1.jpg);")
+                +e.box
+                    +e.text
+                        .offer__title Водоснабжение и канализация для частных домов
+                        .offer__description Работаем в Ростов-на-дону и Ростовской области
+            +b.banner(style="background-image:url(images/baner1.jpg);")
+                +e.box
+                    +e.text
+                        .offer__title Согласованный проект на воду и канализацию
+                        .offer__description В Ростове-на-Дону и Ростовской области
+                        | <div style=" font-size: .8em; line-height: 1.8em; color: #fff; margin-top: 15px;">Проект наружных сетей<br>Проект ВК по инвестиционной программе<br>Проект узла учета ХСВ<br>Проект внутридомовых сетей</div>
+                        | <div class="btn btn_view_light offer__btn" data-modal="modal__price-per-day"><div class="btn__text"> Согласованный проект водоснабжения: от 557 руб. / день</div></div>
             .content
                 section.container
                     +b.title 

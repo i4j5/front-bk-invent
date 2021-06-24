@@ -11,22 +11,24 @@ require('./slider')
 // require('./banner.js')
 // require('./mainPage.js')
 import Analytic from './analytic';
-import PageViewTracker from './pageViewTracker';
+// import PageViewTracker from './pageViewTracker';
 // const moment = require('moment')
 // moment.locale('ru')
 
 const API = {
     methods: {
-        order: 'https://private.bk-invent.ru/api/site/create-lead-from-form',
+        order: 'https://bkinvent.space/api/site/create-lead',
+        // order: 'http://localhost:8000/api/site/create-lead',
+        // order: 'https://private.bk-invent.ru/api/site/create-lead-from-form',
         //order: 'http://localhost/api/site/create-lead-from-form',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
         //analytic: 'http://localhost/api/analytic',
-        analytic: 'https://private.bk-invent.ru/api/analytic',
+        // analytic: 'https://private.bk-invent.ru/api/analytic',
     }
 }
 
-PageViewTracker()
+// PageViewTracker()
 
 $(function() {
 
@@ -40,10 +42,12 @@ $(function() {
         $this.parent().parent().parent().removeClass('cut_open')
     })
 
-    let analytic = Analytic({
-        url: API.methods.analytic,
-        select: '.dynamic-phone'
-    })
+    let analytic = window.VISIT
+
+    // let analytic = Analytic({
+    //     url: API.methods.analytic,
+    //     select: '.dynamic-phone'
+    // })
 
     $('[name="name"]').val(analytic.getLocalStorage('name'))
     $('[name="email"]').val(analytic.getLocalStorage('email'))
@@ -258,7 +262,7 @@ $(function() {
                 formData.append('metrika_client_id', dataAnalytic.metrika_client_id)
                 formData.append('google_client_id', dataAnalytic.google_client_id)
                 formData.append('referrer', dataAnalytic.referrer)
-                formData.append('page_view_tracker', analytic.getLocalStorage('pageViewTracker'))
+                // formData.append('page_view_tracker', analytic.getLocalStorage('pageViewTracker'))
                 //formData.append('roistat', roistat.getVisit())
 
                 $.each( dataAnalytic.utm, function( key, value ) {

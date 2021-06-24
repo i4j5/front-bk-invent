@@ -17,7 +17,6 @@ $(function() {
     let n = 4
     let i = 1
     $items.each(function( index ) {
-        console.log(n, i)
         if((i === 4) && (n === 4)) {
             $(this).addClass('blog__item_big')
             n = 3
