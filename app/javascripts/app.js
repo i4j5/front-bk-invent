@@ -17,10 +17,8 @@ import Analytic from './analytic';
 
 const API = {
     methods: {
-        order: 'https://bkinvent.space/api/site/create-lead',
+        order: 'https://bkinvent.na4u.ru/api/site/create-lead',
         // order: 'http://localhost:8000/api/site/create-lead',
-        // order: 'https://private.bk-invent.ru/api/site/create-lead-from-form',
-        //order: 'http://localhost/api/site/create-lead-from-form',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
         //analytic: 'http://localhost/api/analytic',
