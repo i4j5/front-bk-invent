@@ -260,6 +260,7 @@ $(function() {
                 formData.append('metrika_client_id', dataAnalytic.metrika_client_id)
                 formData.append('google_client_id', dataAnalytic.google_client_id)
                 formData.append('referrer', dataAnalytic.referrer)
+                formData.append('comment', 'Вопрос: ' + formData.get('text'))
                 // formData.append('page_view_tracker', analytic.getLocalStorage('pageViewTracker'))
                 //formData.append('roistat', roistat.getVisit())
 
@@ -269,9 +270,9 @@ $(function() {
 
                 let method =  'order'
 
-                if (formData.has('method')) {
-                    method =  formData.get('method')
-                }
+                // if (formData.has('method')) {
+                //     method =  formData.get('method')
+                // }
 
                 if (formData.get('name')) analytic.setLocalStorage('name', formData.get('name'));
                 if (formData.get('phone')) analytic.setLocalStorage('phone', formData.get('phone'));
