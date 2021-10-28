@@ -18,6 +18,7 @@ import Analytic from './analytic';
 const API = {
     methods: {
         order: 'https://bkinvent.na4u.ru/api/site/create-lead',
+        hr: 'https://bkinvent.na4u.ru/api/site/hr',
         // order: 'http://localhost:8000/api/site/create-lead',
         review: 'https://private.bk-invent.ru/api/site/create-review',
         question: 'https://private.bk-invent.ru/api/site/create-question',
@@ -268,11 +269,15 @@ $(function() {
                     formData.append(key, value)
                 })
 
-                let method =  'order'
+                let method = 'order'
 
-                // if (formData.has('method')) {
-                //     method =  formData.get('method')
-                // }
+                if (formData.has('method')) {
+                    //method =  formData.get('method')
+
+                    if (formData.get('method') == 'hr') {
+                        method = 'hr'
+                    }
+                }
 
                 if (formData.get('name')) analytic.setLocalStorage('name', formData.get('name'));
                 if (formData.get('phone')) analytic.setLocalStorage('phone', formData.get('phone'));
@@ -296,13 +301,16 @@ $(function() {
                     if (formData.has('modal')) {
                         $( '#modal__' + formData.get('modal') ).openModal()
                     } else {
-                        $('#modal__ok').openModal()
-                        yaCounter53737453.reachGoal('site')
 
-                        gtag('event', 'Заявка с сайта', { 
-                            'event_category': 'site', 
-                            'event_action': 'form', 
-                        })
+                        if (method == 'order') {
+                            $('#modal__ok').openModal()
+                            yaCounter53737453.reachGoal('site')
+    
+                            gtag('event', 'Заявка с сайта', { 
+                                'event_category': 'site', 
+                                'event_action': 'form', 
+                            })
+                        }
 
                         analytic.setCookie('leadHunterCaugh', '1',  1800000)
                     }
