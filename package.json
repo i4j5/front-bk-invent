@@ -69,6 +69,7 @@
     "stream-combiner2": "^1.1.1",
     "vinyl-named": "^1.1.0",
     "webpack": "^2.4.1",
+    "webpack-cli": "^4.9.1",
     "webpack-stream": "github:jeroennoten/webpack-stream#patch-1"
   },
   "repository": {
