@@ -4,6 +4,17 @@ prepend head
 block content
     .page__main                               
         .main
+            .game-roulette-run
+            .modal.modal_type_zoom#modal__game-roulette
+                .modal__wrapper
+                    .modal__dialog
+                        .close.modal__close
+                        .game-roulette
+                            .game-roulette__drum
+                            .game-roulette__logo
+                        #game-roulette-code
+                        .btn.btn_view_action#gameRouletteBtnRun 
+                            .btn__text GO
             +b.banner(style="background-image:url(images/baner1.jpg);")
                 +e.box
                     +e.text

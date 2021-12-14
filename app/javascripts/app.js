@@ -5,6 +5,7 @@ require('./modal')
 require('./resize')
 require('./menu')
 require('./slider')
+require('./gameRoulette')
 // require('./videobox')
 // require('./share') // Акция
 // require('./quiz.js')
