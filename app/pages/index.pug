@@ -1,20 +1,81 @@
 extends ../blocks/layout-default/layout-default
 prepend head
     title HI
+    |<script src="http://bkinvent.na4u.ru/js/visit-tracker.js"></script>
 block content
     .page__main                               
         .main
+
+
             .game-roulette-run
-            .modal.modal_type_zoom#modal__game-roulette
+            //- .game-roulette-text Раскрути колесо фортуны
+            .modal.modal_type_quiz#modal__game-roulette
                 .modal__wrapper
                     .modal__dialog
                         .close.modal__close
-                        .game-roulette
-                            .game-roulette__drum
-                            .game-roulette__logo
-                        #game-roulette-code
-                        .btn.btn_view_action#gameRouletteBtnRun 
-                            .btn__text GO
+
+                        .row
+                            .col.col_size_12(style="line-height: 1.3em;")
+                                h3.center ФАБРИКА ФОРТУНЫ БК ИНВЕНТ! ЗАПУСКАЙТЕ СВОЮ ВОЛНУ УДАЧИ!
+                        .row(style="margin-top: 20px;") 
+                            .col.col_size_12.col_size-sm_12.col_size-md_7
+                                .center
+                                    .game-roulette
+                                        .game-roulette__drum
+                                        .game-roulette__logo#game-roulette-logo
+                                        .game-roulette__btn#game-roulette-btn
+                                
+                            .col.col_size_12.col_size-sm_12.col_size-md_5
+                                div(style="line-height: 1.14em;margin-bottom: 20px;")
+                                    p Окунитесь в настоящее волшебство вместе с БК Инвент! 
+                                    br
+                                    p Откройте мультивселенную подарков и хорошего настроения! 
+                                    p <b>С 15 декабря 2021 по 31 января 2022</b> запускайте свой конвейер удачи и наслаждайтесь сертификатами, мощными услугами, невообразимыми скидками, стикерпаками, отличной сувениркой, новогодними эко-игрушками, чудо - посланиями и многим другим. 
+                                    p Все это и даже больше для вас подготовила компания БК Инвент. Раскрутите свою удачу, порадуйте себя и своих близких, ведь вы это заслужили!
+                                    p Новый 2022 год станет надежней с БК Инвент!
+                                    br
+                                    p Испытайте судьбу прямо сейчас и получите приз, заказав любую услугу с <b>15.12.2021 по 31.01.2022.</b> 
+                                    br
+                                    p Промокод на выигрыш можно использовать <b>до 31.01.2022.</b> Акции компании не суммируются.
+                                    br
+                                    p И не забывайте: <b>"ФОРТУНА ЛЮБИТ СМЕЛЫХ!"</b>
+                                
+                                
+
+
+            .modal#modal__game-roulette-form
+                .modal__wrapper
+                    .modal__dialog
+                        .close.modal__close
+                        .center
+                            #game-roulette-code(style="margin: 20px; 0 10px 0")
+                        .center
+                            form.ajax(style="display: flex;flex-direction: row;flex-wrap: nowrap;align-content: center;justify-content: flex-start;align-items: baseline;")
+                                .input.input_type_phone(style="max-width: 205px !important; min-width: 205px;")
+                                    .input__box
+                                        .input__top-border
+                                        .input__title Телефон
+                                        //- .input__icon
+                                        input(name='phone').input__control
+                                    .input__message(data-default="")
+
+                                //- input(type="hidden" name='method' value="game")
+                                input(type="hidden" name='order' value="")#gameRouletteOrder
+                                button.btn.btn_view_action.form-horizontal__btn#gameRouletteBtnRun(type="submit" style="width: auto; min-width: 120px; padding: 12px 20px;margin-left: 10px;") 
+                                    .btn__text Отправить
+
+
+            .modal#modal__game-roulette-code
+                .modal__wrapper
+                    .modal__dialog
+                        .close.modal__close
+                        .center
+                            #game-roulette-code-html
+
+
+
+
+
             +b.banner(style="background-image:url(images/baner1.jpg);")
                 +e.box
                     +e.text

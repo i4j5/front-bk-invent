@@ -5,7 +5,6 @@ require('./modal')
 require('./resize')
 require('./menu')
 require('./slider')
-require('./gameRoulette')
 // require('./videobox')
 // require('./share') // Акция
 // require('./quiz.js')
@@ -19,6 +18,7 @@ import Analytic from './analytic';
 const API = {
     methods: {
         order: 'https://bkinvent.na4u.ru/api/site/create-lead',
+        game: 'https://bkinvent.na4u.ru/api/site/create-lead',
         hr: 'https://bkinvent.na4u.ru/api/site/hr',
         // order: 'http://localhost:8000/api/site/create-lead',
         review: 'https://private.bk-invent.ru/api/site/create-review',
@@ -31,6 +31,8 @@ const API = {
 // PageViewTracker()
 
 $(function() {
+
+    require('./gameRoulette')
 
     $('.cut__more>a').click(function() {
         let $this = $(this)
@@ -278,6 +280,10 @@ $(function() {
                     if (formData.get('method') == 'hr') {
                         method = 'hr'
                     }
+
+                    if (formData.get('method') == 'game') {
+                        method = 'game'
+                    }
                 }
 
                 if (formData.get('name')) analytic.setLocalStorage('name', formData.get('name'));
@@ -292,8 +298,12 @@ $(function() {
                     processData: false,
                 })
                 .done(function() {
+
                     
-                    $('.modal').closeModal()
+                    if (method != 'game') {
+                        $('.modal').closeModal()
+                    }
+                    
 
                     // analytic.setLocalStorage('name', formData.get('name'))
                     // analytic.setLocalStorage('email', formData.get('email'))
@@ -305,6 +315,15 @@ $(function() {
 
                         if (method == 'order') {
                             $('#modal__ok').openModal()
+                            yaCounter53737453.reachGoal('site')
+    
+                            gtag('event', 'Заявка с сайта', { 
+                                'event_category': 'site', 
+                                'event_action': 'form', 
+                            })
+                        }
+
+                        if (method == 'game') {
                             yaCounter53737453.reachGoal('site')
     
                             gtag('event', 'Заявка с сайта', { 

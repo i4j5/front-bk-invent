@@ -4599,34 +4599,106 @@ blog_size($n)
         @media screen and (max-width 700px)
             max-width 345px
 
-
-
-.game-roulette-run
-    width 50px
-    height 50px
-    background #ddd
+.game-roulette-text
     position fixed
     z-index 10
-    bottom 10px
+    bottom calc( 10% - 20px)
+    left 1px
+    color: #000;
+    // background: #2e5b86;
+    font-size 10px
+    padding: 4px 10px;
+    border-radius: 20px;
+
+.game-roulette-run
+    width 80px
+    height 80px
+    background-image url(../images/game-box.png)
+    // background-image url(../images/drum.png)
+    background-size 80px
+    background-repeat no-repeat
+    background-position center
+    position fixed
+    z-index 10
+    bottom 10%
     left 10px
+    cursor pointer
+    //animation scale-down-center 0.8s steps(2, end) 500ms infinite both
+
+    animation-name: rotation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 
 .game-roulette
     position relative
+    margin-bottom 20px
 .game-roulette__drum
     background-image url(../images/drum.png)
-    width 500px
-    height 500px
-    background-size 500px
+    width 300px
+    height 300px
+    background-size 300px
+    @media screen and (min-width 480px)
+        width 440px
+        height 440px
+        background-size 440px
+    @media screen and (min-width 550px)
+        width 500px
+        height 500px
+        background-size 500px
     background-repeat no-repeat
     background-position center
+.game-roulette__btn
+    background-image url(../images/game-cl.gif)
+    background-size contain
+    background-repeat no-repeat
+    background-position center
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    margin: -100px;
 .game-roulette__logo
+    display none
     position absolute
-    background-image: url(../images/logo-mobile.png);
-    width 500px
-    height 500px
+    background-image: url(../images/logo-mobile.png)
+    width 300px
+    height 300px
+    @media screen and (min-width 480px)
+        width 440px
+        height 440px
+    @media screen and (min-width 550px)
+        width 500px
+        height 500px
     //background-size 130px
-    background-size 32%
+    background-size 30%
     top 0
     background-repeat no-repeat
     background-position center
 
+// @keyframes scale-down-center {
+//   0% {
+//     transform: scale(1);
+//     // transform: rotate(360deg)
+//   }
+//   50% {
+//     transform: scale(1.2);
+//     // transform rotate(0deg)
+//   }
+//   100% {
+//     transform: scale(1);
+//     // transform: rotate(360deg)
+//   }
+// }
+
+@keyframes rotation {
+    0% {
+        transform:rotate(0deg);
+    }
+    
+    100% {
+        transform:rotate(360deg);
+    }
+}

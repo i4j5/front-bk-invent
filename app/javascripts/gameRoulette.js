@@ -4,43 +4,43 @@ const $ = require('jquery')
 const data = [
   {
     num: 1,
-    title: '1',
-    code: '111'
+    title: '1000 руб в подарок',
+    code: 'B5TLRJEM'
   },
   {
     num: 2,
-    title: '2',
-    code: '222'
+    title: 'Набор сувениров для встречи нового года (елка, календарь, кружка)',
+    code: '6IRLQ189'
   },
   {
     num: 3,
-    title: '3',
-    code: '333'
+    title: '700 руб в подарок',
+    code: 'KX5LX7F2'
   },
   {
     num: 4,
-    title: '4',
-    code: '444'
+    title: 'Набор для подготовки к новому году (блокнот, ручка, рецепт оливье)',
+    code: 'YE83ZAKY'
   },
   {
     num: 5,
-    title: '5',
-    code: '555'
+    title: '-10% на все услуги (* сумма скидки не более 5000 руб)',
+    code: 'QN0P6FE7'
   },
   {
     num: 6,
-    title: '6',
-    code: '666'
+    title: 'Консультация деда мороза или снегурочки',
+    code: 'PRISSDK2'
   },
   {
     num: 7,
-    title: '7',
-    code: '777'
+    title: '500 руб в подарок',
+    code: '853U87AA'
   },
   {
     num: 8,
-    title: '8',
-    code: '888'
+    title: 'Чудо - послание от БК инвент',
+    code: '1K2DGH4U'
   }
 ]
 
@@ -51,8 +51,12 @@ $(function() {
   // localStorage.getItem('test')
 
     let $modalGameRoulette = $('#modal__game-roulette')
+    let $modalGameRouletteCode = $('#modal__game-roulette-code')
     let $modalGameRouletteRun = $('.game-roulette-run')
-    let $modalGameRouletteCode = $('#game-roulette-code')
+    let $gameRouletteForm = $('#gameRouletteForm')
+    
+    let $gameRouletteLogo = $('#game-roulette-logo')
+    let $gameRouletteBtn = $('#game-roulette-btn')
 
     $modalGameRouletteRun.click(function() {
 
@@ -69,8 +73,14 @@ $(function() {
             })
     
             if(element) {
-                alert("Ваш промокод: " + element.title)
-                // $modalGameRoulette.openModal() // Убрать
+                let html = `<h3 style=" color: #4274d6; margin-bottom: 13px; ">Ваш приз</h3><b>${element.title}</b> <br><br><br> Ваш промокод: 
+                <b><spsn style="
+                    border: 2px dashed #f2c37f;
+                    padding: 5px 8px;
+                    margin-left: 4px;
+                ">${element.code}</span></b>`
+                $('#game-roulette-code-html').html(html);
+                $modalGameRouletteCode.openModal()
             } else {
                 $modalGameRoulette.openModal()
             }
@@ -108,32 +118,128 @@ $(function() {
         duration: 2 * 1000,
         elem: div,
         callback: function() {
-            console.log(num)
+            // console.log(num)
             localStorage.setItem('gameRouletteNum', num);
-            let code = null 
+            
+            let element = null 
+            
             data.forEach(el => {
                 if (el.num == num) {
-                    code = el.code
+                  element = el
                 }
             })
-            $modalGameRouletteCode.html('Ваш промокод: ' + code)
+            // $('#game-roulette-code').html(
+            //   `Ваш промокод: 
+            //   <b><span style="
+            //       border: 2px dashed #f2c37f;
+            //       padding: 5px 8px;
+            //       margin-left: 4px;;
+            //     ">${code}</span></b><br><br>`
+            // )
+
+
+            // let element
+            // data.forEach(el => {
+            //     if (el.num == gameRouletteNum) {
+            //         element = el
+            //     }
+            // })
+    
+            let html = `<h3 style=" color: #4274d6; margin-bottom: 13px; ">Ваш приз</h3><b>${element.title}</b> <br><br> Ваш промокод: 
+            <b><spsn style="
+                border: 2px dashed #f2c37f;
+                padding: 5px 8px;
+                margin-left: 4px;
+            ">${element.code}</span></b><br><br>`
+            
+            $('#game-roulette-code').html(html);
+
+            $('#modal__game-roulette-form').openModal()
             // $modalGameRoulette.closeModal()
             // $modalGameRoulette.closeModal()
         }
     })
 
-    let $gameRouletteBtnRun  = $('#gameRouletteBtnRun')
+    $gameRouletteBtn.click(function() {
+      $gameRouletteLogo.css('display', 'block')
+      $gameRouletteBtn.css('display', 'none')
 
-    let run = true;
-    $gameRouletteBtnRun.click(function() {
+      let n = (8 * Math.random() | 0);
+      num = [1, 2, 3, 4, 5, 6, 7, 8][n];
+      // num = 8
+      anim.play(360 * 3 + num * l)
+      // run = false
+      // $gameRouletteForm.css('display', 'none')
+
+      let element
+      data.forEach(el => {
+        if (el.num == num) {
+          element = el
+        }
+      })
+
+      $('#gameRouletteOrder').val(`Акция: ${element.title} Промокод: ${element.code} `)
       
-      if (run) {
-        let n = (8 * Math.random() | 0);
-        num = [1, 2, 3, 4, 5, 6, 7, 8][n];
-        // num = 7
-        anim.play(360 * 3 + num * l)
-        run = false
-        $gameRouletteBtnRun.css('display', 'none')
-      }
     })
-})
+
+    // let $gameRouletteBtnRun  = $('#gameRouletteBtnRun')
+
+    // let run = true;
+    // $gameRouletteBtnRun.click(function() {
+
+
+    //   $gameRouletteForm.submit(function( event ){ 
+    //     event.preventDefault()
+    //     let $phone = $('#gameRouletteForm [name="phone"]')
+
+    //     if ($phone.val().length >= 10) {
+
+    //         if (run) {
+    //         let n = (8 * Math.random() | 0);
+    //         num = [1, 2, 3, 4, 5, 6, 7, 8][n];
+    //         // num = 7
+    //         anim.play(360 * 3 + num * l)
+    //         run = false
+    //         $gameRouletteForm.css('display', 'none')
+
+    //         let element
+    //         data.forEach(el => {
+    //           if (el.num == num) {
+    //               element = el
+    //           }
+    //         })
+
+    //         $('#gameRouletteOrder').val(`Акция: ${element.title} Промокод: ${element.code} `)
+
+    //         $gameRouletteForm.submit();
+    //       }
+
+    //     }
+
+    //   })
+
+    //   $gameRouletteForm.submit();
+      
+      
+      // if (run) {
+      //   let n = (8 * Math.random() | 0);
+      //   num = [1, 2, 3, 4, 5, 6, 7, 8][n];
+      //   // num = 7
+      //   anim.play(360 * 3 + num * l)
+      //   run = false
+      //   $gameRouletteForm.css('display', 'none')
+
+      //   let element
+      //   data.forEach(el => {
+      //       if (el.num == num) {
+      //           element = el
+      //       }
+      //   })
+
+      //   $('#gameRouletteOrder').val(`Акция: ${element.title} Промокод: ${element.code} `)
+
+      //   $gameRouletteForm.submit();
+      // }
+
+    })
+// });
