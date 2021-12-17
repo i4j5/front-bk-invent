@@ -152,9 +152,13 @@ $(function() {
                 margin-left: 4px;
             ">${element.code}</span></b><br><br>`
             
-            $('#game-roulette-code').html(html);
+            $('#game-roulette-code').html(html)
 
-            $('#modal__game-roulette-form').openModal()
+            
+
+            setTimeout(function(){ 
+              $('#modal__game-roulette-form').openModal()
+            },1000);
             // $modalGameRoulette.closeModal()
             // $modalGameRoulette.closeModal()
         }
@@ -167,7 +171,7 @@ $(function() {
       let n = (8 * Math.random() | 0);
       num = [1, 2, 3, 4, 5, 6, 7, 8][n];
       // num = 8
-      anim.play(360 * 3 + num * l)
+      anim.play(360 * 5 + num * l)
       // run = false
       // $gameRouletteForm.css('display', 'none')
 
