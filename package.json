@@ -17,9 +17,9 @@
     "bxslider": "^4.2.14",
     "ion-rangeslider": "^2.3.0",
     "jquery": "^3.4.1",
-    "jquery-validation": "^1.19.1",
+    "jquery-validation": "^1.19.5",
     "jquery.maskedinput": "^1.4.1",
-    "moment": "^2.24.0"
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -32,7 +32,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-runtime": "^6.20.0",
     "bemto.pug": "^2.1.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "browser-sync-close-hook": "^1.0.5",
     "cross-env": "^4.0.0",
     "del": "^2.2.2",
