@@ -29,6 +29,17 @@ $(function() {
         autoHover: true
     })
 
+    $('.slider_type_main .slider__items').bxSlider({
+        touchEnabled: false,
+        nextText: '',
+        prevText: '',
+        minSlides: 1,
+        moveSlides: 1,
+        maxSlides: 1,
+        pager: false,
+        stopAutoOnClick: true,
+    })
+
     $('.slider_type_feedbacks .slider__items').bxSlider({
         touchEnabled: false,
         nextText: '',

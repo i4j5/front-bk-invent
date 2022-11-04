@@ -286,6 +286,11 @@
 //                     visibility visible
 //                     opacity 1
 
+.callme-btn
+    padding 0.5em 0.8em!important
+    margin-top 5px
+    display block!important
+
 .top-menu
     width 100%
     height 100%
@@ -314,8 +319,6 @@
         &:after
             left calc(100% - 130px)
 
-    &__btn
-        padding 0.5em 0.8em!important
     &__item
         display inline-block
         margin 0 10px
@@ -595,7 +598,7 @@
     display block
     width max-content
     margin 5px auto
-    //padding-left 25px
+    padding-left 40px
     // @media (min-width 390px)
     //     padding-left 34px
     &__title
@@ -4260,6 +4263,18 @@ blog_size($n)
         .slider__title
             font-size 20px
             margin 10px 0 
+    &_type_main
+        .bx-next
+        .bx-prev
+            background-color #fff !important
+            border 1px solid rgba(0, 0, 0, 0.8) !important
+            box-shadow none !important
+        .bx-prev
+            left -5px!important
+            background-image url('../images/arrow-left-main.svg')!important
+        .bx-next
+            right -5px!important
+            background-image url('../images/arrow-right-main.svg')!important
     
     .bx-wrapper
         max-width 1160px !important
