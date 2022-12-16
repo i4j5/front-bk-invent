@@ -38,7 +38,7 @@ $(function() {
         maxSlides: 1,
         pager: false,
         auto: true,
-        pause: 1300,
+        pause: 2300,
         stopAutoOnClick: true,
     })
 
